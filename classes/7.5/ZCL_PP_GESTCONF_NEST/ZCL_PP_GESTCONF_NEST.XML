@@ -1,30 +1,1677 @@
-<?xml version="1.0"?><CLASS_ROOT><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Classe Monitor di controllo delle conferme di nesting</DESCRIPT><UUID>AFBWoCPaHtahqzwr0ZANPQ==</UUID><CATEGORY>00</CATEGORY><EXPOSURE>2</EXPOSURE><STATE>1</STATE><RELEASE>0</RELEASE><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDON>2016-10-19</CHANGEDON><CHGDANYON>0000-00-00</CHGDANYON><CLSFINAL>X</CLSFINAL><CLSCCINCL>X</CLSCCINCL><FIXPT>X</FIXPT><UNICODE>X</UNICODE><R3RELEASE>750</R3RELEASE><CLSBCCAT>00</CLSBCCAT><DURATION_TYPE>0</DURATION_TYPE><RISK_LEVEL>0</RISK_LEVEL><ATTRIBUTES><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>GS_SEL</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Parametri di selezione</DESCRIPT><EXPOSURE>0</EXPOSURE><STATE>1</STATE><EDITORDER>1</EDITORDER><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-19</CHANGEDON><ATTDECLTYP>0</ATTDECLTYP><ATTEXPVIRT>0</ATTEXPVIRT><TYPTYPE>1</TYPTYPE><TYPE>TY_S_SEL</TYPE><SRCROW1>0</SRCROW1><SRCCOLUMN1>0</SRCCOLUMN1><SRCROW2>0</SRCROW2><SRCCOLUMN2>0</SRCCOLUMN2><TYPESRC_LENG>0</TYPESRC_LENG></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>GO_SALV</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Classe gestione alv grid</DESCRIPT><EXPOSURE>0</EXPOSURE><STATE>1</STATE><EDITORDER>2</EDITORDER><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-19</CHANGEDON><ATTDECLTYP>0</ATTDECLTYP><ATTEXPVIRT>0</ATTEXPVIRT><TYPTYPE>3</TYPTYPE><TYPE>ZCL_BC_ALV_BASE</TYPE><SRCROW1>0</SRCROW1><SRCCOLUMN1>0</SRCCOLUMN1><SRCROW2>0</SRCROW2><SRCCOLUMN2>0</SRCCOLUMN2><TYPESRC_LENG>0</TYPESRC_LENG></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>GT_DATA</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><EXPOSURE>0</EXPOSURE><STATE>1</STATE><EDITORDER>3</EDITORDER><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-19</CHANGEDON><ATTDECLTYP>0</ATTDECLTYP><ATTEXPVIRT>0</ATTEXPVIRT><TYPTYPE>1</TYPTYPE><TYPE>TY_T_DATA</TYPE><SRCROW1>0</SRCROW1><SRCCOLUMN1>0</SRCCOLUMN1><SRCROW2>0</SRCROW2><SRCCOLUMN2>0</SRCCOLUMN2><TYPESRC_LENG>0</TYPESRC_LENG></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>GT_ALV</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><EXPOSURE>0</EXPOSURE><STATE>1</STATE><EDITORDER>4</EDITORDER><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-19</CHANGEDON><ATTDECLTYP>0</ATTDECLTYP><ATTEXPVIRT>0</ATTEXPVIRT><TYPTYPE>1</TYPTYPE><TYPE>TY_T_ALV</TYPE><SRCROW1>0</SRCROW1><SRCCOLUMN1>0</SRCCOLUMN1><SRCROW2>0</SRCROW2><SRCCOLUMN2>0</SRCCOLUMN2><TYPESRC_LENG>0</TYPESRC_LENG></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>GV_PFSTATUS2</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Stato GUI</DESCRIPT><EXPOSURE>0</EXPOSURE><STATE>1</STATE><EDITORDER>5</EDITORDER><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-19</CHANGEDON><ATTDECLTYP>0</ATTDECLTYP><ATTEXPVIRT>0</ATTEXPVIRT><TYPTYPE>1</TYPTYPE><TYPE>SYPFKEY</TYPE><SRCROW1>0</SRCROW1><SRCCOLUMN1>0</SRCCOLUMN1><SRCROW2>0</SRCROW2><SRCCOLUMN2>0</SRCCOLUMN2><TYPESRC_LENG>0</TYPESRC_LENG></item></ATTRIBUTES><METHODS><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>CONSTRUCTOR</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Costruttore</DESCRIPT><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-19</CHANGEDON><MTDTYPE>2</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>EXECUTE</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Esegue programma</DESCRIPT><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>2</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-19</CHANGEDON><MTDTYPE>0</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>GET_DATA</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Estrazione dati</DESCRIPT><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>3</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-19</CHANGEDON><MTDTYPE>0</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>SET_SALV</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>4</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-19</CHANGEDON><MTDTYPE>0</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>GET_SALV</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>5</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-19</CHANGEDON><MTDTYPE>0</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>ALV_SHOW</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Mostra alv</DESCRIPT><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>6</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-19</CHANGEDON><MTDTYPE>0</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>SAVE</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Effettua conferma delle posizioni selezionate</DESCRIPT><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>7</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-19</CHANGEDON><MTDTYPE>0</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>TRANSF_NEST_TO_PROD</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Effettua conferma delle posizioni selezionate</DESCRIPT><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>8</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-29</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-19</CHANGEDON><MTDTYPE>0</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>FORZ_CHIUSURA</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Forzatura chiusura</DESCRIPT><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>9</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-10-13</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-19</CHANGEDON><MTDTYPE>0</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>DELETE</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Cancella posizioni selezionate</DESCRIPT><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>10</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-19</CHANGEDON><MTDTYPE>0</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>GET_SEL</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Recupero selezione</DESCRIPT><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>11</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-12-07</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><MTDTYPE>0</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><R3RELEASE>750</R3RELEASE><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>GET_TAB</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Recupero tabella</DESCRIPT><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>12</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-12-07</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><MTDTYPE>0</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><R3RELEASE>750</R3RELEASE><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>CREATE_SELECTIONS</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Crea parametri di selezione</DESCRIPT><EXPOSURE>0</EXPOSURE><STATE>1</STATE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-19</CHANGEDON><MTDTYPE>0</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item></METHODS><EVENTS><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>ON_USER_COMMAND</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>1</EDITORDER><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-19</CHANGEDON><EVTDECLTYP>0</EVTDECLTYP><BCEVTCAT>00</BCEVTCAT></item></EVENTS><TYPES><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>TY_S_ALV</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Tabella di bufferizzazione delle conferme di produzione</DESCRIPT><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>1</EDITORDER><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-12-15</CHANGEDON><TYPTYPE>4</TYPTYPE><SRCROW1>10</SRCROW1><SRCCOLUMN1>4</SRCCOLUMN1><SRCROW2>16</SRCROW2><SRCCOLUMN2>25</SRCCOLUMN2><TYPESRC_LENG>250</TYPESRC_LENG><TYPESRC>BEGIN OF  ty_s_alv.
-    TYPES:   ligth TYPE icon-id.
-        INCLUDE TYPE zpp_bufconf_nest.
-    TYPES:   cdl TYPE ztpp_nesting-cdl.
-    TYPES:   esito TYPE zdbc_esito.
-    TYPES:   descr_esito TYPE zdbc_descr_esito.
-    TYPES: END OF ty_s_alv
-</TYPESRC></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>TY_S_DATA</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Tabella di bufferizzazione delle conferme di produzione</DESCRIPT><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>2</EDITORDER><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-19</CHANGEDON><TYPTYPE>1</TYPTYPE><TYPE>ZPP_BUFCONF_NEST</TYPE><SRCROW1>0</SRCROW1><SRCCOLUMN1>0</SRCCOLUMN1><SRCROW2>0</SRCROW2><SRCCOLUMN2>0</SRCCOLUMN2><TYPESRC_LENG>0</TYPESRC_LENG></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>TY_T_ALV</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>3</EDITORDER><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-12-15</CHANGEDON><TYPTYPE>4</TYPTYPE><SRCROW1>19</SRCROW1><SRCCOLUMN1>4</SRCCOLUMN1><SRCROW2>19</SRCROW2><SRCCOLUMN2>34</SRCCOLUMN2><TYPESRC_LENG>33</TYPESRC_LENG><TYPESRC>ty_t_alv TYPE TABLE OF ty_s_alv
-</TYPESRC></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>TY_T_DATA</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>4</EDITORDER><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-12-15</CHANGEDON><TYPTYPE>4</TYPTYPE><SRCROW1>21</SRCROW1><SRCCOLUMN1>4</SRCCOLUMN1><SRCROW2>21</SRCROW2><SRCCOLUMN2>36</SRCCOLUMN2><TYPESRC_LENG>35</TYPESRC_LENG><TYPESRC>ty_t_data TYPE TABLE OF ty_s_data
-</TYPESRC></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>TY_S_SEL</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>5</EDITORDER><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-12-15</CHANGEDON><TYPTYPE>4</TYPTYPE><SRCROW1>23</SRCROW1><SRCCOLUMN1>4</SRCCOLUMN1><SRCROW2>42</SRCROW2><SRCCOLUMN2>20</SRCCOLUMN2><TYPESRC_LENG>1371</TYPESRC_LENG><TYPESRC>BEGIN OF ty_s_sel,
-        p_tp_n   TYPE zpp_bufconf_nest-tipo_record,   &quot;Nesting manuale
-        p_tp_w   TYPE zpp_bufconf_nest-tipo_record,   &quot;Nesting Wicam
-        s_n_nest TYPE RANGE OF zpp_bufconf_nest-n_nesting,     &quot;Conferma
-        s_vornr  TYPE RANGE OF zpp_bufconf_nest-n_vornr,       &quot;Operazione
-        s_event  TYPE RANGE OF zpp_bufconf_nest-event,         &quot;Evento
-        s_budat  TYPE RANGE OF zpp_bufconf_nest-budat,         &quot;Data conferma
-        s_isdd   TYPE RANGE OF zpp_bufconf_nest-isdd,          &quot;Tempo
-        s_isdz   TYPE RANGE OF zpp_bufconf_nest-isdz,          &quot;Ora
-        s_iedd   TYPE RANGE OF zpp_bufconf_nest-iedd,          &quot;Teempo
-        s_iedz   TYPE RANGE OF zpp_bufconf_nest-iedz,          &quot;Tempo
-        s_wausw  TYPE RANGE OF zpp_bufconf_nest-wausw,         &quot;Badge
-        s_pernr  TYPE RANGE OF zpp_bufconf_nest-pernr,         &quot;CID
-        s_utente TYPE RANGE OF zpp_bufconf_nest-utente,        &quot;Utente
-        s_data   TYPE RANGE OF zpp_bufconf_nest-data,          &quot;Data creazione
-        s_ora    TYPE RANGE OF zpp_bufconf_nest-ora,           &quot;Ora creazione
-        s_cdl    TYPE RANGE OF ztpp_nesting-cdl,               &quot;Centro di lavoro
-        s_elab   TYPE RANGE OF zpp_bufconf_nest-elaborato,     &quot;Record elaborato
-        p_layout TYPE disvariant-variant,             &quot;Layout alv
-      END OF ty_s_sel
-</TYPESRC></item></TYPES><PARAMETERS><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>ALV_SHOW</CMPNAME><SCONAME>IV_TITLE</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>ALV Control: testo della riga titolo</DESCRIPT><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>LVC_TITLE</TYPE><PAROPTIONL>X</PAROPTIONL></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>ALV_SHOW</CMPNAME><SCONAME>CT_DATA</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>2</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>2</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>TABLE</TYPE></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>CONSTRUCTOR</CMPNAME><SCONAME>IV_PROGRAM</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Programma chiamante</DESCRIPT><CMPTYPE>1</CMPTYPE><MTDTYPE>2</MTDTYPE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>SY-REPID</TYPE></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>CONSTRUCTOR</CMPNAME><SCONAME>IV_LANGUAGE</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Campo sistema ABAP: chiave lingua dell&apos;ambiente testi</DESCRIPT><CMPTYPE>1</CMPTYPE><MTDTYPE>2</MTDTYPE><EDITORDER>2</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>SY-LANGU</TYPE><PARVALUE>SY-LANGU</PARVALUE></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>CONSTRUCTOR</CMPNAME><SCONAME>IV_PFSTATUS</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Stato GUI</DESCRIPT><CMPTYPE>1</CMPTYPE><MTDTYPE>2</MTDTYPE><EDITORDER>3</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>SYPFKEY</TYPE><PARVALUE>SPACE</PARVALUE></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>CONSTRUCTOR</CMPNAME><SCONAME>IV_PFSTATUS2</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Stato GUI</DESCRIPT><CMPTYPE>1</CMPTYPE><MTDTYPE>2</MTDTYPE><EDITORDER>4</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>SYPFKEY</TYPE><PARVALUE>SPACE</PARVALUE></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>DELETE</CMPNAME><SCONAME>IT_ROWS</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Righe</DESCRIPT><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>SALV_T_ROW</TYPE></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>FORZ_CHIUSURA</CMPNAME><SCONAME>IT_ROWS</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Righe</DESCRIPT><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-10-13</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>SALV_T_ROW</TYPE></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>GET_DATA</CMPNAME><SCONAME>IS_SEL</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>TY_S_SEL</TYPE></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>GET_DATA</CMPNAME><SCONAME>CT_DATA</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>2</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>2</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>TY_T_DATA</TYPE></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>GET_SALV</CMPNAME><SCONAME>EO_SALV</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Classe gestione alv grid</DESCRIPT><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>3</PARDECLTYP><PARPASSTYP>0</PARPASSTYP><TYPTYPE>3</TYPTYPE><TYPE>ZCL_BC_ALV_BASE</TYPE></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>GET_SEL</CMPNAME><SCONAME>RS_SEL</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-12-07</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>3</PARDECLTYP><PARPASSTYP>0</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>TY_S_SEL</TYPE></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>GET_TAB</CMPNAME><SCONAME>RS_DATA</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Tabella di bufferizzazione delle conferme di produzione</DESCRIPT><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-12-07</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>2</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>TY_T_DATA</TYPE></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>ON_USER_COMMAND</CMPNAME><SCONAME>E_SALV_FUNCTION</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>General Events</DESCRIPT><CMPTYPE>2</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>1</PARDECLTYP><PARPASSTYP>0</PARPASSTYP><TYPTYPE>3</TYPTYPE><TYPE>CL_SALV_EVENTS</TYPE></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>SAVE</CMPNAME><SCONAME>IT_ROWS</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Righe</DESCRIPT><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>SALV_T_ROW</TYPE></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>SET_SALV</CMPNAME><SCONAME>IO_SALV</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Classe gestione alv grid</DESCRIPT><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>3</TYPTYPE><TYPE>ZCL_BC_ALV_BASE</TYPE></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>TRANSF_NEST_TO_PROD</CMPNAME><SCONAME>IT_ROWS</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Righe</DESCRIPT><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-29</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>SALV_T_ROW</TYPE></item><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><CMPNAME>TRANSF_NEST_TO_PROD</CMPNAME><SCONAME>ESITO</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Codice esito</DESCRIPT><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>2</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-12-15</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>2</PARDECLTYP><PARPASSTYP>0</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>ZDBC_ESITO</TYPE><PAROPTIONL>X</PAROPTIONL></item></PARAMETERS><EXCEPTIONS/><IMPLEMENTINGS/><IMPL_DETAILS/><FRIENDSHIPS/><TYPEPUSAGES/><CLSDEFERRDS><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><TYPEGROUP>ZCL_PP_PDM_FILE</TYPEGROUP><VERSION>1</VERSION><TPUTYPE>1</TPUTYPE><IMPLICIT>X</IMPLICIT></item></CLSDEFERRDS><INTDEFERRDS/><ALIASES/><INHERITANCE><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><REFCLSNAME>ZCL_BC_PROGRAM_BASE</REFCLSNAME><VERSION>1</VERSION><STATE>1</STATE><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-09-28</CREATEDON><CHANGEDON>2016-10-19</CHANGEDON></INHERITANCE><INTERFACES/><REDEFINITIONS><item><CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME><REFCLSNAME>ZCL_BC_PROGRAM_BASE</REFCLSNAME><VERSION>1</VERSION><MTDNAME>MODIFY_SCREEN</MTDNAME><EXPOSURE>2</EXPOSURE></item></REDEFINITIONS><TYPE_SOURCE/><LOCALS_SRC/><LOCALS_DEF><item>*&quot;* use this source file for any type of declarations (class</item><item>*&quot;* definitions, interfaces or type declarations) you need for</item><item>*&quot;* components in the private section</item><item/></LOCALS_DEF><LOCALS_IMP><item>*&quot;* use this source file for the definition and implementation of</item><item>*&quot;* local helper classes, interface definitions and type</item><item>*&quot;* declarations</item><item/><item>CLASS lcl_alv DEFINITION INHERITING FROM cl_salv_controller_table ABSTRA</item><item>  PUBLIC SECTION.</item><item>    CLASS-METHODS: get_grid</item><item>      IMPORTING iref_salv       TYPE REF TO cl_salv_table</item><item>      RETURNING VALUE(ret_grid) TYPE REF TO cl_gui_alv_grid.</item><item/><item/><item>ENDCLASS.                    &quot;lcl_alv DEFINITION</item><item/><item>CLASS lcl_alv IMPLEMENTATION.</item><item>  METHOD get_grid. &quot; to get the ref. of the instance cl_gui_alv_grid in</item><item>    DATA: r_controller TYPE REF TO   cl_salv_controller_table,</item><item>          r_adapter    TYPE REF TO   cl_salv_fullscreen_adapter.</item><item/><item/><item>    TRY.</item><item>        r_controller    ?=    iref_salv-&gt;r_controller.</item><item>        r_adapter       ?=    r_controller-&gt;r_adapter.</item><item>        ret_grid         =    r_adapter-&gt;get_grid( ).</item><item/><item/><item>      CATCH cx_root.</item><item>        &quot; ERROR HANDLER TO DO ( if you want )</item><item>    ENDTRY.</item><item/><item/><item>  ENDMETHOD.                    &quot;get_grid</item><item>ENDCLASS.                    &quot;lcl_alv IMPLEMENTATION</item><item/><item>CLASS lcl_handle_events DEFINITION.</item><item>  PUBLIC SECTION.</item><item>    METHODS:</item><item>      constructor IMPORTING io_sender TYPE REF TO zcl_pp_gestconf_nest</item><item>                            io_alv    TYPE REF TO cl_salv_table</item><item>                            io_sel    TYPE REF TO cl_salv_selections,</item><item>      on_user_command FOR EVENT added_function OF cl_salv_events</item><item>        IMPORTING e_salv_function.</item><item>  PRIVATE SECTION.</item><item>    DATA: go_sender TYPE REF TO zcl_pp_gestconf_nest,</item><item>          go_alv    TYPE REF TO cl_salv_table,</item><item>          go_sel    TYPE REF TO cl_salv_selections.</item><item>    METHODS:</item><item>      edit.</item><item>ENDCLASS.</item><item/><item>CLASS lcl_handle_events IMPLEMENTATION.</item><item>  METHOD constructor.</item><item>    go_sender = io_sender.</item><item>    go_alv = io_alv.</item><item>    go_sel = io_sel.</item><item>  ENDMETHOD.</item><item>  METHOD on_user_command.</item><item>    DATA: lo_selections TYPE REF TO cl_salv_selections,</item><item>          lo_salv       TYPE REF TO cl_salv_table.</item><item>    DATA: lt_rows TYPE salv_t_row.</item><item>    DATA: ls_rows TYPE i.</item><item>    DATA: message TYPE string.</item><item>    DATA: lt_data TYPE zcl_pp_gestconf_nest=&gt;ty_t_data. &quot;DP-07_12_2016</item><item>    DATA: w_esito TYPE zdbc_esito. &quot;DP-15_12_2016</item><item/><item>    CASE e_salv_function.</item><item>      WHEN &apos;SAVE&apos;.</item><item>        go_sender-&gt;save( EXPORTING it_rows = go_sel-&gt;get_selected_rows(</item><item>        go_alv-&gt;refresh( refresh_mode = if_salv_c_refresh=&gt;full ).</item><item>      WHEN &apos;CONFIRM&apos;.</item><item>        go_sender-&gt;transf_nest_to_prod( EXPORTING it_rows = go_sel-&gt;get_</item><item>                                        CHANGING esito = w_esito ).</item><item>*DP-15_12_2016 Inizio</item><item>        IF w_esito EQ &apos;000&apos;.</item><item>          go_sender-&gt;get_tab( CHANGING rs_data = lt_data ).</item><item>          go_sender-&gt;get_data( EXPORTING is_sel = go_sender-&gt;get_sel( )</item><item>                                CHANGING ct_data = lt_data ).</item><item>        ENDIF.</item><item>*DP-15_12_2016 Fine</item><item>        go_alv-&gt;refresh( refresh_mode = if_salv_c_refresh=&gt;full ).</item><item>      WHEN &apos;CHIUS&apos;.</item><item>        go_sender-&gt;forz_chiusura( EXPORTING it_rows = go_sel-&gt;get_select</item><item>        go_alv-&gt;refresh( refresh_mode = if_salv_c_refresh=&gt;full ).</item><item>      WHEN &apos;DELETE&apos;.</item><item>        go_sender-&gt;delete( EXPORTING it_rows = go_sel-&gt;get_selected_rows</item><item>        go_alv-&gt;refresh( refresh_mode = if_salv_c_refresh=&gt;full ).</item><item>*DP-06_12_2016 Inizio</item><item>      WHEN &apos;REFRESH&apos;.</item><item>        go_sender-&gt;get_tab( CHANGING rs_data = lt_data ).</item><item>        go_sender-&gt;get_data( EXPORTING is_sel = go_sender-&gt;get_sel( )</item><item>                              CHANGING ct_data = lt_data ).</item><item>        go_alv-&gt;refresh( refresh_mode = if_salv_c_refresh=&gt;full ).</item><item>*DP-06_12_2016 Fine</item><item>      WHEN &apos;EDIT&apos;.</item><item>        edit( ).</item><item>      WHEN &apos;&amp;&amp;BACK&apos;.</item><item>        LEAVE TO SCREEN 0.</item><item>    ENDCASE.</item><item>  ENDMETHOD.</item><item>  METHOD edit.</item><item>    DATA: r_cl_gui        TYPE REF TO cl_gui_alv_grid,</item><item>          lo_full_adap    TYPE REF TO cl_salv_fullscreen_adapter,</item><item>          lt_fieldcatalog TYPE lvc_t_fcat,</item><item>          lv_select_date  TYPE gkday,</item><item>          lv_bool         TYPE abap_bool.</item><item>    IF r_cl_gui IS NOT BOUND.</item><item>      r_cl_gui = lcl_alv=&gt;get_grid( go_alv ).</item><item>      r_cl_gui-&gt;get_frontend_fieldcatalog( IMPORTING et_fieldcatalog = l</item><item>      LOOP AT lt_fieldcatalog INTO DATA(wa_fieldcatalog).</item><item>        IF ( wa_fieldcatalog-edit = abap_false ).</item><item>          lv_bool = abap_true.</item><item>        ELSE.</item><item>          lv_bool = abap_false.</item><item>        ENDIF.</item><item>        CASE wa_fieldcatalog-fieldname.</item><item>          WHEN &apos;BUDAT&apos;.</item><item>            wa_fieldcatalog-edit = lv_bool.</item><item>            MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item><item>          WHEN &apos;ISDD&apos;.</item><item>            wa_fieldcatalog-edit = lv_bool.</item><item>            MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item><item>          WHEN &apos;ISDZ&apos;.</item><item>            wa_fieldcatalog-edit = lv_bool.</item><item>            MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item><item>          WHEN &apos;IEDD&apos;.</item><item>            wa_fieldcatalog-edit = lv_bool.</item><item>            MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item><item>          WHEN &apos;IEDZ&apos;.</item><item>            wa_fieldcatalog-edit = lv_bool.</item><item>            MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item><item>          WHEN &apos;LMNGA&apos;.</item><item>            wa_fieldcatalog-edit = lv_bool.</item><item>            MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item><item>          WHEN &apos;XMNGA&apos;.</item><item>            wa_fieldcatalog-edit = lv_bool.</item><item>            MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item><item>          WHEN &apos;GMNGA&apos;.</item><item>            wa_fieldcatalog-edit = lv_bool.</item><item>            MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item><item>          WHEN &apos;ISM01&apos;.</item><item>            wa_fieldcatalog-edit = lv_bool.</item><item>            MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item><item>          WHEN &apos;GRUND&apos;.</item><item>            wa_fieldcatalog-edit = lv_bool.</item><item>            MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item><item>          WHEN &apos;WAUSW&apos;.</item><item>            wa_fieldcatalog-edit = lv_bool.</item><item>            MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item><item>          WHEN &apos;PERNR&apos;.</item><item>            wa_fieldcatalog-edit = lv_bool.</item><item>            MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item><item>        ENDCASE.</item><item>      ENDLOOP.</item><item>      r_cl_gui-&gt;set_frontend_fieldcatalog( EXPORTING it_fieldcatalog = l</item><item>      r_cl_gui-&gt;register_edit_event( EXPORTING i_event_id = cl_gui_alv_g</item><item>      r_cl_gui-&gt;register_edit_event( EXPORTING i_event_id = cl_gui_alv_g</item><item>      r_cl_gui-&gt;refresh_table_display( ). &quot;must after cahnge the fieldca</item><item>    ENDIF.</item><item>  ENDMETHOD.</item><item>ENDCLASS.</item><item/><item>CLASS lcl_alv_om_tool DEFINITION INHERITING FROM cl_salv_controller.</item><item>  PUBLIC SECTION.</item><item>    CLASS-METHODS set_editable IMPORTING io_alv      TYPE REF TO cl_salv</item><item>                                         iv_editable TYPE abap_bool.</item><item>ENDCLASS.</item><item/><item>CLASS lcl_alv_om_tool IMPLEMENTATION.</item><item>  METHOD set_editable.</item><item>    DATA ls_layout      TYPE lvc_s_layo.</item><item>    DATA lo_full_adap   TYPE REF TO cl_salv_fullscreen_adapter.</item><item>    DATA lo_grid        TYPE REF TO cl_gui_alv_grid.</item><item/><item>*   Fullscreen Adapter (Down Casting)</item><item>    lo_full_adap ?= io_alv-&gt;r_controller-&gt;r_adapter.</item><item/><item>*   Get the Grid</item><item>    lo_grid = lo_full_adap-&gt;get_grid( ).</item><item/><item>    IF lo_grid IS NOT BOUND.</item><item>      RETURN.</item><item>    ENDIF.</item><item/><item>*   Editable ALV</item><item>    ls_layout-edit = &apos;X&apos;.</item><item/><item>*   Set the front layout of ALV</item><item>    CALL METHOD lo_grid-&gt;set_frontend_layout</item><item>      EXPORTING</item><item>        is_layout = ls_layout.</item><item/><item>*   refresh the table</item><item>    CALL METHOD lo_grid-&gt;refresh_table_display.</item><item>  ENDMETHOD.                    &quot;set_editable</item><item>ENDCLASS.</item></LOCALS_IMP><LOCALS_MAC><item>*&quot;* use this source file for any macro definitions you need</item><item>*&quot;* in the implementation part of the class</item><item/></LOCALS_MAC><TEXT_POOL><I><item><ID>I</ID><KEY>001</KEY><ENTRY>Anagrafica Materiale Filling</ENTRY><LENGTH>56</LENGTH></item><item><ID>I</ID><KEY>002</KEY><ENTRY>Anagrafica Materiale Labelling</ENTRY><LENGTH>60</LENGTH></item><item><ID>I</ID><KEY>004</KEY><ENTRY>Anagrafica Materiale Packaging</ENTRY><LENGTH>60</LENGTH></item><item><ID>I</ID><KEY>005</KEY><ENTRY>Distinte base Filling</ENTRY><LENGTH>42</LENGTH></item><item><ID>I</ID><KEY>006</KEY><ENTRY>Distinte base Labelling</ENTRY><LENGTH>46</LENGTH></item><item><ID>I</ID><KEY>007</KEY><ENTRY>Distinte base Packaging</ENTRY><LENGTH>46</LENGTH></item><item><ID>I</ID><KEY>008</KEY><ENTRY>Anagrafica Materiale</ENTRY><LENGTH>40</LENGTH></item><item><ID>I</ID><KEY>009</KEY><ENTRY>Distinte base</ENTRY><LENGTH>23</LENGTH></item><item><ID>I</ID><KEY>010</KEY><ENTRY>Files elaborati!</ENTRY><LENGTH>26</LENGTH></item><item><ID>I</ID><KEY>011</KEY><ENTRY>Errori trasmissioni Anagrafica Materiale</ENTRY><LENGTH>80</LENGTH></item><item><ID>I</ID><KEY>012</KEY><ENTRY>Livello non creato per mancanza codice materiale</ENTRY><LENGTH>96</LENGTH></item><item><ID>I</ID><KEY>013</KEY><ENTRY>Codice padre non aperto su divisione</ENTRY><LENGTH>72</LENGTH></item><item><ID>I</ID><KEY>014</KEY><ENTRY>Errore creazione testata diba</ENTRY><LENGTH>42</LENGTH></item><item><ID>I</ID><KEY>015</KEY><ENTRY>Errore cancellazione componenti diba</ENTRY><LENGTH>72</LENGTH></item><item><ID>I</ID><KEY>016</KEY><ENTRY>Log trasmissione BOM</ENTRY><LENGTH>46</LENGTH></item><item><ID>I</ID><KEY>017</KEY><ENTRY>Log trasmissione Anagrafica Materiale</ENTRY><LENGTH>74</LENGTH></item><item><ID>I</ID><KEY>018</KEY><ENTRY>Nessuna parametrizzazione per materiale</ENTRY><LENGTH>78</LENGTH></item><item><ID>I</ID><KEY>019</KEY><ENTRY>Posizione già elaborata</ENTRY><LENGTH>46</LENGTH></item><item><ID>I</ID><KEY>020</KEY><ENTRY>Posizione cancellata</ENTRY><LENGTH>40</LENGTH></item><item><ID>I</ID><KEY>021</KEY><ENTRY>Posizione stornata</ENTRY><LENGTH>28</LENGTH></item><item><ID>I</ID><KEY>022</KEY><ENTRY>Selezionare almeno un evento B40</ENTRY><LENGTH>50</LENGTH></item></I></TEXT_POOL><METHOD_SOURCE><ALV_SHOW><item>  METHOD alv_show.</item><item>*    IF ( NOT ct_data[] IS INITIAL ).</item><item>    DATA: lt_fieldcat TYPE slis_t_fieldcat_alv,</item><item>          is_print    TYPE slis_print_alv,</item><item>          lv_program  TYPE sy-repid.</item><item>    FIELD-SYMBOLS &lt;ct_data&gt; TYPE table.</item><item/><item>    lv_program = get_program( ).</item><item/><item>    ASSIGN (&apos;CT_DATA[]&apos;) TO &lt;ct_data&gt;.</item><item/><item>    DATA lo_alv     TYPE REF TO cl_salv_table.</item><item>    DATA lo_display TYPE REF TO cl_salv_display_settings.</item><item>    DATA: lt_fcat   TYPE lvc_t_fcat.</item><item/><item>    DATA: lv_lenght   TYPE i.</item><item>    DATA: lv_title    TYPE char70.</item><item/><item>    lo_alv = get_alv( ).</item><item/><item>    TRY.</item><item>        cl_salv_table=&gt;factory( IMPORTING r_salv_table = lo_alv</item><item>                                CHANGING  t_table      = &lt;ct_data&gt; ).</item><item>        DATA: lr_columns      TYPE REF TO cl_salv_columns_list,</item><item>              lr_aggregations TYPE REF TO cl_salv_aggregations.</item><item>*        lt_fcat = cl_salv_controller_metadata=&gt;get_lvc_fieldcatalog(</item><item>*                    r_columns      = lo_alv-&gt;get_columns( ) &quot; ALV Filte</item><item>*                    r_aggregations = lo_alv-&gt;get_aggregations( ) ).&quot; AL</item><item>        lr_columns = lo_alv-&gt;get_columns( ).</item><item>        lr_aggregations = lo_alv-&gt;get_aggregations( ).</item><item>        lt_fcat = cl_salv_controller_metadata=&gt;get_lvc_fieldcatalog(</item><item>                    r_columns      = lr_columns &quot; ALV Filter</item><item>                    r_aggregations = lr_aggregations ).&quot; ALV Aggregation</item><item>        LOOP AT lt_fcat INTO DATA(ls_fcat) WHERE fieldname = &apos;BUDAT&apos; OR</item><item>                                                 fieldname = &apos;LMNGA&apos;.</item><item>          ls_fcat-edit = abap_true.</item><item>          MODIFY lt_fcat FROM ls_fcat.</item><item>        ENDLOOP.</item><item>        cl_salv_controller_metadata=&gt;set_lvc_fieldcatalog( EXPORTING t_f</item><item>                                                                     r_c</item><item>                                                                     r_a</item><item>        DATA: ls_layout TYPE lvc_s_layo.</item><item>        cl_salv_controller_metadata=&gt;get_lvc_layout( EXPORTING r_columns</item><item>                                                     CHANGING  s_layout</item><item>        ls_layout-edit_mode = abap_true.</item><item>        cl_salv_controller_metadata=&gt;set_lvc_layout( r_columns = lr_colu</item><item>                                                     s_layout  = ls_layo</item><item/><item/><item>        &quot;        lcl_alv_om_tool=&gt;set_editable( EXPORTING  io_alv      =</item><item>        &quot;                                                  iv_editable =</item><item/><item/><item/><item>      CATCH cx_salv_msg.</item><item>    ENDTRY.</item><item/><item>    DATA: lo_functions TYPE REF TO cl_salv_functions_list,</item><item>          lo_sel       TYPE REF TO cl_salv_selections.</item><item/><item>    lo_functions = lo_alv-&gt;get_functions( ).</item><item>    lo_functions-&gt;set_all( abap_true ).</item><item/><item>    lo_display = lo_alv-&gt;get_display_settings( ).</item><item>    lo_display-&gt;set_list_header( iv_title ).</item><item>    lo_display-&gt;set_striped_pattern( cl_salv_display_settings=&gt;false ).</item><item/><item>    TRY.</item><item>        DATA: lv_text TYPE string VALUE &apos;nutton&apos;.</item><item>        lv_text = TEXT-b01.</item><item>        lo_functions-&gt;add_function(</item><item>          name     = &apos;GET_SEL&apos;</item><item>          icon     = &apos;ICON_EXECUTE_OBJECT&apos;</item><item>          text     = lv_text</item><item>          tooltip  = lv_text</item><item>          position = if_salv_c_function_position=&gt;right_of_salv_function</item><item>      CATCH cx_salv_wrong_call cx_salv_existing cx_salv_method_not_suppo</item><item>    ENDTRY.</item><item/><item>    DATA: lo_columns TYPE REF TO cl_salv_columns_table,</item><item>          lo_column  TYPE REF TO cl_salv_column.. &quot;cl_salv_columns.</item><item>    lo_columns = lo_alv-&gt;get_columns( ).</item><item>*    DATA: lo_column    TYPE REF TO cl_salv_column.</item><item>    TRY.</item><item>        lo_columns-&gt;set_optimize( abap_true ).</item><item>        lo_column ?= lo_columns-&gt;get_column( &apos;BUDAT&apos; ).</item><item>*        lo_column-&gt;set_</item><item>*        lo_columns-&gt;set_enabled_column( value = &apos;BUDAT&apos; ).</item><item/><item>*          lo_columns-&gt;set_</item><item>*          lo_column = lo_cols-&gt;get_column( &apos;TYPE&apos; ).</item><item>*          lo_column-&gt;set_long_text( &apos;Avl Date&apos; ).           &quot;#EC NOTEXT</item><item>*          lo_column-&gt;set_medium_text( &apos;Avl Date&apos; ).         &quot;#EC NOTEXT</item><item>*          lo_column-&gt;set_short_text( &apos;Avl Date&apos; ).          &quot;#EC NOTEXT</item><item>*          lo_column-&gt;set_output_length( 10 ).</item><item>      CATCH cx_salv_not_found.                          &quot;#EC NO_HANDLER</item><item>    ENDTRY.</item><item/><item>    DATA: lo_layout  TYPE REF TO cl_salv_layout,</item><item>          ls_variant TYPE slis_vari.</item><item>    lo_layout = lo_alv-&gt;get_layout( ).</item><item>    lo_layout-&gt;set_save_restriction( if_salv_c_layout=&gt;restrict_none ).</item><item>    lo_layout-&gt;set_key( go_salv-&gt;get_key( ) ).</item><item>    IF ( NOT gs_sel-p_layout IS INITIAL ).</item><item>      lo_layout-&gt;set_initial_layout( gs_sel-p_layout ).</item><item>    ENDIF.</item><item/><item>    IF ( gs_sel-p_tp_n = abap_true OR gs_sel-p_tp_w = abap_true ).</item><item>      lo_alv-&gt;set_screen_status( report        = get_program( )</item><item>                                 pfstatus      = get_pfstatus( )</item><item>                                 set_functions = lo_alv-&gt;c_functions_all</item><item>    ENDIF.</item><item>*      ELSEIF ( iv_type = c_alv_view_log ).</item><item>*        DATA: lo_layout  TYPE REF TO cl_salv_layout,</item><item>*              ls_variant TYPE slis_vari.</item><item>*        lo_layout = lo_alv-&gt;get_layout( ).</item><item>*        lo_layout-&gt;set_save_restriction( if_salv_c_layout=&gt;restrict_non</item><item>**        ls_key-report = gv_program.</item><item>*        lo_layout-&gt;set_key( go_salv-&gt;get_key( ) ).</item><item>*        IF ( NOT go_salv-&gt;get_variant( ) IS INITIAL ).</item><item>*          lo_layout-&gt;set_initial_layout( ls_variant ).</item><item>*        ENDIF.</item><item>*        lo_alv-&gt;set_screen_status( report        = get_program( )</item><item>*                                   pfstatus      = gv_pfstatus_log</item><item>*                                   set_functions = lo_alv-&gt;c_functions_</item><item>*      ENDIF.</item><item/><item>    DATA : lo_selections    TYPE REF TO cl_salv_selections,</item><item>           lo_events        TYPE REF TO cl_salv_events_table,</item><item>           lo_event_handler TYPE REF TO lcl_handle_events.</item><item/><item>    lo_sel = lo_alv-&gt;get_selections( ).</item><item>    lo_sel-&gt;set_selection_mode( if_salv_c_selection_mode=&gt;multiple ).</item><item/><item>    lo_events = lo_alv-&gt;get_event( ).</item><item>    lo_event_handler = NEW #( io_sender = me</item><item>                              io_alv    = lo_alv</item><item>                              io_sel    = lo_sel ).</item><item/><item>    SET HANDLER lo_event_handler-&gt;on_user_command FOR lo_events.</item><item/><item>*    DATA: r_cl_gui        TYPE REF TO cl_gui_alv_grid,</item><item>*          lo_full_adap    TYPE REF TO cl_salv_fullscreen_adapter,</item><item>*          lt_fieldcatalog TYPE lvc_t_fcat,</item><item>*          lv_select_date  TYPE gkday.</item><item>*</item><item>*    IF r_cl_gui IS NOT BOUND.</item><item>*      r_cl_gui = lcl_alv=&gt;get_grid( lo_alv ).</item><item>*      r_cl_gui-&gt;get_frontend_fieldcatalog( IMPORTING et_fieldcatalog =</item><item>*      LOOP AT lt_fieldcatalog INTO DATA(wa_fieldcatalog).</item><item>*        CASE wa_fieldcatalog-fieldname.</item><item>*          WHEN &apos;BUDAT&apos;.</item><item>*            wa_fieldcatalog-edit = &apos;X&apos;.</item><item>*            MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item><item>*        ENDCASE.</item><item>*      ENDLOOP.</item><item>*      r_cl_gui-&gt;set_frontend_fieldcatalog( EXPORTING it_fieldcatalog =</item><item>*      r_cl_gui-&gt;register_edit_event( EXPORTING i_event_id = cl_gui_alv_</item><item>*      r_cl_gui-&gt;register_edit_event( EXPORTING i_event_id = cl_gui_alv_</item><item>*      r_cl_gui-&gt;refresh_table_display( ). &quot;must after cahnge the fieldc</item><item>*    ENDIF.</item><item/><item>*    lo_alv-&gt;refresh( refresh_mode = if_salv_c_refresh=&gt;full ).</item><item/><item>    IF lo_alv IS BOUND.</item><item>      set_alv( CHANGING co_alv = lo_alv ).</item><item>      lo_alv-&gt;display( ).</item><item>    ENDIF.</item><item>*    ENDIF.</item><item>  ENDMETHOD.</item></ALV_SHOW><CONSTRUCTOR><item>  METHOD constructor.</item><item>    super-&gt;constructor( iv_program  = iv_program</item><item>                        iv_language = iv_language</item><item>                        iv_pfstatus = iv_pfstatus ).</item><item>    gv_pfstatus2 = iv_pfstatus2.</item><item>  ENDMETHOD.</item></CONSTRUCTOR><CREATE_SELECTIONS><item>  METHOD create_selections.</item><item>    DATA: lref_sel TYPE REF TO data.</item><item>    CREATE DATA lref_sel TYPE ty_s_sel.</item><item>    set_selections( CHANGING cref_sel = lref_sel ).</item><item>    FIELD-SYMBOLS: &lt;sel&gt;    TYPE any.</item><item>    ASSIGN lref_sel-&gt;* TO &lt;sel&gt;.</item><item>    IF ( sy-subrc = 0 ).</item><item>      gs_sel = &lt;sel&gt;.</item><item>    ENDIF.</item><item>  ENDMETHOD.</item></CREATE_SELECTIONS><DELETE><item>  METHOD delete.</item><item>    DATA: ls_row         TYPE i,</item><item>          ls_data        TYPE ty_s_data,</item><item>          ls_alv         TYPE ty_s_alv,</item><item>          lv_esito       TYPE zdbc_esito,</item><item>          lv_descr_esito TYPE zdbc_descr_esito,</item><item>          lv_tabix_1     TYPE i,</item><item>          lv_tabix_2     TYPE i.</item><item>*    BREAK kosmedev.</item><item>    LOOP AT it_rows INTO ls_row.</item><item>      READ TABLE gt_alv INTO ls_alv INDEX ls_row.</item><item>      IF ( sy-subrc = 0 ).</item><item>        lv_tabix_1 = sy-tabix.</item><item>*        IF ( ls_alv-elaborato = abap_false ).</item><item>          CLEAR: ls_data.</item><item>          READ TABLE gt_data INTO ls_data WITH KEY n_nesting   = ls_alv-</item><item>                                                   tipo_record = ls_alv-</item><item>                                                   progr       = ls_alv-</item><item>          IF ( sy-subrc = 0 ).</item><item>            lv_tabix_2 = sy-tabix.</item><item>            UPDATE zpp_bufconf_nest SET flag_canc = abap_true</item><item>                                    WHERE n_nesting   = ls_data-n_nestin</item><item>                                    AND   tipo_record = ls_data-tipo_rec</item><item>                                    AND   progr       = ls_data-progr.</item><item>            COMMIT WORK.</item><item>            DELETE gt_alv INDEX lv_tabix_1.</item><item>            DELETE gt_data INDEX lv_tabix_2.</item><item>          ENDIF.</item><item>*        ELSE.</item><item>*          ls_alv-ligth = icon_cancel.</item><item>*          ls_alv-descr_esito = &apos;Posizione già elaborata&apos;(019).</item><item>*          MODIFY gt_alv FROM ls_alv INDEX lv_tabix_1.</item><item>*        ENDIF.</item><item>      ENDIF.</item><item>    ENDLOOP.</item><item>  ENDMETHOD.</item></DELETE><EXECUTE><item>  METHOD execute.</item><item>    create_selections( ).</item><item/><item>    get_data( EXPORTING is_sel = gs_sel CHANGING ct_data = gt_data ).</item><item/><item>    alv_show( CHANGING  ct_data = gt_alv ).</item><item>  ENDMETHOD.</item></EXECUTE><GET_DATA><item>  METHOD get_data.</item><item>    DATA: lv_tipo_rec TYPE zpp_bufconf_nest-tipo_record.</item><item/><item>    CLEAR: lv_tipo_rec.</item><item>    CASE abap_true.</item><item>      WHEN gs_sel-p_tp_n.</item><item>        lv_tipo_rec = &apos;N&apos;.</item><item>      WHEN gs_sel-p_tp_w.</item><item>        lv_tipo_rec = &apos;W&apos;.</item><item>    ENDCASE.</item><item/><item>    REFRESH: gt_data, gt_alv.</item><item>    SELECT * INTO CORRESPONDING FIELDS OF TABLE gt_data FROM zpp_bufconf</item><item>             WHERE tipo_record EQ lv_tipo_rec</item><item>             AND   n_nesting   IN is_sel-s_n_nest</item><item>             AND   n_vornr     IN is_sel-s_vornr</item><item>             AND   event       IN is_sel-s_event</item><item>             AND   budat       IN is_sel-s_budat</item><item>             AND   isdd        IN is_sel-s_isdd</item><item>             AND   isdz        IN is_sel-s_isdz</item><item>             AND   iedd        IN is_sel-s_iedd</item><item>             AND   iedz        IN is_sel-s_iedz</item><item>             AND   wausw       IN is_sel-s_wausw</item><item>             AND   pernr       IN is_sel-s_pernr</item><item>             AND   utente      IN is_sel-s_utente</item><item>             AND   data        IN is_sel-s_data</item><item>             AND   ora         IN is_sel-s_ora</item><item>             &quot;and    s_cdl          s_cdl</item><item>             AND   elaborato   IN is_sel-s_elab</item><item>             AND   flag_canc   EQ abap_false</item><item>             AND   storno      EQ abap_false.</item><item/><item>    SORT gt_data BY n_nesting tipo_record n_vornr progr.</item><item/><item>    DATA: ls_data         TYPE ty_s_data,</item><item>          ls_alv          TYPE ty_s_alv,</item><item>          ls_ztpp_nesting TYPE ztpp_nesting,</item><item>          lv_tabix        TYPE i.</item><item/><item>    LOOP AT gt_data INTO ls_data.</item><item>      lv_tabix = sy-tabix.</item><item>      CLEAR: ls_alv.</item><item>      MOVE-CORRESPONDING ls_data TO ls_alv.</item><item>      SELECT SINGLE * INTO CORRESPONDING FIELDS OF ls_ztpp_nesting FROM</item><item/><item/><item/><item>      IF ( sy-subrc = 0 ).</item><item>        ls_alv-cdl = ls_ztpp_nesting-cdl.</item><item>        MODIFY gt_alv FROM ls_alv INDEX lv_tabix TRANSPORTING cdl.</item><item>      ELSE.</item><item>        DELETE gt_data INDEX lv_tabix.</item><item>        CONTINUE.</item><item>      ENDIF.</item><item>      ls_alv-ligth = icon_yellow_light.</item><item>      IF ( ls_alv-elaborato = abap_true ).</item><item>        ls_alv-ligth = icon_cancel.</item><item>        ls_alv-descr_esito = &apos;Posizione già elaborata&apos;(019).</item><item>      ENDIF.</item><item>      IF ( ls_alv-flag_canc = abap_true ).</item><item>        ls_alv-ligth = icon_cancel.</item><item>        ls_alv-descr_esito = &apos;Posizione cancellata&apos;(020).</item><item>      ENDIF.</item><item>      IF ( ls_alv-storno = abap_true ).</item><item>        ls_alv-ligth = icon_cancel.</item><item>        ls_alv-descr_esito = &apos;Posizione stornata&apos;(021).</item><item>      ENDIF.</item><item>      APPEND ls_alv TO gt_alv.</item><item>    ENDLOOP.</item><item>  ENDMETHOD.</item></GET_DATA><GET_SALV><item>  METHOD get_salv.</item><item>    eo_salv = go_salv.</item><item>  ENDMETHOD.</item></GET_SALV><SET_SALV><item>  METHOD set_salv.</item><item>    go_salv = io_salv.</item><item>  ENDMETHOD.</item></SET_SALV><MODIFY_SCREEN><item>  METHOD modify_screen.</item><item>    create_selections( ).</item><item/><item>*    LOOP AT SCREEN INTO DATA(ls_screen).</item><item>*      IF ( ls_screen-group1 = &apos;MAT&apos; ).</item><item>*        CASE abap_true.</item><item>*          WHEN gs_sel-p_mat.</item><item>*            IF ( gs_sel-p_err = abap_false ).</item><item>*              ls_screen-active = 1.</item><item>*            ELSE.</item><item>*              ls_screen-active = 0.</item><item>*            ENDIF.</item><item>*          WHEN OTHERS.</item><item>*            ls_screen-active = 0.</item><item>*        ENDCASE.</item><item>*        MODIFY screen FROM ls_screen.</item><item>*      ENDIF.</item><item>*      IF ( ls_screen-group1 = &apos;BOM&apos; ).</item><item>*        CASE abap_true.</item><item>*          WHEN gs_sel-p_bom.</item><item>*            IF ( gs_sel-p_err = abap_false ).</item><item>*              ls_screen-active = 1.</item><item>*            ELSE.</item><item>*              ls_screen-active = 0.</item><item>*            ENDIF.</item><item>*          WHEN OTHERS.</item><item>*            ls_screen-active = 0.</item><item>*        ENDCASE.</item><item>*        MODIFY screen FROM ls_screen.</item><item>*      ENDIF.</item><item>*      IF ( ls_screen-group1 = &apos;ERR&apos; ).</item><item>*        CASE abap_true.</item><item>*          WHEN gs_sel-p_err.</item><item>*            ls_screen-active = 1.</item><item>*          WHEN OTHERS.</item><item>*            ls_screen-active = 0.</item><item>*        ENDCASE.</item><item>*        MODIFY screen FROM ls_screen.</item><item>*      ENDIF.</item><item>*    ENDLOOP.</item><item>  ENDMETHOD.</item></MODIFY_SCREEN><SAVE><item>  METHOD save.</item><item>    DATA: ls_row   TYPE i,</item><item>          ls_data  TYPE ty_s_data,</item><item>          ls_alv   TYPE ty_s_alv,</item><item>          lv_tabix TYPE i,</item><item>          lv_err   TYPE abap_bool.</item><item>*    BREAK kosmedev.</item><item>    lv_err = abap_false.</item><item>    LOOP AT it_rows INTO ls_row.</item><item>      READ TABLE gt_alv INTO ls_alv INDEX ls_row.</item><item>      IF ( sy-subrc = 0 ).</item><item>        LOOP AT gt_alv INTO ls_alv WHERE ligth       = icon_yellow_light</item><item>                                   AND   n_nesting   = ls_alv-n_nesting</item><item>                                   AND   tipo_record = ls_alv-tipo_recor</item><item>          lv_tabix = sy-tabix.</item><item>          CHECK lv_tabix = ls_row.</item><item>          CLEAR: ls_data.</item><item>          MOVE-CORRESPONDING ls_alv TO ls_data.</item><item>          IF ( lv_err = abap_false ).</item><item>            MODIFY zpp_bufconf_nest FROM ls_data.</item><item>            ls_alv-ligth = icon_green_light.</item><item>            ls_alv-descr_esito = &apos;Record salvato in tabella&apos;(022).</item><item>          ELSE.</item><item>            ls_alv-ligth = icon_cancel.</item><item>            ls_alv-descr_esito = &apos;Posizione già elaborata&apos;(019).</item><item>          ENDIF.</item><item>          MODIFY gt_alv FROM ls_alv INDEX lv_tabix.</item><item>          IF ( lv_err = abap_true ).</item><item>            EXIT.</item><item>          ENDIF.</item><item>        ENDLOOP.</item><item>      ENDIF.</item><item>    ENDLOOP.</item><item>  ENDMETHOD.</item></SAVE><TRANSF_NEST_TO_PROD><item>  METHOD transf_nest_to_prod.</item><item>    DATA: ls_row   TYPE i,</item><item>          ls_data  TYPE ty_s_data,</item><item>          ls_alv   TYPE ty_s_alv,</item><item>          lt_data  TYPE ty_t_data,</item><item>          lv_tabix TYPE i,</item><item>          lv_err   TYPE abap_bool.</item><item/><item>    DATA: lv_exit TYPE abap_bool,</item><item>          lv_b10  TYPE bool.</item><item/><item>    DATA: lt_bufconf_nest         TYPE TABLE OF zpp_bufconf_nest,</item><item>          lt_bufconf_prod         TYPE TABLE OF zpp_bufconf_prod,</item><item>          lt_nesting              TYPE TABLE OF ztpp_nesting,</item><item>          ls_bufconf_prod         TYPE zpp_bufconf_prod,</item><item>          lv_tempo_nesting_totale TYPE vgwrt,</item><item>          lv_lmnga                TYPE lmnga,</item><item>          lv_xmnga                TYPE xmnga.</item><item/><item/><item>    lv_err = abap_false.</item><item>    LOOP AT it_rows INTO ls_row.</item><item>      READ TABLE gt_alv INTO ls_alv INDEX ls_row.</item><item>      IF ( sy-subrc = 0 )</item><item>        AND ls_alv-event EQ &apos;B40&apos;.</item><item/><item>        LOOP AT gt_alv INTO ls_alv WHERE ligth       = icon_yellow_light</item><item>                                   AND   n_nesting   = ls_alv-n_nesting</item><item>                                   AND   n_vornr     = ls_alv-n_vornr</item><item>                                   AND   tipo_record = ls_alv-tipo_recor</item><item>                                   AND   event       = &apos;B40&apos;.</item><item>          lv_tabix = sy-tabix.</item><item>*          CHECK lv_tabix = ls_row.</item><item>          CLEAR: ls_data.</item><item>          MOVE-CORRESPONDING ls_alv TO ls_data.</item><item>          REFRESH: lt_data.</item><item>          LOOP AT gt_data INTO DATA(ls_data_2) WHERE n_nesting   =  ls_d</item><item>                                               AND   n_vornr     =  ls_d</item><item>                                               AND   tipo_record =  ls_d</item><item>                                               AND   event       &lt;&gt; &apos;B40</item><item>            APPEND ls_data_2 TO lt_data.</item><item>          ENDLOOP.</item><item>          APPEND ls_data TO lt_data.</item><item>          zcl_pp_conf_nesting=&gt;transf_nest_to_prod( EXPORTING is_confirm</item><item>                                                              it_confirm</item><item>                                                    CHANGING cv_esito</item><item>                                                             cv_descr_es</item><item/><item>          esito = ls_alv-esito.</item><item>          IF ls_alv-esito EQ &apos;000&apos;.</item><item>            ls_alv-ligth = icon_green_light.</item><item>            else.</item><item>            ls_alv-ligth = icon_red_light.</item><item>          ENDIF.</item><item>          MODIFY gt_alv FROM ls_alv INDEX ls_row.</item><item/><item>          EXIT.</item><item>        ENDLOOP.</item><item>        IF ( sy-subrc &lt;&gt; 0 ).</item><item>          MESSAGE i398(00) WITH &apos;Selezionare almeno un evento B40&apos;(022).</item><item>        ENDIF.</item><item>      ENDIF.</item><item>    ENDLOOP.</item><item>  ENDMETHOD.</item></TRANSF_NEST_TO_PROD><FORZ_CHIUSURA><item>  METHOD forz_chiusura.</item><item/><item>    DATA: ls_row   TYPE i,</item><item>          ls_data  TYPE ty_s_data,</item><item>          ls_alv   TYPE ty_s_alv,</item><item>          lt_data  TYPE ty_t_data,</item><item>          lv_tabix TYPE i,</item><item>          lv_err   TYPE abap_bool.</item><item/><item>    DATA: lv_exit TYPE abap_bool,</item><item>          lv_b10  TYPE bool.</item><item/><item>    DATA: lt_bufconf_nest         TYPE TABLE OF zpp_bufconf_nest,</item><item>          ls_bufconf_nest         TYPE zpp_bufconf_nest,</item><item>          lt_bufconf_prod         TYPE TABLE OF zpp_bufconf_prod,</item><item>          lt_nesting              TYPE TABLE OF ztpp_nesting,</item><item>          ls_bufconf_prod         TYPE zpp_bufconf_prod,</item><item>          lv_tempo_nesting_totale TYPE vgwrt,</item><item>          lv_lmnga                TYPE lmnga,</item><item>          lv_xmnga                TYPE xmnga.</item><item/><item>*    BREAK kosmedev.</item><item>    lv_err = abap_false.</item><item>    LOOP AT it_rows INTO ls_row.</item><item/><item>      READ TABLE gt_alv INTO ls_alv INDEX ls_row.</item><item/><item>      IF ( sy-subrc = 0 ).</item><item/><item>*        BREAK kosmedev.</item><item/><item>        REFRESH lt_bufconf_nest.</item><item>        SELECT * FROM zpp_bufconf_nest</item><item>                 INTO CORRESPONDING FIELDS OF TABLE lt_bufconf_nest</item><item>                WHERE tipo_record EQ ls_alv-tipo_record</item><item>                  AND n_nesting   EQ ls_alv-n_nesting</item><item>                  AND n_vornr     EQ ls_alv-n_vornr</item><item>                  AND flag_canc   EQ abap_false</item><item>                  AND storno      EQ abap_false</item><item>                  ORDER BY progr DESCENDING.</item><item/><item>        CLEAR ls_bufconf_nest.</item><item>        READ TABLE lt_bufconf_nest INTO ls_bufconf_nest</item><item>                   INDEX 1.</item><item>*C’è stata una apertura senza una successiva sospensione/chiusura</item><item>        IF ls_bufconf_nest EQ &apos;B10&apos;.</item><item/><item>          REFRESH: lt_data.</item><item>          CLEAR ls_data.</item><item/><item>          MOVE-CORRESPONDING ls_alv TO ls_data.</item><item>          ls_data-event = &apos;B40&apos;.</item><item>          ls_data-isdd = ls_bufconf_nest-isdd.</item><item>          ls_data-isdz = ls_bufconf_nest-isdz.</item><item>          ls_data-iedd = sy-datum.</item><item>          ls_data-iedz = sy-uzeit.</item><item>          CLEAR ls_data-ism01.</item><item>          IF ls_bufconf_nest-gmnga GT 0.</item><item>            ls_data-xmnga = ls_bufconf_nest-gmnga.</item><item>          ELSE.</item><item>            ls_data-xmnga = ls_bufconf_nest-mgvrg.</item><item>          ENDIF.</item><item>          APPEND ls_data TO lt_data.</item><item/><item>        ENDIF.</item><item>*        LOOP AT gt_alv INTO ls_alv WHERE ligth       = icon_yellow_ligh</item><item>*                                   AND   n_nesting   = ls_alv-n_nesting</item><item>*                                   AND   vornr       = ls_alv-vornr</item><item>*                                   AND   tipo_record = ls_alv-tipo_reco</item><item>*                                   AND   event       = &apos;B40&apos;.</item><item>*          lv_tabix = sy-tabix.</item><item>**          CHECK lv_tabix = ls_row.</item><item>*          CLEAR: ls_data.</item><item>*          MOVE-CORRESPONDING ls_alv TO ls_data.</item><item>*          REFRESH: lt_data.</item><item>*          LOOP AT gt_data INTO DATA(ls_data_2) WHERE n_nesting   =  ls_</item><item>*                                               AND   vornr       =  ls_</item><item>*                                               AND   tipo_record =  ls_</item><item>*                                               AND   event       &lt;&gt; &apos;B4</item><item>*            APPEND ls_data_2 TO lt_data.</item><item>*          ENDLOOP.</item><item>*        ENDLOOP.</item><item/><item>      ELSE.</item><item>        MESSAGE i398(00) WITH &apos;Selezionare almeno un evento B40&apos;(022).</item><item>      ENDIF.</item><item/><item>    ENDLOOP.</item><item/><item>  ENDMETHOD.</item></FORZ_CHIUSURA><GET_SEL><item>  METHOD get_sel.</item><item/><item>    rs_sel = gs_sel.</item><item/><item>  ENDMETHOD.</item></GET_SEL><GET_TAB><item>  METHOD get_tab.</item><item/><item>    rs_data = gt_data.</item><item/><item>  ENDMETHOD.</item></GET_TAB></METHOD_SOURCE></CLASS_ROOT>
+<?xml version="1.0"?>
+  <CLASS_ROOT>
+    <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>I</LANGU>
+    <DESCRIPT>Classe Monitor di controllo delle conferme di nesting</DESCRIPT>
+    <UUID>AFBWoCPaHtahqzwr0ZANPQ==</UUID>
+    <CATEGORY>00</CATEGORY>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <RELEASE>0</RELEASE>
+    <AUTHOR>KOSMEDEV</AUTHOR>
+    <CREATEDON>2016-09-28</CREATEDON>
+    <CHANGEDON>2016-10-19</CHANGEDON>
+    <CHGDANYON>0000-00-00</CHGDANYON>
+    <CLSFINAL>X</CLSFINAL>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <R3RELEASE>750</R3RELEASE>
+    <CLSBCCAT>00</CLSBCCAT>
+    <DURATION_TYPE>0</DURATION_TYPE>
+    <RISK_LEVEL>0</RISK_LEVEL>
+    <ATTRIBUTES>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>GS_SEL</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Parametri di selezione</DESCRIPT>
+        <EXPOSURE>0</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>1</EDITORDER>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-19</CHANGEDON>
+        <ATTDECLTYP>0</ATTDECLTYP>
+        <ATTEXPVIRT>0</ATTEXPVIRT>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>TY_S_SEL</TYPE>
+        <SRCROW1>0</SRCROW1>
+        <SRCCOLUMN1>0</SRCCOLUMN1>
+        <SRCROW2>0</SRCROW2>
+        <SRCCOLUMN2>0</SRCCOLUMN2>
+        <TYPESRC_LENG>0</TYPESRC_LENG>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>GO_SALV</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Classe gestione alv grid</DESCRIPT>
+        <EXPOSURE>0</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>2</EDITORDER>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-19</CHANGEDON>
+        <ATTDECLTYP>0</ATTDECLTYP>
+        <ATTEXPVIRT>0</ATTEXPVIRT>
+        <TYPTYPE>3</TYPTYPE>
+        <TYPE>ZCL_BC_ALV_BASE</TYPE>
+        <SRCROW1>0</SRCROW1>
+        <SRCCOLUMN1>0</SRCCOLUMN1>
+        <SRCROW2>0</SRCROW2>
+        <SRCCOLUMN2>0</SRCCOLUMN2>
+        <TYPESRC_LENG>0</TYPESRC_LENG>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>GT_DATA</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <EXPOSURE>0</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>3</EDITORDER>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-19</CHANGEDON>
+        <ATTDECLTYP>0</ATTDECLTYP>
+        <ATTEXPVIRT>0</ATTEXPVIRT>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>TY_T_DATA</TYPE>
+        <SRCROW1>0</SRCROW1>
+        <SRCCOLUMN1>0</SRCCOLUMN1>
+        <SRCROW2>0</SRCROW2>
+        <SRCCOLUMN2>0</SRCCOLUMN2>
+        <TYPESRC_LENG>0</TYPESRC_LENG>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>GT_ALV</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <EXPOSURE>0</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>4</EDITORDER>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-19</CHANGEDON>
+        <ATTDECLTYP>0</ATTDECLTYP>
+        <ATTEXPVIRT>0</ATTEXPVIRT>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>TY_T_ALV</TYPE>
+        <SRCROW1>0</SRCROW1>
+        <SRCCOLUMN1>0</SRCCOLUMN1>
+        <SRCROW2>0</SRCROW2>
+        <SRCCOLUMN2>0</SRCCOLUMN2>
+        <TYPESRC_LENG>0</TYPESRC_LENG>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>GV_PFSTATUS2</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Stato GUI</DESCRIPT>
+        <EXPOSURE>0</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>5</EDITORDER>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-19</CHANGEDON>
+        <ATTDECLTYP>0</ATTDECLTYP>
+        <ATTEXPVIRT>0</ATTEXPVIRT>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>SYPFKEY</TYPE>
+        <SRCROW1>0</SRCROW1>
+        <SRCCOLUMN1>0</SRCCOLUMN1>
+        <SRCROW2>0</SRCROW2>
+        <SRCCOLUMN2>0</SRCCOLUMN2>
+        <TYPESRC_LENG>0</TYPESRC_LENG>
+      </item>
+    </ATTRIBUTES>
+    <METHODS>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>CONSTRUCTOR</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Costruttore</DESCRIPT>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-19</CHANGEDON>
+        <MTDTYPE>2</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>EXECUTE</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Esegue programma</DESCRIPT>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>2</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-19</CHANGEDON>
+        <MTDTYPE>0</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>GET_DATA</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Estrazione dati</DESCRIPT>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>3</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-19</CHANGEDON>
+        <MTDTYPE>0</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>SET_SALV</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>4</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-19</CHANGEDON>
+        <MTDTYPE>0</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>GET_SALV</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>5</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-19</CHANGEDON>
+        <MTDTYPE>0</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>ALV_SHOW</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Mostra alv</DESCRIPT>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>6</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-19</CHANGEDON>
+        <MTDTYPE>0</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>SAVE</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Effettua conferma delle posizioni selezionate</DESCRIPT>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>7</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-19</CHANGEDON>
+        <MTDTYPE>0</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>TRANSF_NEST_TO_PROD</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Effettua conferma delle posizioni selezionate</DESCRIPT>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>8</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-29</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-19</CHANGEDON>
+        <MTDTYPE>0</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>FORZ_CHIUSURA</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Forzatura chiusura</DESCRIPT>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>9</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-10-13</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-19</CHANGEDON>
+        <MTDTYPE>0</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>DELETE</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Cancella posizioni selezionate</DESCRIPT>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>10</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-19</CHANGEDON>
+        <MTDTYPE>0</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>GET_SEL</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Recupero selezione</DESCRIPT>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>11</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-12-07</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <MTDTYPE>0</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <R3RELEASE>750</R3RELEASE>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>GET_TAB</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Recupero tabella</DESCRIPT>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>12</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-12-07</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <MTDTYPE>0</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <R3RELEASE>750</R3RELEASE>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>CREATE_SELECTIONS</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Crea parametri di selezione</DESCRIPT>
+        <EXPOSURE>0</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-19</CHANGEDON>
+        <MTDTYPE>0</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+    </METHODS>
+    <EVENTS>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>ON_USER_COMMAND</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>1</EDITORDER>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-19</CHANGEDON>
+        <EVTDECLTYP>0</EVTDECLTYP>
+        <BCEVTCAT>00</BCEVTCAT>
+      </item>
+    </EVENTS>
+    <TYPES>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>TY_S_ALV</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Tabella di bufferizzazione delle conferme di produzione</DESCRIPT>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>1</EDITORDER>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-12-15</CHANGEDON>
+        <TYPTYPE>4</TYPTYPE>
+        <SRCROW1>10</SRCROW1>
+        <SRCCOLUMN1>4</SRCCOLUMN1>
+        <SRCROW2>16</SRCROW2>
+        <SRCCOLUMN2>25</SRCCOLUMN2>
+        <TYPESRC_LENG>250</TYPESRC_LENG>
+        <TYPESRC>BEGIN OF ty_s_alv. TYPES: ligth TYPE icon-id. INCLUDE TYPE zpp_bufconf_nest. TYPES: cdl TYPE ztpp_nesting-cdl. TYPES: esito TYPE zdbc_esito. TYPES: descr_esito TYPE zdbc_descr_esito. TYPES: END OF ty_s_alv
+        </TYPESRC>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>TY_S_DATA</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Tabella di bufferizzazione delle conferme di produzione</DESCRIPT>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>2</EDITORDER>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-19</CHANGEDON>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>ZPP_BUFCONF_NEST</TYPE>
+        <SRCROW1>0</SRCROW1>
+        <SRCCOLUMN1>0</SRCCOLUMN1>
+        <SRCROW2>0</SRCROW2>
+        <SRCCOLUMN2>0</SRCCOLUMN2>
+        <TYPESRC_LENG>0</TYPESRC_LENG>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>TY_T_ALV</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>3</EDITORDER>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-12-15</CHANGEDON>
+        <TYPTYPE>4</TYPTYPE>
+        <SRCROW1>19</SRCROW1>
+        <SRCCOLUMN1>4</SRCCOLUMN1>
+        <SRCROW2>19</SRCROW2>
+        <SRCCOLUMN2>34</SRCCOLUMN2>
+        <TYPESRC_LENG>33</TYPESRC_LENG>
+        <TYPESRC>ty_t_alv TYPE TABLE OF ty_s_alv
+        </TYPESRC>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>TY_T_DATA</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>4</EDITORDER>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-12-15</CHANGEDON>
+        <TYPTYPE>4</TYPTYPE>
+        <SRCROW1>21</SRCROW1>
+        <SRCCOLUMN1>4</SRCCOLUMN1>
+        <SRCROW2>21</SRCROW2>
+        <SRCCOLUMN2>36</SRCCOLUMN2>
+        <TYPESRC_LENG>35</TYPESRC_LENG>
+        <TYPESRC>ty_t_data TYPE TABLE OF ty_s_data
+        </TYPESRC>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>TY_S_SEL</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>5</EDITORDER>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-12-15</CHANGEDON>
+        <TYPTYPE>4</TYPTYPE>
+        <SRCROW1>23</SRCROW1>
+        <SRCCOLUMN1>4</SRCCOLUMN1>
+        <SRCROW2>42</SRCROW2>
+        <SRCCOLUMN2>20</SRCCOLUMN2>
+        <TYPESRC_LENG>1371</TYPESRC_LENG>
+        <TYPESRC>BEGIN OF ty_s_sel, p_tp_n TYPE zpp_bufconf_nest-tipo_record, &quot;Nesting manuale p_tp_w TYPE zpp_bufconf_nest-tipo_record, &quot;Nesting Wicam s_n_nest TYPE RANGE OF zpp_bufconf_nest-n_nesting, &quot;Conferma s_vornr TYPE RANGE OF zpp_bufconf_nest-n_vornr, &quot;Operazione s_event TYPE RANGE OF zpp_bufconf_nest-event, &quot;Evento s_budat TYPE RANGE OF zpp_bufconf_nest-budat, &quot;Data conferma s_isdd TYPE RANGE OF zpp_bufconf_nest-isdd, &quot;Tempo s_isdz TYPE RANGE OF zpp_bufconf_nest-isdz, &quot;Ora s_iedd TYPE RANGE OF zpp_bufconf_nest-iedd, &quot;Teempo s_iedz TYPE RANGE OF zpp_bufconf_nest-iedz, &quot;Tempo s_wausw TYPE RANGE OF zpp_bufconf_nest-wausw, &quot;Badge s_pernr TYPE RANGE OF zpp_bufconf_nest-pernr, &quot;CID s_utente TYPE RANGE OF zpp_bufconf_nest-utente, &quot;Utente s_data TYPE RANGE OF zpp_bufconf_nest-data, &quot;Data creazione s_ora TYPE RANGE OF zpp_bufconf_nest-ora, &quot;Ora creazione s_cdl TYPE RANGE OF ztpp_nesting-cdl, &quot;Centro di lavoro s_elab TYPE RANGE OF zpp_bufconf_nest-elaborato, &quot;Record elaborato p_layout TYPE disvariant-variant, &quot;Layout alv END OF ty_s_sel
+        </TYPESRC>
+      </item>
+    </TYPES>
+    <PARAMETERS>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>ALV_SHOW</CMPNAME>
+        <SCONAME>IV_TITLE</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>ALV Control: testo della riga titolo</DESCRIPT>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>0</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>LVC_TITLE</TYPE>
+        <PAROPTIONL>X</PAROPTIONL>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>ALV_SHOW</CMPNAME>
+        <SCONAME>CT_DATA</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>2</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>2</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>TABLE</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>CONSTRUCTOR</CMPNAME>
+        <SCONAME>IV_PROGRAM</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Programma chiamante</DESCRIPT>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>2</MTDTYPE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>0</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>SY-REPID</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>CONSTRUCTOR</CMPNAME>
+        <SCONAME>IV_LANGUAGE</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Campo sistema ABAP: chiave lingua dell&apos;ambiente testi</DESCRIPT>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>2</MTDTYPE>
+        <EDITORDER>2</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>0</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>SY-LANGU</TYPE>
+        <PARVALUE>SY-LANGU</PARVALUE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>CONSTRUCTOR</CMPNAME>
+        <SCONAME>IV_PFSTATUS</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Stato GUI</DESCRIPT>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>2</MTDTYPE>
+        <EDITORDER>3</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>0</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>SYPFKEY</TYPE>
+        <PARVALUE>SPACE</PARVALUE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>CONSTRUCTOR</CMPNAME>
+        <SCONAME>IV_PFSTATUS2</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Stato GUI</DESCRIPT>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>2</MTDTYPE>
+        <EDITORDER>4</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>0</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>SYPFKEY</TYPE>
+        <PARVALUE>SPACE</PARVALUE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>DELETE</CMPNAME>
+        <SCONAME>IT_ROWS</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Righe</DESCRIPT>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>0</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>SALV_T_ROW</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>FORZ_CHIUSURA</CMPNAME>
+        <SCONAME>IT_ROWS</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Righe</DESCRIPT>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-10-13</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>0</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>SALV_T_ROW</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>GET_DATA</CMPNAME>
+        <SCONAME>IS_SEL</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>0</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>TY_S_SEL</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>GET_DATA</CMPNAME>
+        <SCONAME>CT_DATA</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>2</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>2</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>TY_T_DATA</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>GET_SALV</CMPNAME>
+        <SCONAME>EO_SALV</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Classe gestione alv grid</DESCRIPT>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>3</PARDECLTYP>
+        <PARPASSTYP>0</PARPASSTYP>
+        <TYPTYPE>3</TYPTYPE>
+        <TYPE>ZCL_BC_ALV_BASE</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>GET_SEL</CMPNAME>
+        <SCONAME>RS_SEL</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-12-07</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>3</PARDECLTYP>
+        <PARPASSTYP>0</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>TY_S_SEL</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>GET_TAB</CMPNAME>
+        <SCONAME>RS_DATA</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Tabella di bufferizzazione delle conferme di produzione</DESCRIPT>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-12-07</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>2</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>TY_T_DATA</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>ON_USER_COMMAND</CMPNAME>
+        <SCONAME>E_SALV_FUNCTION</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>General Events</DESCRIPT>
+        <CMPTYPE>2</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>1</PARDECLTYP>
+        <PARPASSTYP>0</PARPASSTYP>
+        <TYPTYPE>3</TYPTYPE>
+        <TYPE>CL_SALV_EVENTS</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>SAVE</CMPNAME>
+        <SCONAME>IT_ROWS</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Righe</DESCRIPT>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>0</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>SALV_T_ROW</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>SET_SALV</CMPNAME>
+        <SCONAME>IO_SALV</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Classe gestione alv grid</DESCRIPT>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-28</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>0</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>3</TYPTYPE>
+        <TYPE>ZCL_BC_ALV_BASE</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>TRANSF_NEST_TO_PROD</CMPNAME>
+        <SCONAME>IT_ROWS</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Righe</DESCRIPT>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-09-29</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>0</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>SALV_T_ROW</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <CMPNAME>TRANSF_NEST_TO_PROD</CMPNAME>
+        <SCONAME>ESITO</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Codice esito</DESCRIPT>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>2</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-12-15</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>2</PARDECLTYP>
+        <PARPASSTYP>0</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>ZDBC_ESITO</TYPE>
+        <PAROPTIONL>X</PAROPTIONL>
+      </item>
+    </PARAMETERS>
+    <EXCEPTIONS/>
+    <IMPLEMENTINGS/>
+    <IMPL_DETAILS/>
+    <FRIENDSHIPS/>
+    <TYPEPUSAGES/>
+    <CLSDEFERRDS>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <TYPEGROUP>ZCL_PP_PDM_FILE</TYPEGROUP>
+        <VERSION>1</VERSION>
+        <TPUTYPE>1</TPUTYPE>
+        <IMPLICIT>X</IMPLICIT>
+      </item>
+    </CLSDEFERRDS>
+    <INTDEFERRDS/>
+    <ALIASES/>
+    <INHERITANCE>
+      <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+      <REFCLSNAME>ZCL_BC_PROGRAM_BASE</REFCLSNAME>
+      <VERSION>1</VERSION>
+      <STATE>1</STATE>
+      <AUTHOR>KOSMEDEV</AUTHOR>
+      <CREATEDON>2016-09-28</CREATEDON>
+      <CHANGEDON>2016-10-19</CHANGEDON>
+    </INHERITANCE>
+    <INTERFACES/>
+    <REDEFINITIONS>
+      <item>
+        <CLSNAME>ZCL_PP_GESTCONF_NEST</CLSNAME>
+        <REFCLSNAME>ZCL_BC_PROGRAM_BASE</REFCLSNAME>
+        <VERSION>1</VERSION>
+        <MTDNAME>MODIFY_SCREEN</MTDNAME>
+        <EXPOSURE>2</EXPOSURE>
+      </item>
+    </REDEFINITIONS>
+    <TYPE_SOURCE/>
+    <LOCALS_SRC/>
+    <LOCALS_DEF>
+      <item>*&quot;* use this source file for any type of declarations (class</item>
+      <item>*&quot;* definitions, interfaces or type declarations) you need for</item>
+      <item>*&quot;* components in the private section</item>
+      <item/>
+    </LOCALS_DEF>
+    <LOCALS_IMP>
+      <item>*&quot;* use this source file for the definition and implementation of</item>
+      <item>*&quot;* local helper classes, interface definitions and type</item>
+      <item>*&quot;* declarations</item>
+      <item/>
+      <item>CLASS lcl_alv DEFINITION INHERITING FROM cl_salv_controller_table ABSTRA</item>
+      <item> PUBLIC SECTION.</item>
+      <item> CLASS-METHODS: get_grid</item>
+      <item> IMPORTING iref_salv TYPE REF TO cl_salv_table</item>
+      <item> RETURNING VALUE(ret_grid) TYPE REF TO cl_gui_alv_grid.</item>
+      <item/>
+      <item/>
+      <item>ENDCLASS. &quot;lcl_alv DEFINITION</item>
+      <item/>
+      <item>CLASS lcl_alv IMPLEMENTATION.</item>
+      <item> METHOD get_grid. &quot; to get the ref. of the instance cl_gui_alv_grid in</item>
+      <item> DATA: r_controller TYPE REF TO cl_salv_controller_table,</item>
+      <item> r_adapter TYPE REF TO cl_salv_fullscreen_adapter.</item>
+      <item/>
+      <item/>
+      <item> TRY.</item>
+      <item> r_controller ?= iref_salv-&gt;r_controller.</item>
+      <item> r_adapter ?= r_controller-&gt;r_adapter.</item>
+      <item> ret_grid = r_adapter-&gt;get_grid( ).</item>
+      <item/>
+      <item/>
+      <item> CATCH cx_root.</item>
+      <item> &quot; ERROR HANDLER TO DO ( if you want )</item>
+      <item> ENDTRY.</item>
+      <item/>
+      <item/>
+      <item> ENDMETHOD. &quot;get_grid</item>
+      <item>ENDCLASS. &quot;lcl_alv IMPLEMENTATION</item>
+      <item/>
+      <item>CLASS lcl_handle_events DEFINITION.</item>
+      <item> PUBLIC SECTION.</item>
+      <item> METHODS:</item>
+      <item> constructor IMPORTING io_sender TYPE REF TO zcl_pp_gestconf_nest</item>
+      <item> io_alv TYPE REF TO cl_salv_table</item>
+      <item> io_sel TYPE REF TO cl_salv_selections,</item>
+      <item> on_user_command FOR EVENT added_function OF cl_salv_events</item>
+      <item> IMPORTING e_salv_function.</item>
+      <item> PRIVATE SECTION.</item>
+      <item> DATA: go_sender TYPE REF TO zcl_pp_gestconf_nest,</item>
+      <item> go_alv TYPE REF TO cl_salv_table,</item>
+      <item> go_sel TYPE REF TO cl_salv_selections.</item>
+      <item> METHODS:</item>
+      <item> edit.</item>
+      <item>ENDCLASS.</item>
+      <item/>
+      <item>CLASS lcl_handle_events IMPLEMENTATION.</item>
+      <item> METHOD constructor.</item>
+      <item> go_sender = io_sender.</item>
+      <item> go_alv = io_alv.</item>
+      <item> go_sel = io_sel.</item>
+      <item> ENDMETHOD.</item>
+      <item> METHOD on_user_command.</item>
+      <item> DATA: lo_selections TYPE REF TO cl_salv_selections,</item>
+      <item> lo_salv TYPE REF TO cl_salv_table.</item>
+      <item> DATA: lt_rows TYPE salv_t_row.</item>
+      <item> DATA: ls_rows TYPE i.</item>
+      <item> DATA: message TYPE string.</item>
+      <item> DATA: lt_data TYPE zcl_pp_gestconf_nest=&gt;ty_t_data. &quot;DP-07_12_2016</item>
+      <item> DATA: w_esito TYPE zdbc_esito. &quot;DP-15_12_2016</item>
+      <item/>
+      <item> CASE e_salv_function.</item>
+      <item> WHEN &apos;SAVE&apos;.</item>
+      <item> go_sender-&gt;save( EXPORTING it_rows = go_sel-&gt;get_selected_rows(</item>
+      <item> go_alv-&gt;refresh( refresh_mode = if_salv_c_refresh=&gt;full ).</item>
+      <item> WHEN &apos;CONFIRM&apos;.</item>
+      <item> go_sender-&gt;transf_nest_to_prod( EXPORTING it_rows = go_sel-&gt;get_</item>
+      <item> CHANGING esito = w_esito ).</item>
+      <item>*DP-15_12_2016 Inizio</item>
+      <item> IF w_esito EQ &apos;000&apos;.</item>
+      <item> go_sender-&gt;get_tab( CHANGING rs_data = lt_data ).</item>
+      <item> go_sender-&gt;get_data( EXPORTING is_sel = go_sender-&gt;get_sel( )</item>
+      <item> CHANGING ct_data = lt_data ).</item>
+      <item> ENDIF.</item>
+      <item>*DP-15_12_2016 Fine</item>
+      <item> go_alv-&gt;refresh( refresh_mode = if_salv_c_refresh=&gt;full ).</item>
+      <item> WHEN &apos;CHIUS&apos;.</item>
+      <item> go_sender-&gt;forz_chiusura( EXPORTING it_rows = go_sel-&gt;get_select</item>
+      <item> go_alv-&gt;refresh( refresh_mode = if_salv_c_refresh=&gt;full ).</item>
+      <item> WHEN &apos;DELETE&apos;.</item>
+      <item> go_sender-&gt;delete( EXPORTING it_rows = go_sel-&gt;get_selected_rows</item>
+      <item> go_alv-&gt;refresh( refresh_mode = if_salv_c_refresh=&gt;full ).</item>
+      <item>*DP-06_12_2016 Inizio</item>
+      <item> WHEN &apos;REFRESH&apos;.</item>
+      <item> go_sender-&gt;get_tab( CHANGING rs_data = lt_data ).</item>
+      <item> go_sender-&gt;get_data( EXPORTING is_sel = go_sender-&gt;get_sel( )</item>
+      <item> CHANGING ct_data = lt_data ).</item>
+      <item> go_alv-&gt;refresh( refresh_mode = if_salv_c_refresh=&gt;full ).</item>
+      <item>*DP-06_12_2016 Fine</item>
+      <item> WHEN &apos;EDIT&apos;.</item>
+      <item> edit( ).</item>
+      <item> WHEN &apos;&amp;&amp;BACK&apos;.</item>
+      <item> LEAVE TO SCREEN 0.</item>
+      <item> ENDCASE.</item>
+      <item> ENDMETHOD.</item>
+      <item> METHOD edit.</item>
+      <item> DATA: r_cl_gui TYPE REF TO cl_gui_alv_grid,</item>
+      <item> lo_full_adap TYPE REF TO cl_salv_fullscreen_adapter,</item>
+      <item> lt_fieldcatalog TYPE lvc_t_fcat,</item>
+      <item> lv_select_date TYPE gkday,</item>
+      <item> lv_bool TYPE abap_bool.</item>
+      <item> IF r_cl_gui IS NOT BOUND.</item>
+      <item> r_cl_gui = lcl_alv=&gt;get_grid( go_alv ).</item>
+      <item> r_cl_gui-&gt;get_frontend_fieldcatalog( IMPORTING et_fieldcatalog = l</item>
+      <item> LOOP AT lt_fieldcatalog INTO DATA(wa_fieldcatalog).</item>
+      <item> IF ( wa_fieldcatalog-edit = abap_false ).</item>
+      <item> lv_bool = abap_true.</item>
+      <item> ELSE.</item>
+      <item> lv_bool = abap_false.</item>
+      <item> ENDIF.</item>
+      <item> CASE wa_fieldcatalog-fieldname.</item>
+      <item> WHEN &apos;BUDAT&apos;.</item>
+      <item> wa_fieldcatalog-edit = lv_bool.</item>
+      <item> MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item>
+      <item> WHEN &apos;ISDD&apos;.</item>
+      <item> wa_fieldcatalog-edit = lv_bool.</item>
+      <item> MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item>
+      <item> WHEN &apos;ISDZ&apos;.</item>
+      <item> wa_fieldcatalog-edit = lv_bool.</item>
+      <item> MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item>
+      <item> WHEN &apos;IEDD&apos;.</item>
+      <item> wa_fieldcatalog-edit = lv_bool.</item>
+      <item> MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item>
+      <item> WHEN &apos;IEDZ&apos;.</item>
+      <item> wa_fieldcatalog-edit = lv_bool.</item>
+      <item> MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item>
+      <item> WHEN &apos;LMNGA&apos;.</item>
+      <item> wa_fieldcatalog-edit = lv_bool.</item>
+      <item> MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item>
+      <item> WHEN &apos;XMNGA&apos;.</item>
+      <item> wa_fieldcatalog-edit = lv_bool.</item>
+      <item> MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item>
+      <item> WHEN &apos;GMNGA&apos;.</item>
+      <item> wa_fieldcatalog-edit = lv_bool.</item>
+      <item> MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item>
+      <item> WHEN &apos;ISM01&apos;.</item>
+      <item> wa_fieldcatalog-edit = lv_bool.</item>
+      <item> MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item>
+      <item> WHEN &apos;GRUND&apos;.</item>
+      <item> wa_fieldcatalog-edit = lv_bool.</item>
+      <item> MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item>
+      <item> WHEN &apos;WAUSW&apos;.</item>
+      <item> wa_fieldcatalog-edit = lv_bool.</item>
+      <item> MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item>
+      <item> WHEN &apos;PERNR&apos;.</item>
+      <item> wa_fieldcatalog-edit = lv_bool.</item>
+      <item> MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item>
+      <item> ENDCASE.</item>
+      <item> ENDLOOP.</item>
+      <item> r_cl_gui-&gt;set_frontend_fieldcatalog( EXPORTING it_fieldcatalog = l</item>
+      <item> r_cl_gui-&gt;register_edit_event( EXPORTING i_event_id = cl_gui_alv_g</item>
+      <item> r_cl_gui-&gt;register_edit_event( EXPORTING i_event_id = cl_gui_alv_g</item>
+      <item> r_cl_gui-&gt;refresh_table_display( ). &quot;must after cahnge the fieldca</item>
+      <item> ENDIF.</item>
+      <item> ENDMETHOD.</item>
+      <item>ENDCLASS.</item>
+      <item/>
+      <item>CLASS lcl_alv_om_tool DEFINITION INHERITING FROM cl_salv_controller.</item>
+      <item> PUBLIC SECTION.</item>
+      <item> CLASS-METHODS set_editable IMPORTING io_alv TYPE REF TO cl_salv</item>
+      <item> iv_editable TYPE abap_bool.</item>
+      <item>ENDCLASS.</item>
+      <item/>
+      <item>CLASS lcl_alv_om_tool IMPLEMENTATION.</item>
+      <item> METHOD set_editable.</item>
+      <item> DATA ls_layout TYPE lvc_s_layo.</item>
+      <item> DATA lo_full_adap TYPE REF TO cl_salv_fullscreen_adapter.</item>
+      <item> DATA lo_grid TYPE REF TO cl_gui_alv_grid.</item>
+      <item/>
+      <item>* Fullscreen Adapter (Down Casting)</item>
+      <item> lo_full_adap ?= io_alv-&gt;r_controller-&gt;r_adapter.</item>
+      <item/>
+      <item>* Get the Grid</item>
+      <item> lo_grid = lo_full_adap-&gt;get_grid( ).</item>
+      <item/>
+      <item> IF lo_grid IS NOT BOUND.</item>
+      <item> RETURN.</item>
+      <item> ENDIF.</item>
+      <item/>
+      <item>* Editable ALV</item>
+      <item> ls_layout-edit = &apos;X&apos;.</item>
+      <item/>
+      <item>* Set the front layout of ALV</item>
+      <item> CALL METHOD lo_grid-&gt;set_frontend_layout</item>
+      <item> EXPORTING</item>
+      <item> is_layout = ls_layout.</item>
+      <item/>
+      <item>* refresh the table</item>
+      <item> CALL METHOD lo_grid-&gt;refresh_table_display.</item>
+      <item> ENDMETHOD. &quot;set_editable</item>
+      <item>ENDCLASS.</item>
+    </LOCALS_IMP>
+    <LOCALS_MAC>
+      <item>*&quot;* use this source file for any macro definitions you need</item>
+      <item>*&quot;* in the implementation part of the class</item>
+      <item/>
+    </LOCALS_MAC>
+    <TEXT_POOL>
+      <I><item><ID>I</ID><KEY>001</KEY><ENTRY>Anagrafica Materiale Filling</ENTRY><LENGTH>56</LENGTH></item><item><ID>I</ID><KEY>002</KEY><ENTRY>Anagrafica Materiale Labelling</ENTRY><LENGTH>60</LENGTH></item><item><ID>I</ID><KEY>004</KEY><ENTRY>Anagrafica Materiale Packaging</ENTRY><LENGTH>60</LENGTH></item><item><ID>I</ID><KEY>005</KEY><ENTRY>Distinte base Filling</ENTRY><LENGTH>42</LENGTH></item><item><ID>I</ID><KEY>006</KEY><ENTRY>Distinte base Labelling</ENTRY><LENGTH>46</LENGTH></item><item><ID>I</ID><KEY>007</KEY><ENTRY>Distinte base Packaging</ENTRY><LENGTH>46</LENGTH></item><item><ID>I</ID><KEY>008</KEY><ENTRY>Anagrafica Materiale</ENTRY><LENGTH>40</LENGTH></item><item><ID>I</ID><KEY>009</KEY><ENTRY>Distinte base</ENTRY><LENGTH>23</LENGTH></item><item><ID>I</ID><KEY>010</KEY><ENTRY>Files elaborati!</ENTRY><LENGTH>26</LENGTH></item><item><ID>I</ID><KEY>011</KEY><ENTRY>Errori trasmissioni Anagrafica Materiale</ENTRY><LENGTH>80</LENGTH></item><item><ID>I</ID><KEY>012</KEY><ENTRY>Livello non creato per mancanza codice materiale</ENTRY><LENGTH>96</LENGTH></item><item><ID>I</ID><KEY>013</KEY><ENTRY>Codice padre non aperto su divisione</ENTRY><LENGTH>72</LENGTH></item><item><ID>I</ID><KEY>014</KEY><ENTRY>Errore creazione testata diba</ENTRY><LENGTH>42</LENGTH></item><item><ID>I</ID><KEY>015</KEY><ENTRY>Errore cancellazione componenti diba</ENTRY><LENGTH>72</LENGTH></item><item><ID>I</ID><KEY>016</KEY><ENTRY>Log trasmissione BOM</ENTRY><LENGTH>46</LENGTH></item><item><ID>I</ID><KEY>017</KEY><ENTRY>Log trasmissione Anagrafica Materiale</ENTRY><LENGTH>74</LENGTH></item><item><ID>I</ID><KEY>018</KEY><ENTRY>Nessuna parametrizzazione per materiale</ENTRY><LENGTH>78</LENGTH></item><item><ID>I</ID><KEY>019</KEY><ENTRY>Posizione già elaborata</ENTRY><LENGTH>46</LENGTH></item><item><ID>I</ID><KEY>020</KEY><ENTRY>Posizione cancellata</ENTRY><LENGTH>40</LENGTH></item><item><ID>I</ID><KEY>021</KEY><ENTRY>Posizione stornata</ENTRY><LENGTH>28</LENGTH></item><item><ID>I</ID><KEY>022</KEY><ENTRY>Selezionare almeno un evento B40</ENTRY><LENGTH>50</LENGTH></item></I>
+    </TEXT_POOL>
+    <METHOD_SOURCE>
+      <ALV_SHOW>
+        <item> METHOD alv_show.</item>
+        <item>* IF ( NOT ct_data[] IS INITIAL ).</item>
+        <item> DATA: lt_fieldcat TYPE slis_t_fieldcat_alv,</item>
+        <item> is_print TYPE slis_print_alv,</item>
+        <item> lv_program TYPE sy-repid.</item>
+        <item> FIELD-SYMBOLS &lt;ct_data&gt; TYPE table.</item>
+        <item/>
+        <item> lv_program = get_program( ).</item>
+        <item/>
+        <item> ASSIGN (&apos;CT_DATA[]&apos;) TO &lt;ct_data&gt;.</item>
+        <item/>
+        <item> DATA lo_alv TYPE REF TO cl_salv_table.</item>
+        <item> DATA lo_display TYPE REF TO cl_salv_display_settings.</item>
+        <item> DATA: lt_fcat TYPE lvc_t_fcat.</item>
+        <item/>
+        <item> DATA: lv_lenght TYPE i.</item>
+        <item> DATA: lv_title TYPE char70.</item>
+        <item/>
+        <item> lo_alv = get_alv( ).</item>
+        <item/>
+        <item> TRY.</item>
+        <item> cl_salv_table=&gt;factory( IMPORTING r_salv_table = lo_alv</item>
+        <item> CHANGING t_table = &lt;ct_data&gt; ).</item>
+        <item> DATA: lr_columns TYPE REF TO cl_salv_columns_list,</item>
+        <item> lr_aggregations TYPE REF TO cl_salv_aggregations.</item>
+        <item>* lt_fcat = cl_salv_controller_metadata=&gt;get_lvc_fieldcatalog(</item>
+        <item>* r_columns = lo_alv-&gt;get_columns( ) &quot; ALV Filte</item>
+        <item>* r_aggregations = lo_alv-&gt;get_aggregations( ) ).&quot; AL</item>
+        <item> lr_columns = lo_alv-&gt;get_columns( ).</item>
+        <item> lr_aggregations = lo_alv-&gt;get_aggregations( ).</item>
+        <item> lt_fcat = cl_salv_controller_metadata=&gt;get_lvc_fieldcatalog(</item>
+        <item> r_columns = lr_columns &quot; ALV Filter</item>
+        <item> r_aggregations = lr_aggregations ).&quot; ALV Aggregation</item>
+        <item> LOOP AT lt_fcat INTO DATA(ls_fcat) WHERE fieldname = &apos;BUDAT&apos; OR</item>
+        <item> fieldname = &apos;LMNGA&apos;.</item>
+        <item> ls_fcat-edit = abap_true.</item>
+        <item> MODIFY lt_fcat FROM ls_fcat.</item>
+        <item> ENDLOOP.</item>
+        <item> cl_salv_controller_metadata=&gt;set_lvc_fieldcatalog( EXPORTING t_f</item>
+        <item> r_c</item>
+        <item> r_a</item>
+        <item> DATA: ls_layout TYPE lvc_s_layo.</item>
+        <item> cl_salv_controller_metadata=&gt;get_lvc_layout( EXPORTING r_columns</item>
+        <item> CHANGING s_layout</item>
+        <item> ls_layout-edit_mode = abap_true.</item>
+        <item> cl_salv_controller_metadata=&gt;set_lvc_layout( r_columns = lr_colu</item>
+        <item> s_layout = ls_layo</item>
+        <item/>
+        <item/>
+        <item> &quot; lcl_alv_om_tool=&gt;set_editable( EXPORTING io_alv =</item>
+        <item> &quot; iv_editable =</item>
+        <item/>
+        <item/>
+        <item/>
+        <item> CATCH cx_salv_msg.</item>
+        <item> ENDTRY.</item>
+        <item/>
+        <item> DATA: lo_functions TYPE REF TO cl_salv_functions_list,</item>
+        <item> lo_sel TYPE REF TO cl_salv_selections.</item>
+        <item/>
+        <item> lo_functions = lo_alv-&gt;get_functions( ).</item>
+        <item> lo_functions-&gt;set_all( abap_true ).</item>
+        <item/>
+        <item> lo_display = lo_alv-&gt;get_display_settings( ).</item>
+        <item> lo_display-&gt;set_list_header( iv_title ).</item>
+        <item> lo_display-&gt;set_striped_pattern( cl_salv_display_settings=&gt;false ).</item>
+        <item/>
+        <item> TRY.</item>
+        <item> DATA: lv_text TYPE string VALUE &apos;nutton&apos;.</item>
+        <item> lv_text = TEXT-b01.</item>
+        <item> lo_functions-&gt;add_function(</item>
+        <item> name = &apos;GET_SEL&apos;</item>
+        <item> icon = &apos;ICON_EXECUTE_OBJECT&apos;</item>
+        <item> text = lv_text</item>
+        <item> tooltip = lv_text</item>
+        <item> position = if_salv_c_function_position=&gt;right_of_salv_function</item>
+        <item> CATCH cx_salv_wrong_call cx_salv_existing cx_salv_method_not_suppo</item>
+        <item> ENDTRY.</item>
+        <item/>
+        <item> DATA: lo_columns TYPE REF TO cl_salv_columns_table,</item>
+        <item> lo_column TYPE REF TO cl_salv_column.. &quot;cl_salv_columns.</item>
+        <item> lo_columns = lo_alv-&gt;get_columns( ).</item>
+        <item>* DATA: lo_column TYPE REF TO cl_salv_column.</item>
+        <item> TRY.</item>
+        <item> lo_columns-&gt;set_optimize( abap_true ).</item>
+        <item> lo_column ?= lo_columns-&gt;get_column( &apos;BUDAT&apos; ).</item>
+        <item>* lo_column-&gt;set_</item>
+        <item>* lo_columns-&gt;set_enabled_column( value = &apos;BUDAT&apos; ).</item>
+        <item/>
+        <item>* lo_columns-&gt;set_</item>
+        <item>* lo_column = lo_cols-&gt;get_column( &apos;TYPE&apos; ).</item>
+        <item>* lo_column-&gt;set_long_text( &apos;Avl Date&apos; ). &quot;#EC NOTEXT</item>
+        <item>* lo_column-&gt;set_medium_text( &apos;Avl Date&apos; ). &quot;#EC NOTEXT</item>
+        <item>* lo_column-&gt;set_short_text( &apos;Avl Date&apos; ). &quot;#EC NOTEXT</item>
+        <item>* lo_column-&gt;set_output_length( 10 ).</item>
+        <item> CATCH cx_salv_not_found. &quot;#EC NO_HANDLER</item>
+        <item> ENDTRY.</item>
+        <item/>
+        <item> DATA: lo_layout TYPE REF TO cl_salv_layout,</item>
+        <item> ls_variant TYPE slis_vari.</item>
+        <item> lo_layout = lo_alv-&gt;get_layout( ).</item>
+        <item> lo_layout-&gt;set_save_restriction( if_salv_c_layout=&gt;restrict_none ).</item>
+        <item> lo_layout-&gt;set_key( go_salv-&gt;get_key( ) ).</item>
+        <item> IF ( NOT gs_sel-p_layout IS INITIAL ).</item>
+        <item> lo_layout-&gt;set_initial_layout( gs_sel-p_layout ).</item>
+        <item> ENDIF.</item>
+        <item/>
+        <item> IF ( gs_sel-p_tp_n = abap_true OR gs_sel-p_tp_w = abap_true ).</item>
+        <item> lo_alv-&gt;set_screen_status( report = get_program( )</item>
+        <item> pfstatus = get_pfstatus( )</item>
+        <item> set_functions = lo_alv-&gt;c_functions_all</item>
+        <item> ENDIF.</item>
+        <item>* ELSEIF ( iv_type = c_alv_view_log ).</item>
+        <item>* DATA: lo_layout TYPE REF TO cl_salv_layout,</item>
+        <item>* ls_variant TYPE slis_vari.</item>
+        <item>* lo_layout = lo_alv-&gt;get_layout( ).</item>
+        <item>* lo_layout-&gt;set_save_restriction( if_salv_c_layout=&gt;restrict_non</item>
+        <item>** ls_key-report = gv_program.</item>
+        <item>* lo_layout-&gt;set_key( go_salv-&gt;get_key( ) ).</item>
+        <item>* IF ( NOT go_salv-&gt;get_variant( ) IS INITIAL ).</item>
+        <item>* lo_layout-&gt;set_initial_layout( ls_variant ).</item>
+        <item>* ENDIF.</item>
+        <item>* lo_alv-&gt;set_screen_status( report = get_program( )</item>
+        <item>* pfstatus = gv_pfstatus_log</item>
+        <item>* set_functions = lo_alv-&gt;c_functions_</item>
+        <item>* ENDIF.</item>
+        <item/>
+        <item> DATA : lo_selections TYPE REF TO cl_salv_selections,</item>
+        <item> lo_events TYPE REF TO cl_salv_events_table,</item>
+        <item> lo_event_handler TYPE REF TO lcl_handle_events.</item>
+        <item/>
+        <item> lo_sel = lo_alv-&gt;get_selections( ).</item>
+        <item> lo_sel-&gt;set_selection_mode( if_salv_c_selection_mode=&gt;multiple ).</item>
+        <item/>
+        <item> lo_events = lo_alv-&gt;get_event( ).</item>
+        <item> lo_event_handler = NEW #( io_sender = me</item>
+        <item> io_alv = lo_alv</item>
+        <item> io_sel = lo_sel ).</item>
+        <item/>
+        <item> SET HANDLER lo_event_handler-&gt;on_user_command FOR lo_events.</item>
+        <item/>
+        <item>* DATA: r_cl_gui TYPE REF TO cl_gui_alv_grid,</item>
+        <item>* lo_full_adap TYPE REF TO cl_salv_fullscreen_adapter,</item>
+        <item>* lt_fieldcatalog TYPE lvc_t_fcat,</item>
+        <item>* lv_select_date TYPE gkday.</item>
+        <item>*</item>
+        <item>* IF r_cl_gui IS NOT BOUND.</item>
+        <item>* r_cl_gui = lcl_alv=&gt;get_grid( lo_alv ).</item>
+        <item>* r_cl_gui-&gt;get_frontend_fieldcatalog( IMPORTING et_fieldcatalog =</item>
+        <item>* LOOP AT lt_fieldcatalog INTO DATA(wa_fieldcatalog).</item>
+        <item>* CASE wa_fieldcatalog-fieldname.</item>
+        <item>* WHEN &apos;BUDAT&apos;.</item>
+        <item>* wa_fieldcatalog-edit = &apos;X&apos;.</item>
+        <item>* MODIFY lt_fieldcatalog FROM wa_fieldcatalog.</item>
+        <item>* ENDCASE.</item>
+        <item>* ENDLOOP.</item>
+        <item>* r_cl_gui-&gt;set_frontend_fieldcatalog( EXPORTING it_fieldcatalog =</item>
+        <item>* r_cl_gui-&gt;register_edit_event( EXPORTING i_event_id = cl_gui_alv_</item>
+        <item>* r_cl_gui-&gt;register_edit_event( EXPORTING i_event_id = cl_gui_alv_</item>
+        <item>* r_cl_gui-&gt;refresh_table_display( ). &quot;must after cahnge the fieldc</item>
+        <item>* ENDIF.</item>
+        <item/>
+        <item>* lo_alv-&gt;refresh( refresh_mode = if_salv_c_refresh=&gt;full ).</item>
+        <item/>
+        <item> IF lo_alv IS BOUND.</item>
+        <item> set_alv( CHANGING co_alv = lo_alv ).</item>
+        <item> lo_alv-&gt;display( ).</item>
+        <item> ENDIF.</item>
+        <item>* ENDIF.</item>
+        <item> ENDMETHOD.</item>
+      </ALV_SHOW>
+      <CONSTRUCTOR>
+        <item> METHOD constructor.</item>
+        <item> super-&gt;constructor( iv_program = iv_program</item>
+        <item> iv_language = iv_language</item>
+        <item> iv_pfstatus = iv_pfstatus ).</item>
+        <item> gv_pfstatus2 = iv_pfstatus2.</item>
+        <item> ENDMETHOD.</item>
+      </CONSTRUCTOR>
+      <CREATE_SELECTIONS>
+        <item> METHOD create_selections.</item>
+        <item> DATA: lref_sel TYPE REF TO data.</item>
+        <item> CREATE DATA lref_sel TYPE ty_s_sel.</item>
+        <item> set_selections( CHANGING cref_sel = lref_sel ).</item>
+        <item> FIELD-SYMBOLS: &lt;sel&gt; TYPE any.</item>
+        <item> ASSIGN lref_sel-&gt;* TO &lt;sel&gt;.</item>
+        <item> IF ( sy-subrc = 0 ).</item>
+        <item> gs_sel = &lt;sel&gt;.</item>
+        <item> ENDIF.</item>
+        <item> ENDMETHOD.</item>
+      </CREATE_SELECTIONS>
+      <DELETE>
+        <item> METHOD delete.</item>
+        <item> DATA: ls_row TYPE i,</item>
+        <item> ls_data TYPE ty_s_data,</item>
+        <item> ls_alv TYPE ty_s_alv,</item>
+        <item> lv_esito TYPE zdbc_esito,</item>
+        <item> lv_descr_esito TYPE zdbc_descr_esito,</item>
+        <item> lv_tabix_1 TYPE i,</item>
+        <item> lv_tabix_2 TYPE i.</item>
+        <item>* BREAK kosmedev.</item>
+        <item> LOOP AT it_rows INTO ls_row.</item>
+        <item> READ TABLE gt_alv INTO ls_alv INDEX ls_row.</item>
+        <item> IF ( sy-subrc = 0 ).</item>
+        <item> lv_tabix_1 = sy-tabix.</item>
+        <item>* IF ( ls_alv-elaborato = abap_false ).</item>
+        <item> CLEAR: ls_data.</item>
+        <item> READ TABLE gt_data INTO ls_data WITH KEY n_nesting = ls_alv-</item>
+        <item> tipo_record = ls_alv-</item>
+        <item> progr = ls_alv-</item>
+        <item> IF ( sy-subrc = 0 ).</item>
+        <item> lv_tabix_2 = sy-tabix.</item>
+        <item> UPDATE zpp_bufconf_nest SET flag_canc = abap_true</item>
+        <item> WHERE n_nesting = ls_data-n_nestin</item>
+        <item> AND tipo_record = ls_data-tipo_rec</item>
+        <item> AND progr = ls_data-progr.</item>
+        <item> COMMIT WORK.</item>
+        <item> DELETE gt_alv INDEX lv_tabix_1.</item>
+        <item> DELETE gt_data INDEX lv_tabix_2.</item>
+        <item> ENDIF.</item>
+        <item>* ELSE.</item>
+        <item>* ls_alv-ligth = icon_cancel.</item>
+        <item>* ls_alv-descr_esito = &apos;Posizione già elaborata&apos;(019).</item>
+        <item>* MODIFY gt_alv FROM ls_alv INDEX lv_tabix_1.</item>
+        <item>* ENDIF.</item>
+        <item> ENDIF.</item>
+        <item> ENDLOOP.</item>
+        <item> ENDMETHOD.</item>
+      </DELETE>
+      <EXECUTE>
+        <item> METHOD execute.</item>
+        <item> create_selections( ).</item>
+        <item/>
+        <item> get_data( EXPORTING is_sel = gs_sel CHANGING ct_data = gt_data ).</item>
+        <item/>
+        <item> alv_show( CHANGING ct_data = gt_alv ).</item>
+        <item> ENDMETHOD.</item>
+      </EXECUTE>
+      <GET_DATA>
+        <item> METHOD get_data.</item>
+        <item> DATA: lv_tipo_rec TYPE zpp_bufconf_nest-tipo_record.</item>
+        <item/>
+        <item> CLEAR: lv_tipo_rec.</item>
+        <item> CASE abap_true.</item>
+        <item> WHEN gs_sel-p_tp_n.</item>
+        <item> lv_tipo_rec = &apos;N&apos;.</item>
+        <item> WHEN gs_sel-p_tp_w.</item>
+        <item> lv_tipo_rec = &apos;W&apos;.</item>
+        <item> ENDCASE.</item>
+        <item/>
+        <item> REFRESH: gt_data, gt_alv.</item>
+        <item> SELECT * INTO CORRESPONDING FIELDS OF TABLE gt_data FROM zpp_bufconf</item>
+        <item> WHERE tipo_record EQ lv_tipo_rec</item>
+        <item> AND n_nesting IN is_sel-s_n_nest</item>
+        <item> AND n_vornr IN is_sel-s_vornr</item>
+        <item> AND event IN is_sel-s_event</item>
+        <item> AND budat IN is_sel-s_budat</item>
+        <item> AND isdd IN is_sel-s_isdd</item>
+        <item> AND isdz IN is_sel-s_isdz</item>
+        <item> AND iedd IN is_sel-s_iedd</item>
+        <item> AND iedz IN is_sel-s_iedz</item>
+        <item> AND wausw IN is_sel-s_wausw</item>
+        <item> AND pernr IN is_sel-s_pernr</item>
+        <item> AND utente IN is_sel-s_utente</item>
+        <item> AND data IN is_sel-s_data</item>
+        <item> AND ora IN is_sel-s_ora</item>
+        <item> &quot;and s_cdl s_cdl</item>
+        <item> AND elaborato IN is_sel-s_elab</item>
+        <item> AND flag_canc EQ abap_false</item>
+        <item> AND storno EQ abap_false.</item>
+        <item/>
+        <item> SORT gt_data BY n_nesting tipo_record n_vornr progr.</item>
+        <item/>
+        <item> DATA: ls_data TYPE ty_s_data,</item>
+        <item> ls_alv TYPE ty_s_alv,</item>
+        <item> ls_ztpp_nesting TYPE ztpp_nesting,</item>
+        <item> lv_tabix TYPE i.</item>
+        <item/>
+        <item> LOOP AT gt_data INTO ls_data.</item>
+        <item> lv_tabix = sy-tabix.</item>
+        <item> CLEAR: ls_alv.</item>
+        <item> MOVE-CORRESPONDING ls_data TO ls_alv.</item>
+        <item> SELECT SINGLE * INTO CORRESPONDING FIELDS OF ls_ztpp_nesting FROM</item>
+        <item/>
+        <item/>
+        <item/>
+        <item> IF ( sy-subrc = 0 ).</item>
+        <item> ls_alv-cdl = ls_ztpp_nesting-cdl.</item>
+        <item> MODIFY gt_alv FROM ls_alv INDEX lv_tabix TRANSPORTING cdl.</item>
+        <item> ELSE.</item>
+        <item> DELETE gt_data INDEX lv_tabix.</item>
+        <item> CONTINUE.</item>
+        <item> ENDIF.</item>
+        <item> ls_alv-ligth = icon_yellow_light.</item>
+        <item> IF ( ls_alv-elaborato = abap_true ).</item>
+        <item> ls_alv-ligth = icon_cancel.</item>
+        <item> ls_alv-descr_esito = &apos;Posizione già elaborata&apos;(019).</item>
+        <item> ENDIF.</item>
+        <item> IF ( ls_alv-flag_canc = abap_true ).</item>
+        <item> ls_alv-ligth = icon_cancel.</item>
+        <item> ls_alv-descr_esito = &apos;Posizione cancellata&apos;(020).</item>
+        <item> ENDIF.</item>
+        <item> IF ( ls_alv-storno = abap_true ).</item>
+        <item> ls_alv-ligth = icon_cancel.</item>
+        <item> ls_alv-descr_esito = &apos;Posizione stornata&apos;(021).</item>
+        <item> ENDIF.</item>
+        <item> APPEND ls_alv TO gt_alv.</item>
+        <item> ENDLOOP.</item>
+        <item> ENDMETHOD.</item>
+      </GET_DATA>
+      <GET_SALV>
+        <item> METHOD get_salv.</item>
+        <item> eo_salv = go_salv.</item>
+        <item> ENDMETHOD.</item>
+      </GET_SALV>
+      <SET_SALV>
+        <item> METHOD set_salv.</item>
+        <item> go_salv = io_salv.</item>
+        <item> ENDMETHOD.</item>
+      </SET_SALV>
+      <MODIFY_SCREEN>
+        <item> METHOD modify_screen.</item>
+        <item> create_selections( ).</item>
+        <item/>
+        <item>* LOOP AT SCREEN INTO DATA(ls_screen).</item>
+        <item>* IF ( ls_screen-group1 = &apos;MAT&apos; ).</item>
+        <item>* CASE abap_true.</item>
+        <item>* WHEN gs_sel-p_mat.</item>
+        <item>* IF ( gs_sel-p_err = abap_false ).</item>
+        <item>* ls_screen-active = 1.</item>
+        <item>* ELSE.</item>
+        <item>* ls_screen-active = 0.</item>
+        <item>* ENDIF.</item>
+        <item>* WHEN OTHERS.</item>
+        <item>* ls_screen-active = 0.</item>
+        <item>* ENDCASE.</item>
+        <item>* MODIFY screen FROM ls_screen.</item>
+        <item>* ENDIF.</item>
+        <item>* IF ( ls_screen-group1 = &apos;BOM&apos; ).</item>
+        <item>* CASE abap_true.</item>
+        <item>* WHEN gs_sel-p_bom.</item>
+        <item>* IF ( gs_sel-p_err = abap_false ).</item>
+        <item>* ls_screen-active = 1.</item>
+        <item>* ELSE.</item>
+        <item>* ls_screen-active = 0.</item>
+        <item>* ENDIF.</item>
+        <item>* WHEN OTHERS.</item>
+        <item>* ls_screen-active = 0.</item>
+        <item>* ENDCASE.</item>
+        <item>* MODIFY screen FROM ls_screen.</item>
+        <item>* ENDIF.</item>
+        <item>* IF ( ls_screen-group1 = &apos;ERR&apos; ).</item>
+        <item>* CASE abap_true.</item>
+        <item>* WHEN gs_sel-p_err.</item>
+        <item>* ls_screen-active = 1.</item>
+        <item>* WHEN OTHERS.</item>
+        <item>* ls_screen-active = 0.</item>
+        <item>* ENDCASE.</item>
+        <item>* MODIFY screen FROM ls_screen.</item>
+        <item>* ENDIF.</item>
+        <item>* ENDLOOP.</item>
+        <item> ENDMETHOD.</item>
+      </MODIFY_SCREEN>
+      <SAVE>
+        <item> METHOD save.</item>
+        <item> DATA: ls_row TYPE i,</item>
+        <item> ls_data TYPE ty_s_data,</item>
+        <item> ls_alv TYPE ty_s_alv,</item>
+        <item> lv_tabix TYPE i,</item>
+        <item> lv_err TYPE abap_bool.</item>
+        <item>* BREAK kosmedev.</item>
+        <item> lv_err = abap_false.</item>
+        <item> LOOP AT it_rows INTO ls_row.</item>
+        <item> READ TABLE gt_alv INTO ls_alv INDEX ls_row.</item>
+        <item> IF ( sy-subrc = 0 ).</item>
+        <item> LOOP AT gt_alv INTO ls_alv WHERE ligth = icon_yellow_light</item>
+        <item> AND n_nesting = ls_alv-n_nesting</item>
+        <item> AND tipo_record = ls_alv-tipo_recor</item>
+        <item> lv_tabix = sy-tabix.</item>
+        <item> CHECK lv_tabix = ls_row.</item>
+        <item> CLEAR: ls_data.</item>
+        <item> MOVE-CORRESPONDING ls_alv TO ls_data.</item>
+        <item> IF ( lv_err = abap_false ).</item>
+        <item> MODIFY zpp_bufconf_nest FROM ls_data.</item>
+        <item> ls_alv-ligth = icon_green_light.</item>
+        <item> ls_alv-descr_esito = &apos;Record salvato in tabella&apos;(022).</item>
+        <item> ELSE.</item>
+        <item> ls_alv-ligth = icon_cancel.</item>
+        <item> ls_alv-descr_esito = &apos;Posizione già elaborata&apos;(019).</item>
+        <item> ENDIF.</item>
+        <item> MODIFY gt_alv FROM ls_alv INDEX lv_tabix.</item>
+        <item> IF ( lv_err = abap_true ).</item>
+        <item> EXIT.</item>
+        <item> ENDIF.</item>
+        <item> ENDLOOP.</item>
+        <item> ENDIF.</item>
+        <item> ENDLOOP.</item>
+        <item> ENDMETHOD.</item>
+      </SAVE>
+      <TRANSF_NEST_TO_PROD>
+        <item> METHOD transf_nest_to_prod.</item>
+        <item> DATA: ls_row TYPE i,</item>
+        <item> ls_data TYPE ty_s_data,</item>
+        <item> ls_alv TYPE ty_s_alv,</item>
+        <item> lt_data TYPE ty_t_data,</item>
+        <item> lv_tabix TYPE i,</item>
+        <item> lv_err TYPE abap_bool.</item>
+        <item/>
+        <item> DATA: lv_exit TYPE abap_bool,</item>
+        <item> lv_b10 TYPE bool.</item>
+        <item/>
+        <item> DATA: lt_bufconf_nest TYPE TABLE OF zpp_bufconf_nest,</item>
+        <item> lt_bufconf_prod TYPE TABLE OF zpp_bufconf_prod,</item>
+        <item> lt_nesting TYPE TABLE OF ztpp_nesting,</item>
+        <item> ls_bufconf_prod TYPE zpp_bufconf_prod,</item>
+        <item> lv_tempo_nesting_totale TYPE vgwrt,</item>
+        <item> lv_lmnga TYPE lmnga,</item>
+        <item> lv_xmnga TYPE xmnga.</item>
+        <item/>
+        <item/>
+        <item> lv_err = abap_false.</item>
+        <item> LOOP AT it_rows INTO ls_row.</item>
+        <item> READ TABLE gt_alv INTO ls_alv INDEX ls_row.</item>
+        <item> IF ( sy-subrc = 0 )</item>
+        <item> AND ls_alv-event EQ &apos;B40&apos;.</item>
+        <item/>
+        <item> LOOP AT gt_alv INTO ls_alv WHERE ligth = icon_yellow_light</item>
+        <item> AND n_nesting = ls_alv-n_nesting</item>
+        <item> AND n_vornr = ls_alv-n_vornr</item>
+        <item> AND tipo_record = ls_alv-tipo_recor</item>
+        <item> AND event = &apos;B40&apos;.</item>
+        <item> lv_tabix = sy-tabix.</item>
+        <item>* CHECK lv_tabix = ls_row.</item>
+        <item> CLEAR: ls_data.</item>
+        <item> MOVE-CORRESPONDING ls_alv TO ls_data.</item>
+        <item> REFRESH: lt_data.</item>
+        <item> LOOP AT gt_data INTO DATA(ls_data_2) WHERE n_nesting = ls_d</item>
+        <item> AND n_vornr = ls_d</item>
+        <item> AND tipo_record = ls_d</item>
+        <item> AND event &lt;&gt; &apos;B40</item>
+        <item> APPEND ls_data_2 TO lt_data.</item>
+        <item> ENDLOOP.</item>
+        <item> APPEND ls_data TO lt_data.</item>
+        <item> zcl_pp_conf_nesting=&gt;transf_nest_to_prod( EXPORTING is_confirm</item>
+        <item> it_confirm</item>
+        <item> CHANGING cv_esito</item>
+        <item> cv_descr_es</item>
+        <item/>
+        <item> esito = ls_alv-esito.</item>
+        <item> IF ls_alv-esito EQ &apos;000&apos;.</item>
+        <item> ls_alv-ligth = icon_green_light.</item>
+        <item> else.</item>
+        <item> ls_alv-ligth = icon_red_light.</item>
+        <item> ENDIF.</item>
+        <item> MODIFY gt_alv FROM ls_alv INDEX ls_row.</item>
+        <item/>
+        <item> EXIT.</item>
+        <item> ENDLOOP.</item>
+        <item> IF ( sy-subrc &lt;&gt; 0 ).</item>
+        <item> MESSAGE i398(00) WITH &apos;Selezionare almeno un evento B40&apos;(022).</item>
+        <item> ENDIF.</item>
+        <item> ENDIF.</item>
+        <item> ENDLOOP.</item>
+        <item> ENDMETHOD.</item>
+      </TRANSF_NEST_TO_PROD>
+      <FORZ_CHIUSURA>
+        <item> METHOD forz_chiusura.</item>
+        <item/>
+        <item> DATA: ls_row TYPE i,</item>
+        <item> ls_data TYPE ty_s_data,</item>
+        <item> ls_alv TYPE ty_s_alv,</item>
+        <item> lt_data TYPE ty_t_data,</item>
+        <item> lv_tabix TYPE i,</item>
+        <item> lv_err TYPE abap_bool.</item>
+        <item/>
+        <item> DATA: lv_exit TYPE abap_bool,</item>
+        <item> lv_b10 TYPE bool.</item>
+        <item/>
+        <item> DATA: lt_bufconf_nest TYPE TABLE OF zpp_bufconf_nest,</item>
+        <item> ls_bufconf_nest TYPE zpp_bufconf_nest,</item>
+        <item> lt_bufconf_prod TYPE TABLE OF zpp_bufconf_prod,</item>
+        <item> lt_nesting TYPE TABLE OF ztpp_nesting,</item>
+        <item> ls_bufconf_prod TYPE zpp_bufconf_prod,</item>
+        <item> lv_tempo_nesting_totale TYPE vgwrt,</item>
+        <item> lv_lmnga TYPE lmnga,</item>
+        <item> lv_xmnga TYPE xmnga.</item>
+        <item/>
+        <item>* BREAK kosmedev.</item>
+        <item> lv_err = abap_false.</item>
+        <item> LOOP AT it_rows INTO ls_row.</item>
+        <item/>
+        <item> READ TABLE gt_alv INTO ls_alv INDEX ls_row.</item>
+        <item/>
+        <item> IF ( sy-subrc = 0 ).</item>
+        <item/>
+        <item>* BREAK kosmedev.</item>
+        <item/>
+        <item> REFRESH lt_bufconf_nest.</item>
+        <item> SELECT * FROM zpp_bufconf_nest</item>
+        <item> INTO CORRESPONDING FIELDS OF TABLE lt_bufconf_nest</item>
+        <item> WHERE tipo_record EQ ls_alv-tipo_record</item>
+        <item> AND n_nesting EQ ls_alv-n_nesting</item>
+        <item> AND n_vornr EQ ls_alv-n_vornr</item>
+        <item> AND flag_canc EQ abap_false</item>
+        <item> AND storno EQ abap_false</item>
+        <item> ORDER BY progr DESCENDING.</item>
+        <item/>
+        <item> CLEAR ls_bufconf_nest.</item>
+        <item> READ TABLE lt_bufconf_nest INTO ls_bufconf_nest</item>
+        <item> INDEX 1.</item>
+        <item>*C’è stata una apertura senza una successiva sospensione/chiusura</item>
+        <item> IF ls_bufconf_nest EQ &apos;B10&apos;.</item>
+        <item/>
+        <item> REFRESH: lt_data.</item>
+        <item> CLEAR ls_data.</item>
+        <item/>
+        <item> MOVE-CORRESPONDING ls_alv TO ls_data.</item>
+        <item> ls_data-event = &apos;B40&apos;.</item>
+        <item> ls_data-isdd = ls_bufconf_nest-isdd.</item>
+        <item> ls_data-isdz = ls_bufconf_nest-isdz.</item>
+        <item> ls_data-iedd = sy-datum.</item>
+        <item> ls_data-iedz = sy-uzeit.</item>
+        <item> CLEAR ls_data-ism01.</item>
+        <item> IF ls_bufconf_nest-gmnga GT 0.</item>
+        <item> ls_data-xmnga = ls_bufconf_nest-gmnga.</item>
+        <item> ELSE.</item>
+        <item> ls_data-xmnga = ls_bufconf_nest-mgvrg.</item>
+        <item> ENDIF.</item>
+        <item> APPEND ls_data TO lt_data.</item>
+        <item/>
+        <item> ENDIF.</item>
+        <item>* LOOP AT gt_alv INTO ls_alv WHERE ligth = icon_yellow_ligh</item>
+        <item>* AND n_nesting = ls_alv-n_nesting</item>
+        <item>* AND vornr = ls_alv-vornr</item>
+        <item>* AND tipo_record = ls_alv-tipo_reco</item>
+        <item>* AND event = &apos;B40&apos;.</item>
+        <item>* lv_tabix = sy-tabix.</item>
+        <item>** CHECK lv_tabix = ls_row.</item>
+        <item>* CLEAR: ls_data.</item>
+        <item>* MOVE-CORRESPONDING ls_alv TO ls_data.</item>
+        <item>* REFRESH: lt_data.</item>
+        <item>* LOOP AT gt_data INTO DATA(ls_data_2) WHERE n_nesting = ls_</item>
+        <item>* AND vornr = ls_</item>
+        <item>* AND tipo_record = ls_</item>
+        <item>* AND event &lt;&gt; &apos;B4</item>
+        <item>* APPEND ls_data_2 TO lt_data.</item>
+        <item>* ENDLOOP.</item>
+        <item>* ENDLOOP.</item>
+        <item/>
+        <item> ELSE.</item>
+        <item> MESSAGE i398(00) WITH &apos;Selezionare almeno un evento B40&apos;(022).</item>
+        <item> ENDIF.</item>
+        <item/>
+        <item> ENDLOOP.</item>
+        <item/>
+        <item> ENDMETHOD.</item>
+      </FORZ_CHIUSURA>
+      <GET_SEL>
+        <item> METHOD get_sel.</item>
+        <item/>
+        <item> rs_sel = gs_sel.</item>
+        <item/>
+        <item> ENDMETHOD.</item>
+      </GET_SEL>
+      <GET_TAB>
+        <item> METHOD get_tab.</item>
+        <item/>
+        <item> rs_data = gt_data.</item>
+        <item/>
+        <item> ENDMETHOD.</item>
+      </GET_TAB>
+    </METHOD_SOURCE>
+  </CLASS_ROOT>

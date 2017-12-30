@@ -1,27 +1,1505 @@
-<?xml version="1.0"?><CLASS_ROOT><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Classe interfaccia SAP - PDM</DESCRIPT><UUID>AA06JAOFHuaDi6+v09C71Q==</UUID><CATEGORY>00</CATEGORY><EXPOSURE>2</EXPOSURE><STATE>1</STATE><RELEASE>0</RELEASE><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDON>2016-10-10</CHANGEDON><CHGDANYON>0000-00-00</CHGDANYON><CLSFINAL>X</CLSFINAL><CLSCCINCL>X</CLSCCINCL><FIXPT>X</FIXPT><UNICODE>X</UNICODE><R3RELEASE>750</R3RELEASE><CLSBCCAT>00</CLSBCCAT><DURATION_TYPE>0</DURATION_TYPE><RISK_LEVEL>0</RISK_LEVEL><ATTRIBUTES><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>C_INSERT</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Tipo operazione</DESCRIPT><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>1</EDITORDER><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-10</CHANGEDON><ATTDECLTYP>2</ATTDECLTYP><ATTVALUE>&apos;I&apos;</ATTVALUE><ATTEXPVIRT>0</ATTEXPVIRT><TYPTYPE>1</TYPTYPE><TYPE>ZPP_SAP_PDM_TIPOOPER</TYPE><SRCROW1>0</SRCROW1><SRCCOLUMN1>0</SRCCOLUMN1><SRCROW2>0</SRCROW2><SRCCOLUMN2>0</SRCCOLUMN2><TYPESRC_LENG>0</TYPESRC_LENG></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>C_UPDATE</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Tipo operazione</DESCRIPT><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>2</EDITORDER><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-10</CHANGEDON><ATTDECLTYP>2</ATTDECLTYP><ATTVALUE>&apos;U&apos;</ATTVALUE><ATTEXPVIRT>0</ATTEXPVIRT><TYPTYPE>1</TYPTYPE><TYPE>ZPP_SAP_PDM_TIPOOPER</TYPE><SRCROW1>0</SRCROW1><SRCCOLUMN1>0</SRCCOLUMN1><SRCROW2>0</SRCROW2><SRCCOLUMN2>0</SRCCOLUMN2><TYPESRC_LENG>0</TYPESRC_LENG></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>GS_SEL</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Parametri di selezione</DESCRIPT><EXPOSURE>0</EXPOSURE><STATE>1</STATE><EDITORDER>1</EDITORDER><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-10</CHANGEDON><ATTDECLTYP>0</ATTDECLTYP><ATTEXPVIRT>0</ATTEXPVIRT><TYPTYPE>1</TYPTYPE><TYPE>TY_S_SEL</TYPE><SRCROW1>0</SRCROW1><SRCCOLUMN1>0</SRCCOLUMN1><SRCROW2>0</SRCROW2><SRCCOLUMN2>0</SRCCOLUMN2><TYPESRC_LENG>0</TYPESRC_LENG></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>GT_DATA</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Dati estratti da Sap</DESCRIPT><EXPOSURE>0</EXPOSURE><STATE>1</STATE><EDITORDER>2</EDITORDER><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-10</CHANGEDON><ATTDECLTYP>0</ATTDECLTYP><ATTEXPVIRT>0</ATTEXPVIRT><TYPTYPE>1</TYPTYPE><TYPE>TY_T_DATA</TYPE><SRCROW1>0</SRCROW1><SRCCOLUMN1>0</SRCCOLUMN1><SRCROW2>0</SRCROW2><SRCCOLUMN2>0</SRCCOLUMN2><TYPESRC_LENG>0</TYPESRC_LENG></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>GT_PDM_FILE</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>File da inviare al PDM</DESCRIPT><EXPOSURE>0</EXPOSURE><STATE>1</STATE><EDITORDER>3</EDITORDER><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-10</CHANGEDON><ATTDECLTYP>0</ATTDECLTYP><ATTEXPVIRT>0</ATTEXPVIRT><TYPTYPE>1</TYPTYPE><TYPE>TY_T_PDM_FILE</TYPE><SRCROW1>0</SRCROW1><SRCCOLUMN1>0</SRCCOLUMN1><SRCROW2>0</SRCROW2><SRCCOLUMN2>0</SRCCOLUMN2><TYPESRC_LENG>0</TYPESRC_LENG></item></ATTRIBUTES><METHODS><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>CONSTRUCTOR</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Costruttore</DESCRIPT><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-10</CHANGEDON><MTDTYPE>2</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>EXECUTE</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Esegue programma</DESCRIPT><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>2</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-06-22</CREATEDON><CHANGEDON>2016-10-10</CHANGEDON><MTDTYPE>0</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>GET_DATA</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Estrazione dati</DESCRIPT><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>3</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-10</CHANGEDON><MTDTYPE>0</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>CREATE_SELECTIONS</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><EXPOSURE>0</EXPOSURE><STATE>1</STATE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-10</CHANGEDON><MTDTYPE>0</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>GET_PDM_UM</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Restituisce unità di misura PDM</DESCRIPT><EXPOSURE>0</EXPOSURE><STATE>1</STATE><EDITORDER>2</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-10</CHANGEDON><MTDTYPE>0</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>GET_MATERIAL_TEXT</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Restituisce testo materiale composto</DESCRIPT><EXPOSURE>0</EXPOSURE><STATE>1</STATE><EDITORDER>3</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-10</CHANGEDON><MTDTYPE>0</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>SET_PDM_FILE</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Costruisce il file per il PDM</DESCRIPT><EXPOSURE>0</EXPOSURE><STATE>1</STATE><EDITORDER>4</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-10</CHANGEDON><MTDTYPE>0</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>SET_PDM_DATE</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Setta data PDM in formato gg/mm/aaaa</DESCRIPT><EXPOSURE>0</EXPOSURE><STATE>1</STATE><EDITORDER>5</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-10</CHANGEDON><MTDTYPE>0</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>SET_PDM_GESTIONE</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Setta valore campo gestione</DESCRIPT><EXPOSURE>0</EXPOSURE><STATE>1</STATE><EDITORDER>6</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-10</CHANGEDON><MTDTYPE>0</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>SET_TIPOOPER</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Setta tipo operazione</DESCRIPT><EXPOSURE>0</EXPOSURE><STATE>1</STATE><EDITORDER>7</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-10</CHANGEDON><MTDTYPE>0</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>SEND_TO_PDM</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Invia dati a PDM</DESCRIPT><EXPOSURE>0</EXPOSURE><STATE>1</STATE><EDITORDER>8</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-10</CHANGEDON><MTDTYPE>0</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>ALV_SHOW</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Mostra alv</DESCRIPT><EXPOSURE>0</EXPOSURE><STATE>1</STATE><EDITORDER>9</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-10</CHANGEDON><MTDTYPE>0</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>ALV_SET_DATA</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Imposta dati finali</DESCRIPT><EXPOSURE>0</EXPOSURE><STATE>1</STATE><EDITORDER>10</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-05-04</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-10</CHANGEDON><MTDTYPE>0</MTDTYPE><MTDDECLTYP>0</MTDDECLTYP><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item></METHODS><EVENTS/><TYPES><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>TY_S_DATA</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>1</EDITORDER><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-10</CHANGEDON><TYPTYPE>4</TYPTYPE><SRCROW1>10</SRCROW1><SRCCOLUMN1>6</SRCCOLUMN1><SRCROW2>17</SRCROW2><SRCCOLUMN2>29</SRCCOLUMN2><TYPESRC_LENG>286</TYPESRC_LENG><TYPESRC>BEGIN OF ty_s_data.
-    TYPES: werks      TYPE marc-werks.
-    TYPES: meins      TYPE meins.
-    TYPES: ps_psp_pnr TYPE vbap-ps_psp_pnr.
-    TYPES: disgr      TYPE marc-disgr.
-    TYPES: ersda TYPE mara-ersda.
-        INCLUDE TYPE zpp_sap_to_pdm.
-    TYPES:    END OF ty_s_data
-</TYPESRC></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>TY_S_SEL</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>2</EDITORDER><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-10</CHANGEDON><TYPTYPE>4</TYPTYPE><SRCROW1>19</SRCROW1><SRCCOLUMN1>6</SRCCOLUMN1><SRCROW2>33</SRCROW2><SRCCOLUMN2>20</SRCCOLUMN2><TYPESRC_LENG>741</TYPESRC_LENG><TYPESRC>BEGIN OF ty_s_sel,
-        p_full   TYPE xfeld,   &quot; estrazione full
-        p_delta  TYPE xfeld,   &quot; estrazione delta
-        p_tofill TYPE xfeld,   &quot; invio anagrafica SAP -&gt; PDM Filling
-        p_tolabl TYPE xfeld,   &quot; invio anagrafica SAP -&gt; PDM Labelling
-        p_topack TYPE xfeld,   &quot; invio anagrafica SAP -&gt; PDM Packaging
-        s_werks  TYPE RANGE OF marc-werks,
-        s_matnr  TYPE RANGE OF mara-matnr,
-        s_mstae  TYPE RANGE OF mara-mstae,
-        s_mmsta  TYPE RANGE OF marc-mmsta,
-        s_dispo  TYPE RANGE OF marc-dispo,
-        s_laeda  TYPE RANGE OF mara-laeda,
-*        s_mstav  TYPE RANGE OF mara-mstav, &quot;DP-06_10_2016
-        s_vmsta  TYPE RANGE OF mvke-vmsta, &quot;DP-06_10_2016
-      END OF ty_s_sel
-</TYPESRC></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>TY_T_DATA</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>3</EDITORDER><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-10</CHANGEDON><TYPTYPE>4</TYPTYPE><SRCROW1>35</SRCROW1><SRCCOLUMN1>6</SRCCOLUMN1><SRCROW2>35</SRCROW2><SRCCOLUMN2>38</SRCCOLUMN2><TYPESRC_LENG>35</TYPESRC_LENG><TYPESRC>ty_t_data TYPE TABLE OF ty_s_data
-</TYPESRC></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>TY_S_PDM_FILE</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>4</EDITORDER><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-10</CHANGEDON><TYPTYPE>1</TYPTYPE><TYPE>STRING</TYPE><SRCROW1>0</SRCROW1><SRCCOLUMN1>0</SRCCOLUMN1><SRCROW2>0</SRCROW2><SRCCOLUMN2>0</SRCCOLUMN2><TYPESRC_LENG>0</TYPESRC_LENG></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>TY_T_PDM_FILE</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>5</EDITORDER><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-10</CHANGEDON><TYPTYPE>4</TYPTYPE><SRCROW1>38</SRCROW1><SRCCOLUMN1>6</SRCCOLUMN1><SRCROW2>38</SRCROW2><SRCCOLUMN2>46</SRCCOLUMN2><TYPESRC_LENG>43</TYPESRC_LENG><TYPESRC>ty_t_pdm_file TYPE TABLE OF ty_s_pdm_file
-</TYPESRC></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>TY_S_ALV_DATA</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Struttura file Sap -&gt; PDM</DESCRIPT><EXPOSURE>0</EXPOSURE><STATE>1</STATE><EDITORDER>1</EDITORDER><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-05-04</CREATEDON><CHANGEDON>2016-10-10</CHANGEDON><TYPTYPE>1</TYPTYPE><TYPE>ZPP_SAP_TO_PDM</TYPE><SRCROW1>0</SRCROW1><SRCCOLUMN1>0</SRCCOLUMN1><SRCROW2>0</SRCROW2><SRCCOLUMN2>0</SRCCOLUMN2><TYPESRC_LENG>0</TYPESRC_LENG></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>TY_T_ALV_DATA</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><EXPOSURE>0</EXPOSURE><STATE>1</STATE><EDITORDER>2</EDITORDER><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-05-04</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-10</CHANGEDON><TYPTYPE>4</TYPTYPE><SRCROW1>1</SRCROW1><SRCCOLUMN1>0</SRCCOLUMN1><SRCROW2>1</SRCROW2><SRCCOLUMN2>41</SRCCOLUMN2><TYPESRC_LENG>43</TYPESRC_LENG><TYPESRC>ty_t_alv_data TYPE TABLE OF ty_s_alv_data
-</TYPESRC></item></TYPES><PARAMETERS><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>ALV_SET_DATA</CMPNAME><SCONAME>IT_DATA</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-05-04</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>TY_T_DATA</TYPE></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>ALV_SET_DATA</CMPNAME><SCONAME>CT_ALV_DATA</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>2</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-05-04</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-05-04</CHANGEDON><PARDECLTYP>2</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>TY_T_ALV_DATA</TYPE></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>ALV_SHOW</CMPNAME><SCONAME>CT_DATA</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>2</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>TABLE</TYPE></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>CONSTRUCTOR</CMPNAME><SCONAME>IV_PROGRAM</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Programma chiamante</DESCRIPT><CMPTYPE>1</CMPTYPE><MTDTYPE>2</MTDTYPE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>SY-REPID</TYPE></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>CONSTRUCTOR</CMPNAME><SCONAME>IV_LANGUAGE</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Campo sistema ABAP: chiave lingua dell&apos;ambiente testi</DESCRIPT><CMPTYPE>1</CMPTYPE><MTDTYPE>2</MTDTYPE><EDITORDER>2</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>SY-LANGU</TYPE><PARVALUE>SY-LANGU</PARVALUE></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>CONSTRUCTOR</CMPNAME><SCONAME>IS_SEL</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><CMPTYPE>1</CMPTYPE><MTDTYPE>2</MTDTYPE><EDITORDER>3</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>TY_S_SEL</TYPE><PAROPTIONL>X</PAROPTIONL></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>GET_DATA</CMPNAME><SCONAME>IS_SEL</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>TY_S_SEL</TYPE></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>GET_DATA</CMPNAME><SCONAME>CT_DATA</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>2</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>2</PARDECLTYP><PARPASSTYP>0</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>TY_T_DATA</TYPE></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>GET_MATERIAL_TEXT</CMPNAME><SCONAME>IV_MATERIAL</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Codice materiale</DESCRIPT><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>MATNR</TYPE></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>GET_MATERIAL_TEXT</CMPNAME><SCONAME>EV_TEXT</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>2</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>3</PARDECLTYP><PARPASSTYP>0</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>STRING</TYPE></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>GET_PDM_UM</CMPNAME><SCONAME>IV_MEINS</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Unità di misura dell&apos;ordine d&apos;acquisto</DESCRIPT><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>MEINS_D</TYPE></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>GET_PDM_UM</CMPNAME><SCONAME>EV_UM_PDM</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>unità di misura PDM</DESCRIPT><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>2</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>3</PARDECLTYP><PARPASSTYP>0</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>ZPP_SAP_PDM_UM</TYPE></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>SEND_TO_PDM</CMPNAME><SCONAME>IT_DATA</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-05-04</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>TY_T_DATA</TYPE></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>SEND_TO_PDM</CMPNAME><SCONAME>EV_RET</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>2</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>3</PARDECLTYP><PARPASSTYP>0</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>I</TYPE></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>SET_PDM_DATE</CMPNAME><SCONAME>IV_DATE</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Campo sistema ABAP: data attuale dell&apos;application server</DESCRIPT><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>SY-DATUM</TYPE></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>SET_PDM_DATE</CMPNAME><SCONAME>EV_DATE</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>2</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>3</PARDECLTYP><PARPASSTYP>0</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>STRING</TYPE></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>SET_PDM_FILE</CMPNAME><SCONAME>IV_WERKS</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Divisione</DESCRIPT><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>WERKS_D</TYPE></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>SET_PDM_FILE</CMPNAME><SCONAME>IT_DATA</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>2</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>TY_T_DATA</TYPE></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>SET_PDM_FILE</CMPNAME><SCONAME>CT_PDM_FILE</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>3</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>2</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>TY_T_PDM_FILE</TYPE></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>SET_PDM_GESTIONE</CMPNAME><SCONAME>IV_DISGR</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Gruppo di pianif.</DESCRIPT><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>MARC-DISGR</TYPE></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>SET_PDM_GESTIONE</CMPNAME><SCONAME>EV_GESTIONE</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Gestione</DESCRIPT><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>2</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>3</PARDECLTYP><PARPASSTYP>0</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>ZPP_SAP_PDM_GESTIONE</TYPE></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>SET_TIPOOPER</CMPNAME><SCONAME>IV_ERSDA</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Data creazione record MARA</DESCRIPT><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>SY-DATUM</TYPE></item><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><CMPNAME>SET_TIPOOPER</CMPNAME><SCONAME>EV_TIPOOPER</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Tipo operazione</DESCRIPT><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>2</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>3</PARDECLTYP><PARPASSTYP>0</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>ZPP_SAP_PDM_TIPOOPER</TYPE></item></PARAMETERS><EXCEPTIONS/><IMPLEMENTINGS/><IMPL_DETAILS/><FRIENDSHIPS/><TYPEPUSAGES/><CLSDEFERRDS/><INTDEFERRDS/><ALIASES/><INHERITANCE><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><REFCLSNAME>ZCL_BC_PROGRAM_BASE</REFCLSNAME><VERSION>1</VERSION><STATE>1</STATE><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2016-04-27</CREATEDON><CHANGEDBY>KOSMEDEV</CHANGEDBY><CHANGEDON>2016-10-10</CHANGEDON></INHERITANCE><INTERFACES/><REDEFINITIONS><item><CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME><REFCLSNAME>ZCL_BC_PROGRAM_BASE</REFCLSNAME><VERSION>1</VERSION><MTDNAME>MODIFY_SCREEN</MTDNAME><EXPOSURE>1</EXPOSURE></item></REDEFINITIONS><TYPE_SOURCE><item>ty_t_alv_data TYPE TABLE OF ty_s_alv_data</item></TYPE_SOURCE><LOCALS_SRC/><LOCALS_DEF><item>*&quot;* use this source file for any type of declarations (class</item><item>*&quot;* definitions, interfaces or type declarations) you need for</item><item>*&quot;* components in the private section</item><item/></LOCALS_DEF><LOCALS_IMP><item>*&quot;* use this source file for the definition and implementation of</item><item>*&quot;* local helper classes, interface definitions and type</item><item>*&quot;* declarations</item><item/></LOCALS_IMP><LOCALS_MAC><item>*&quot;* use this source file for any macro definitions you need</item><item>*&quot;* in the implementation part of the class</item><item/></LOCALS_MAC><TEXT_POOL/><METHOD_SOURCE><ALV_SHOW><item>  METHOD alv_show.</item><item>    DATA: lt_fieldcat TYPE slis_t_fieldcat_alv,</item><item>          lt_alv_data TYPE ty_t_alv_data,</item><item>          is_print    TYPE slis_print_alv,</item><item>          lv_program  TYPE sy-repid.</item><item/><item>    lv_program = get_program( ).</item><item/><item>    DATA lo_alv     TYPE REF TO cl_salv_table.</item><item>    DATA lo_display TYPE REF TO cl_salv_display_settings.</item><item/><item>    DATA:lv_lenght   TYPE i.</item><item>    DATA:lv_title    TYPE char70.</item><item/><item>    alv_set_data( EXPORTING it_data     = gt_data</item><item>                  CHANGING  ct_alv_data = lt_alv_data ).</item><item/><item>    TRY.</item><item>        cl_salv_table=&gt;factory(</item><item>          IMPORTING</item><item>            r_salv_table = lo_alv</item><item>          CHANGING</item><item>            t_table      = lt_alv_data[] ).</item><item>      CATCH cx_salv_msg.</item><item>    ENDTRY.</item><item/><item>    DATA: lr_functions TYPE REF TO cl_salv_functions_list.</item><item>    lr_functions = lo_alv-&gt;get_functions( ).</item><item>    lr_functions-&gt;set_all( &apos;X&apos; ).</item><item/><item>    lo_display = lo_alv-&gt;get_display_settings( ).</item><item>    lo_display-&gt;set_striped_pattern( cl_salv_display_settings=&gt;true ).</item><item/><item>    DATA: lo_columns  TYPE REF TO cl_salv_columns.</item><item>    lo_columns = lo_alv-&gt;get_columns( ).</item><item>    DATA: lo_column    TYPE REF TO cl_salv_column.</item><item>    TRY.</item><item>        lo_columns-&gt;set_optimize( abap_true ).</item><item>*          lo_column = lo_cols-&gt;get_column( &apos;TYPE&apos; ).</item><item>*          lo_column-&gt;set_long_text( &apos;Avl Date&apos; ).           &quot;#EC NOTEXT</item><item>*          lo_column-&gt;set_medium_text( &apos;Avl Date&apos; ).         &quot;#EC NOTEXT</item><item>*          lo_column-&gt;set_short_text( &apos;Avl Date&apos; ).          &quot;#EC NOTEXT</item><item>*          lo_column-&gt;set_output_length( 10 ).</item><item>      CATCH cx_salv_not_found.                          &quot;#EC NO_HANDLER</item><item>    ENDTRY.</item><item/><item>    IF lo_alv IS BOUND.</item><item>      lo_alv-&gt;display( ).</item><item>    ENDIF.</item><item>  ENDMETHOD.</item></ALV_SHOW><CONSTRUCTOR><item>  METHOD constructor.</item><item>    super-&gt;constructor( iv_program = iv_program iv_language = iv_languag</item><item>  ENDMETHOD.</item></CONSTRUCTOR><GET_DATA><item>  METHOD get_data.</item><item>    DATA: lref_sel    TYPE REF TO data,</item><item>          lv_language TYPE sy-langu.</item><item/><item>    lref_sel = get_selections( ).</item><item>    REFRESH: ct_data.</item><item>    DATA: ls_data       TYPE ty_s_data,</item><item>          wa_prps       TYPE prps,</item><item>          lv_ps_psp_pnr TYPE ps_psp_pnr,</item><item>          lv_posid      TYPE ps_posid,</item><item>          lv_vbeln      TYPE vbeln,</item><item>          lv_posnr      TYPE posnr,</item><item>          lv_c_posnr    TYPE c LENGTH 6.</item><item/><item>    DATA: ln_mvke  TYPE mvke.            &quot;DP-06_10_2016</item><item>    DATA: lv_pspid TYPE proj-pspid.      &quot;DP-06_10_2016</item><item>    DATA: r_mtart  TYPE RANGE OF mtart.  &quot;DP-28_11_2016</item><item>    DATA: l_mtart  LIKE LINE OF r_mtart. &quot;DP-28_11_2016</item><item/><item>*DP-28_11_2016 Inizio</item><item>    REFRESH r_mtart.</item><item>    CLEAR l_mtart.</item><item>    l_mtart-sign   = &apos;E&apos;.</item><item>    l_mtart-option = &apos;EQ&apos;.</item><item>    l_mtart-low    = &apos;ZP05&apos;.</item><item>    l_mtart-high   = &apos;ZP05&apos;.</item><item>    APPEND l_mtart TO r_mtart.</item><item>    CLEAR l_mtart.</item><item>    l_mtart-sign   = &apos;E&apos;.</item><item>    l_mtart-option = &apos;EQ&apos;.</item><item>    l_mtart-low    = &apos;ZP08&apos;.</item><item>    l_mtart-high   = &apos;ZP08&apos;.</item><item>    APPEND l_mtart TO r_mtart.</item><item>*DP-28_11_2016 Fine</item><item/><item>    lv_language = get_language( ).</item><item/><item>    DATA: w_zzcostr TYPE mara-zzcostr.</item><item/><item>    SELECT marc~werks marc~matnr marc~disgr</item><item>           mara~meins mara~matkl mara~ersda mara~zzcaratt</item><item>           mara~bismt mara~zzmatnr_kro mara~zzmatcostr</item><item>           makt~maktx mara~zzcostr</item><item>*           ztmm_costrutt~zmmname_costr</item><item>           INTO (ls_data-werks, ls_data-matnr, ls_data-disgr,</item><item>                 ls_data-meins, ls_data-matkl, ls_data-ersda, ls_data-ch</item><item>                 ls_data-matpre, ls_data-filler35, ls_data-matcostr,</item><item>                 ls_data-maktx, w_zzcostr)</item><item>*                 ls_data-descostr)</item><item>           FROM marc</item><item>             INNER JOIN mara ON mara~matnr = marc~matnr</item><item>             LEFT JOIN makt ON makt~matnr = mara~matnr AND makt~spras =</item><item>*             LEFT JOIN ztmm_costrutt ON ztmm_costrutt~zmmcostrutt = mar</item><item>           WHERE marc~werks IN is_sel-s_werks</item><item>           AND   marc~matnr IN is_sel-s_matnr</item><item>           AND   mara~mstae IN is_sel-s_mstae</item><item>           AND   mara~mtart IN r_mtart         &quot;DP-28_11_2016</item><item>*           AND   mara~mstav IN is_sel-s_mstav</item><item>           AND   marc~mmsta IN is_sel-s_mmsta</item><item>           AND   marc~dispo IN is_sel-s_dispo</item><item>           AND   ( mara~laeda IN is_sel-s_laeda OR</item><item>                   mara~ersda IN is_sel-s_laeda ).</item><item/><item>*        APPEND ls_data TO ct_data. &quot;DP-06_10_2016</item><item>*DP-06_10_2016 inizio</item><item>      CLEAR ls_data-descostr.</item><item>      SELECT SINGLE zmmname_costr FROM ztmm_costrutt</item><item>                                  INTO ls_data-descostr</item><item>                                 WHERE zmmcostrutt EQ w_zzcostr.</item><item/><item>      IF is_sel-s_vmsta IS NOT INITIAL.</item><item>        CLEAR ln_mvke.</item><item>        SELECT SINGLE * FROM mvke</item><item>                        INTO CORRESPONDING FIELDS OF ln_mvke</item><item>                       WHERE matnr EQ ls_data-matnr</item><item>*                         AND vkorg EQ &apos;6301&apos;</item><item>*                         AND vtweg EQ &apos;02&apos;</item><item>                         AND vmsta IN is_sel-s_vmsta.</item><item>        IF sy-subrc EQ 0.</item><item>          APPEND ls_data TO ct_data.</item><item>        ENDIF.</item><item>      ELSE.</item><item>        APPEND ls_data TO ct_data.</item><item>      ENDIF.</item><item>*DP-06_10_2016 Fine</item><item/><item>    ENDSELECT.</item><item/><item>    DATA: lv_tabix TYPE i.</item><item>    LOOP AT ct_data INTO ls_data.</item><item>      lv_tabix = sy-tabix.</item><item>      IF ( ls_data-charact IS INITIAL ).</item><item>        ls_data-charact = ls_data-matnr(3).</item><item>      ENDIF.</item><item>* recupero dati commessa solo per materiali K,6,R</item><item>      IF  ( ls_data-matnr(1) = &apos;K&apos; OR</item><item>        ls_data-matnr(1) = &apos;R&apos; OR</item><item>        ls_data-matnr(1) = &apos;6&apos; OR</item><item>        ls_data-matnr(1) = &apos;8&apos; ).</item><item/><item>        CLEAR: lv_vbeln, lv_posnr, lv_ps_psp_pnr, lv_posid.</item><item>        SELECT vbeln posnr ps_psp_pnr INTO (lv_vbeln, lv_posnr, lv_ps_ps</item><item>               WHERE matnr = ls_data-matnr ORDER BY erdat DESCENDING.</item><item>          zcl_bc_conversion_exit=&gt;conversion_output( EXPORTING iv_field</item><item>                                                     CHANGING cv_field =</item><item>          EXIT.</item><item>        ENDSELECT.</item><item>        IF ( lv_ps_psp_pnr IS INITIAL OR lv_vbeln IS INITIAL ).</item><item>          CLEAR lv_posid.</item><item>          SELECT posid vbeln posnr INTO (lv_posid, lv_vbeln, lv_posnr) F</item><item>                 WHERE matnr = ls_data-matnr ORDER BY audat DESCENDING.</item><item>            EXIT.</item><item>          ENDSELECT.</item><item>        ENDIF.</item><item/><item>*        ls_data-filler19 = lv_posid.          &quot;DP-10_10_2016</item><item>*        ls_data-filler20 = ls_data-filler19.  &quot;DP-10_10_2016</item><item>        ls_data-commessa = lv_posid.  &quot;DP-06_10_2016</item><item/><item>        IF ( NOT lv_vbeln IS INITIAL ).</item><item>          zcl_bc_conversion_exit=&gt;conversion_output( EXPORTING iv_field</item><item>                                                     CHANGING cv_field =</item><item>          DATA: lv_i_posnr TYPE i.</item><item>          lv_i_posnr = lv_posnr.</item><item>          WRITE lv_i_posnr TO lv_c_posnr.</item><item>          CONDENSE lv_c_posnr.</item><item>          ls_data-filler33 = lv_vbeln &amp;&amp; &apos;-&apos; &amp;&amp; lv_c_posnr.</item><item>        ENDIF.</item><item>        ls_data-filler34 = ls_data-filler33.</item><item/><item>        SELECT SINGLE * FROM prps INTO wa_prps WHERE equnr = ls_data-mat</item><item>        IF sy-subrc = 0.</item><item>*          ls_data-filler19 = wa_prps-posid.</item><item>*          ls_data-filler20 = ls_data-filler19.</item><item>*          IF ( ls_data-matnr(1) = &apos;K&apos; OR ls_data-matnr(1) = &apos;6&apos; OR ls_d</item><item>*            ls_data-filler33 = wa_prps-usr01.</item><item>*          ENDIF.</item><item>*          ls_data-filler34 = ls_data-filler33.</item><item>          IF ( ls_data-matnr(1) = &apos;K&apos; OR ls_data-matnr(1) = &apos;8&apos; ).</item><item>*            ls_data-filler39 = wa_prps-usr00. &quot;DP-10_10_2016</item><item>          ENDIF.</item><item>*          ls_data-codkrones = wa_prps-usr00. &quot;DP-06_10_2016</item><item>          ls_data-codkrones = wa_prps-usr02. &quot;DP-06_10_2016</item><item>*          ls_data-filler40 = ls_data-filler39. &quot;DP-10_10_2016</item><item/><item>*          ls_data-commessa = ls_data-filler19.  &quot;DP-06_10_2016</item><item/><item>          DATA: w_clike TYPE char24.</item><item>          CLEAR w_clike.</item><item/><item>          CALL FUNCTION &apos;CONVERSION_EXIT_KONPD_OUTPUT&apos;</item><item>            EXPORTING</item><item>              input  = wa_prps-psphi</item><item>            IMPORTING</item><item>              output = w_clike</item><item>*             PSELT  =</item><item>            .</item><item/><item>          ls_data-progetto = w_clike.  &quot;DP-10_10_2016</item><item/><item>        ENDIF.</item><item>      ENDIF.</item><item>*</item><item>      ls_data-filler36 = ls_data-filler35.</item><item>      ls_data-um_pdm = get_pdm_um( iv_meins = ls_data-meins ).</item><item>      ls_data-maktx  = ls_data-maktx &amp;&amp; `` &amp;&amp; get_material_text( iv_mate</item><item>      ls_data-credat = set_pdm_date( iv_date = ls_data-ersda ).</item><item>      ls_data-gestione = set_pdm_gestione( EXPORTING iv_disgr = ls_data-</item><item>      ls_data-tipooper = set_tipooper( EXPORTING iv_ersda = ls_data-ersd</item><item>      MODIFY ct_data FROM ls_data INDEX lv_tabix.</item><item>    ENDLOOP.</item><item>  ENDMETHOD.</item></GET_DATA><GET_MATERIAL_TEXT><item>  METHOD get_material_text.</item><item>    DATA: lv_id       TYPE thead-tdid,</item><item>          lv_language TYPE thead-tdspras,</item><item>          lv_name     TYPE thead-tdname,</item><item>          lv_object   TYPE thead-tdobject,</item><item>          lt_lines    TYPE TABLE OF tline.</item><item/><item>    CLEAR: ev_text.</item><item>    REFRESH lt_lines.</item><item/><item>    lv_id       = &apos;GRUN&apos;.</item><item>    lv_language = get_language( ).</item><item>    lv_name     = iv_material.</item><item>    lv_object   = &apos;MATERIAL&apos;.</item><item/><item>    CALL FUNCTION &apos;READ_TEXT&apos;</item><item>      EXPORTING</item><item>*       CLIENT                  = SY-MANDT</item><item>        id                      = lv_id</item><item>        language                = lv_language</item><item>        name                    = lv_name</item><item>        object                  = lv_object</item><item>*       ARCHIVE_HANDLE          = 0</item><item>*       LOCAL_CAT               = &apos; &apos;</item><item>*     IMPORTING</item><item>*       HEADER                  =</item><item>*       OLD_LINE_COUNTER        =</item><item>      TABLES</item><item>        lines                   = lt_lines</item><item>      EXCEPTIONS</item><item>        id                      = 1</item><item>        language                = 2</item><item>        name                    = 3</item><item>        not_found               = 4</item><item>        object                  = 5</item><item>        reference_check         = 6</item><item>        wrong_access_to_archive = 7</item><item>        OTHERS                  = 8.</item><item/><item>    LOOP AT lt_lines INTO DATA(ls_lines) TO 2.</item><item>      ev_text = ev_text &amp;&amp; ` ` &amp;&amp; ls_lines-tdline.</item><item>    ENDLOOP.</item><item/><item>  ENDMETHOD.</item></GET_MATERIAL_TEXT><GET_PDM_UM><item>  METHOD get_pdm_um.</item><item>    CLEAR: ev_um_pdm.</item><item>    SELECT SINGLE um_pdm INTO ev_um_pdm FROM ztmm_um WHERE um_sap = iv_m</item><item>    IF ( sy-subrc &lt;&gt; 0 ).</item><item>      zcl_bc_conversion_exit=&gt;conversion_output( EXPORTING iv_field = iv</item><item>                                                 CHANGING  cv_field = ev</item><item>    ENDIF.</item><item>  ENDMETHOD.</item></GET_PDM_UM><SEND_TO_PDM><item>  METHOD send_to_pdm.</item><item>    DATA: lo_pdm_file TYPE REF TO zcl_pp_pdm_file,</item><item>          lt_data     TYPE ty_t_data,</item><item>          lv_werks    TYPE werks_d,</item><item>          lv_errmsg   TYPE string,</item><item>          lv_sucmsg   TYPE string,</item><item>          lv_ret      TYPE i.</item><item/><item>    lv_errmsg = `Errore trasf. `.</item><item>    lv_sucmsg = ``.</item><item/><item>    REFRESH lt_data.</item><item>    CLEAR lv_werks.</item><item>    lt_data[] = it_data[].</item><item>    SORT lt_data BY werks matnr.</item><item>    LOOP AT it_data INTO DATA(ls_data).</item><item>      IF ( lv_werks &lt;&gt; ls_data-werks ).</item><item>        lo_pdm_file = NEW #( iv_werks = ls_data-werks ).</item><item>        IF ( NOT gs_sel-p_tofill IS INITIAL ).</item><item>          set_pdm_file( EXPORTING iv_werks = ls_data-werks it_data = gt_</item><item>                        CHANGING ct_pdm_file = gt_pdm_file ).</item><item>*          IF ( lo_pdm_file-&gt;write( iv_type = zcl_pp_pdm_file=&gt;c_mat_sap</item><item>*                                   it_data = gt_pdm_file ) = 0 ).</item><item>          IF ( lo_pdm_file-&gt;append( iv_type = zcl_pp_pdm_file=&gt;c_mat_sap</item><item>                                    it_data = gt_pdm_file ) = 0 ).</item><item>            lv_sucmsg = lv_sucmsg &amp;&amp; ` Filling`.</item><item>          ELSE.</item><item>            IF ( sy-batch = abap_false ).</item><item>              lv_ret = 4.</item><item>              lv_errmsg = lv_errmsg &amp;&amp; ` Filling`.</item><item>            ENDIF.</item><item>          ENDIF.</item><item>        ENDIF.</item><item>        IF ( NOT gs_sel-p_tolabl IS INITIAL ).</item><item>          set_pdm_file( EXPORTING iv_werks = ls_data-werks it_data = gt_</item><item>                        CHANGING ct_pdm_file = gt_pdm_file ).</item><item>*          IF ( lo_pdm_file-&gt;write( iv_type = zcl_pp_pdm_file=&gt;c_mat_sap</item><item>*                                   it_data = gt_pdm_file ) = 0 ).</item><item>          IF ( lo_pdm_file-&gt;append( iv_type = zcl_pp_pdm_file=&gt;c_mat_sap</item><item>                                    it_data = gt_pdm_file ) = 0 ).</item><item>            lv_sucmsg = lv_sucmsg &amp;&amp; ` Labellingg`.</item><item>          ELSE.</item><item>            IF ( sy-batch = abap_false ).</item><item>              lv_ret = 4.</item><item>              lv_errmsg = lv_errmsg &amp;&amp; ` Labelling`.</item><item>            ENDIF.</item><item>          ENDIF.</item><item>        ENDIF.</item><item>        IF ( NOT gs_sel-p_topack IS INITIAL ).</item><item>          set_pdm_file( EXPORTING iv_werks = ls_data-werks it_data = gt_</item><item>                        CHANGING ct_pdm_file = gt_pdm_file ).</item><item>*          IF ( lo_pdm_file-&gt;write( iv_type = zcl_pp_pdm_file=&gt;c_mat_sap</item><item>*                                   it_data = gt_pdm_file ) = 0 ).</item><item>          IF ( lo_pdm_file-&gt;append( iv_type = zcl_pp_pdm_file=&gt;c_mat_sap</item><item>                                    it_data = gt_pdm_file ) = 0 ).</item><item>            lv_sucmsg = lv_sucmsg &amp;&amp; ` Packaging`.</item><item>          ELSE.</item><item>            IF ( sy-batch = abap_false ).</item><item>              lv_ret = 4.</item><item>              lv_errmsg = lv_errmsg &amp;&amp; ` Packaging`.</item><item>            ENDIF.</item><item>          ENDIF.</item><item>        ENDIF.</item><item>      ENDIF.</item><item>      lv_werks = ls_data-werks.</item><item>    ENDLOOP.</item><item>    IF ( sy-batch = abap_false ).</item><item>      IF ( lv_ret = 0 ).</item><item>        IF ( lv_sucmsg IS NOT INITIAL ).</item><item>          lv_sucmsg = `Trasferito ` &amp;&amp; lv_sucmsg.</item><item>          MESSAGE s398(00) WITH lv_sucmsg.</item><item>        ENDIF.</item><item>      ELSE.</item><item>        MESSAGE s398(00) WITH lv_errmsg.</item><item>      ENDIF.</item><item>    ENDIF.</item><item>  ENDMETHOD.</item></SEND_TO_PDM><SET_PDM_DATE><item>  METHOD set_pdm_date.</item><item>    ev_date = iv_date+6(2) &amp;&amp; `/` &amp;&amp; iv_date+4(2) &amp;&amp; `/` &amp;&amp; iv_date(4).</item><item>  ENDMETHOD.</item></SET_PDM_DATE><SET_PDM_FILE><item>  METHOD set_pdm_file.</item><item>    DATA: ls_pdm_file     TYPE ty_s_pdm_file,</item><item>          ls_data_final   TYPE ty_s_alv_data,</item><item>          ls_split        TYPE string,</item><item>          lt_split        TYPE TABLE OF string,</item><item>          lo_struct_descr TYPE REF TO cl_abap_structdescr,</item><item>          ls_components   TYPE abap_compdescr,</item><item>          lv_field        TYPE string.</item><item>    FIELD-SYMBOLS: &lt;field_in&gt;  TYPE any,</item><item>                   &lt;field_out&gt; TYPE any.</item><item/><item>    REFRESH ct_pdm_file.</item><item>    LOOP AT it_data INTO DATA(ls_data) WHERE werks = iv_werks.</item><item>      CLEAR ls_data_final.</item><item>      MOVE-CORRESPONDING ls_data TO ls_data_final.</item><item>      IF ( lo_struct_descr IS INITIAL ).</item><item>*        lo_struct_descr ?= cl_abap_structdescr=&gt;describe_by_data( ls_da</item><item>        lo_struct_descr ?= cl_abap_structdescr=&gt;describe_by_data( ls_dat</item><item>      ENDIF.</item><item>      CLEAR: ls_pdm_file.</item><item>*      LOOP AT lo_struct_descr-&gt;components INTO ls_components WHERE name</item><item>*                                                             AND   name</item><item>*                                                             AND   name</item><item>*                                                             AND   name</item><item>*                                                             AND   name</item><item>      LOOP AT lo_struct_descr-&gt;components INTO ls_components.</item><item>        lv_field = &apos;ls_data-&apos; &amp;&amp; ls_components-name.</item><item>        ASSIGN (lv_field) TO &lt;field_in&gt;.</item><item>        IF ( sy-subrc = 0 ).</item><item>          ASSIGN (lv_field) TO &lt;field_out&gt;.</item><item>          zcl_bc_conversion_exit=&gt;conversion_output( EXPORTING iv_field</item><item>                                                     CHANGING  cv_field</item><item>          IF ( ls_pdm_file IS INITIAL ).</item><item>            ls_pdm_file = &lt;field_out&gt;.</item><item>          ELSE.</item><item>            ls_pdm_file = ls_pdm_file &amp;&amp; zcl_pp_pdm_file=&gt;c_file_separat</item><item>          ENDIF.</item><item>        ENDIF.</item><item>      ENDLOOP.</item><item>      ls_pdm_file = ls_pdm_file &amp;&amp; zcl_pp_pdm_file=&gt;c_file_separator.</item><item>      APPEND ls_pdm_file TO ct_pdm_file.</item><item>    ENDLOOP.</item><item>  ENDMETHOD.</item></SET_PDM_FILE><SET_PDM_GESTIONE><item>  METHOD set_pdm_gestione.</item><item>    CLEAR ev_gestione.</item><item>    CASE iv_disgr.</item><item>      WHEN &apos;ZMTS&apos;. ev_gestione = zcl_pp_pdm_file=&gt;c_scorta.</item><item>      WHEN &apos;ZMTO&apos;. ev_gestione = zcl_pp_pdm_file=&gt;c_commessa.</item><item>    ENDCASE.</item><item>  ENDMETHOD.</item></SET_PDM_GESTIONE><SET_TIPOOPER><item>  METHOD set_tipooper.</item><item>    ev_tipooper = c_update.</item><item>    IF ( iv_ersda = sy-datum ).</item><item>      ev_tipooper = c_insert.</item><item>    ENDIF.</item><item>  ENDMETHOD.</item></SET_TIPOOPER><MODIFY_SCREEN><item>  METHOD modify_screen.</item><item>    create_selections( ).</item><item/><item>    LOOP AT SCREEN INTO DATA(ls_screen).</item><item>      IF ( ls_screen-group1 = &apos;LAE&apos; ).</item><item>        CASE &apos;X&apos;.</item><item>          WHEN gs_sel-p_full.</item><item>            ls_screen-active = 0.</item><item>          WHEN gs_sel-p_delta.</item><item>            ls_screen-active = 1.</item><item>        ENDCASE.</item><item>        MODIFY screen FROM ls_screen.</item><item>      ENDIF.</item><item>    ENDLOOP.</item><item>  ENDMETHOD.</item></MODIFY_SCREEN><CREATE_SELECTIONS><item>  METHOD create_selections.</item><item>    DATA: lref_sel TYPE REF TO data.</item><item>    CREATE DATA lref_sel TYPE ty_s_sel.</item><item>    set_selections( CHANGING cref_sel = lref_sel ).</item><item>    FIELD-SYMBOLS: &lt;sel&gt;    TYPE any.</item><item>    ASSIGN lref_sel-&gt;* TO &lt;sel&gt;.</item><item>    IF ( sy-subrc = 0 ).</item><item>      gs_sel = &lt;sel&gt;.</item><item>    ENDIF.</item><item>  ENDMETHOD.</item></CREATE_SELECTIONS><ALV_SET_DATA><item>  METHOD alv_set_data.</item><item>    REFRESH ct_alv_data.</item><item>    DATA: ls_alv_data TYPE ty_s_alv_data.</item><item>    LOOP AT it_data INTO DATA(ls_data).</item><item>      CLEAR ls_alv_data.</item><item>      MOVE-CORRESPONDING ls_data TO ls_alv_data.</item><item>      APPEND ls_alv_data TO ct_alv_data.</item><item>    ENDLOOP.</item><item>  ENDMETHOD.</item></ALV_SET_DATA><EXECUTE><item>  METHOD execute.</item><item>    create_selections( ).</item><item/><item>    get_data( EXPORTING is_sel = gs_sel CHANGING  ct_data = gt_data ).</item><item>    send_to_pdm( it_data = gt_data ).</item><item>    IF ( sy-batch IS INITIAL ).</item><item>      alv_show( CHANGING ct_data = gt_data ).</item><item>    ENDIF.</item><item>  ENDMETHOD.</item></EXECUTE></METHOD_SOURCE></CLASS_ROOT>
+<?xml version="1.0"?>
+  <CLASS_ROOT>
+    <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>I</LANGU>
+    <DESCRIPT>Classe interfaccia SAP - PDM</DESCRIPT>
+    <UUID>AA06JAOFHuaDi6+v09C71Q==</UUID>
+    <CATEGORY>00</CATEGORY>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <RELEASE>0</RELEASE>
+    <AUTHOR>KOSMEDEV</AUTHOR>
+    <CREATEDON>2016-04-27</CREATEDON>
+    <CHANGEDON>2016-10-10</CHANGEDON>
+    <CHGDANYON>0000-00-00</CHGDANYON>
+    <CLSFINAL>X</CLSFINAL>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <R3RELEASE>750</R3RELEASE>
+    <CLSBCCAT>00</CLSBCCAT>
+    <DURATION_TYPE>0</DURATION_TYPE>
+    <RISK_LEVEL>0</RISK_LEVEL>
+    <ATTRIBUTES>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>C_INSERT</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Tipo operazione</DESCRIPT>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>1</EDITORDER>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-10</CHANGEDON>
+        <ATTDECLTYP>2</ATTDECLTYP>
+        <ATTVALUE>&apos;I&apos;</ATTVALUE>
+        <ATTEXPVIRT>0</ATTEXPVIRT>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>ZPP_SAP_PDM_TIPOOPER</TYPE>
+        <SRCROW1>0</SRCROW1>
+        <SRCCOLUMN1>0</SRCCOLUMN1>
+        <SRCROW2>0</SRCROW2>
+        <SRCCOLUMN2>0</SRCCOLUMN2>
+        <TYPESRC_LENG>0</TYPESRC_LENG>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>C_UPDATE</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Tipo operazione</DESCRIPT>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>2</EDITORDER>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-10</CHANGEDON>
+        <ATTDECLTYP>2</ATTDECLTYP>
+        <ATTVALUE>&apos;U&apos;</ATTVALUE>
+        <ATTEXPVIRT>0</ATTEXPVIRT>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>ZPP_SAP_PDM_TIPOOPER</TYPE>
+        <SRCROW1>0</SRCROW1>
+        <SRCCOLUMN1>0</SRCCOLUMN1>
+        <SRCROW2>0</SRCROW2>
+        <SRCCOLUMN2>0</SRCCOLUMN2>
+        <TYPESRC_LENG>0</TYPESRC_LENG>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>GS_SEL</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Parametri di selezione</DESCRIPT>
+        <EXPOSURE>0</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>1</EDITORDER>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-10</CHANGEDON>
+        <ATTDECLTYP>0</ATTDECLTYP>
+        <ATTEXPVIRT>0</ATTEXPVIRT>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>TY_S_SEL</TYPE>
+        <SRCROW1>0</SRCROW1>
+        <SRCCOLUMN1>0</SRCCOLUMN1>
+        <SRCROW2>0</SRCROW2>
+        <SRCCOLUMN2>0</SRCCOLUMN2>
+        <TYPESRC_LENG>0</TYPESRC_LENG>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>GT_DATA</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Dati estratti da Sap</DESCRIPT>
+        <EXPOSURE>0</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>2</EDITORDER>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-10</CHANGEDON>
+        <ATTDECLTYP>0</ATTDECLTYP>
+        <ATTEXPVIRT>0</ATTEXPVIRT>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>TY_T_DATA</TYPE>
+        <SRCROW1>0</SRCROW1>
+        <SRCCOLUMN1>0</SRCCOLUMN1>
+        <SRCROW2>0</SRCROW2>
+        <SRCCOLUMN2>0</SRCCOLUMN2>
+        <TYPESRC_LENG>0</TYPESRC_LENG>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>GT_PDM_FILE</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>File da inviare al PDM</DESCRIPT>
+        <EXPOSURE>0</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>3</EDITORDER>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-10</CHANGEDON>
+        <ATTDECLTYP>0</ATTDECLTYP>
+        <ATTEXPVIRT>0</ATTEXPVIRT>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>TY_T_PDM_FILE</TYPE>
+        <SRCROW1>0</SRCROW1>
+        <SRCCOLUMN1>0</SRCCOLUMN1>
+        <SRCROW2>0</SRCROW2>
+        <SRCCOLUMN2>0</SRCCOLUMN2>
+        <TYPESRC_LENG>0</TYPESRC_LENG>
+      </item>
+    </ATTRIBUTES>
+    <METHODS>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>CONSTRUCTOR</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Costruttore</DESCRIPT>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-10</CHANGEDON>
+        <MTDTYPE>2</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>EXECUTE</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Esegue programma</DESCRIPT>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>2</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-06-22</CREATEDON>
+        <CHANGEDON>2016-10-10</CHANGEDON>
+        <MTDTYPE>0</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>GET_DATA</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Estrazione dati</DESCRIPT>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>3</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-10</CHANGEDON>
+        <MTDTYPE>0</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>CREATE_SELECTIONS</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <EXPOSURE>0</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-10</CHANGEDON>
+        <MTDTYPE>0</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>GET_PDM_UM</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Restituisce unità di misura PDM</DESCRIPT>
+        <EXPOSURE>0</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>2</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-10</CHANGEDON>
+        <MTDTYPE>0</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>GET_MATERIAL_TEXT</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Restituisce testo materiale composto</DESCRIPT>
+        <EXPOSURE>0</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>3</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-10</CHANGEDON>
+        <MTDTYPE>0</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>SET_PDM_FILE</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Costruisce il file per il PDM</DESCRIPT>
+        <EXPOSURE>0</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>4</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-10</CHANGEDON>
+        <MTDTYPE>0</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>SET_PDM_DATE</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Setta data PDM in formato gg/mm/aaaa</DESCRIPT>
+        <EXPOSURE>0</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>5</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-10</CHANGEDON>
+        <MTDTYPE>0</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>SET_PDM_GESTIONE</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Setta valore campo gestione</DESCRIPT>
+        <EXPOSURE>0</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>6</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-10</CHANGEDON>
+        <MTDTYPE>0</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>SET_TIPOOPER</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Setta tipo operazione</DESCRIPT>
+        <EXPOSURE>0</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>7</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-10</CHANGEDON>
+        <MTDTYPE>0</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>SEND_TO_PDM</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Invia dati a PDM</DESCRIPT>
+        <EXPOSURE>0</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>8</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-10</CHANGEDON>
+        <MTDTYPE>0</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>ALV_SHOW</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Mostra alv</DESCRIPT>
+        <EXPOSURE>0</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>9</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-10</CHANGEDON>
+        <MTDTYPE>0</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>ALV_SET_DATA</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Imposta dati finali</DESCRIPT>
+        <EXPOSURE>0</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>10</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-05-04</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-10</CHANGEDON>
+        <MTDTYPE>0</MTDTYPE>
+        <MTDDECLTYP>0</MTDDECLTYP>
+        <BCMTDCAT>00</BCMTDCAT>
+        <BCMTDSYN>0</BCMTDSYN>
+      </item>
+    </METHODS>
+    <EVENTS/>
+    <TYPES>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>TY_S_DATA</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>1</EDITORDER>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-10</CHANGEDON>
+        <TYPTYPE>4</TYPTYPE>
+        <SRCROW1>10</SRCROW1>
+        <SRCCOLUMN1>6</SRCCOLUMN1>
+        <SRCROW2>17</SRCROW2>
+        <SRCCOLUMN2>29</SRCCOLUMN2>
+        <TYPESRC_LENG>286</TYPESRC_LENG>
+        <TYPESRC>BEGIN OF ty_s_data. TYPES: werks TYPE marc-werks. TYPES: meins TYPE meins. TYPES: ps_psp_pnr TYPE vbap-ps_psp_pnr. TYPES: disgr TYPE marc-disgr. TYPES: ersda TYPE mara-ersda. INCLUDE TYPE zpp_sap_to_pdm. TYPES: END OF ty_s_data
+        </TYPESRC>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>TY_S_SEL</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>2</EDITORDER>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-10</CHANGEDON>
+        <TYPTYPE>4</TYPTYPE>
+        <SRCROW1>19</SRCROW1>
+        <SRCCOLUMN1>6</SRCCOLUMN1>
+        <SRCROW2>33</SRCROW2>
+        <SRCCOLUMN2>20</SRCCOLUMN2>
+        <TYPESRC_LENG>741</TYPESRC_LENG>
+        <TYPESRC>BEGIN OF ty_s_sel, p_full TYPE xfeld, &quot; estrazione full p_delta TYPE xfeld, &quot; estrazione delta p_tofill TYPE xfeld, &quot; invio anagrafica SAP -&gt; PDM Filling p_tolabl TYPE xfeld, &quot; invio anagrafica SAP -&gt; PDM Labelling p_topack TYPE xfeld, &quot; invio anagrafica SAP -&gt; PDM Packaging s_werks TYPE RANGE OF marc-werks, s_matnr TYPE RANGE OF mara-matnr, s_mstae TYPE RANGE OF mara-mstae, s_mmsta TYPE RANGE OF marc-mmsta, s_dispo TYPE RANGE OF marc-dispo, s_laeda TYPE RANGE OF mara-laeda, * s_mstav TYPE RANGE OF mara-mstav, &quot;DP-06_10_2016 s_vmsta TYPE RANGE OF mvke-vmsta, &quot;DP-06_10_2016 END OF ty_s_sel
+        </TYPESRC>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>TY_T_DATA</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>3</EDITORDER>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-10</CHANGEDON>
+        <TYPTYPE>4</TYPTYPE>
+        <SRCROW1>35</SRCROW1>
+        <SRCCOLUMN1>6</SRCCOLUMN1>
+        <SRCROW2>35</SRCROW2>
+        <SRCCOLUMN2>38</SRCCOLUMN2>
+        <TYPESRC_LENG>35</TYPESRC_LENG>
+        <TYPESRC>ty_t_data TYPE TABLE OF ty_s_data
+        </TYPESRC>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>TY_S_PDM_FILE</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>4</EDITORDER>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-10</CHANGEDON>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>STRING</TYPE>
+        <SRCROW1>0</SRCROW1>
+        <SRCCOLUMN1>0</SRCCOLUMN1>
+        <SRCROW2>0</SRCROW2>
+        <SRCCOLUMN2>0</SRCCOLUMN2>
+        <TYPESRC_LENG>0</TYPESRC_LENG>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>TY_T_PDM_FILE</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <EXPOSURE>2</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>5</EDITORDER>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-10</CHANGEDON>
+        <TYPTYPE>4</TYPTYPE>
+        <SRCROW1>38</SRCROW1>
+        <SRCCOLUMN1>6</SRCCOLUMN1>
+        <SRCROW2>38</SRCROW2>
+        <SRCCOLUMN2>46</SRCCOLUMN2>
+        <TYPESRC_LENG>43</TYPESRC_LENG>
+        <TYPESRC>ty_t_pdm_file TYPE TABLE OF ty_s_pdm_file
+        </TYPESRC>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>TY_S_ALV_DATA</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Struttura file Sap -&gt; PDM</DESCRIPT>
+        <EXPOSURE>0</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>1</EDITORDER>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-05-04</CREATEDON>
+        <CHANGEDON>2016-10-10</CHANGEDON>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>ZPP_SAP_TO_PDM</TYPE>
+        <SRCROW1>0</SRCROW1>
+        <SRCCOLUMN1>0</SRCCOLUMN1>
+        <SRCROW2>0</SRCROW2>
+        <SRCCOLUMN2>0</SRCCOLUMN2>
+        <TYPESRC_LENG>0</TYPESRC_LENG>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>TY_T_ALV_DATA</CMPNAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <EXPOSURE>0</EXPOSURE>
+        <STATE>1</STATE>
+        <EDITORDER>2</EDITORDER>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-05-04</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-10-10</CHANGEDON>
+        <TYPTYPE>4</TYPTYPE>
+        <SRCROW1>1</SRCROW1>
+        <SRCCOLUMN1>0</SRCCOLUMN1>
+        <SRCROW2>1</SRCROW2>
+        <SRCCOLUMN2>41</SRCCOLUMN2>
+        <TYPESRC_LENG>43</TYPESRC_LENG>
+        <TYPESRC>ty_t_alv_data TYPE TABLE OF ty_s_alv_data
+        </TYPESRC>
+      </item>
+    </TYPES>
+    <PARAMETERS>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>ALV_SET_DATA</CMPNAME>
+        <SCONAME>IT_DATA</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-05-04</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>0</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>TY_T_DATA</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>ALV_SET_DATA</CMPNAME>
+        <SCONAME>CT_ALV_DATA</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>2</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-05-04</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-05-04</CHANGEDON>
+        <PARDECLTYP>2</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>TY_T_ALV_DATA</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>ALV_SHOW</CMPNAME>
+        <SCONAME>CT_DATA</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>2</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>TABLE</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>CONSTRUCTOR</CMPNAME>
+        <SCONAME>IV_PROGRAM</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Programma chiamante</DESCRIPT>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>2</MTDTYPE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>0</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>SY-REPID</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>CONSTRUCTOR</CMPNAME>
+        <SCONAME>IV_LANGUAGE</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Campo sistema ABAP: chiave lingua dell&apos;ambiente testi</DESCRIPT>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>2</MTDTYPE>
+        <EDITORDER>2</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>0</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>SY-LANGU</TYPE>
+        <PARVALUE>SY-LANGU</PARVALUE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>CONSTRUCTOR</CMPNAME>
+        <SCONAME>IS_SEL</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>2</MTDTYPE>
+        <EDITORDER>3</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>0</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>TY_S_SEL</TYPE>
+        <PAROPTIONL>X</PAROPTIONL>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>GET_DATA</CMPNAME>
+        <SCONAME>IS_SEL</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>0</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>TY_S_SEL</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>GET_DATA</CMPNAME>
+        <SCONAME>CT_DATA</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>2</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>2</PARDECLTYP>
+        <PARPASSTYP>0</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>TY_T_DATA</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>GET_MATERIAL_TEXT</CMPNAME>
+        <SCONAME>IV_MATERIAL</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Codice materiale</DESCRIPT>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>0</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>MATNR</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>GET_MATERIAL_TEXT</CMPNAME>
+        <SCONAME>EV_TEXT</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>2</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>3</PARDECLTYP>
+        <PARPASSTYP>0</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>STRING</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>GET_PDM_UM</CMPNAME>
+        <SCONAME>IV_MEINS</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Unità di misura dell&apos;ordine d&apos;acquisto</DESCRIPT>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>0</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>MEINS_D</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>GET_PDM_UM</CMPNAME>
+        <SCONAME>EV_UM_PDM</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>unità di misura PDM</DESCRIPT>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>2</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>3</PARDECLTYP>
+        <PARPASSTYP>0</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>ZPP_SAP_PDM_UM</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>SEND_TO_PDM</CMPNAME>
+        <SCONAME>IT_DATA</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+        <CHANGEDON>2016-05-04</CHANGEDON>
+        <PARDECLTYP>0</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>TY_T_DATA</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>SEND_TO_PDM</CMPNAME>
+        <SCONAME>EV_RET</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>2</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>3</PARDECLTYP>
+        <PARPASSTYP>0</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>I</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>SET_PDM_DATE</CMPNAME>
+        <SCONAME>IV_DATE</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Campo sistema ABAP: data attuale dell&apos;application server</DESCRIPT>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>0</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>SY-DATUM</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>SET_PDM_DATE</CMPNAME>
+        <SCONAME>EV_DATE</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>2</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>3</PARDECLTYP>
+        <PARPASSTYP>0</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>STRING</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>SET_PDM_FILE</CMPNAME>
+        <SCONAME>IV_WERKS</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Divisione</DESCRIPT>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>0</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>WERKS_D</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>SET_PDM_FILE</CMPNAME>
+        <SCONAME>IT_DATA</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>2</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>0</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>TY_T_DATA</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>SET_PDM_FILE</CMPNAME>
+        <SCONAME>CT_PDM_FILE</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>3</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>2</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>TY_T_PDM_FILE</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>SET_PDM_GESTIONE</CMPNAME>
+        <SCONAME>IV_DISGR</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Gruppo di pianif.</DESCRIPT>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>0</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>MARC-DISGR</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>SET_PDM_GESTIONE</CMPNAME>
+        <SCONAME>EV_GESTIONE</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Gestione</DESCRIPT>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>2</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>3</PARDECLTYP>
+        <PARPASSTYP>0</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>ZPP_SAP_PDM_GESTIONE</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>SET_TIPOOPER</CMPNAME>
+        <SCONAME>IV_ERSDA</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Data creazione record MARA</DESCRIPT>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>1</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>0</PARDECLTYP>
+        <PARPASSTYP>1</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>SY-DATUM</TYPE>
+      </item>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <CMPNAME>SET_TIPOOPER</CMPNAME>
+        <SCONAME>EV_TIPOOPER</SCONAME>
+        <VERSION>1</VERSION>
+        <LANGU>I</LANGU>
+        <DESCRIPT>Tipo operazione</DESCRIPT>
+        <CMPTYPE>1</CMPTYPE>
+        <MTDTYPE>0</MTDTYPE>
+        <EDITORDER>2</EDITORDER>
+        <DISPID>0</DISPID>
+        <AUTHOR>KOSMEDEV</AUTHOR>
+        <CREATEDON>2016-04-27</CREATEDON>
+        <CHANGEDON>0000-00-00</CHANGEDON>
+        <PARDECLTYP>3</PARDECLTYP>
+        <PARPASSTYP>0</PARPASSTYP>
+        <TYPTYPE>1</TYPTYPE>
+        <TYPE>ZPP_SAP_PDM_TIPOOPER</TYPE>
+      </item>
+    </PARAMETERS>
+    <EXCEPTIONS/>
+    <IMPLEMENTINGS/>
+    <IMPL_DETAILS/>
+    <FRIENDSHIPS/>
+    <TYPEPUSAGES/>
+    <CLSDEFERRDS/>
+    <INTDEFERRDS/>
+    <ALIASES/>
+    <INHERITANCE>
+      <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+      <REFCLSNAME>ZCL_BC_PROGRAM_BASE</REFCLSNAME>
+      <VERSION>1</VERSION>
+      <STATE>1</STATE>
+      <AUTHOR>KOSMEDEV</AUTHOR>
+      <CREATEDON>2016-04-27</CREATEDON>
+      <CHANGEDBY>KOSMEDEV</CHANGEDBY>
+      <CHANGEDON>2016-10-10</CHANGEDON>
+    </INHERITANCE>
+    <INTERFACES/>
+    <REDEFINITIONS>
+      <item>
+        <CLSNAME>ZCL_PP_SAP_TO_PDM</CLSNAME>
+        <REFCLSNAME>ZCL_BC_PROGRAM_BASE</REFCLSNAME>
+        <VERSION>1</VERSION>
+        <MTDNAME>MODIFY_SCREEN</MTDNAME>
+        <EXPOSURE>1</EXPOSURE>
+      </item>
+    </REDEFINITIONS>
+    <TYPE_SOURCE>
+      <item>ty_t_alv_data TYPE TABLE OF ty_s_alv_data</item>
+    </TYPE_SOURCE>
+    <LOCALS_SRC/>
+    <LOCALS_DEF>
+      <item>*&quot;* use this source file for any type of declarations (class</item>
+      <item>*&quot;* definitions, interfaces or type declarations) you need for</item>
+      <item>*&quot;* components in the private section</item>
+      <item/>
+    </LOCALS_DEF>
+    <LOCALS_IMP>
+      <item>*&quot;* use this source file for the definition and implementation of</item>
+      <item>*&quot;* local helper classes, interface definitions and type</item>
+      <item>*&quot;* declarations</item>
+      <item/>
+    </LOCALS_IMP>
+    <LOCALS_MAC>
+      <item>*&quot;* use this source file for any macro definitions you need</item>
+      <item>*&quot;* in the implementation part of the class</item>
+      <item/>
+    </LOCALS_MAC>
+    <TEXT_POOL/>
+    <METHOD_SOURCE>
+      <ALV_SHOW>
+        <item> METHOD alv_show.</item>
+        <item> DATA: lt_fieldcat TYPE slis_t_fieldcat_alv,</item>
+        <item> lt_alv_data TYPE ty_t_alv_data,</item>
+        <item> is_print TYPE slis_print_alv,</item>
+        <item> lv_program TYPE sy-repid.</item>
+        <item/>
+        <item> lv_program = get_program( ).</item>
+        <item/>
+        <item> DATA lo_alv TYPE REF TO cl_salv_table.</item>
+        <item> DATA lo_display TYPE REF TO cl_salv_display_settings.</item>
+        <item/>
+        <item> DATA:lv_lenght TYPE i.</item>
+        <item> DATA:lv_title TYPE char70.</item>
+        <item/>
+        <item> alv_set_data( EXPORTING it_data = gt_data</item>
+        <item> CHANGING ct_alv_data = lt_alv_data ).</item>
+        <item/>
+        <item> TRY.</item>
+        <item> cl_salv_table=&gt;factory(</item>
+        <item> IMPORTING</item>
+        <item> r_salv_table = lo_alv</item>
+        <item> CHANGING</item>
+        <item> t_table = lt_alv_data[] ).</item>
+        <item> CATCH cx_salv_msg.</item>
+        <item> ENDTRY.</item>
+        <item/>
+        <item> DATA: lr_functions TYPE REF TO cl_salv_functions_list.</item>
+        <item> lr_functions = lo_alv-&gt;get_functions( ).</item>
+        <item> lr_functions-&gt;set_all( &apos;X&apos; ).</item>
+        <item/>
+        <item> lo_display = lo_alv-&gt;get_display_settings( ).</item>
+        <item> lo_display-&gt;set_striped_pattern( cl_salv_display_settings=&gt;true ).</item>
+        <item/>
+        <item> DATA: lo_columns TYPE REF TO cl_salv_columns.</item>
+        <item> lo_columns = lo_alv-&gt;get_columns( ).</item>
+        <item> DATA: lo_column TYPE REF TO cl_salv_column.</item>
+        <item> TRY.</item>
+        <item> lo_columns-&gt;set_optimize( abap_true ).</item>
+        <item>* lo_column = lo_cols-&gt;get_column( &apos;TYPE&apos; ).</item>
+        <item>* lo_column-&gt;set_long_text( &apos;Avl Date&apos; ). &quot;#EC NOTEXT</item>
+        <item>* lo_column-&gt;set_medium_text( &apos;Avl Date&apos; ). &quot;#EC NOTEXT</item>
+        <item>* lo_column-&gt;set_short_text( &apos;Avl Date&apos; ). &quot;#EC NOTEXT</item>
+        <item>* lo_column-&gt;set_output_length( 10 ).</item>
+        <item> CATCH cx_salv_not_found. &quot;#EC NO_HANDLER</item>
+        <item> ENDTRY.</item>
+        <item/>
+        <item> IF lo_alv IS BOUND.</item>
+        <item> lo_alv-&gt;display( ).</item>
+        <item> ENDIF.</item>
+        <item> ENDMETHOD.</item>
+      </ALV_SHOW>
+      <CONSTRUCTOR>
+        <item> METHOD constructor.</item>
+        <item> super-&gt;constructor( iv_program = iv_program iv_language = iv_languag</item>
+        <item> ENDMETHOD.</item>
+      </CONSTRUCTOR>
+      <GET_DATA>
+        <item> METHOD get_data.</item>
+        <item> DATA: lref_sel TYPE REF TO data,</item>
+        <item> lv_language TYPE sy-langu.</item>
+        <item/>
+        <item> lref_sel = get_selections( ).</item>
+        <item> REFRESH: ct_data.</item>
+        <item> DATA: ls_data TYPE ty_s_data,</item>
+        <item> wa_prps TYPE prps,</item>
+        <item> lv_ps_psp_pnr TYPE ps_psp_pnr,</item>
+        <item> lv_posid TYPE ps_posid,</item>
+        <item> lv_vbeln TYPE vbeln,</item>
+        <item> lv_posnr TYPE posnr,</item>
+        <item> lv_c_posnr TYPE c LENGTH 6.</item>
+        <item/>
+        <item> DATA: ln_mvke TYPE mvke. &quot;DP-06_10_2016</item>
+        <item> DATA: lv_pspid TYPE proj-pspid. &quot;DP-06_10_2016</item>
+        <item> DATA: r_mtart TYPE RANGE OF mtart. &quot;DP-28_11_2016</item>
+        <item> DATA: l_mtart LIKE LINE OF r_mtart. &quot;DP-28_11_2016</item>
+        <item/>
+        <item>*DP-28_11_2016 Inizio</item>
+        <item> REFRESH r_mtart.</item>
+        <item> CLEAR l_mtart.</item>
+        <item> l_mtart-sign = &apos;E&apos;.</item>
+        <item> l_mtart-option = &apos;EQ&apos;.</item>
+        <item> l_mtart-low = &apos;ZP05&apos;.</item>
+        <item> l_mtart-high = &apos;ZP05&apos;.</item>
+        <item> APPEND l_mtart TO r_mtart.</item>
+        <item> CLEAR l_mtart.</item>
+        <item> l_mtart-sign = &apos;E&apos;.</item>
+        <item> l_mtart-option = &apos;EQ&apos;.</item>
+        <item> l_mtart-low = &apos;ZP08&apos;.</item>
+        <item> l_mtart-high = &apos;ZP08&apos;.</item>
+        <item> APPEND l_mtart TO r_mtart.</item>
+        <item>*DP-28_11_2016 Fine</item>
+        <item/>
+        <item> lv_language = get_language( ).</item>
+        <item/>
+        <item> DATA: w_zzcostr TYPE mara-zzcostr.</item>
+        <item/>
+        <item> SELECT marc~werks marc~matnr marc~disgr</item>
+        <item> mara~meins mara~matkl mara~ersda mara~zzcaratt</item>
+        <item> mara~bismt mara~zzmatnr_kro mara~zzmatcostr</item>
+        <item> makt~maktx mara~zzcostr</item>
+        <item>* ztmm_costrutt~zmmname_costr</item>
+        <item> INTO (ls_data-werks, ls_data-matnr, ls_data-disgr,</item>
+        <item> ls_data-meins, ls_data-matkl, ls_data-ersda, ls_data-ch</item>
+        <item> ls_data-matpre, ls_data-filler35, ls_data-matcostr,</item>
+        <item> ls_data-maktx, w_zzcostr)</item>
+        <item>* ls_data-descostr)</item>
+        <item> FROM marc</item>
+        <item> INNER JOIN mara ON mara~matnr = marc~matnr</item>
+        <item> LEFT JOIN makt ON makt~matnr = mara~matnr AND makt~spras =</item>
+        <item>* LEFT JOIN ztmm_costrutt ON ztmm_costrutt~zmmcostrutt = mar</item>
+        <item> WHERE marc~werks IN is_sel-s_werks</item>
+        <item> AND marc~matnr IN is_sel-s_matnr</item>
+        <item> AND mara~mstae IN is_sel-s_mstae</item>
+        <item> AND mara~mtart IN r_mtart &quot;DP-28_11_2016</item>
+        <item>* AND mara~mstav IN is_sel-s_mstav</item>
+        <item> AND marc~mmsta IN is_sel-s_mmsta</item>
+        <item> AND marc~dispo IN is_sel-s_dispo</item>
+        <item> AND ( mara~laeda IN is_sel-s_laeda OR</item>
+        <item> mara~ersda IN is_sel-s_laeda ).</item>
+        <item/>
+        <item>* APPEND ls_data TO ct_data. &quot;DP-06_10_2016</item>
+        <item>*DP-06_10_2016 inizio</item>
+        <item> CLEAR ls_data-descostr.</item>
+        <item> SELECT SINGLE zmmname_costr FROM ztmm_costrutt</item>
+        <item> INTO ls_data-descostr</item>
+        <item> WHERE zmmcostrutt EQ w_zzcostr.</item>
+        <item/>
+        <item> IF is_sel-s_vmsta IS NOT INITIAL.</item>
+        <item> CLEAR ln_mvke.</item>
+        <item> SELECT SINGLE * FROM mvke</item>
+        <item> INTO CORRESPONDING FIELDS OF ln_mvke</item>
+        <item> WHERE matnr EQ ls_data-matnr</item>
+        <item>* AND vkorg EQ &apos;6301&apos;</item>
+        <item>* AND vtweg EQ &apos;02&apos;</item>
+        <item> AND vmsta IN is_sel-s_vmsta.</item>
+        <item> IF sy-subrc EQ 0.</item>
+        <item> APPEND ls_data TO ct_data.</item>
+        <item> ENDIF.</item>
+        <item> ELSE.</item>
+        <item> APPEND ls_data TO ct_data.</item>
+        <item> ENDIF.</item>
+        <item>*DP-06_10_2016 Fine</item>
+        <item/>
+        <item> ENDSELECT.</item>
+        <item/>
+        <item> DATA: lv_tabix TYPE i.</item>
+        <item> LOOP AT ct_data INTO ls_data.</item>
+        <item> lv_tabix = sy-tabix.</item>
+        <item> IF ( ls_data-charact IS INITIAL ).</item>
+        <item> ls_data-charact = ls_data-matnr(3).</item>
+        <item> ENDIF.</item>
+        <item>* recupero dati commessa solo per materiali K,6,R</item>
+        <item> IF ( ls_data-matnr(1) = &apos;K&apos; OR</item>
+        <item> ls_data-matnr(1) = &apos;R&apos; OR</item>
+        <item> ls_data-matnr(1) = &apos;6&apos; OR</item>
+        <item> ls_data-matnr(1) = &apos;8&apos; ).</item>
+        <item/>
+        <item> CLEAR: lv_vbeln, lv_posnr, lv_ps_psp_pnr, lv_posid.</item>
+        <item> SELECT vbeln posnr ps_psp_pnr INTO (lv_vbeln, lv_posnr, lv_ps_ps</item>
+        <item> WHERE matnr = ls_data-matnr ORDER BY erdat DESCENDING.</item>
+        <item> zcl_bc_conversion_exit=&gt;conversion_output( EXPORTING iv_field</item>
+        <item> CHANGING cv_field =</item>
+        <item> EXIT.</item>
+        <item> ENDSELECT.</item>
+        <item> IF ( lv_ps_psp_pnr IS INITIAL OR lv_vbeln IS INITIAL ).</item>
+        <item> CLEAR lv_posid.</item>
+        <item> SELECT posid vbeln posnr INTO (lv_posid, lv_vbeln, lv_posnr) F</item>
+        <item> WHERE matnr = ls_data-matnr ORDER BY audat DESCENDING.</item>
+        <item> EXIT.</item>
+        <item> ENDSELECT.</item>
+        <item> ENDIF.</item>
+        <item/>
+        <item>* ls_data-filler19 = lv_posid. &quot;DP-10_10_2016</item>
+        <item>* ls_data-filler20 = ls_data-filler19. &quot;DP-10_10_2016</item>
+        <item> ls_data-commessa = lv_posid. &quot;DP-06_10_2016</item>
+        <item/>
+        <item> IF ( NOT lv_vbeln IS INITIAL ).</item>
+        <item> zcl_bc_conversion_exit=&gt;conversion_output( EXPORTING iv_field</item>
+        <item> CHANGING cv_field =</item>
+        <item> DATA: lv_i_posnr TYPE i.</item>
+        <item> lv_i_posnr = lv_posnr.</item>
+        <item> WRITE lv_i_posnr TO lv_c_posnr.</item>
+        <item> CONDENSE lv_c_posnr.</item>
+        <item> ls_data-filler33 = lv_vbeln &amp;&amp; &apos;-&apos; &amp;&amp; lv_c_posnr.</item>
+        <item> ENDIF.</item>
+        <item> ls_data-filler34 = ls_data-filler33.</item>
+        <item/>
+        <item> SELECT SINGLE * FROM prps INTO wa_prps WHERE equnr = ls_data-mat</item>
+        <item> IF sy-subrc = 0.</item>
+        <item>* ls_data-filler19 = wa_prps-posid.</item>
+        <item>* ls_data-filler20 = ls_data-filler19.</item>
+        <item>* IF ( ls_data-matnr(1) = &apos;K&apos; OR ls_data-matnr(1) = &apos;6&apos; OR ls_d</item>
+        <item>* ls_data-filler33 = wa_prps-usr01.</item>
+        <item>* ENDIF.</item>
+        <item>* ls_data-filler34 = ls_data-filler33.</item>
+        <item> IF ( ls_data-matnr(1) = &apos;K&apos; OR ls_data-matnr(1) = &apos;8&apos; ).</item>
+        <item>* ls_data-filler39 = wa_prps-usr00. &quot;DP-10_10_2016</item>
+        <item> ENDIF.</item>
+        <item>* ls_data-codkrones = wa_prps-usr00. &quot;DP-06_10_2016</item>
+        <item> ls_data-codkrones = wa_prps-usr02. &quot;DP-06_10_2016</item>
+        <item>* ls_data-filler40 = ls_data-filler39. &quot;DP-10_10_2016</item>
+        <item/>
+        <item>* ls_data-commessa = ls_data-filler19. &quot;DP-06_10_2016</item>
+        <item/>
+        <item> DATA: w_clike TYPE char24.</item>
+        <item> CLEAR w_clike.</item>
+        <item/>
+        <item> CALL FUNCTION &apos;CONVERSION_EXIT_KONPD_OUTPUT&apos;</item>
+        <item> EXPORTING</item>
+        <item> input = wa_prps-psphi</item>
+        <item> IMPORTING</item>
+        <item> output = w_clike</item>
+        <item>* PSELT =</item>
+        <item> .</item>
+        <item/>
+        <item> ls_data-progetto = w_clike. &quot;DP-10_10_2016</item>
+        <item/>
+        <item> ENDIF.</item>
+        <item> ENDIF.</item>
+        <item>*</item>
+        <item> ls_data-filler36 = ls_data-filler35.</item>
+        <item> ls_data-um_pdm = get_pdm_um( iv_meins = ls_data-meins ).</item>
+        <item> ls_data-maktx = ls_data-maktx &amp;&amp; `` &amp;&amp; get_material_text( iv_mate</item>
+        <item> ls_data-credat = set_pdm_date( iv_date = ls_data-ersda ).</item>
+        <item> ls_data-gestione = set_pdm_gestione( EXPORTING iv_disgr = ls_data-</item>
+        <item> ls_data-tipooper = set_tipooper( EXPORTING iv_ersda = ls_data-ersd</item>
+        <item> MODIFY ct_data FROM ls_data INDEX lv_tabix.</item>
+        <item> ENDLOOP.</item>
+        <item> ENDMETHOD.</item>
+      </GET_DATA>
+      <GET_MATERIAL_TEXT>
+        <item> METHOD get_material_text.</item>
+        <item> DATA: lv_id TYPE thead-tdid,</item>
+        <item> lv_language TYPE thead-tdspras,</item>
+        <item> lv_name TYPE thead-tdname,</item>
+        <item> lv_object TYPE thead-tdobject,</item>
+        <item> lt_lines TYPE TABLE OF tline.</item>
+        <item/>
+        <item> CLEAR: ev_text.</item>
+        <item> REFRESH lt_lines.</item>
+        <item/>
+        <item> lv_id = &apos;GRUN&apos;.</item>
+        <item> lv_language = get_language( ).</item>
+        <item> lv_name = iv_material.</item>
+        <item> lv_object = &apos;MATERIAL&apos;.</item>
+        <item/>
+        <item> CALL FUNCTION &apos;READ_TEXT&apos;</item>
+        <item> EXPORTING</item>
+        <item>* CLIENT = SY-MANDT</item>
+        <item> id = lv_id</item>
+        <item> language = lv_language</item>
+        <item> name = lv_name</item>
+        <item> object = lv_object</item>
+        <item>* ARCHIVE_HANDLE = 0</item>
+        <item>* LOCAL_CAT = &apos; &apos;</item>
+        <item>* IMPORTING</item>
+        <item>* HEADER =</item>
+        <item>* OLD_LINE_COUNTER =</item>
+        <item> TABLES</item>
+        <item> lines = lt_lines</item>
+        <item> EXCEPTIONS</item>
+        <item> id = 1</item>
+        <item> language = 2</item>
+        <item> name = 3</item>
+        <item> not_found = 4</item>
+        <item> object = 5</item>
+        <item> reference_check = 6</item>
+        <item> wrong_access_to_archive = 7</item>
+        <item> OTHERS = 8.</item>
+        <item/>
+        <item> LOOP AT lt_lines INTO DATA(ls_lines) TO 2.</item>
+        <item> ev_text = ev_text &amp;&amp; ` ` &amp;&amp; ls_lines-tdline.</item>
+        <item> ENDLOOP.</item>
+        <item/>
+        <item> ENDMETHOD.</item>
+      </GET_MATERIAL_TEXT>
+      <GET_PDM_UM>
+        <item> METHOD get_pdm_um.</item>
+        <item> CLEAR: ev_um_pdm.</item>
+        <item> SELECT SINGLE um_pdm INTO ev_um_pdm FROM ztmm_um WHERE um_sap = iv_m</item>
+        <item> IF ( sy-subrc &lt;&gt; 0 ).</item>
+        <item> zcl_bc_conversion_exit=&gt;conversion_output( EXPORTING iv_field = iv</item>
+        <item> CHANGING cv_field = ev</item>
+        <item> ENDIF.</item>
+        <item> ENDMETHOD.</item>
+      </GET_PDM_UM>
+      <SEND_TO_PDM>
+        <item> METHOD send_to_pdm.</item>
+        <item> DATA: lo_pdm_file TYPE REF TO zcl_pp_pdm_file,</item>
+        <item> lt_data TYPE ty_t_data,</item>
+        <item> lv_werks TYPE werks_d,</item>
+        <item> lv_errmsg TYPE string,</item>
+        <item> lv_sucmsg TYPE string,</item>
+        <item> lv_ret TYPE i.</item>
+        <item/>
+        <item> lv_errmsg = `Errore trasf. `.</item>
+        <item> lv_sucmsg = ``.</item>
+        <item/>
+        <item> REFRESH lt_data.</item>
+        <item> CLEAR lv_werks.</item>
+        <item> lt_data[] = it_data[].</item>
+        <item> SORT lt_data BY werks matnr.</item>
+        <item> LOOP AT it_data INTO DATA(ls_data).</item>
+        <item> IF ( lv_werks &lt;&gt; ls_data-werks ).</item>
+        <item> lo_pdm_file = NEW #( iv_werks = ls_data-werks ).</item>
+        <item> IF ( NOT gs_sel-p_tofill IS INITIAL ).</item>
+        <item> set_pdm_file( EXPORTING iv_werks = ls_data-werks it_data = gt_</item>
+        <item> CHANGING ct_pdm_file = gt_pdm_file ).</item>
+        <item>* IF ( lo_pdm_file-&gt;write( iv_type = zcl_pp_pdm_file=&gt;c_mat_sap</item>
+        <item>* it_data = gt_pdm_file ) = 0 ).</item>
+        <item> IF ( lo_pdm_file-&gt;append( iv_type = zcl_pp_pdm_file=&gt;c_mat_sap</item>
+        <item> it_data = gt_pdm_file ) = 0 ).</item>
+        <item> lv_sucmsg = lv_sucmsg &amp;&amp; ` Filling`.</item>
+        <item> ELSE.</item>
+        <item> IF ( sy-batch = abap_false ).</item>
+        <item> lv_ret = 4.</item>
+        <item> lv_errmsg = lv_errmsg &amp;&amp; ` Filling`.</item>
+        <item> ENDIF.</item>
+        <item> ENDIF.</item>
+        <item> ENDIF.</item>
+        <item> IF ( NOT gs_sel-p_tolabl IS INITIAL ).</item>
+        <item> set_pdm_file( EXPORTING iv_werks = ls_data-werks it_data = gt_</item>
+        <item> CHANGING ct_pdm_file = gt_pdm_file ).</item>
+        <item>* IF ( lo_pdm_file-&gt;write( iv_type = zcl_pp_pdm_file=&gt;c_mat_sap</item>
+        <item>* it_data = gt_pdm_file ) = 0 ).</item>
+        <item> IF ( lo_pdm_file-&gt;append( iv_type = zcl_pp_pdm_file=&gt;c_mat_sap</item>
+        <item> it_data = gt_pdm_file ) = 0 ).</item>
+        <item> lv_sucmsg = lv_sucmsg &amp;&amp; ` Labellingg`.</item>
+        <item> ELSE.</item>
+        <item> IF ( sy-batch = abap_false ).</item>
+        <item> lv_ret = 4.</item>
+        <item> lv_errmsg = lv_errmsg &amp;&amp; ` Labelling`.</item>
+        <item> ENDIF.</item>
+        <item> ENDIF.</item>
+        <item> ENDIF.</item>
+        <item> IF ( NOT gs_sel-p_topack IS INITIAL ).</item>
+        <item> set_pdm_file( EXPORTING iv_werks = ls_data-werks it_data = gt_</item>
+        <item> CHANGING ct_pdm_file = gt_pdm_file ).</item>
+        <item>* IF ( lo_pdm_file-&gt;write( iv_type = zcl_pp_pdm_file=&gt;c_mat_sap</item>
+        <item>* it_data = gt_pdm_file ) = 0 ).</item>
+        <item> IF ( lo_pdm_file-&gt;append( iv_type = zcl_pp_pdm_file=&gt;c_mat_sap</item>
+        <item> it_data = gt_pdm_file ) = 0 ).</item>
+        <item> lv_sucmsg = lv_sucmsg &amp;&amp; ` Packaging`.</item>
+        <item> ELSE.</item>
+        <item> IF ( sy-batch = abap_false ).</item>
+        <item> lv_ret = 4.</item>
+        <item> lv_errmsg = lv_errmsg &amp;&amp; ` Packaging`.</item>
+        <item> ENDIF.</item>
+        <item> ENDIF.</item>
+        <item> ENDIF.</item>
+        <item> ENDIF.</item>
+        <item> lv_werks = ls_data-werks.</item>
+        <item> ENDLOOP.</item>
+        <item> IF ( sy-batch = abap_false ).</item>
+        <item> IF ( lv_ret = 0 ).</item>
+        <item> IF ( lv_sucmsg IS NOT INITIAL ).</item>
+        <item> lv_sucmsg = `Trasferito ` &amp;&amp; lv_sucmsg.</item>
+        <item> MESSAGE s398(00) WITH lv_sucmsg.</item>
+        <item> ENDIF.</item>
+        <item> ELSE.</item>
+        <item> MESSAGE s398(00) WITH lv_errmsg.</item>
+        <item> ENDIF.</item>
+        <item> ENDIF.</item>
+        <item> ENDMETHOD.</item>
+      </SEND_TO_PDM>
+      <SET_PDM_DATE>
+        <item> METHOD set_pdm_date.</item>
+        <item> ev_date = iv_date+6(2) &amp;&amp; `/` &amp;&amp; iv_date+4(2) &amp;&amp; `/` &amp;&amp; iv_date(4).</item>
+        <item> ENDMETHOD.</item>
+      </SET_PDM_DATE>
+      <SET_PDM_FILE>
+        <item> METHOD set_pdm_file.</item>
+        <item> DATA: ls_pdm_file TYPE ty_s_pdm_file,</item>
+        <item> ls_data_final TYPE ty_s_alv_data,</item>
+        <item> ls_split TYPE string,</item>
+        <item> lt_split TYPE TABLE OF string,</item>
+        <item> lo_struct_descr TYPE REF TO cl_abap_structdescr,</item>
+        <item> ls_components TYPE abap_compdescr,</item>
+        <item> lv_field TYPE string.</item>
+        <item> FIELD-SYMBOLS: &lt;field_in&gt; TYPE any,</item>
+        <item> &lt;field_out&gt; TYPE any.</item>
+        <item/>
+        <item> REFRESH ct_pdm_file.</item>
+        <item> LOOP AT it_data INTO DATA(ls_data) WHERE werks = iv_werks.</item>
+        <item> CLEAR ls_data_final.</item>
+        <item> MOVE-CORRESPONDING ls_data TO ls_data_final.</item>
+        <item> IF ( lo_struct_descr IS INITIAL ).</item>
+        <item>* lo_struct_descr ?= cl_abap_structdescr=&gt;describe_by_data( ls_da</item>
+        <item> lo_struct_descr ?= cl_abap_structdescr=&gt;describe_by_data( ls_dat</item>
+        <item> ENDIF.</item>
+        <item> CLEAR: ls_pdm_file.</item>
+        <item>* LOOP AT lo_struct_descr-&gt;components INTO ls_components WHERE name</item>
+        <item>* AND name</item>
+        <item>* AND name</item>
+        <item>* AND name</item>
+        <item>* AND name</item>
+        <item> LOOP AT lo_struct_descr-&gt;components INTO ls_components.</item>
+        <item> lv_field = &apos;ls_data-&apos; &amp;&amp; ls_components-name.</item>
+        <item> ASSIGN (lv_field) TO &lt;field_in&gt;.</item>
+        <item> IF ( sy-subrc = 0 ).</item>
+        <item> ASSIGN (lv_field) TO &lt;field_out&gt;.</item>
+        <item> zcl_bc_conversion_exit=&gt;conversion_output( EXPORTING iv_field</item>
+        <item> CHANGING cv_field</item>
+        <item> IF ( ls_pdm_file IS INITIAL ).</item>
+        <item> ls_pdm_file = &lt;field_out&gt;.</item>
+        <item> ELSE.</item>
+        <item> ls_pdm_file = ls_pdm_file &amp;&amp; zcl_pp_pdm_file=&gt;c_file_separat</item>
+        <item> ENDIF.</item>
+        <item> ENDIF.</item>
+        <item> ENDLOOP.</item>
+        <item> ls_pdm_file = ls_pdm_file &amp;&amp; zcl_pp_pdm_file=&gt;c_file_separator.</item>
+        <item> APPEND ls_pdm_file TO ct_pdm_file.</item>
+        <item> ENDLOOP.</item>
+        <item> ENDMETHOD.</item>
+      </SET_PDM_FILE>
+      <SET_PDM_GESTIONE>
+        <item> METHOD set_pdm_gestione.</item>
+        <item> CLEAR ev_gestione.</item>
+        <item> CASE iv_disgr.</item>
+        <item> WHEN &apos;ZMTS&apos;. ev_gestione = zcl_pp_pdm_file=&gt;c_scorta.</item>
+        <item> WHEN &apos;ZMTO&apos;. ev_gestione = zcl_pp_pdm_file=&gt;c_commessa.</item>
+        <item> ENDCASE.</item>
+        <item> ENDMETHOD.</item>
+      </SET_PDM_GESTIONE>
+      <SET_TIPOOPER>
+        <item> METHOD set_tipooper.</item>
+        <item> ev_tipooper = c_update.</item>
+        <item> IF ( iv_ersda = sy-datum ).</item>
+        <item> ev_tipooper = c_insert.</item>
+        <item> ENDIF.</item>
+        <item> ENDMETHOD.</item>
+      </SET_TIPOOPER>
+      <MODIFY_SCREEN>
+        <item> METHOD modify_screen.</item>
+        <item> create_selections( ).</item>
+        <item/>
+        <item> LOOP AT SCREEN INTO DATA(ls_screen).</item>
+        <item> IF ( ls_screen-group1 = &apos;LAE&apos; ).</item>
+        <item> CASE &apos;X&apos;.</item>
+        <item> WHEN gs_sel-p_full.</item>
+        <item> ls_screen-active = 0.</item>
+        <item> WHEN gs_sel-p_delta.</item>
+        <item> ls_screen-active = 1.</item>
+        <item> ENDCASE.</item>
+        <item> MODIFY screen FROM ls_screen.</item>
+        <item> ENDIF.</item>
+        <item> ENDLOOP.</item>
+        <item> ENDMETHOD.</item>
+      </MODIFY_SCREEN>
+      <CREATE_SELECTIONS>
+        <item> METHOD create_selections.</item>
+        <item> DATA: lref_sel TYPE REF TO data.</item>
+        <item> CREATE DATA lref_sel TYPE ty_s_sel.</item>
+        <item> set_selections( CHANGING cref_sel = lref_sel ).</item>
+        <item> FIELD-SYMBOLS: &lt;sel&gt; TYPE any.</item>
+        <item> ASSIGN lref_sel-&gt;* TO &lt;sel&gt;.</item>
+        <item> IF ( sy-subrc = 0 ).</item>
+        <item> gs_sel = &lt;sel&gt;.</item>
+        <item> ENDIF.</item>
+        <item> ENDMETHOD.</item>
+      </CREATE_SELECTIONS>
+      <ALV_SET_DATA>
+        <item> METHOD alv_set_data.</item>
+        <item> REFRESH ct_alv_data.</item>
+        <item> DATA: ls_alv_data TYPE ty_s_alv_data.</item>
+        <item> LOOP AT it_data INTO DATA(ls_data).</item>
+        <item> CLEAR ls_alv_data.</item>
+        <item> MOVE-CORRESPONDING ls_data TO ls_alv_data.</item>
+        <item> APPEND ls_alv_data TO ct_alv_data.</item>
+        <item> ENDLOOP.</item>
+        <item> ENDMETHOD.</item>
+      </ALV_SET_DATA>
+      <EXECUTE>
+        <item> METHOD execute.</item>
+        <item> create_selections( ).</item>
+        <item/>
+        <item> get_data( EXPORTING is_sel = gs_sel CHANGING ct_data = gt_data ).</item>
+        <item> send_to_pdm( it_data = gt_data ).</item>
+        <item> IF ( sy-batch IS INITIAL ).</item>
+        <item> alv_show( CHANGING ct_data = gt_data ).</item>
+        <item> ENDIF.</item>
+        <item> ENDMETHOD.</item>
+      </EXECUTE>
+    </METHOD_SOURCE>
+  </CLASS_ROOT>
