@@ -311,25 +311,27 @@ FUNCTION Z_WRFC_INTERFACE.
 ENDFUNCTION.
 
 * struttura file jsonp
-*    callback({
-*        "errors": [
-*            { "type": "type" },
-*            { "message": "msg" },
-*        ],
-*        "columns": [
-*            { "columnn": "name1" },
-*            { "columnn": "name2" },
-*            { "columnn": "name3" }
-*            { "columnn": "name4" }
-*        ],
-*        "results": [
-*            {
-*                "rows": [
-*                    { "name": "name1", "value": "value1" },
-*                    { "name": "name2", "value": "value2" },
-*                    { "name": "name3", "value": "value3" },
-*                    { "name": "name4", "value": "value4" }
-*                ]
-*            }
-*        ]
-*    })
+*   callback({
+*     "errors": [
+*       { "type": "...", "message": "..." },
+*     ],
+*     "results": {
+*       "field1": "...",   
+*        ...
+*       "fieldn": "...",
+*       "structure1": { "key1": "...", ..., "keyn": "..." },
+*       ...,
+*       "structuren": { "key1": "...", ..., "keyn": "..." },
+*       "array1": [
+*         { "key1": "...", ..., "keyn": "..." },
+*         ...,
+*         { "key1": "...", ..., "keyn": "..." },
+*       ],
+*       ...,
+*       "arrayn": [
+*         { "key1": "...", ..., "keyn": "..." },
+*         ...,
+*         { "key1": "...", ..., "keyn": "..." },
+*       ]
+*     }
+*   });
