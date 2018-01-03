@@ -140,7 +140,9 @@ FUNCTION z_wrfc_function_interface.
                                                        <lt_data>[]
                                                        lo_struct_descr_2->components[]
                                                        lt_fields[]
-                                                       '10'
+*                                                       '10'
+                                                       1
+                                                       10
                                               CHANGING html[].
 *                  " chiude tag results
 *                  PERFORM jsonp_close_results CHANGING html[].

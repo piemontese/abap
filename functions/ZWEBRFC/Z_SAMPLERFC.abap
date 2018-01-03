@@ -140,7 +140,9 @@ FUNCTION z_samplerfc.
                                   lo_struct_descr->components[]
                                   lt_fields[]
                                   lt_messages[]
-                                  '10'
+*                                  '10'
+                                  1
+                                  10
                          CHANGING html[].
   ELSE.
     PERFORM create_jsonp_2 USING    iv_callback

@@ -10,7 +10,9 @@ FORM CREATE_JSONP  USING VALUE(IV_CALLBACK)   TYPE STRING
                          VALUE(IT_COMPONENTS) TYPE ABAP_COMPDESCR_TAB
                          VALUE(IT_FIELDS)     TYPE TABLE
                          VALUE(IT_MESSAGES)   TYPE TY_T_MESSAGES
-                         VALUE(IV_ROWS)       TYPE STRING
+*                         VALUE(IV_ROWS)       TYPE STRING
+                         VALUE(IV_FROM_REC)   TYPE i
+                         VALUE(IV_TO_REC)     TYPE i
                    CHANGING    CT_JSONP       TYPE TY_T_W3HTML.
 
 
@@ -55,7 +57,9 @@ FORM CREATE_JSONP  USING VALUE(IV_CALLBACK)   TYPE STRING
                                        IT_DATA[]
                                        IT_COMPONENTS[]
                                        IT_FIELDS[]
-                                       IV_ROWS
+*                                       IV_ROWS
+                                       IV_FROM_REC
+                                       IV_TO_REC
                               CHANGING CT_JSONP[].
   " chiude tag results
   PERFORM JSONP_CLOSE_RESULTS CHANGING CT_JSONP[].
@@ -117,7 +121,9 @@ FORM JSONP_BUILD_RESULTS  USING VALUE(IV_SNAME)      TYPE STRING
                                 VALUE(IV_DATA)       TYPE ANY
                                 VALUE(IT_COMPONENTS) TYPE ABAP_COMPDESCR_TAB
                                 VALUE(IT_FIELDS)     TYPE TABLE
-                                VALUE(IV_ROWS)       TYPE STRING
+*                                VALUE(IV_ROWS)       TYPE STRING
+                                VALUE(IV_FROM_REC)   TYPE I
+                                VALUE(IV_TO_REC)     TYPE I
                           CHANGING    CT_JSONP       TYPE TY_T_W3HTML.
 
   FIELD-SYMBOLS: <VALUE>   TYPE ANY,
@@ -155,7 +161,8 @@ FORM JSONP_BUILD_RESULTS  USING VALUE(IV_SNAME)      TYPE STRING
 *      LOOP AT IT_DATA ASSIGNING <LS_DATA>.
       LOOP AT <LT_DATA> ASSIGNING <LS_DATA>.
         LV_TABIX = SY-TABIX.
-        CHECK LV_COUNT <= IV_ROWS.
+*        CHECK LV_COUNT <= IV_ROWS.
+        CHECK LV_COUNT BETWEEN IV_FROM_REC AND IV_TO_REC.
 *    LS_JSONP = '"item": ['.
         LS_JSONP = '{'.
         INSERT LS_JSONP INTO TABLE CT_JSONP.

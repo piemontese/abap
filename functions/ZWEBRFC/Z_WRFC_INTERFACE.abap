@@ -38,6 +38,8 @@ FUNCTION Z_WRFC_INTERFACE.
         LS_MESSAGES       TYPE TY_S_MESSAGES,
         LV_SNAME          TYPE STRING.
 
+  DATA: LX_ROOT TYPE REF TO CX_ROOT.
+
   DATA: LT_MESSAGES TYPE TY_T_MESSAGES.
 
   CLEAR: LV_SNAME.
@@ -48,12 +50,16 @@ FUNCTION Z_WRFC_INTERFACE.
   DATA: IV_CALLBACK       TYPE STRING,
         IV_METHOD         TYPE STRING,
         IV_FIELDS         TYPE STRING,
-        IV_ROWS           TYPE STRING.
+*        IV_ROWS           TYPE STRING,
+        IV_FROM_REC       TYPE I,
+        IV_TO_REC         TYPE I.
 
   CLEAR: IV_CALLBACK,
          IV_METHOD,
          IV_FIELDS,
-         IV_ROWS.
+*         IV_ROWS,
+         IV_FROM_REC,
+         IV_TO_REC.
 
   LOOP AT QUERY_STRING.
     TRANSLATE QUERY_STRING-NAME TO UPPER CASE.
@@ -75,11 +81,33 @@ FUNCTION Z_WRFC_INTERFACE.
     IV_FIELDS = '*'.
   ENDIF.
 
+*  CLEAR: QUERY_STRING.
+*  READ TABLE QUERY_STRING WITH KEY NAME = 'ROWS'.
+*  IV_ROWS = QUERY_STRING-VALUE.
+*  IF ( IV_ROWS IS INITIAL ).
+*    IV_ROWS = '20'.
+*  ENDIF.
+
   CLEAR: QUERY_STRING.
-  READ TABLE QUERY_STRING WITH KEY NAME = 'ROWS'.
-  IV_ROWS = QUERY_STRING-VALUE.
-  IF ( IV_ROWS IS INITIAL ).
-    IV_ROWS = '20'.
+  READ TABLE QUERY_STRING WITH KEY NAME = 'FROM_REC'.
+  TRY.
+      IV_FROM_REC = QUERY_STRING-VALUE.
+    CATCH CX_ROOT INTO LX_ROOT.
+      IV_FROM_REC = 0.
+  ENDTRY.
+  IF ( IV_FROM_REC IS INITIAL ).
+    IV_FROM_REC = 1.
+  ENDIF.
+
+  CLEAR: QUERY_STRING.
+  READ TABLE QUERY_STRING WITH KEY NAME = 'TO_REC'.
+  TRY.
+      IV_TO_REC = QUERY_STRING-VALUE.
+    CATCH CX_ROOT INTO LX_ROOT.
+      IV_TO_REC = 0.
+  ENDTRY.
+  IF ( IV_TO_REC IS INITIAL ).
+    IV_TO_REC = 10.
   ENDIF.
 
 
@@ -170,6 +198,19 @@ FUNCTION Z_WRFC_INTERFACE.
       INSERT LS_PARAMS INTO TABLE LT_PARAMS.
     ENDLOOP.
 
+    LOOP AT LS_INTERFACE-CHANGE INTO LS_PARA.
+      CLEAR: LS_PARAMS.
+      LS_PARAMS-NAME = LS_PARA-PARAMETER.
+      LS_PARAMS-KIND = ABAP_FUNC_CHANGING.
+      PERFORM CREATE_PARAMETER USING    LS_PARA-STRUCTURE
+                                        ''
+                               CHANGING LS_PARAMS-VALUE.
+*        FIELD-SYMBOLS: <lv_value> TYPE any.
+*        ASSIGN query_string-value TO <lv_value>.
+*        GET REFERENCE OF <lv_value> INTO ls_params-value.
+      INSERT LS_PARAMS INTO TABLE LT_PARAMS.
+    ENDLOOP.
+
     LOOP AT LS_INTERFACE-TABLES INTO LS_PARA.
       CLEAR: LS_PARAMS.
       LS_PARAMS-NAME = LS_PARA-PARAMETER.
@@ -232,7 +273,9 @@ FUNCTION Z_WRFC_INTERFACE.
                                                  <LT_DATA>[]
                                                  LO_STRUCT_DESCR->COMPONENTS[]
                                                  LT_FIELDS[]
-                                                 IV_ROWS
+*                                                 IV_ROWS
+                                                 IV_FROM_REC
+                                                 IV_TO_REC
                                         CHANGING HTML[].
 *            PERFORM JSON_CREATE_FROM_DATA USING    IV_CALLBACK
 *                                                   LS_PARAMS-NAME
@@ -252,7 +295,42 @@ FUNCTION Z_WRFC_INTERFACE.
                                                      <LS_DATA>
                                                      LO_STRUCT_DESCR->COMPONENTS[]
                                                      LT_FIELDS[]
-                                                     IV_ROWS
+*                                                     IV_ROWS
+                                                     IV_FROM_REC
+                                                     IV_TO_REC
+                                            CHANGING HTML[].
+              CATCH CX_ROOT.
+                TRY.
+                    ASSIGN LS_PARAMS-VALUE->* TO <LS_DATA>.
+                    LO_DATA_DESCR ?= CL_ABAP_DATADESCR=>DESCRIBE_BY_DATA( <LS_DATA> ).
+
+                    HTML-LINE = '"' && LV_SNAME && '":"' && <LS_DATA> && '",'..
+                    APPEND HTML.
+                  CATCH CX_ROOT.
+                ENDTRY.
+            ENDTRY.
+
+*            ASSIGN <LS_DATA> TO <LV_DATA>.
+*            PERFORM JSON_CREATE_FROM_DATA USING    IV_CALLBACK
+*                                                   LS_PARAMS-NAME
+*                                                   <LV_DATA>
+*                                          CHANGING HTML[].
+
+          ENDIF.
+          READ TABLE LS_INTERFACE-CHANGE WITH KEY PARAMETER = LS_PARAMS-NAME TRANSPORTING NO FIELDS.
+          IF ( SY-SUBRC = 0 ).
+            LV_SNAME = LS_PARAMS-NAME.
+            TRY.
+                ASSIGN LS_PARAMS-VALUE->* TO <LS_DATA>.
+                LO_STRUCT_DESCR ?= CL_ABAP_STRUCTDESCR=>DESCRIBE_BY_DATA( <LS_DATA> ).
+
+                PERFORM JSONP_BUILD_RESULTS USING    LV_SNAME
+                                                     <LS_DATA>
+                                                     LO_STRUCT_DESCR->COMPONENTS[]
+                                                     LT_FIELDS[]
+*                                                     IV_ROWS
+                                                     IV_FROM_REC
+                                                     IV_TO_REC
                                             CHANGING HTML[].
               CATCH CX_ROOT.
                 TRY.
@@ -283,25 +361,24 @@ FUNCTION Z_WRFC_INTERFACE.
                                      CHANGING HTML[].
 
       CATCH CX_ROOT INTO LO_ROOT.
-        CLEAR: LS_MESSAGES.
-        LS_MESSAGES-TYPE = 'E'.
-        LS_MESSAGES-MSG = LO_ROOT->GET_TEXT( ).
-        APPEND LS_MESSAGES TO LT_MESSAGES.
+        DATA: LV_MSG TYPE TY_S_MESSAGES-MSG.
+        LV_MSG = LO_ROOT->GET_TEXT( ).
+        PERFORM ADD_MESSAGE USING    'E' LV_MSG
+                            CHANGING LT_MESSAGES[].
 
         PERFORM CREATE_JSONP_2 USING    IV_CALLBACK
                                         LT_MESSAGES[]
                                CHANGING HTML[].
     ENDTRY.
   ELSE.
-    CLEAR: LS_MESSAGES.
-    LS_MESSAGES-TYPE = 'E'.
     CASE SY-SUBRC.
       WHEN 1.
-        LS_MESSAGES-MSG = 'Error'.
+        PERFORM ADD_MESSAGE USING    'E' 'Error'
+                            CHANGING LT_MESSAGES[].
       WHEN 2.
-        LS_MESSAGES-MSG = 'Function not exist'.
+        PERFORM ADD_MESSAGE USING    'E' 'Function not exist'
+                            CHANGING LT_MESSAGES[].
     ENDCASE.
-    APPEND LS_MESSAGES TO LT_MESSAGES.
 
     PERFORM CREATE_JSONP_2 USING    IV_CALLBACK
                                     LT_MESSAGES[]
@@ -311,27 +388,25 @@ FUNCTION Z_WRFC_INTERFACE.
 ENDFUNCTION.
 
 * struttura file jsonp
-*   callback({
-*     "errors": [
-*       { "type": "...", "message": "..." },
-*     ],
-*     "results": {
-*       "field1": "...",   
-*        ...
-*       "fieldn": "...",
-*       "structure1": { "key1": "...", ..., "keyn": "..." },
-*       ...,
-*       "structuren": { "key1": "...", ..., "keyn": "..." },
-*       "array1": [
-*         { "key1": "...", ..., "keyn": "..." },
-*         ...,
-*         { "key1": "...", ..., "keyn": "..." },
-*       ],
-*       ...,
-*       "arrayn": [
-*         { "key1": "...", ..., "keyn": "..." },
-*         ...,
-*         { "key1": "...", ..., "keyn": "..." },
-*       ]
-*     }
-*   });
+*    callback({
+*        "errors": [
+*            { "type": "type" },
+*            { "message": "msg" },
+*        ],
+*        "columns": [
+*            { "columnn": "name1" },
+*            { "columnn": "name2" },
+*            { "columnn": "name3" }
+*            { "columnn": "name4" }
+*        ],
+*        "results": [
+*            {
+*                "rows": [
+*                    { "name": "name1", "value": "value1" },
+*                    { "name": "name2", "value": "value2" },
+*                    { "name": "name3", "value": "value3" },
+*                    { "name": "name4", "value": "value4" }
+*                ]
+*            }
+*        ]
+*    })
