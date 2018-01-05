@@ -36,7 +36,9 @@ FUNCTION Z_WRFC_INTERFACE.
         LT_FIELDS         TYPE TABLE OF STRING,
         LS_FIELDS         TYPE STRING,
         LS_MESSAGES       TYPE TY_S_MESSAGES,
-        LV_SNAME          TYPE STRING.
+        LV_SNAME          TYPE STRING,
+        LV_QUERY_NAME     TYPE W3_QNAME,
+        LV_QUERY_NULL     TYPE W3_QNAME.
 
   DATA: LX_ROOT TYPE REF TO CX_ROOT.
 
@@ -63,6 +65,13 @@ FUNCTION Z_WRFC_INTERFACE.
 
   LOOP AT QUERY_STRING.
     TRANSLATE QUERY_STRING-NAME TO UPPER CASE.
+    CLEAR: LV_QUERY_NAME.
+    " usa il pipe per parametro passato in righe multiple
+    " es. matnr|0 matnr|1 ... matnr|n
+    SPLIT QUERY_STRING-NAME AT '|' INTO LV_QUERY_NAME LV_QUERY_NULL.
+    IF ( NOT LV_QUERY_NAME IS INITIAL ).
+      QUERY_STRING-NAME = LV_QUERY_NAME.
+    ENDIF.
     MODIFY QUERY_STRING.
   ENDLOOP.
 
@@ -163,23 +172,23 @@ FUNCTION Z_WRFC_INTERFACE.
 
     REFRESH: LT_PARAMS, LT_EXCEPTIONS.
 
-    DATA: LREF_DATA TYPE REF TO DATA.
+    DATA: LREF_DATA TYPE REF TO DATA,
+          LV_QUERY  TYPE STRING.
 
     FIELD-SYMBOLS: <DATA> TYPE ANY.
 
     LOOP AT LS_INTERFACE-IMPORT INTO LS_PARA.
-      CLEAR: QUERY_STRING.
-      READ TABLE QUERY_STRING WITH KEY NAME = LS_PARA-PARAMETER.
+      CLEAR: LV_QUERY.
+      LOOP AT QUERY_STRING WHERE NAME EQ LS_PARA-PARAMETER.
+        LV_QUERY = LV_QUERY && QUERY_STRING-VALUE.
+      ENDLOOP.
       IF ( SY-SUBRC = 0 ).
         CLEAR: LS_PARAMS.
         LS_PARAMS-NAME = LS_PARA-PARAMETER.
         LS_PARAMS-KIND = ABAP_FUNC_EXPORTING.
         PERFORM CREATE_PARAMETER USING    LS_PARA-STRUCTURE
-                                          QUERY_STRING-VALUE
+                                          LV_QUERY
                                  CHANGING LS_PARAMS-VALUE.
-*        FIELD-SYMBOLS: <lv_value> TYPE any.
-*        ASSIGN query_string-value TO <lv_value>.
-*        GET REFERENCE OF <lv_value> INTO ls_params-value.
         INSERT LS_PARAMS INTO TABLE LT_PARAMS.
       ELSE.
       ENDIF.
@@ -199,25 +208,30 @@ FUNCTION Z_WRFC_INTERFACE.
     ENDLOOP.
 
     LOOP AT LS_INTERFACE-CHANGE INTO LS_PARA.
+      CLEAR: LV_QUERY.
+      LOOP AT QUERY_STRING WHERE NAME = LS_PARA-PARAMETER.
+        LV_QUERY = LV_QUERY && QUERY_STRING-VALUE.
+      ENDLOOP.
       CLEAR: LS_PARAMS.
       LS_PARAMS-NAME = LS_PARA-PARAMETER.
       LS_PARAMS-KIND = ABAP_FUNC_CHANGING.
       PERFORM CREATE_PARAMETER USING    LS_PARA-STRUCTURE
-                                        ''
+                                        LV_QUERY
                                CHANGING LS_PARAMS-VALUE.
-*        FIELD-SYMBOLS: <lv_value> TYPE any.
-*        ASSIGN query_string-value TO <lv_value>.
-*        GET REFERENCE OF <lv_value> INTO ls_params-value.
       INSERT LS_PARAMS INTO TABLE LT_PARAMS.
     ENDLOOP.
 
     LOOP AT LS_INTERFACE-TABLES INTO LS_PARA.
+      CLEAR: LV_QUERY.
+      LOOP AT QUERY_STRING WHERE NAME = LS_PARA-PARAMETER.
+        LV_QUERY = LV_QUERY && QUERY_STRING-VALUE.
+      ENDLOOP.
       CLEAR: LS_PARAMS.
       LS_PARAMS-NAME = LS_PARA-PARAMETER.
       LS_PARAMS-KIND = ABAP_FUNC_TABLES.
       PERFORM CREATE_TABLE USING    LS_PARA-STRUCTURE
+                                    LV_QUERY
                            CHANGING LS_PARAMS-VALUE.
-*      GET REFERENCE OF text_tab INTO ls_params-value.
       INSERT LS_PARAMS INTO TABLE LT_PARAMS.
     ENDLOOP.
 
@@ -388,25 +402,27 @@ FUNCTION Z_WRFC_INTERFACE.
 ENDFUNCTION.
 
 * struttura file jsonp
-*    callback({
-*        "errors": [
-*            { "type": "type" },
-*            { "message": "msg" },
-*        ],
-*        "columns": [
-*            { "columnn": "name1" },
-*            { "columnn": "name2" },
-*            { "columnn": "name3" }
-*            { "columnn": "name4" }
-*        ],
-*        "results": [
-*            {
-*                "rows": [
-*                    { "name": "name1", "value": "value1" },
-*                    { "name": "name2", "value": "value2" },
-*                    { "name": "name3", "value": "value3" },
-*                    { "name": "name4", "value": "value4" }
-*                ]
-*            }
-*        ]
-*    })
+*   iv_callback({
+*     "errors": [
+*       { "type": "...", "message": "..." },
+*     ],
+*     "results": {
+*       "field1": "...",
+*        ...
+*       "fieldn": "...",
+*       "structure1": { "key1": "...", ..., "keyn": "..." },
+*       ...,
+*       "structuren": { "key1": "...", ..., "keyn": "..." },
+*       "array1": [
+*         { "key1": "...", ..., "keyn": "..." },
+*         ...,
+*         { "key1": "...", ..., "keyn": "..." },
+*       ],
+*       ...,
+*       "arrayn": [
+*         { "key1": "...", ..., "keyn": "..." },
+*         ...,
+*         { "key1": "...", ..., "keyn": "..." },
+*       ]
+*     }
+*   });

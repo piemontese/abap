@@ -11,8 +11,8 @@ FORM CREATE_JSONP  USING VALUE(IV_CALLBACK)   TYPE STRING
                          VALUE(IT_FIELDS)     TYPE TABLE
                          VALUE(IT_MESSAGES)   TYPE TY_T_MESSAGES
 *                         VALUE(IV_ROWS)       TYPE STRING
-                         VALUE(IV_FROM_REC)   TYPE i
-                         VALUE(IV_TO_REC)     TYPE i
+                         VALUE(IV_FROM_REC)   TYPE I
+                         VALUE(IV_TO_REC)     TYPE I
                    CHANGING    CT_JSONP       TYPE TY_T_W3HTML.
 
 
@@ -540,6 +540,7 @@ ENDFORM.                    " JSONP_ADD_ROW_COLUMNS
 *&      Form  create_table
 *&---------------------------------------------------------------------*
 FORM CREATE_TABLE USING VALUE(IV_FIELD) TYPE C
+                        VALUE(IV_VALUE) TYPE ANY
                   CHANGING    CT_DATA   TYPE REF TO DATA.
 
   DATA: LO_STRUCT_DESCR   TYPE REF TO CL_ABAP_STRUCTDESCR,
@@ -678,9 +679,16 @@ FORM CREATE_PARAMETER USING VALUE(IV_FIELD) TYPE C
 
   DATA: LX_ROOT           TYPE REF TO CX_ROOT,
         LT_KEYS           TYPE ABAP_KEYDESCR_TAB,
-        LV_PARAM          TYPE REF TO DATA.
+        LV_PARAM          TYPE REF TO DATA,
+        LO_DATA_DESCR     TYPE REF TO CL_ABAP_DATADESCR,
+        LO_STRUCT_DESCR   TYPE REF TO CL_ABAP_STRUCTDESCR,
+        LO_TABLE_DESCR    TYPE REF TO CL_ABAP_TABLEDESCR,
+        LS_COMPONENTS     TYPE ABAP_COMPDESCR,
+        LV_VALUE          TYPE STRING.
 
   FIELD-SYMBOLS: <LV_PARAM> TYPE ANY.
+
+  LV_VALUE = IV_VALUE.
 
   TRY.
       TRY.
@@ -689,10 +697,32 @@ FORM CREATE_PARAMETER USING VALUE(IV_FIELD) TYPE C
           CREATE DATA LV_PARAM LIKE IV_FIELD.
       ENDTRY.
       ASSIGN LV_PARAM->* TO <LV_PARAM>.
+      TRY.
+          LO_TABLE_DESCR ?= CL_ABAP_TABLEDESCR=>DESCRIBE_BY_DATA_REF( LV_PARAM ).
+          CL_FDT_JSON=>JSON_TO_DATA( EXPORTING IV_JSON = LV_VALUE
+                                     CHANGING  CA_DATA = <LV_PARAM> ).
+        CATCH CX_ROOT.
+          TRY.
+              LO_STRUCT_DESCR ?= CL_ABAP_STRUCTDESCR=>DESCRIBE_BY_DATA_REF( LV_PARAM ).
+              CL_FDT_JSON=>JSON_TO_DATA( EXPORTING IV_JSON = LV_VALUE
+                                         CHANGING  CA_DATA = <LV_PARAM> ).
+            CATCH CX_ROOT.
+              TRY.
+                  LO_DATA_DESCR ?= CL_ABAP_DATADESCR=>DESCRIBE_BY_DATA_REF( LV_PARAM ).
+                  IF ( NOT IV_VALUE IS INITIAL ).
+                    ZCL_BC_CONVERSION_EXIT=>CONVERSION_INPUT( EXPORTING IV_FIELD = IV_VALUE
+                                                              CHANGING  CV_FIELD = <LV_PARAM> ).
+                  ENDIF.
+                CATCH CX_ROOT.
+              ENDTRY.
+          ENDTRY.
+      ENDTRY.
 
-      IF ( NOT IV_VALUE IS INITIAL ).
-        <LV_PARAM> = IV_VALUE.
-      ENDIF.
+*      IF ( NOT IV_VALUE IS INITIAL ).
+**        <LV_PARAM> = IV_VALUE.
+*        ZCL_BC_CONVERSION_EXIT=>CONVERSION_INPUT( EXPORTING IV_FIELD = IV_VALUE
+*                                                  CHANGING  CV_FIELD = <LV_PARAM> ).
+*      ENDIF.
 
     CATCH CX_ROOT INTO LX_ROOT.
   ENDTRY.
