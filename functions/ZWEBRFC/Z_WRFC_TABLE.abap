@@ -1,4 +1,4 @@
-FUNCTION Z_WRFC_TABLE.
+FUNCTION z_wrfc_table.
 *"----------------------------------------------------------------------
 *"*"Interfaccia locale:
 *"  TABLES
@@ -16,42 +16,42 @@ FUNCTION Z_WRFC_TABLE.
   " http://mnibm09.novellini.it:8066/sap/bc/webrfc?_FUNCTION=Z_SAMPLERFC&callback=jsonCallback&sqlTable=MARC&sqlWhere=MATNR = 'ACF090-071026'
 
 
-  FIELD-SYMBOLS: <LS_DATA> TYPE ANY.
-  FIELD-SYMBOLS: <LT_DATA> TYPE ANY TABLE.
-  TYPES: BEGIN OF TY_S_WORK, BUFFER(30000), END OF TY_S_WORK.
+  FIELD-SYMBOLS: <ls_data> TYPE any.
+  FIELD-SYMBOLS: <lt_data> TYPE ANY TABLE.
+  TYPES: BEGIN OF ty_s_work, buffer(30000), END OF ty_s_work.
 *  DATA: ls_work TYPE ty_s_work.
 
-  DATA: LO_STRUCT_DESCR   TYPE REF TO CL_ABAP_STRUCTDESCR,
-        LO_TABLE_DESCR    TYPE REF TO CL_ABAP_TABLEDESCR,
-        LX_ROOT           TYPE REF TO CX_ROOT,
-        LS_COMPONENTS     TYPE ABAP_COMPDESCR,
-        LT_KEYS           TYPE ABAP_KEYDESCR_TAB,
-        LS_STRING         TYPE STRING,
-        LT_TABLE          TYPE REF TO DATA,
-        LS_TABLE          TYPE REF TO DATA,
-        LT_FIELDS         TYPE TABLE OF STRING,
-        LS_FIELDS         TYPE STRING.
+  DATA: lo_struct_descr   TYPE REF TO cl_abap_structdescr,
+        lo_table_descr    TYPE REF TO cl_abap_tabledescr,
+        lx_root           TYPE REF TO cx_root,
+        ls_components     TYPE abap_compdescr,
+        lt_keys           TYPE abap_keydescr_tab,
+        ls_string         TYPE string,
+        lt_table          TYPE REF TO data,
+        ls_table          TYPE REF TO data,
+        lt_fields         TYPE TABLE OF string,
+        ls_fields         TYPE string.
 
-  DATA: LT_MESSAGES TYPE TY_T_MESSAGES.
+  DATA: lt_messages TYPE ty_t_messages.
 
-  REFRESH LT_MESSAGES.
+  REFRESH lt_messages.
 
 * parametri
-  DATA: IV_CALLBACK         TYPE STRING,
-        IV_SQL_TABLE        TYPE STRING,
-        IV_SQL_WHERE        TYPE STRING,
-        IV_SQL_FIELDS       TYPE STRING,
-        IV_FROM_REC         TYPE I,
-        IV_TO_REC            TYPE I.
+  DATA: iv_callback         TYPE string,
+        iv_sql_table        TYPE string,
+        iv_sql_where        TYPE string,
+        iv_sql_fields       TYPE string,
+        iv_from_rec         TYPE i,
+        iv_to_rec            TYPE i.
 
-  CLEAR: IV_CALLBACK,
-         IV_SQL_TABLE,
-         IV_SQL_WHERE,
-         IV_SQL_FIELDS.
+  CLEAR: iv_callback,
+         iv_sql_table,
+         iv_sql_where,
+         iv_sql_fields.
 
-  LOOP AT QUERY_STRING.
-    TRANSLATE QUERY_STRING-NAME TO UPPER CASE.
-    MODIFY QUERY_STRING.
+  LOOP AT query_string.
+    TRANSLATE query_string-name TO UPPER CASE.
+    MODIFY query_string.
   ENDLOOP.
 
 *  SORT query_string DESCENDING.
@@ -59,105 +59,105 @@ FUNCTION Z_WRFC_TABLE.
 *  CHECK sy-subrc = 0.
 *  name = query_string-value.
 
-  CLEAR: QUERY_STRING.
-  READ TABLE QUERY_STRING WITH KEY NAME = 'CALLBACK'.
-  IV_CALLBACK = QUERY_STRING-VALUE.
+  CLEAR: query_string.
+  READ TABLE query_string WITH KEY name = 'CALLBACK'.
+  iv_callback = query_string-value.
 
-  CLEAR: QUERY_STRING.
-  READ TABLE QUERY_STRING WITH KEY NAME = 'SQLTABLE'.
+  CLEAR: query_string.
+  READ TABLE query_string WITH KEY name = 'SQLTABLE'.
   "CHECK sy-subrc = 0.
 *  IF ( sy-subrc <> 0 ).
 *    return_code = 100.
 *    RETURN.
 *  ENDIF.
-  IV_SQL_TABLE = QUERY_STRING-VALUE.
+  iv_sql_table = query_string-value.
 
-  CLEAR: QUERY_STRING.
-  READ TABLE QUERY_STRING WITH KEY NAME = 'SQLWHERE'.
+  CLEAR: query_string.
+  READ TABLE query_string WITH KEY name = 'SQLWHERE'.
   "CHECK sy-subrc = 0.
-  IV_SQL_WHERE = QUERY_STRING-VALUE.
+  iv_sql_where = query_string-value.
 
-  CLEAR: QUERY_STRING.
-  READ TABLE QUERY_STRING WITH KEY NAME = 'SQLFIELDS'.
+  CLEAR: query_string.
+  READ TABLE query_string WITH KEY name = 'SQLFIELDS'.
   "CHECK sy-subrc = 0.
-  IV_SQL_FIELDS = QUERY_STRING-VALUE.
-  IF ( IV_SQL_FIELDS IS INITIAL ).
-    IV_SQL_FIELDS = '*'.
+  iv_sql_fields = query_string-value.
+  IF ( iv_sql_fields IS INITIAL ).
+    iv_sql_fields = '*'.
   ENDIF.
 
-  REFRESH: LT_FIELDS.
-  SPLIT IV_SQL_FIELDS AT ' ' INTO TABLE LT_FIELDS.
-  LOOP AT LT_FIELDS INTO LS_FIELDS.
-    IF ( LS_FIELDS = SPACE ).
-      DELETE LT_FIELDS.
+  REFRESH: lt_fields.
+  SPLIT iv_sql_fields AT ' ' INTO TABLE lt_fields.
+  LOOP AT lt_fields INTO ls_fields.
+    IF ( ls_fields = space ).
+      DELETE lt_fields.
       CONTINUE.
     ENDIF.
   ENDLOOP.
 
-  CLEAR: QUERY_STRING.
-  READ TABLE QUERY_STRING WITH KEY NAME = 'FROM_REC'.
+  CLEAR: query_string.
+  READ TABLE query_string WITH KEY name = 'FROM_REC'.
   TRY.
-      IV_FROM_REC = QUERY_STRING-VALUE.
-    CATCH CX_ROOT INTO LX_ROOT.
-      IV_FROM_REC = 0.
+      iv_from_rec = query_string-value.
+    CATCH cx_root INTO lx_root.
+      iv_from_rec = 0.
   ENDTRY.
-  IF ( IV_FROM_REC IS INITIAL ).
-    IV_FROM_REC = 1.
+  IF ( iv_from_rec IS INITIAL ).
+    iv_from_rec = 1.
   ENDIF.
 
-  CLEAR: QUERY_STRING.
-  READ TABLE QUERY_STRING WITH KEY NAME = 'TO_REC'.
+  CLEAR: query_string.
+  READ TABLE query_string WITH KEY name = 'TO_REC'.
   TRY.
-      IV_TO_REC = QUERY_STRING-VALUE.
-    CATCH CX_ROOT INTO LX_ROOT.
-      IV_TO_REC = 0.
+      iv_to_rec = query_string-value.
+    CATCH cx_root INTO lx_root.
+      iv_to_rec = 0.
   ENDTRY.
-  IF ( IV_TO_REC IS INITIAL ).
-    IV_TO_REC = 10.
+  IF ( iv_to_rec IS INITIAL ).
+    iv_to_rec = 10.
   ENDIF.
 
-  IF ( IV_CALLBACK IS INITIAL ).
-    PERFORM ADD_MESSAGE USING    'E' 'Specificare funzione di callback'
-                        CHANGING LT_MESSAGES[].
+  IF ( iv_callback IS INITIAL ).
+    PERFORM add_message USING    'E' 'Specificare funzione di callback'
+                        CHANGING lt_messages[].
   ENDIF.
-  IF ( IV_SQL_TABLE IS INITIAL ).
-    PERFORM ADD_MESSAGE USING    'E' 'Specificare tabella di estrazione'
-                        CHANGING LT_MESSAGES[].
+  IF ( iv_sql_table IS INITIAL ).
+    PERFORM add_message USING    'E' 'Specificare tabella di estrazione'
+                        CHANGING lt_messages[].
   ENDIF.
 
-  IF ( NOT IV_SQL_FIELDS IS INITIAL ).
-    LO_STRUCT_DESCR ?= CL_ABAP_STRUCTDESCR=>DESCRIBE_BY_NAME( IV_SQL_TABLE ).
+  IF ( NOT iv_sql_fields IS INITIAL ).
+    lo_struct_descr ?= cl_abap_structdescr=>describe_by_name( iv_sql_table ).
 
 *    ASSIGN ls_work TO <ls_data> CASTING TYPE (iv_sql_table).
 
 
 
-    CREATE DATA LS_TABLE TYPE HANDLE LO_STRUCT_DESCR.
-    ASSIGN LS_TABLE->* TO <LS_DATA>.
+    CREATE DATA ls_table TYPE HANDLE lo_struct_descr.
+    ASSIGN ls_table->* TO <ls_data>.
 
-    LO_TABLE_DESCR ?= CL_ABAP_TABLEDESCR=>CREATE( P_LINE_TYPE  = LO_STRUCT_DESCR
-                                                  P_TABLE_KIND = CL_ABAP_TABLEDESCR=>TABLEKIND_HASHED
-                                                  P_UNIQUE     = ABAP_TRUE
-                                                  P_KEY        = LT_KEYS
-                                                  P_KEY_KIND   = CL_ABAP_TABLEDESCR=>KEYDEFKIND_DEFAULT ).
+    lo_table_descr ?= cl_abap_tabledescr=>create( p_line_type  = lo_struct_descr
+                                                  p_table_kind = cl_abap_tabledescr=>tablekind_hashed
+                                                  p_unique     = abap_true
+                                                  p_key        = lt_keys
+                                                  p_key_kind   = cl_abap_tabledescr=>keydefkind_default ).
 
-    CREATE DATA LT_TABLE TYPE HANDLE LO_TABLE_DESCR.
-    ASSIGN LT_TABLE->* TO <LT_DATA>.
+    CREATE DATA lt_table TYPE HANDLE lo_table_descr.
+    ASSIGN lt_table->* TO <lt_data>.
 
 
-    DATA: LO_EXCEPTION TYPE REF TO CX_ROOT,
-          LV_MSG       TYPE TY_S_MESSAGES-MSG.
+    DATA: lo_exception TYPE REF TO cx_root,
+          lv_msg       TYPE ty_s_messages-msg.
     TRY.
 *    SELECT * FROM (iv_sql_table) INTO TABLE <lt_data> WHERE (iv_sql_where).
-        SELECT (IV_SQL_FIELDS) FROM (IV_SQL_TABLE) INTO CORRESPONDING FIELDS OF TABLE <LT_DATA> WHERE (IV_SQL_WHERE).
-        IF ( SY-SUBRC <> 0 ).
-          PERFORM ADD_MESSAGE USING    'E' 'Nessun risultato'
-                              CHANGING LT_MESSAGES[].
+        SELECT (iv_sql_fields) FROM (iv_sql_table) INTO CORRESPONDING FIELDS OF TABLE <lt_data> WHERE (iv_sql_where).
+        IF ( sy-subrc <> 0 ).
+          PERFORM add_message USING    'E' 'Nessun risultato'
+                              CHANGING lt_messages[].
         ENDIF.
-      CATCH CX_ROOT INTO LO_EXCEPTION.
-        LV_MSG = LO_EXCEPTION->GET_TEXT( ).
-        PERFORM ADD_MESSAGE USING    'E' LV_MSG
-                            CHANGING LT_MESSAGES[].
+      CATCH cx_root INTO lo_exception.
+        lv_msg = lo_exception->get_text( ).
+        PERFORM add_message USING    'E' lv_msg
+                            CHANGING lt_messages[].
         RETURN.
     ENDTRY.
 
@@ -172,8 +172,8 @@ FUNCTION Z_WRFC_TABLE.
 *                         CHANGING html[].
 
     " apre tag funcione di callback
-    PERFORM JSONP_OPEN_CALLBACK USING    IV_CALLBACK
-                                CHANGING HTML[].
+    PERFORM jsonp_open_callback USING    iv_callback
+                                CHANGING html[].
 
 ** errors -------------------------------------------------------
 *  " apre tag errors
@@ -196,27 +196,27 @@ FUNCTION Z_WRFC_TABLE.
 
 * results ------------------------------------------------------
     " apre tag results
-    PERFORM JSONP_OPEN_RESULTS CHANGING HTML[].
+    PERFORM jsonp_open_results CHANGING html[].
     " costruisce results
-    PERFORM JSONP_BUILD_RESULTS USING    IV_SQL_TABLE
-                                         <LT_DATA>[]
-                                         LO_STRUCT_DESCR->COMPONENTS[]
-                                         LT_FIELDS[]
+    PERFORM jsonp_build_results USING    iv_sql_table
+                                         <lt_data>[]
+*                                         lo_struct_descr->components[]
+                                         lt_fields[]
 *                                       IV_ROWS
-                                         IV_FROM_REC
-                                         IV_TO_REC
-                                CHANGING HTML[].
+                                         iv_from_rec
+                                         iv_to_rec
+                                CHANGING html[].
     " chiude tag results
-    PERFORM JSONP_CLOSE_RESULTS CHANGING HTML[].
+    PERFORM jsonp_close_results CHANGING html[].
 
     " chiude tab funzione di callback
-    PERFORM JSONP_CLOSE_CALLBACK USING IV_CALLBACK
-                                 CHANGING HTML[].
+    PERFORM jsonp_close_callback USING iv_callback
+                                 CHANGING html[].
 
   ELSE.
-    PERFORM CREATE_JSONP_2 USING    IV_CALLBACK
-                                    LT_MESSAGES[]
-                           CHANGING HTML[].
+    PERFORM create_jsonp_2 USING    iv_callback
+                                    lt_messages[]
+                           CHANGING html[].
   ENDIF.
 
 *refresh html.

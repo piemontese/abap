@@ -5,199 +5,202 @@
 *&---------------------------------------------------------------------*
 *&      Form  CREATE_JSONP
 *&---------------------------------------------------------------------*
-FORM CREATE_JSONP  USING VALUE(IV_CALLBACK)   TYPE STRING
-                         VALUE(IT_DATA)       TYPE ANY TABLE
-                         VALUE(IT_COMPONENTS) TYPE ABAP_COMPDESCR_TAB
-                         VALUE(IT_FIELDS)     TYPE TABLE
-                         VALUE(IT_MESSAGES)   TYPE TY_T_MESSAGES
+FORM create_jsonp  USING value(iv_callback)   TYPE string
+                         value(it_data)       TYPE ANY TABLE
+                         value(it_components) TYPE abap_compdescr_tab
+                         value(it_fields)     TYPE table
+                         value(it_messages)   TYPE ty_t_messages
 *                         VALUE(IV_ROWS)       TYPE STRING
-                         VALUE(IV_FROM_REC)   TYPE I
-                         VALUE(IV_TO_REC)     TYPE I
-                   CHANGING    CT_JSONP       TYPE TY_T_W3HTML.
+                         value(iv_from_rec)   TYPE i
+                         value(iv_to_rec)     TYPE i
+                   CHANGING    ct_jsonp       TYPE ty_t_w3html.
 
 
-  DATA: HTMLDOC       TYPE W3HTML,
-        LS_FIELDS     TYPE STRING,
-        LV_FIELD      TYPE C LENGTH 50,
-        LS_COMPONENTS TYPE ABAP_COMPDESCR,
-        LV_SNAME      TYPE STRING.
+  DATA: htmldoc       TYPE w3html,
+        ls_fields     TYPE string,
+        lv_field      TYPE c LENGTH 50,
+        ls_components TYPE abap_compdescr,
+        lv_sname      TYPE string.
 
-  FIELD-SYMBOLS: <LS_DATA> TYPE ANY.
+  FIELD-SYMBOLS: <ls_data> TYPE any.
 
-  CLEAR: LV_SNAME.
+  CLEAR: lv_sname.
 
   " apre tag funcione di callback
-  PERFORM JSONP_OPEN_CALLBACK USING    IV_CALLBACK
-                              CHANGING CT_JSONP[].
+  PERFORM jsonp_open_callback USING    iv_callback
+                              CHANGING ct_jsonp[].
 
 * errors -------------------------------------------------------
   " apre tag errors
-  PERFORM JSONP_OPEN_ERRORS CHANGING CT_JSONP[].
+  PERFORM jsonp_open_errors CHANGING ct_jsonp[].
   " costruzione errors
-  PERFORM JSONP_BUILD_ERRORS USING    IT_MESSAGES[]
-                             CHANGING CT_JSONP[].
+  PERFORM jsonp_build_errors USING    it_messages[]
+                             CHANGING ct_jsonp[].
   " chiude tag errors
-  PERFORM JSONP_CLOSE_ERRORS CHANGING CT_JSONP[].
+  PERFORM jsonp_close_errors CHANGING ct_jsonp[].
 
 * columns ------------------------------------------------------
   " apre tag columns
-  PERFORM JSONP_OPEN_COLUMNS CHANGING CT_JSONP[].
+  PERFORM jsonp_open_columns CHANGING ct_jsonp[].
   " costruisce columns
-  PERFORM JSONP_BUILD_COLUMNS USING    IT_COMPONENTS[]
-                                       IT_FIELDS[]
-                              CHANGING CT_JSONP[].
+  PERFORM jsonp_build_columns USING    it_components[]
+                                       it_fields[]
+                              CHANGING ct_jsonp[].
   " chiude tag columns
-  PERFORM JSONP_CLOSE_COLUMNS CHANGING CT_JSONP[].
+  PERFORM jsonp_close_columns CHANGING ct_jsonp[].
 
 * results ------------------------------------------------------
   " apre tag results
-  PERFORM JSONP_OPEN_RESULTS CHANGING CT_JSONP[].
+  PERFORM jsonp_open_results CHANGING ct_jsonp[].
   " costruisce results
-  PERFORM JSONP_BUILD_RESULTS USING    LV_SNAME
-                                       IT_DATA[]
-                                       IT_COMPONENTS[]
-                                       IT_FIELDS[]
+  PERFORM jsonp_build_results USING    lv_sname
+                                       it_data[]
+*                                       it_components[]
+                                       it_fields[]
 *                                       IV_ROWS
-                                       IV_FROM_REC
-                                       IV_TO_REC
-                              CHANGING CT_JSONP[].
+                                       iv_from_rec
+                                       iv_to_rec
+                              CHANGING ct_jsonp[].
   " chiude tag results
-  PERFORM JSONP_CLOSE_RESULTS CHANGING CT_JSONP[].
+  PERFORM jsonp_close_results CHANGING ct_jsonp[].
 
   " chiude tab funzione di callback
-  PERFORM JSONP_CLOSE_CALLBACK USING IV_CALLBACK
-                               CHANGING CT_JSONP[].
+  PERFORM jsonp_close_callback USING iv_callback
+                               CHANGING ct_jsonp[].
 
 ENDFORM.                    " CREATE_JSONP
 
 *&---------------------------------------------------------------------*
 *&      Form  JSONP_OPEN_CALLBACK
 *&---------------------------------------------------------------------*
-FORM JSONP_OPEN_CALLBACK  USING VALUE(IV_CALLBACK) TYPE STRING
-                          CHANGING    CT_JSONP     TYPE TY_T_W3HTML.
+FORM jsonp_open_callback  USING value(iv_callback) TYPE string
+                          CHANGING    ct_jsonp     TYPE ty_t_w3html.
 
-  DATA: LS_JSONP TYPE W3HTML.
+  DATA: ls_jsonp TYPE w3html.
 
-  CLEAR: LS_JSONP.
-  IF ( NOT IV_CALLBACK IS INITIAL ).
-    LS_JSONP-LINE = IV_CALLBACK && '({'.
+  CLEAR: ls_jsonp.
+  IF ( NOT iv_callback IS INITIAL ).
+    ls_jsonp-line = iv_callback && '({'.
   ELSE.
-    LS_JSONP-LINE = '{'.
+    ls_jsonp-line = '{'.
   ENDIF.
-  INSERT LS_JSONP INTO TABLE CT_JSONP.
+  INSERT ls_jsonp INTO TABLE ct_jsonp.
 
 ENDFORM.                    " JSONP_OPEN_CALLBACK
 
 *&---------------------------------------------------------------------*
 *&      Form  JSONP_OPEN_ERRORS
 *&---------------------------------------------------------------------*
-FORM JSONP_OPEN_ERRORS  CHANGING    CT_JSONP     TYPE TY_T_W3HTML.
+FORM jsonp_open_errors  CHANGING    ct_jsonp     TYPE ty_t_w3html.
 
-  DATA: LS_JSONP TYPE W3HTML.
+  DATA: ls_jsonp TYPE w3html.
 
-  LS_JSONP = '"errors": ['.
-  INSERT LS_JSONP INTO TABLE CT_JSONP.
+  ls_jsonp = '"errors": ['.
+  INSERT ls_jsonp INTO TABLE ct_jsonp.
 
 ENDFORM.                    " JSONP_OPEN_ERRORS
 
 *&---------------------------------------------------------------------*
 *&      Form  JSONP_OPEN_RESULTS
 *&---------------------------------------------------------------------*
-FORM JSONP_OPEN_RESULTS  CHANGING    CT_JSONP     TYPE TY_T_W3HTML.
+FORM jsonp_open_results  CHANGING    ct_jsonp     TYPE ty_t_w3html.
 
-  DATA: LS_JSONP TYPE W3HTML.
+  DATA: ls_jsonp TYPE w3html.
 
 *  ls_jsonp = '{"results": ['.
 *  LS_JSONP = '"results": ['.
-  LS_JSONP = '"results": {'.
-  INSERT LS_JSONP INTO TABLE CT_JSONP.
+  ls_jsonp = '"results": {'.
+  INSERT ls_jsonp INTO TABLE ct_jsonp.
 
 ENDFORM.                    " JSONP_OPEN_RESULTS
 
 *&---------------------------------------------------------------------*
 *&      Form  JSONP_BUILD_RESULTS
 *&---------------------------------------------------------------------*
-FORM JSONP_BUILD_RESULTS  USING VALUE(IV_SNAME)      TYPE STRING
-                                VALUE(IV_DATA)       TYPE ANY
-                                VALUE(IT_COMPONENTS) TYPE ABAP_COMPDESCR_TAB
-                                VALUE(IT_FIELDS)     TYPE TABLE
+FORM jsonp_build_results  USING value(iv_sname)      TYPE string
+                                value(iv_data)       TYPE any
+*                                value(it_components) TYPE abap_compdescr_tab
+                                value(it_fields)     TYPE table
 *                                VALUE(IV_ROWS)       TYPE STRING
-                                VALUE(IV_FROM_REC)   TYPE I
-                                VALUE(IV_TO_REC)     TYPE I
-                          CHANGING    CT_JSONP       TYPE TY_T_W3HTML.
+                                value(iv_from_rec)   TYPE i
+                                value(iv_to_rec)     TYPE i
+                          CHANGING    ct_jsonp       TYPE ty_t_w3html.
 
-  FIELD-SYMBOLS: <VALUE>   TYPE ANY,
-                 <LS_DATA> TYPE ANY.
+  FIELD-SYMBOLS: <value>   TYPE any,
+                 <ls_data> TYPE any.
 
-  DATA: LT_JSONP      TYPE TY_T_W3HTML,
-        LS_JSONP      TYPE W3HTML,
-        LS_FIELDS     TYPE STRING,
-        LV_FIELD      TYPE C LENGTH 50,
-        LV_STR_NAME   TYPE STRING,
-        LV_STR_VAL    TYPE STRING,
-        LS_COMPONENTS TYPE ABAP_COMPDESCR,
-        LV_LINES      TYPE I,
-        LV_TABIX      TYPE I,
-        LV_COMMA      TYPE BOOL.
+  DATA: lt_jsonp      TYPE ty_t_w3html,
+        ls_jsonp      TYPE w3html,
+        ls_fields     TYPE string,
+        lv_field      TYPE c LENGTH 50,
+        lv_str_name   TYPE string,
+        lv_str_val    TYPE string,
+        ls_components TYPE abap_compdescr,
+        lv_lines      TYPE i,
+        lv_tabix      TYPE i,
+        lv_comma      TYPE bool.
 
-  DATA: LO_STRUCT_DESCR TYPE REF TO CL_ABAP_STRUCTDESCR,
-        LO_TABLE_DESCR  TYPE REF TO CL_ABAP_TABLEDESCR,
-        LO_DATA_DESCR   TYPE REF TO CL_ABAP_DATADESCR,
-        LX_ROOT         TYPE REF TO CX_ROOT.
+  DATA: lo_struct_descr TYPE REF TO cl_abap_structdescr,
+        lo_table_descr  TYPE REF TO cl_abap_tabledescr,
+        lo_data_descr   TYPE REF TO cl_abap_datadescr,
+        lx_root         TYPE REF TO cx_root.
 
   TRY.
-      LO_TABLE_DESCR ?= CL_ABAP_TABLEDESCR=>DESCRIBE_BY_DATA( IV_DATA ).
+      lo_table_descr ?= cl_abap_tabledescr=>describe_by_data( iv_data ).
 
-      FIELD-SYMBOLS: <LT_DATA> TYPE ANY TABLE.
-      ASSIGN IV_DATA TO <LT_DATA>.
+      FIELD-SYMBOLS: <lt_data> TYPE ANY TABLE.
+      ASSIGN iv_data TO <lt_data>.
 
-      IF ( NOT IV_SNAME IS INITIAL ).
-        LS_JSONP-LINE = '"' && IV_SNAME && '": ['.
-        INSERT LS_JSONP INTO TABLE CT_JSONP.
+      IF ( NOT iv_sname IS INITIAL ).
+        ls_jsonp-line = '"' && iv_sname && '": ['.
+        INSERT ls_jsonp INTO TABLE ct_jsonp.
       ENDIF.
 
-      DATA: LV_COUNT TYPE I.
-      LV_COUNT = 1.
+      DATA: lv_count TYPE i.
+      lv_count = 1.
 *      LOOP AT IT_DATA ASSIGNING <LS_DATA>.
-      LOOP AT <LT_DATA> ASSIGNING <LS_DATA>.
-        LV_TABIX = SY-TABIX.
+      LOOP AT <lt_data> ASSIGNING <ls_data>.
+        lv_tabix = sy-tabix.
+        lo_struct_descr ?= cl_abap_structdescr=>describe_by_data( <ls_data> ).
 *        CHECK LV_COUNT <= IV_ROWS.
-        CHECK LV_COUNT BETWEEN IV_FROM_REC AND IV_TO_REC.
+        CHECK lv_count BETWEEN iv_from_rec AND iv_to_rec.
 *    LS_JSONP = '"item": ['.
-        LS_JSONP = '{'.
-        INSERT LS_JSONP INTO TABLE CT_JSONP.
+        ls_jsonp = '{'.
+        INSERT ls_jsonp INTO TABLE ct_jsonp.
 
-        DESCRIBE TABLE IT_FIELDS LINES LV_LINES.
+        DESCRIBE TABLE it_fields LINES lv_lines.
 
-        REFRESH: LT_JSONP.
-        LOOP AT IT_FIELDS INTO LS_FIELDS.
-          LV_TABIX = SY-TABIX.
-          IF ( LS_FIELDS <> '*' ).
-            CLEAR: LV_COMMA.
-            IF ( LV_TABIX < LV_LINES ).
-              LV_COMMA = 'X'.
+        REFRESH: lt_jsonp.
+        LOOP AT it_fields INTO ls_fields.
+          lv_tabix = sy-tabix.
+          IF ( ls_fields <> '*' ).
+            CLEAR: lv_comma.
+            IF ( lv_tabix < lv_lines ).
+              lv_comma = 'X'.
             ENDIF.
-            READ TABLE IT_COMPONENTS INTO LS_COMPONENTS WITH KEY NAME = LS_FIELDS.
-            IF ( SY-SUBRC = 0 ).
-              PERFORM JSONP_ADD_ROW_RESULTS USING     <LS_DATA>
-                                                      LS_COMPONENTS
+*            READ TABLE it_components INTO ls_components WITH KEY name = ls_fields.
+            READ TABLE lo_struct_descr->components INTO ls_components WITH KEY name = ls_fields.
+            IF ( sy-subrc = 0 ).
+              PERFORM jsonp_add_row_results USING     <ls_data>
+                                                      ls_components
                                                       'X'  "lv_comma
 *                                            CHANGING  CT_JSONP[].
-                                            CHANGING  LT_JSONP[].
+                                            CHANGING  lt_jsonp[].
             ENDIF.
           ELSE.
 *            REFRESH: LT_JSONP.
-            LOOP AT IT_COMPONENTS INTO LS_COMPONENTS.
-              LV_TABIX = SY-TABIX.
-              CLEAR: LV_COMMA.
-              IF ( LV_TABIX < LV_LINES ).
-                LV_COMMA = 'X'.
+*            LOOP AT it_components INTO ls_components.
+            LOOP AT lo_struct_descr->components INTO ls_components.
+              lv_tabix = sy-tabix.
+              CLEAR: lv_comma.
+              IF ( lv_tabix < lv_lines ).
+                lv_comma = 'X'.
               ENDIF.
-              PERFORM JSONP_ADD_ROW_RESULTS USING     <LS_DATA>
-                                                      LS_COMPONENTS
+              PERFORM jsonp_add_row_results USING     <ls_data>
+                                                      ls_components
                                                       'X'   "lv_comma
 *                                            CHANGING  CT_JSONP[].
-                                            CHANGING  LT_JSONP[].
+                                            CHANGING  lt_jsonp[].
             ENDLOOP.
 *            DATA: LV_STR       TYPE STRING,
 *                  LS_JSONP_TMP TYPE W3HTML.
@@ -217,161 +220,154 @@ FORM JSONP_BUILD_RESULTS  USING VALUE(IV_SNAME)      TYPE STRING
 *            PERFORM JSONP_REMOVE_EXTRA_COMMA CHANGING CT_JSONP[].
           ENDIF.
         ENDLOOP.
-        DATA: LV_STR       TYPE STRING,
-              LS_JSONP_TMP TYPE W3HTML.
-        LV_STR = ''.
-        LOOP AT LT_JSONP INTO LS_JSONP_TMP.
-          IF ( STRLEN( LV_STR ) > 200 ).
-            LS_JSONP-LINE = LV_STR.
-            APPEND LS_JSONP TO CT_JSONP.
-            LV_STR = ''.
+        DATA: lv_str       TYPE string,
+              ls_jsonp_tmp TYPE w3html.
+        lv_str = ''.
+        LOOP AT lt_jsonp INTO ls_jsonp_tmp.
+          IF ( strlen( lv_str ) > 200 ).
+            ls_jsonp-line = lv_str.
+            APPEND ls_jsonp TO ct_jsonp.
+            lv_str = ''.
           ENDIF.
-          LV_STR = LV_STR && LS_JSONP_TMP-LINE.
+          lv_str = lv_str && ls_jsonp_tmp-line.
         ENDLOOP.
-        IF ( STRLEN( LV_STR ) > 0 ).
-          LS_JSONP-LINE = LV_STR.
-          APPEND LS_JSONP TO CT_JSONP.
+        IF ( strlen( lv_str ) > 0 ).
+          ls_jsonp-line = lv_str.
+          APPEND ls_jsonp TO ct_jsonp.
         ENDIF.
-        PERFORM JSONP_REMOVE_EXTRA_COMMA CHANGING CT_JSONP[].
+        PERFORM jsonp_remove_extra_comma CHANGING ct_jsonp[].
 
-        LS_JSONP = '},'.
-        INSERT LS_JSONP INTO TABLE CT_JSONP.
-        ADD 1 TO LV_COUNT.
+        ls_jsonp = '},'.
+        INSERT ls_jsonp INTO TABLE ct_jsonp.
+        ADD 1 TO lv_count.
       ENDLOOP.
 
-      PERFORM JSONP_REMOVE_EXTRA_COMMA CHANGING CT_JSONP[].
+      PERFORM jsonp_remove_extra_comma CHANGING ct_jsonp[].
 
-      IF ( NOT IV_SNAME IS INITIAL ).
-        LS_JSONP = '],'.
-        INSERT LS_JSONP INTO TABLE CT_JSONP.
+      IF ( NOT iv_sname IS INITIAL ).
+        ls_jsonp = '],'.
+        INSERT ls_jsonp INTO TABLE ct_jsonp.
       ENDIF.
-    CATCH CX_ROOT.
+    CATCH cx_root.
       TRY.
-          LO_STRUCT_DESCR ?= CL_ABAP_STRUCTDESCR=>DESCRIBE_BY_DATA( IV_DATA ).
+          lo_struct_descr ?= cl_abap_structdescr=>describe_by_data( iv_data ).
 
-          IF ( NOT IV_SNAME IS INITIAL ).
-            LS_JSONP-LINE = '"' && IV_SNAME && '": {'.
-            INSERT LS_JSONP INTO TABLE CT_JSONP.
+          IF ( NOT iv_sname IS INITIAL ).
+            ls_jsonp-line = '"' && iv_sname && '": {'.
+            INSERT ls_jsonp INTO TABLE ct_jsonp.
           ENDIF.
 
 *          LS_JSONP = '{'.
 *          INSERT LS_JSONP INTO TABLE CT_JSONP.
-          LOOP AT IT_COMPONENTS INTO LS_COMPONENTS.
-            LV_TABIX = SY-TABIX.
-            CLEAR: LV_COMMA.
-            IF ( LV_TABIX < LV_LINES ).
-              LV_COMMA = 'X'.
+          LOOP AT lo_struct_descr->components INTO ls_components.
+            lv_tabix = sy-tabix.
+            CLEAR: lv_comma.
+            IF ( lv_tabix < lv_lines ).
+              lv_comma = 'X'.
             ENDIF.
-            PERFORM JSONP_ADD_ROW_RESULTS USING     IV_DATA
-                                                    LS_COMPONENTS
+            PERFORM jsonp_add_row_results USING     iv_data
+                                                    ls_components
                                                     'X'   "lv_comma
-                                          CHANGING  CT_JSONP[].
+                                          CHANGING  ct_jsonp[].
           ENDLOOP.
 
-          PERFORM JSONP_REMOVE_EXTRA_COMMA CHANGING CT_JSONP[].
+          PERFORM jsonp_remove_extra_comma CHANGING ct_jsonp[].
 
-          IF ( NOT IV_SNAME IS INITIAL ).
-            LS_JSONP = '},'.
-            INSERT LS_JSONP INTO TABLE CT_JSONP.
+          IF ( NOT iv_sname IS INITIAL ).
+            ls_jsonp = '},'.
+            INSERT ls_jsonp INTO TABLE ct_jsonp.
           ENDIF.
-        CATCH CX_ROOT.
+        CATCH cx_root.
           TRY.
-              LO_DATA_DESCR ?= CL_ABAP_DATADESCR=>DESCRIBE_BY_DATA( IV_DATA ).
-            CATCH CX_ROOT.
+              lo_data_descr ?= cl_abap_datadescr=>describe_by_data( iv_data ).
+            CATCH cx_root.
           ENDTRY.
       ENDTRY.
   ENDTRY.
-
-*  PERFORM JSONP_REMOVE_EXTRA_COMMA CHANGING CT_JSONP[].
-*
-*  IF ( NOT IV_SNAME IS INITIAL ).
-*    LS_JSONP = '],'.
-*    INSERT LS_JSONP INTO TABLE CT_JSONP.
-*  ENDIF.
 
 ENDFORM.                    " JSONP_BUILD_RESULTS
 
 *&---------------------------------------------------------------------*
 *&      Form  JSONP_CLOSE_ERRORS
 *&---------------------------------------------------------------------*
-FORM JSONP_CLOSE_ERRORS  CHANGING CT_JSONP TYPE TY_T_W3HTML.
+FORM jsonp_close_errors  CHANGING ct_jsonp TYPE ty_t_w3html.
 
-  DATA: LS_JSONP TYPE W3HTML.
+  DATA: ls_jsonp TYPE w3html.
 
-  LS_JSONP = '],'.
-  INSERT LS_JSONP INTO TABLE CT_JSONP.
+  ls_jsonp = '],'.
+  INSERT ls_jsonp INTO TABLE ct_jsonp.
 
 ENDFORM.                    " JSONP_CLOSE_ERRORS
 
 *&---------------------------------------------------------------------*
 *&      Form  JSONP_CLOSE_RESULTS
 *&---------------------------------------------------------------------*
-FORM JSONP_CLOSE_RESULTS  CHANGING CT_JSONP TYPE TY_T_W3HTML.
+FORM jsonp_close_results  CHANGING ct_jsonp TYPE ty_t_w3html.
 
-  DATA: LS_JSONP TYPE W3HTML.
+  DATA: ls_jsonp TYPE w3html.
 
-  PERFORM JSONP_REMOVE_EXTRA_COMMA CHANGING CT_JSONP[].
+  PERFORM jsonp_remove_extra_comma CHANGING ct_jsonp[].
 
 *  LS_JSONP = ']}'.
-  LS_JSONP = '}'.
-  INSERT LS_JSONP INTO TABLE CT_JSONP.
+  ls_jsonp = '}'.
+  INSERT ls_jsonp INTO TABLE ct_jsonp.
 
 ENDFORM.                    " JSONP_CLOSE_RESULTS*&---------------------------------------------------------------------*
 *&      Form  JSONP_CLOSE_CALLBACK
 *&---------------------------------------------------------------------*
-FORM JSONP_CLOSE_CALLBACK  USING VALUE(IV_CALLBACK) TYPE STRING
-                           CHANGING CT_JSONP TYPE TY_T_W3HTML.
+FORM jsonp_close_callback  USING value(iv_callback) TYPE string
+                           CHANGING ct_jsonp TYPE ty_t_w3html.
 
-  DATA: LS_JSONP TYPE W3HTML.
+  DATA: ls_jsonp TYPE w3html.
 
-  PERFORM JSONP_REMOVE_EXTRA_COMMA CHANGING CT_JSONP[].
+  PERFORM jsonp_remove_extra_comma CHANGING ct_jsonp[].
 
-  IF ( NOT IV_CALLBACK IS INITIAL ).
-    LS_JSONP = '});'.
+  IF ( NOT iv_callback IS INITIAL ).
+    ls_jsonp = '});'.
   ELSE.
-    LS_JSONP = '}'.
+    ls_jsonp = '}'.
   ENDIF.
-  INSERT LS_JSONP INTO TABLE CT_JSONP.
+  INSERT ls_jsonp INTO TABLE ct_jsonp.
 
 ENDFORM.                    " JSONP_CLOSE_CALLBACK
 *&---------------------------------------------------------------------*
 *&      Form  ADD_MESSAGE
 *&---------------------------------------------------------------------*
-FORM ADD_MESSAGE  USING VALUE(IV_TYPE)    TYPE TY_S_MESSAGES-TYPE
-                        VALUE(IV_MSG)     TYPE TY_S_MESSAGES-MSG
-                  CHANGING    CT_MESSAGES TYPE TY_T_MESSAGES.
+FORM add_message  USING value(iv_type)    TYPE ty_s_messages-type
+                        value(iv_msg)     TYPE ty_s_messages-msg
+                  CHANGING    ct_messages TYPE ty_t_messages.
 
-  DATA: LS_MESSAGES TYPE TY_S_MESSAGES.
+  DATA: ls_messages TYPE ty_s_messages.
 
-  CLEAR: LS_MESSAGES.
-  LS_MESSAGES-TYPE = IV_TYPE.
-  LS_MESSAGES-MSG  = IV_MSG.
+  CLEAR: ls_messages.
+  ls_messages-type = iv_type.
+  ls_messages-msg  = iv_msg.
 
-  APPEND LS_MESSAGES TO CT_MESSAGES.
+  APPEND ls_messages TO ct_messages.
 
 ENDFORM.                    " ADD_MESSAGE
 
 *&---------------------------------------------------------------------*
 *&      Form  JSONP_BUILD_ERRORS
 *&---------------------------------------------------------------------*
-FORM JSONP_BUILD_ERRORS  USING VALUE(IT_MESSAGES) TYPE TY_T_MESSAGES
-                         CHANGING    CT_JSONP     TYPE TY_T_W3HTML.
+FORM jsonp_build_errors  USING value(it_messages) TYPE ty_t_messages
+                         CHANGING    ct_jsonp     TYPE ty_t_w3html.
 
-  DATA: LS_MESSAGES TYPE TY_S_MESSAGES,
-        LS_JSONP    TYPE W3HTML,
-        LV_LINES    TYPE I,
-        LV_TABIX    TYPE I.
+  DATA: ls_messages TYPE ty_s_messages,
+        ls_jsonp    TYPE w3html,
+        lv_lines    TYPE i,
+        lv_tabix    TYPE i.
 
-  DESCRIBE TABLE IT_MESSAGES LINES LV_LINES.
+  DESCRIBE TABLE it_messages LINES lv_lines.
 
-  LOOP AT IT_MESSAGES INTO LS_MESSAGES.
-    LV_TABIX = SY-TABIX.
-    CLEAR: LS_JSONP.
-    CONCATENATE '{ "type":"' LS_MESSAGES-TYPE '", "msg":"' LS_MESSAGES-MSG '" }' INTO LS_JSONP.
-    IF ( LV_TABIX < LV_LINES ).
-      CONCATENATE LS_JSONP ',' INTO LS_JSONP.
+  LOOP AT it_messages INTO ls_messages.
+    lv_tabix = sy-tabix.
+    CLEAR: ls_jsonp.
+    CONCATENATE '{ "type":"' ls_messages-type '", "msg":"' ls_messages-msg '" }' INTO ls_jsonp.
+    IF ( lv_tabix < lv_lines ).
+      CONCATENATE ls_jsonp ',' INTO ls_jsonp.
     ENDIF.
-    APPEND LS_JSONP TO CT_JSONP.
+    APPEND ls_jsonp TO ct_jsonp.
   ENDLOOP.
 
 ENDFORM.                    " JSONP_BUILD_ERRORS
@@ -379,100 +375,100 @@ ENDFORM.                    " JSONP_BUILD_ERRORS
 *&---------------------------------------------------------------------*
 *&      Form  CREATE_JSONP_2
 *&---------------------------------------------------------------------*
-FORM CREATE_JSONP_2 USING VALUE(IV_CALLBACK)   TYPE STRING
-                          VALUE(IT_MESSAGES)   TYPE TY_T_MESSAGES
-                    CHANGING    CT_JSONP       TYPE TY_T_W3HTML.
+FORM create_jsonp_2 USING value(iv_callback)   TYPE string
+                          value(it_messages)   TYPE ty_t_messages
+                    CHANGING    ct_jsonp       TYPE ty_t_w3html.
 
 
-  DATA: HTMLDOC       TYPE W3HTML.
+  DATA: htmldoc       TYPE w3html.
 
   " apre tag funcione di callback
-  PERFORM JSONP_OPEN_CALLBACK USING    IV_CALLBACK
-                              CHANGING CT_JSONP[].
+  PERFORM jsonp_open_callback USING    iv_callback
+                              CHANGING ct_jsonp[].
   " apre tag errors
-  PERFORM JSONP_OPEN_ERRORS CHANGING CT_JSONP[].
+  PERFORM jsonp_open_errors CHANGING ct_jsonp[].
   " costruzione errors
-  PERFORM JSONP_BUILD_ERRORS USING    IT_MESSAGES[]
-                             CHANGING CT_JSONP[].
+  PERFORM jsonp_build_errors USING    it_messages[]
+                             CHANGING ct_jsonp[].
   " chiude tag errors
-  PERFORM JSONP_CLOSE_ERRORS CHANGING CT_JSONP[].
+  PERFORM jsonp_close_errors CHANGING ct_jsonp[].
   " apre tag results
-  PERFORM JSONP_OPEN_RESULTS CHANGING CT_JSONP[].
+  PERFORM jsonp_open_results CHANGING ct_jsonp[].
   " chiude tag results
-  PERFORM JSONP_CLOSE_RESULTS CHANGING CT_JSONP[].
+  PERFORM jsonp_close_results CHANGING ct_jsonp[].
   " chiude tab funzione di callback
-  PERFORM JSONP_CLOSE_CALLBACK USING IV_CALLBACK
-                               CHANGING CT_JSONP[].
+  PERFORM jsonp_close_callback USING iv_callback
+                               CHANGING ct_jsonp[].
 
 ENDFORM.                    " CREATE_JSONP_2
 
 *&---------------------------------------------------------------------*
 *&      Form  JSONP_OPEN_COLUMNS
 *&---------------------------------------------------------------------*
-FORM JSONP_OPEN_COLUMNS  CHANGING    CT_JSONP     TYPE TY_T_W3HTML.
+FORM jsonp_open_columns  CHANGING    ct_jsonp     TYPE ty_t_w3html.
 
-  DATA: LS_JSONP TYPE W3HTML.
+  DATA: ls_jsonp TYPE w3html.
 
-  LS_JSONP = '"columns": ['.
-  INSERT LS_JSONP INTO TABLE CT_JSONP.
+  ls_jsonp = '"columns": ['.
+  INSERT ls_jsonp INTO TABLE ct_jsonp.
 
 ENDFORM.                    " JSONP_OPEN_COLUMNS
 
 *&---------------------------------------------------------------------*
 *&      Form  JSONP_CLOSE_COLUMNS
 *&---------------------------------------------------------------------*
-FORM JSONP_CLOSE_COLUMNS    CHANGING CT_JSONP TYPE TY_T_W3HTML.
+FORM jsonp_close_columns    CHANGING ct_jsonp TYPE ty_t_w3html.
 
-  DATA: LS_JSONP TYPE W3HTML.
+  DATA: ls_jsonp TYPE w3html.
 
-  LS_JSONP = '],'.
-  INSERT LS_JSONP INTO TABLE CT_JSONP.
+  ls_jsonp = '],'.
+  INSERT ls_jsonp INTO TABLE ct_jsonp.
 
 ENDFORM.                    " JSONP_CLOSE_COLUMNS
 
 *&---------------------------------------------------------------------*
 *&      Form  JSONP_BUILD_COLUMNS
 *&---------------------------------------------------------------------*
-FORM JSONP_BUILD_COLUMNS  USING VALUE(IT_COMPONENTS) TYPE ABAP_COMPDESCR_TAB
-                                VALUE(IT_FIELDS)     TYPE TABLE
-                          CHANGING    CT_JSONP       TYPE TY_T_W3HTML.
+FORM jsonp_build_columns  USING value(it_components) TYPE abap_compdescr_tab
+                                value(it_fields)     TYPE table
+                          CHANGING    ct_jsonp       TYPE ty_t_w3html.
 
-  FIELD-SYMBOLS: <VALUE>   TYPE ANY,
-                 <LS_DATA> TYPE ANY.
+  FIELD-SYMBOLS: <value>   TYPE any,
+                 <ls_data> TYPE any.
 
-  DATA: LS_JSONP      TYPE W3HTML,
-        LS_FIELDS     TYPE STRING,
-        LS_COMPONENTS TYPE ABAP_COMPDESCR,
-        LV_LINES      TYPE I,
-        LV_TABIX      TYPE I,
-        LV_COMMA      TYPE BOOL.
+  DATA: ls_jsonp      TYPE w3html,
+        ls_fields     TYPE string,
+        ls_components TYPE abap_compdescr,
+        lv_lines      TYPE i,
+        lv_tabix      TYPE i,
+        lv_comma      TYPE bool.
 
-  DESCRIBE TABLE IT_FIELDS LINES LV_LINES.
+  DESCRIBE TABLE it_fields LINES lv_lines.
 
-  LOOP AT IT_FIELDS INTO LS_FIELDS.
-    LV_TABIX = SY-TABIX.
-    IF ( LS_FIELDS <> '*' ).
-      CLEAR: LV_COMMA.
-      IF ( LV_TABIX < LV_LINES ).
-        LV_COMMA = 'X'.
+  LOOP AT it_fields INTO ls_fields.
+    lv_tabix = sy-tabix.
+    IF ( ls_fields <> '*' ).
+      CLEAR: lv_comma.
+      IF ( lv_tabix < lv_lines ).
+        lv_comma = 'X'.
       ENDIF.
-      READ TABLE IT_COMPONENTS INTO LS_COMPONENTS WITH KEY NAME = LS_FIELDS.
-      IF ( SY-SUBRC = 0 ).
-        PERFORM JSONP_ADD_ROW_COLUMNS USING     LS_COMPONENTS
+      READ TABLE it_components INTO ls_components WITH KEY name = ls_fields.
+      IF ( sy-subrc = 0 ).
+        PERFORM jsonp_add_row_columns USING     ls_components
                                                 'X'  "lv_comma
-                                      CHANGING  CT_JSONP[].
+                                      CHANGING  ct_jsonp[].
       ENDIF.
     ELSE.
-      DESCRIBE TABLE IT_COMPONENTS LINES LV_LINES.
-      LOOP AT IT_COMPONENTS INTO LS_COMPONENTS.
-        LV_TABIX = SY-TABIX.
-        CLEAR: LV_COMMA.
-        IF ( LV_TABIX < LV_LINES ).
-          LV_COMMA = 'X'.
+      DESCRIBE TABLE it_components LINES lv_lines.
+      LOOP AT it_components INTO ls_components.
+        lv_tabix = sy-tabix.
+        CLEAR: lv_comma.
+        IF ( lv_tabix < lv_lines ).
+          lv_comma = 'X'.
         ENDIF.
-        PERFORM JSONP_ADD_ROW_COLUMNS USING     LS_COMPONENTS
+        PERFORM jsonp_add_row_columns USING     ls_components
                                                 'X'  "lv_comma
-                                      CHANGING  CT_JSONP[].
+                                      CHANGING  ct_jsonp[].
       ENDLOOP.
     ENDIF.
 
@@ -483,106 +479,106 @@ ENDFORM.                    " JSONP_BUILD_COLUMNS
 *&---------------------------------------------------------------------*
 *&      Form  jsonp_add_row_results
 *&---------------------------------------------------------------------*
-FORM JSONP_ADD_ROW_RESULTS  USING VALUE(IS_DATA)       TYPE ANY
-                                  VALUE(IS_COMPONENTS) TYPE ABAP_COMPDESCR
-                                  VALUE(IV_COMMA)      TYPE BOOL
-                            CHANGING    CT_JSONP       TYPE TY_T_W3HTML.
+FORM jsonp_add_row_results  USING value(is_data)       TYPE any
+                                  value(is_components) TYPE abap_compdescr
+                                  value(iv_comma)      TYPE bool
+                            CHANGING    ct_jsonp       TYPE ty_t_w3html.
 
-  FIELD-SYMBOLS: <VALUE>   TYPE ANY.
+  FIELD-SYMBOLS: <value>   TYPE any.
 
-  DATA: LS_JSONP      TYPE W3HTML,
-        LV_STR_NAME   TYPE STRING,
-        LV_STR_VAL    TYPE STRING,
-        LV_FIELD      TYPE C LENGTH 50.
+  DATA: ls_jsonp      TYPE w3html,
+        lv_str_name   TYPE string,
+        lv_str_val    TYPE string,
+        lv_field      TYPE c LENGTH 50.
 
-  CLEAR: LS_JSONP-LINE.
+  CLEAR: ls_jsonp-line.
 
-  LV_STR_NAME = IS_COMPONENTS-NAME.
-  CONCATENATE '"' LV_STR_NAME '"' INTO LV_STR_NAME.
+  lv_str_name = is_components-name.
+  CONCATENATE '"' lv_str_name '"' INTO lv_str_name.
 
-  LV_FIELD = 'is_data-'.
-  CONCATENATE LV_FIELD IS_COMPONENTS-NAME INTO LV_FIELD.
-  ASSIGN (LV_FIELD) TO <VALUE>.
+  lv_field = 'is_data-'.
+  CONCATENATE lv_field is_components-name INTO lv_field.
+  ASSIGN (lv_field) TO <value>.
 *  LV_STR_VAL = <VALUE>.
-  ZCL_BC_CONVERSION_EXIT=>CONVERSION_OUTPUT( EXPORTING IV_FIELD = <VALUE>
-                                             CHANGING  CV_FIELD = LV_STR_VAL ).
-  CONCATENATE '"' LV_STR_VAL '"' INTO LV_STR_VAL.
+  zcl_bc_conversion_exit=>conversion_output( EXPORTING iv_field = <value>
+                                             CHANGING  cv_field = lv_str_val ).
+  CONCATENATE '"' lv_str_val '"' INTO lv_str_val.
 
 *  CONCATENATE '{"name": ' lv_str_name ', "value": ' lv_str_val '}' INTO ls_jsonp-line.
-  CONCATENATE LV_STR_NAME ': ' LV_STR_VAL INTO LS_JSONP-LINE.
-  IF ( NOT IV_COMMA IS INITIAL ).
-    CONCATENATE LS_JSONP ',' INTO LS_JSONP.
+  CONCATENATE lv_str_name ': ' lv_str_val INTO ls_jsonp-line.
+  IF ( NOT iv_comma IS INITIAL ).
+    CONCATENATE ls_jsonp ',' INTO ls_jsonp.
   ENDIF.
-  INSERT LS_JSONP INTO TABLE CT_JSONP.
+  INSERT ls_jsonp INTO TABLE ct_jsonp.
 
 ENDFORM.                    " jsonp_add_row_results
 
 *&---------------------------------------------------------------------*
 *&      Form  JSONP_ADD_ROW_COLUMNS
 *&---------------------------------------------------------------------*
-FORM JSONP_ADD_ROW_COLUMNS  USING VALUE(IS_COMPONENTS) TYPE ABAP_COMPDESCR
-                                  VALUE(IV_COMMA)      TYPE BOOL
-                            CHANGING    CT_JSONP       TYPE TY_T_W3HTML.
+FORM jsonp_add_row_columns  USING value(is_components) TYPE abap_compdescr
+                                  value(iv_comma)      TYPE bool
+                            CHANGING    ct_jsonp       TYPE ty_t_w3html.
 
-  DATA: LS_JSONP      TYPE W3HTML.
+  DATA: ls_jsonp      TYPE w3html.
 
-  CLEAR: LS_JSONP-LINE.
+  CLEAR: ls_jsonp-line.
 
-  CONCATENATE '{ "column": "' IS_COMPONENTS-NAME '" }' INTO LS_JSONP-LINE.
-  IF ( NOT IV_COMMA IS INITIAL ).
-    CONCATENATE LS_JSONP ',' INTO LS_JSONP.
+  CONCATENATE '{ "column": "' is_components-name '" }' INTO ls_jsonp-line.
+  IF ( NOT iv_comma IS INITIAL ).
+    CONCATENATE ls_jsonp ',' INTO ls_jsonp.
   ENDIF.
-  INSERT LS_JSONP INTO TABLE CT_JSONP.
+  INSERT ls_jsonp INTO TABLE ct_jsonp.
 
 ENDFORM.                    " JSONP_ADD_ROW_COLUMNS
 
 *&---------------------------------------------------------------------*
 *&      Form  create_table
 *&---------------------------------------------------------------------*
-FORM CREATE_TABLE USING VALUE(IV_FIELD) TYPE C
-                        VALUE(IV_VALUE) TYPE ANY
-                  CHANGING    CT_DATA   TYPE REF TO DATA.
+FORM create_table USING value(iv_field) TYPE c
+                        value(iv_value) TYPE any
+                  CHANGING    ct_data   TYPE REF TO data.
 
-  DATA: LO_STRUCT_DESCR   TYPE REF TO CL_ABAP_STRUCTDESCR,
-        LO_TABLE_DESCR    TYPE REF TO CL_ABAP_TABLEDESCR,
-        LT_KEYS           TYPE ABAP_KEYDESCR_TAB,
-        LT_TABLE          TYPE REF TO DATA,
-        LS_TABLE          TYPE REF TO DATA.
+  DATA: lo_struct_descr   TYPE REF TO cl_abap_structdescr,
+        lo_table_descr    TYPE REF TO cl_abap_tabledescr,
+        lt_keys           TYPE abap_keydescr_tab,
+        lt_table          TYPE REF TO data,
+        ls_table          TYPE REF TO data.
 
-  FIELD-SYMBOLS: <LS_DATA> TYPE ANY.
-  FIELD-SYMBOLS: <LT_DATA> TYPE ANY TABLE.
-  TYPES: BEGIN OF TY_S_WORK,
-           BUFFER(30000),
-          END OF TY_S_WORK,
-          TY_T_WORK TYPE TABLE OF TY_S_WORK.
+  FIELD-SYMBOLS: <ls_data> TYPE any.
+  FIELD-SYMBOLS: <lt_data> TYPE ANY TABLE.
+  TYPES: BEGIN OF ty_s_work,
+           buffer(30000),
+          END OF ty_s_work,
+          ty_t_work TYPE TABLE OF ty_s_work.
 
   TRY.
-      LO_STRUCT_DESCR ?= CL_ABAP_STRUCTDESCR=>DESCRIBE_BY_NAME( IV_FIELD ).
+      lo_struct_descr ?= cl_abap_structdescr=>describe_by_name( iv_field ).
 
-      CREATE DATA LS_TABLE TYPE HANDLE LO_STRUCT_DESCR.
-      ASSIGN LS_TABLE->* TO <LS_DATA>.
+      CREATE DATA ls_table TYPE HANDLE lo_struct_descr.
+      ASSIGN ls_table->* TO <ls_data>.
 
-      LO_TABLE_DESCR ?= CL_ABAP_TABLEDESCR=>CREATE( P_LINE_TYPE  = LO_STRUCT_DESCR
-                                                    P_TABLE_KIND = CL_ABAP_TABLEDESCR=>TABLEKIND_HASHED
-                                                    P_UNIQUE     = ABAP_TRUE
-                                                    P_KEY        = LT_KEYS
-                                                    P_KEY_KIND   = CL_ABAP_TABLEDESCR=>KEYDEFKIND_DEFAULT ).
+      lo_table_descr ?= cl_abap_tabledescr=>create( p_line_type  = lo_struct_descr
+                                                    p_table_kind = cl_abap_tabledescr=>tablekind_hashed
+                                                    p_unique     = abap_true
+                                                    p_key        = lt_keys
+                                                    p_key_kind   = cl_abap_tabledescr=>keydefkind_default ).
 
-      CREATE DATA LT_TABLE TYPE HANDLE LO_TABLE_DESCR.
-      ASSIGN LT_TABLE->* TO <LT_DATA>.
+      CREATE DATA lt_table TYPE HANDLE lo_table_descr.
+      ASSIGN lt_table->* TO <lt_data>.
 
-    CATCH CX_ROOT.
+    CATCH cx_root.
   ENDTRY.
 
-  CT_DATA = LT_TABLE.
+  ct_data = lt_table.
 
 ENDFORM.                    " create_table
 
 *&---------------------------------------------------------------------*
 *&      Form  JSON_ADD_RESULT
 *&---------------------------------------------------------------------*
-FORM JSON_ADD_RESULT  USING VALUE(IT_PARAMS) TYPE ABAP_FUNC_PARMBIND_TAB
-                      CHANGING    CT_JSONP   TYPE TY_T_W3HTML.
+FORM json_add_result  USING value(it_params) TYPE abap_func_parmbind_tab
+                      CHANGING    ct_jsonp   TYPE ty_t_w3html.
 
 *  DATA: ls_params    TYPE abap_func_parmbind,
 *        ls_interface TYPE rsfbintfv,
@@ -673,47 +669,47 @@ ENDFORM.                    " JSON_ADD_RESULT
 *&---------------------------------------------------------------------*
 *&      Form  CREATE_PARAMETER
 *&---------------------------------------------------------------------*
-FORM CREATE_PARAMETER USING VALUE(IV_FIELD) TYPE C
-                            VALUE(IV_VALUE) TYPE ANY
-                      CHANGING    CV_PARAM  TYPE REF TO DATA.
+FORM create_parameter USING value(iv_field) TYPE c
+                            value(iv_value) TYPE any
+                      CHANGING    cv_param  TYPE REF TO data.
 
-  DATA: LX_ROOT           TYPE REF TO CX_ROOT,
-        LT_KEYS           TYPE ABAP_KEYDESCR_TAB,
-        LV_PARAM          TYPE REF TO DATA,
-        LO_DATA_DESCR     TYPE REF TO CL_ABAP_DATADESCR,
-        LO_STRUCT_DESCR   TYPE REF TO CL_ABAP_STRUCTDESCR,
-        LO_TABLE_DESCR    TYPE REF TO CL_ABAP_TABLEDESCR,
-        LS_COMPONENTS     TYPE ABAP_COMPDESCR,
-        LV_VALUE          TYPE STRING.
+  DATA: lx_root           TYPE REF TO cx_root,
+        lt_keys           TYPE abap_keydescr_tab,
+        lv_param          TYPE REF TO data,
+        lo_data_descr     TYPE REF TO cl_abap_datadescr,
+        lo_struct_descr   TYPE REF TO cl_abap_structdescr,
+        lo_table_descr    TYPE REF TO cl_abap_tabledescr,
+        ls_components     TYPE abap_compdescr,
+        lv_value          TYPE string.
 
-  FIELD-SYMBOLS: <LV_PARAM> TYPE ANY.
+  FIELD-SYMBOLS: <lv_param> TYPE any.
 
-  LV_VALUE = IV_VALUE.
+  lv_value = iv_value.
 
   TRY.
       TRY.
-          CREATE DATA LV_PARAM TYPE (IV_FIELD).
-        CATCH CX_SY_CREATE_DATA_ERROR INTO LX_ROOT.
-          CREATE DATA LV_PARAM LIKE IV_FIELD.
+          CREATE DATA lv_param TYPE (iv_field).
+        CATCH cx_sy_create_data_error INTO lx_root.
+          CREATE DATA lv_param LIKE iv_field.
       ENDTRY.
-      ASSIGN LV_PARAM->* TO <LV_PARAM>.
+      ASSIGN lv_param->* TO <lv_param>.
       TRY.
-          LO_TABLE_DESCR ?= CL_ABAP_TABLEDESCR=>DESCRIBE_BY_DATA_REF( LV_PARAM ).
-          CL_FDT_JSON=>JSON_TO_DATA( EXPORTING IV_JSON = LV_VALUE
-                                     CHANGING  CA_DATA = <LV_PARAM> ).
-        CATCH CX_ROOT.
+          lo_table_descr ?= cl_abap_tabledescr=>describe_by_data_ref( lv_param ).
+          cl_fdt_json=>json_to_data( EXPORTING iv_json = lv_value
+                                     CHANGING  ca_data = <lv_param> ).
+        CATCH cx_root.
           TRY.
-              LO_STRUCT_DESCR ?= CL_ABAP_STRUCTDESCR=>DESCRIBE_BY_DATA_REF( LV_PARAM ).
-              CL_FDT_JSON=>JSON_TO_DATA( EXPORTING IV_JSON = LV_VALUE
-                                         CHANGING  CA_DATA = <LV_PARAM> ).
-            CATCH CX_ROOT.
+              lo_struct_descr ?= cl_abap_structdescr=>describe_by_data_ref( lv_param ).
+              cl_fdt_json=>json_to_data( EXPORTING iv_json = lv_value
+                                         CHANGING  ca_data = <lv_param> ).
+            CATCH cx_root.
               TRY.
-                  LO_DATA_DESCR ?= CL_ABAP_DATADESCR=>DESCRIBE_BY_DATA_REF( LV_PARAM ).
-                  IF ( NOT IV_VALUE IS INITIAL ).
-                    ZCL_BC_CONVERSION_EXIT=>CONVERSION_INPUT( EXPORTING IV_FIELD = IV_VALUE
-                                                              CHANGING  CV_FIELD = <LV_PARAM> ).
+                  lo_data_descr ?= cl_abap_datadescr=>describe_by_data_ref( lv_param ).
+                  IF ( NOT iv_value IS INITIAL ).
+                    zcl_bc_conversion_exit=>conversion_input( EXPORTING iv_field = iv_value
+                                                              CHANGING  cv_field = <lv_param> ).
                   ENDIF.
-                CATCH CX_ROOT.
+                CATCH cx_root.
               ENDTRY.
           ENDTRY.
       ENDTRY.
@@ -724,33 +720,33 @@ FORM CREATE_PARAMETER USING VALUE(IV_FIELD) TYPE C
 *                                                  CHANGING  CV_FIELD = <LV_PARAM> ).
 *      ENDIF.
 
-    CATCH CX_ROOT INTO LX_ROOT.
+    CATCH cx_root INTO lx_root.
   ENDTRY.
 
-  CV_PARAM = LV_PARAM.
+  cv_param = lv_param.
 
 ENDFORM.                    " CREATE_PARAMETER
 
 *&---------------------------------------------------------------------*
 *&      Form  CREATE_JSON_FROM_DATA
 *&---------------------------------------------------------------------*
-FORM JSON_CREATE_FROM_DATA  USING VALUE(IV_CALLBACK) TYPE STRING
-                                  VALUE(IV_NAME) TYPE ABAP_PARMNAME
-                                  VALUE(IV_DATA) TYPE ANY
-                            CHANGING    CT_JSONP TYPE TY_T_W3HTML.
+FORM json_create_from_data  USING value(iv_callback) TYPE string
+                                  value(iv_name) TYPE abap_parmname
+                                  value(iv_data) TYPE any
+                            CHANGING    ct_jsonp TYPE ty_t_w3html.
 
-  DATA: LV_JSON     TYPE STRING,
-        LS_JSONP    TYPE W3HTML,
-        LV_LEN      TYPE I VALUE 200, "255,
-        LV_LEN_TMP  TYPE I,
-        LV_JSON_LEN TYPE I,
-        LV_TIMES    TYPE I,
-        LV_START    TYPE I,
-        LV_END      TYPE I,
-        LV_PTR      TYPE I,
-        LV_FINISH   TYPE ABAP_BOOL.
+  DATA: lv_json     TYPE string,
+        ls_jsonp    TYPE w3html,
+        lv_len      TYPE i VALUE 200, "255,
+        lv_len_tmp  TYPE i,
+        lv_json_len TYPE i,
+        lv_times    TYPE i,
+        lv_start    TYPE i,
+        lv_end      TYPE i,
+        lv_ptr      TYPE i,
+        lv_finish   TYPE abap_bool.
 
-  LV_JSON = CL_FDT_JSON=>DATA_TO_JSON( IA_DATA = IV_DATA ).
+  lv_json = cl_fdt_json=>data_to_json( ia_data = iv_data ).
 
 *  DATA: LO_JSON TYPE REF TO CL_IAC_JSON_STRING.
 *  CREATE OBJECT LO_JSON
@@ -758,31 +754,31 @@ FORM JSON_CREATE_FROM_DATA  USING VALUE(IV_CALLBACK) TYPE STRING
 *      P_VALUE = LV_JSON.
 *  LO_JSON->IF_IAC_JSON~GET_STRING_TABLE( CHANGING P_STRING_TABLE = CT_JSONP ).
 
-  IF ( LV_JSON CS '$ROOT' ).
+  IF ( lv_json CS '$ROOT' ).
 *    LV_JSON = '{"' && IV_NAME && '":"' && IV_DATA && '"}'.
-    LV_JSON = '"' && IV_NAME && '":"' && IV_DATA && '",'.
-    LS_JSONP = LV_JSON.
-    APPEND LS_JSONP TO CT_JSONP.
+    lv_json = '"' && iv_name && '":"' && iv_data && '",'.
+    ls_jsonp = lv_json.
+    APPEND ls_jsonp TO ct_jsonp.
     RETURN.
   ENDIF.
 *  CL_FDT_JSON=>JSON_TO_DATA( EXPORTING IV_JSON = LV_JSON
 *                             CHANGING  CA_DATA = CT_JSONP ).
 *  LV_JSON = '{"' && IV_NAME && '":' && LV_JSON && '}'.
-  LV_JSON = '"' && IV_NAME && '":' && LV_JSON && ','.
+  lv_json = '"' && iv_name && '":' && lv_json && ','.
 *  SPLIT LV_JSON AT ',' INTO TABLE CT_JSONP.
-  LV_JSON_LEN = STRLEN( LV_JSON ).
-  IF ( LV_LEN > LV_JSON_LEN ).
-    LV_LEN = LV_JSON_LEN.
+  lv_json_len = strlen( lv_json ).
+  IF ( lv_len > lv_json_len ).
+    lv_len = lv_json_len.
   ENDIF.
-  LV_TIMES = LV_JSON_LEN / LV_LEN + 1.
-  LV_START = 0.
-  LV_END = LV_LEN.
-  LV_LEN_TMP = LV_LEN.
-  LV_FINISH = ABAP_FALSE.
-  DO LV_TIMES TIMES.
-    DATA: LV_STR  TYPE STRING.
-    LV_STR = SUBSTRING( VAL = LV_JSON OFF = LV_START LEN = LV_LEN_TMP ).
-    LV_PTR = STRLEN( LV_STR ) - 1.
+  lv_times = lv_json_len / lv_len + 1.
+  lv_start = 0.
+  lv_end = lv_len.
+  lv_len_tmp = lv_len.
+  lv_finish = abap_false.
+  DO lv_times TIMES.
+    DATA: lv_str  TYPE string.
+    lv_str = substring( val = lv_json off = lv_start len = lv_len_tmp ).
+    lv_ptr = strlen( lv_str ) - 1.
 *    LV_LEN_TMP = STRLEN( LV_STR ).
 *    DO LV_PTR TIMES.
 *      IF ( LV_STR+LV_PTR(1) = ',' ).
@@ -791,22 +787,22 @@ FORM JSON_CREATE_FROM_DATA  USING VALUE(IV_CALLBACK) TYPE STRING
 *      ENDIF.
 *      LV_PTR = LV_PTR - 1.
 *    ENDDO.
-    LS_JSONP = LV_STR(LV_LEN_TMP).
-    APPEND LS_JSONP TO CT_JSONP.
-    IF ( LV_FINISH = ABAP_TRUE ).
+    ls_jsonp = lv_str(lv_len_tmp).
+    APPEND ls_jsonp TO ct_jsonp.
+    IF ( lv_finish = abap_true ).
       EXIT.
     ENDIF.
-    IF ( LV_END < LV_JSON_LEN - LV_LEN_TMP ).
-      ADD LV_LEN_TMP TO LV_START.
-      ADD LV_LEN_TMP TO LV_END.
+    IF ( lv_end < lv_json_len - lv_len_tmp ).
+      ADD lv_len_tmp TO lv_start.
+      ADD lv_len_tmp TO lv_end.
     ELSE.
-      ADD LV_LEN_TMP TO LV_START.
-      LV_END  = LV_JSON_LEN.
-      IF ( LV_START = LV_END ).
+      ADD lv_len_tmp TO lv_start.
+      lv_end  = lv_json_len.
+      IF ( lv_start = lv_end ).
         EXIT.
       ENDIF.
-      LV_FINISH = ABAP_TRUE.   " termina ciclo all'iterazione successiva
-      LV_LEN_TMP = LV_END - LV_START.
+      lv_finish = abap_true.   " termina ciclo all'iterazione successiva
+      lv_len_tmp = lv_end - lv_start.
     ENDIF.
   ENDDO.
 
@@ -815,20 +811,20 @@ ENDFORM.                    " JSON_CREATE_FROM_DATA
 *&---------------------------------------------------------------------*
 *&      Form  JSONP_REMOVE_EXTRA_COMMA
 *&---------------------------------------------------------------------*
-FORM JSONP_REMOVE_EXTRA_COMMA  CHANGING CT_JSONP TYPE TY_T_W3HTML.
+FORM jsonp_remove_extra_comma  CHANGING ct_jsonp TYPE ty_t_w3html.
 
-  DATA: LS_JSONP TYPE W3HTML,
-        LV_LEN   TYPE I,
-        LV_LINES TYPE I.
+  DATA: ls_jsonp TYPE w3html,
+        lv_len   TYPE i,
+        lv_lines TYPE i.
 
-  DESCRIBE TABLE CT_JSONP LINES LV_LINES.
-  IF ( LV_LINES > 0 ).
-    READ TABLE CT_JSONP INTO LS_JSONP INDEX LV_LINES.
-    LV_LEN = STRLEN( LS_JSONP ) - 1.
-    IF ( LS_JSONP+LV_LEN(1) = ',' ).
-      LS_JSONP+LV_LEN(1) = ''.
+  DESCRIBE TABLE ct_jsonp LINES lv_lines.
+  IF ( lv_lines > 0 ).
+    READ TABLE ct_jsonp INTO ls_jsonp INDEX lv_lines.
+    lv_len = strlen( ls_jsonp ) - 1.
+    IF ( ls_jsonp+lv_len(1) = ',' ).
+      ls_jsonp+lv_len(1) = ''.
     ENDIF.
-    MODIFY CT_JSONP FROM LS_JSONP INDEX LV_LINES.
+    MODIFY ct_jsonp FROM ls_jsonp INDEX lv_lines.
   ENDIF.
 
 ENDFORM.                    " JSONP_REMOVE_EXTRA_COMMA

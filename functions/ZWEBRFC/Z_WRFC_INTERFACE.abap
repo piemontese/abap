@@ -1,4 +1,4 @@
-FUNCTION Z_WRFC_INTERFACE.
+FUNCTION z_wrfc_interface.
 *"----------------------------------------------------------------------
 *"*"Interfaccia locale:
 *"  TABLES
@@ -17,77 +17,77 @@ FUNCTION Z_WRFC_INTERFACE.
 
   " http://mnibm09.novellini.it:8066/sap/bc/webrfc?_FUNCTION=Z_WRFC_INTERFACE&callback=jsonCallback&method=C_PDM_GET_PLANTS&fields=WERKS
 
-  FIELD-SYMBOLS: <LS_DATA> TYPE ANY,
-                 <LT_DATA> TYPE ANY TABLE,
-                 <LV_DATA> TYPE ANY.
-  TYPES: BEGIN OF TY_S_WORK, BUFFER(30000), END OF TY_S_WORK.
-  DATA: LS_WORK TYPE TY_S_WORK.
+  FIELD-SYMBOLS: <ls_data> TYPE any,
+                 <lt_data> TYPE ANY TABLE,
+                 <lv_data> TYPE any.
+  TYPES: BEGIN OF ty_s_work, buffer(30000), END OF ty_s_work.
+  DATA: ls_work TYPE ty_s_work.
 
-  DATA: LO_STRUCT_DESCR   TYPE REF TO CL_ABAP_STRUCTDESCR,
-        LO_TABLE_DESCR    TYPE REF TO CL_ABAP_TABLEDESCR,
-        LO_DATA_DESCR     TYPE REF TO CL_ABAP_DATADESCR,
-        LS_COMPONENTS     TYPE ABAP_COMPDESCR,
-        LT_COMPONENTS     TYPE ABAP_COMPDESCR_TAB,
-        LT_KEYS           TYPE ABAP_KEYDESCR_TAB,
-        LV_FIELD          TYPE C LENGTH 50,
-        LS_STRING         TYPE STRING,
-        LT_TABLE          TYPE REF TO DATA,
-        LS_TABLE          TYPE REF TO DATA,
-        LT_FIELDS         TYPE TABLE OF STRING,
-        LS_FIELDS         TYPE STRING,
-        LS_MESSAGES       TYPE TY_S_MESSAGES,
-        LV_SNAME          TYPE STRING,
-        LV_QUERY_NAME     TYPE W3_QNAME,
-        LV_QUERY_NULL     TYPE W3_QNAME.
+  DATA: lo_struct_descr   TYPE REF TO cl_abap_structdescr,
+        lo_table_descr    TYPE REF TO cl_abap_tabledescr,
+        lo_data_descr     TYPE REF TO cl_abap_datadescr,
+        ls_components     TYPE abap_compdescr,
+        lt_components     TYPE abap_compdescr_tab,
+        lt_keys           TYPE abap_keydescr_tab,
+        lv_field          TYPE c LENGTH 50,
+        ls_string         TYPE string,
+        lt_table          TYPE REF TO data,
+        ls_table          TYPE REF TO data,
+        lt_fields         TYPE TABLE OF string,
+        ls_fields         TYPE string,
+        ls_messages       TYPE ty_s_messages,
+        lv_sname          TYPE string,
+        lv_query_name     TYPE w3_qname,
+        lv_query_null     TYPE w3_qname.
 
-  DATA: LX_ROOT TYPE REF TO CX_ROOT.
+  DATA: lx_root TYPE REF TO cx_root.
 
-  DATA: LT_MESSAGES TYPE TY_T_MESSAGES.
+  DATA: lt_messages TYPE ty_t_messages.
 
-  CLEAR: LV_SNAME.
+  CLEAR: lv_sname.
 
-  REFRESH LT_MESSAGES.
+  REFRESH lt_messages.
 
 * parametri
-  DATA: IV_CALLBACK       TYPE STRING,
-        IV_METHOD         TYPE STRING,
-        IV_FIELDS         TYPE STRING,
+  DATA: iv_callback       TYPE string,
+        iv_method         TYPE string,
+        iv_fields         TYPE string,
 *        IV_ROWS           TYPE STRING,
-        IV_FROM_REC       TYPE I,
-        IV_TO_REC         TYPE I.
+        iv_from_rec       TYPE i,
+        iv_to_rec         TYPE i.
 
-  CLEAR: IV_CALLBACK,
-         IV_METHOD,
-         IV_FIELDS,
+  CLEAR: iv_callback,
+         iv_method,
+         iv_fields,
 *         IV_ROWS,
-         IV_FROM_REC,
-         IV_TO_REC.
+         iv_from_rec,
+         iv_to_rec.
 
-  LOOP AT QUERY_STRING.
-    TRANSLATE QUERY_STRING-NAME TO UPPER CASE.
-    CLEAR: LV_QUERY_NAME.
+  LOOP AT query_string.
+    TRANSLATE query_string-name TO UPPER CASE.
+    CLEAR: lv_query_name.
     " usa il pipe per parametro passato in righe multiple
     " es. matnr|0 matnr|1 ... matnr|n
-    SPLIT QUERY_STRING-NAME AT '|' INTO LV_QUERY_NAME LV_QUERY_NULL.
-    IF ( NOT LV_QUERY_NAME IS INITIAL ).
-      QUERY_STRING-NAME = LV_QUERY_NAME.
+    SPLIT query_string-name AT '|' INTO lv_query_name lv_query_null.
+    IF ( NOT lv_query_name IS INITIAL ).
+      query_string-name = lv_query_name.
     ENDIF.
-    MODIFY QUERY_STRING.
+    MODIFY query_string.
   ENDLOOP.
 
-  CLEAR: QUERY_STRING.
-  READ TABLE QUERY_STRING WITH KEY NAME = 'CALLBACK'.
-  IV_CALLBACK = QUERY_STRING-VALUE.
+  CLEAR: query_string.
+  READ TABLE query_string WITH KEY name = 'CALLBACK'.
+  iv_callback = query_string-value.
 
-  CLEAR: QUERY_STRING.
-  READ TABLE QUERY_STRING WITH KEY NAME = 'METHOD'.
-  IV_METHOD = QUERY_STRING-VALUE.
+  CLEAR: query_string.
+  READ TABLE query_string WITH KEY name = 'METHOD'.
+  iv_method = query_string-value.
 
-  CLEAR: QUERY_STRING.
-  READ TABLE QUERY_STRING WITH KEY NAME = 'FIELDS'.
-  IV_FIELDS = QUERY_STRING-VALUE.
-  IF ( IV_FIELDS IS INITIAL ).
-    IV_FIELDS = '*'.
+  CLEAR: query_string.
+  READ TABLE query_string WITH KEY name = 'FIELDS'.
+  iv_fields = query_string-value.
+  IF ( iv_fields IS INITIAL ).
+    iv_fields = '*'.
   ENDIF.
 
 *  CLEAR: QUERY_STRING.
@@ -97,154 +97,154 @@ FUNCTION Z_WRFC_INTERFACE.
 *    IV_ROWS = '20'.
 *  ENDIF.
 
-  CLEAR: QUERY_STRING.
-  READ TABLE QUERY_STRING WITH KEY NAME = 'FROM_REC'.
+  CLEAR: query_string.
+  READ TABLE query_string WITH KEY name = 'FROM_REC'.
   TRY.
-      IV_FROM_REC = QUERY_STRING-VALUE.
-    CATCH CX_ROOT INTO LX_ROOT.
-      IV_FROM_REC = 0.
+      iv_from_rec = query_string-value.
+    CATCH cx_root INTO lx_root.
+      iv_from_rec = 0.
   ENDTRY.
-  IF ( IV_FROM_REC IS INITIAL ).
-    IV_FROM_REC = 1.
+  IF ( iv_from_rec IS INITIAL ).
+    iv_from_rec = 1.
   ENDIF.
 
-  CLEAR: QUERY_STRING.
-  READ TABLE QUERY_STRING WITH KEY NAME = 'TO_REC'.
+  CLEAR: query_string.
+  READ TABLE query_string WITH KEY name = 'TO_REC'.
   TRY.
-      IV_TO_REC = QUERY_STRING-VALUE.
-    CATCH CX_ROOT INTO LX_ROOT.
-      IV_TO_REC = 0.
+      iv_to_rec = query_string-value.
+    CATCH cx_root INTO lx_root.
+      iv_to_rec = 0.
   ENDTRY.
-  IF ( IV_TO_REC IS INITIAL ).
-    IV_TO_REC = 10.
+  IF ( iv_to_rec IS INITIAL ).
+    iv_to_rec = 10.
   ENDIF.
 
 
-  REFRESH: LT_FIELDS.
-  SPLIT IV_FIELDS AT ' ' INTO TABLE LT_FIELDS.
-  LOOP AT LT_FIELDS INTO LS_FIELDS.
-    IF ( LS_FIELDS = SPACE ).
-      DELETE LT_FIELDS.
+  REFRESH: lt_fields.
+  SPLIT iv_fields AT ' ' INTO TABLE lt_fields.
+  LOOP AT lt_fields INTO ls_fields.
+    IF ( ls_fields = space ).
+      DELETE lt_fields.
       CONTINUE.
     ENDIF.
   ENDLOOP.
 
-  IF ( IV_CALLBACK IS INITIAL ).
-    PERFORM ADD_MESSAGE USING    'E' 'Specificare funzione di callback'
-                        CHANGING LT_MESSAGES[].
+  IF ( iv_callback IS INITIAL ).
+    PERFORM add_message USING    'E' 'Specificare funzione di callback'
+                        CHANGING lt_messages[].
   ENDIF.
 
 
 
-  DATA: LS_INTERFACE TYPE RSFBINTFV,
-        LS_PARAM     TYPE RSFBPARA,
-        LV_NAME      TYPE EU_LNAME.
-  LV_NAME = IV_METHOD.
-  CL_FB_FUNCTION_UTILITY=>METH_GET_INTERFACE( EXPORTING IM_NAME      = LV_NAME
-                                              IMPORTING EX_INTERFACE = LS_INTERFACE
-                                              EXCEPTIONS ERROR_OCCURED = 1
-                                                         OBJECT_NOT_EXISTING = 2 ).
-  IF ( SY-SUBRC = 0 ).
-    DATA: LT_REP      TYPE SWBSE_MAX_LINE_TAB,
-          LT_IMPORT   TYPE RSFB_IMP,
-          LT_CHANGE   TYPE RSFB_CHA,
-          LT_EXPORT   TYPE RSFB_EXP,
-          LT_TABLES   TYPE RSFB_TBL,
-          LT_EXCEPT   TYPE RSFB_EXC,
-          LS_IMPORT   TYPE RSIMP,
-          LS_CHANGE   TYPE RSCHA,
-          LS_EXPORT   TYPE RSEXP,
-          LS_PARA     TYPE RSFBPARA,  "rstbl,
-          LS_EXCEPT   TYPE RSEXC,
-          LV_FUNCNAME TYPE RS38L-NAME.
+  DATA: ls_interface TYPE rsfbintfv,
+        ls_param     TYPE rsfbpara,
+        lv_name      TYPE eu_lname.
+  lv_name = iv_method.
+  cl_fb_function_utility=>meth_get_interface( EXPORTING im_name      = lv_name
+                                              IMPORTING ex_interface = ls_interface
+                                              EXCEPTIONS error_occured = 1
+                                                         object_not_existing = 2 ).
+  IF ( sy-subrc = 0 ).
+    DATA: lt_rep      TYPE swbse_max_line_tab,
+          lt_import   TYPE rsfb_imp,
+          lt_change   TYPE rsfb_cha,
+          lt_export   TYPE rsfb_exp,
+          lt_tables   TYPE rsfb_tbl,
+          lt_except   TYPE rsfb_exc,
+          ls_import   TYPE rsimp,
+          ls_change   TYPE rscha,
+          ls_export   TYPE rsexp,
+          ls_para     TYPE rsfbpara,  "rstbl,
+          ls_except   TYPE rsexc,
+          lv_funcname TYPE rs38l-name.
 
-    LV_FUNCNAME = IV_METHOD.
+    lv_funcname = iv_method.
 
-    DATA: FUNC          TYPE STRING,
-          TEXT_TAB      LIKE STANDARD TABLE OF LINE,
-          FILETYPE(10)  TYPE C,
-          LT_PARAMS     TYPE ABAP_FUNC_PARMBIND_TAB,
-          LS_PARAMS     TYPE ABAP_FUNC_PARMBIND,
-          LT_EXCEPTIONS TYPE ABAP_FUNC_EXCPBIND_TAB,
-          LS_EXCEPTIONS TYPE ABAP_FUNC_EXCPBIND.
+    DATA: func          TYPE string,
+          text_tab      LIKE STANDARD TABLE OF line,
+          filetype(10)  TYPE c,
+          lt_params     TYPE abap_func_parmbind_tab,
+          ls_params     TYPE abap_func_parmbind,
+          lt_exceptions TYPE abap_func_excpbind_tab,
+          ls_exceptions TYPE abap_func_excpbind.
 
-    FUNC = IV_METHOD.
+    func = iv_method.
 
-    REFRESH: LT_PARAMS, LT_EXCEPTIONS.
+    REFRESH: lt_params, lt_exceptions.
 
-    DATA: LREF_DATA TYPE REF TO DATA,
-          LV_QUERY  TYPE STRING.
+    DATA: lref_data TYPE REF TO data,
+          lv_query  TYPE string.
 
-    FIELD-SYMBOLS: <DATA> TYPE ANY.
+    FIELD-SYMBOLS: <data> TYPE any.
 
-    LOOP AT LS_INTERFACE-IMPORT INTO LS_PARA.
-      CLEAR: LV_QUERY.
-      LOOP AT QUERY_STRING WHERE NAME EQ LS_PARA-PARAMETER.
-        LV_QUERY = LV_QUERY && QUERY_STRING-VALUE.
+    LOOP AT ls_interface-import INTO ls_para.
+      CLEAR: lv_query.
+      LOOP AT query_string WHERE name EQ ls_para-parameter.
+        lv_query = lv_query && query_string-value.
       ENDLOOP.
-      IF ( SY-SUBRC = 0 ).
-        CLEAR: LS_PARAMS.
-        LS_PARAMS-NAME = LS_PARA-PARAMETER.
-        LS_PARAMS-KIND = ABAP_FUNC_EXPORTING.
-        PERFORM CREATE_PARAMETER USING    LS_PARA-STRUCTURE
-                                          LV_QUERY
-                                 CHANGING LS_PARAMS-VALUE.
-        INSERT LS_PARAMS INTO TABLE LT_PARAMS.
+      IF ( sy-subrc = 0 ).
+        CLEAR: ls_params.
+        ls_params-name = ls_para-parameter.
+        ls_params-kind = abap_func_exporting.
+        PERFORM create_parameter USING    ls_para-structure
+                                          lv_query
+                                 CHANGING ls_params-value.
+        INSERT ls_params INTO TABLE lt_params.
       ELSE.
       ENDIF.
     ENDLOOP.
 
-    LOOP AT LS_INTERFACE-EXPORT INTO LS_PARA.
-      CLEAR: LS_PARAMS.
-      LS_PARAMS-NAME = LS_PARA-PARAMETER.
-      LS_PARAMS-KIND = ABAP_FUNC_IMPORTING.
-      PERFORM CREATE_PARAMETER USING    LS_PARA-STRUCTURE
+    LOOP AT ls_interface-export INTO ls_para.
+      CLEAR: ls_params.
+      ls_params-name = ls_para-parameter.
+      ls_params-kind = abap_func_importing.
+      PERFORM create_parameter USING    ls_para-structure
                                         ''
-                               CHANGING LS_PARAMS-VALUE.
+                               CHANGING ls_params-value.
 *        FIELD-SYMBOLS: <lv_value> TYPE any.
 *        ASSIGN query_string-value TO <lv_value>.
 *        GET REFERENCE OF <lv_value> INTO ls_params-value.
-      INSERT LS_PARAMS INTO TABLE LT_PARAMS.
+      INSERT ls_params INTO TABLE lt_params.
     ENDLOOP.
 
-    LOOP AT LS_INTERFACE-CHANGE INTO LS_PARA.
-      CLEAR: LV_QUERY.
-      LOOP AT QUERY_STRING WHERE NAME = LS_PARA-PARAMETER.
-        LV_QUERY = LV_QUERY && QUERY_STRING-VALUE.
+    LOOP AT ls_interface-change INTO ls_para.
+      CLEAR: lv_query.
+      LOOP AT query_string WHERE name = ls_para-parameter.
+        lv_query = lv_query && query_string-value.
       ENDLOOP.
-      CLEAR: LS_PARAMS.
-      LS_PARAMS-NAME = LS_PARA-PARAMETER.
-      LS_PARAMS-KIND = ABAP_FUNC_CHANGING.
-      PERFORM CREATE_PARAMETER USING    LS_PARA-STRUCTURE
-                                        LV_QUERY
-                               CHANGING LS_PARAMS-VALUE.
-      INSERT LS_PARAMS INTO TABLE LT_PARAMS.
+      CLEAR: ls_params.
+      ls_params-name = ls_para-parameter.
+      ls_params-kind = abap_func_changing.
+      PERFORM create_parameter USING    ls_para-structure
+                                        lv_query
+                               CHANGING ls_params-value.
+      INSERT ls_params INTO TABLE lt_params.
     ENDLOOP.
 
-    LOOP AT LS_INTERFACE-TABLES INTO LS_PARA.
-      CLEAR: LV_QUERY.
-      LOOP AT QUERY_STRING WHERE NAME = LS_PARA-PARAMETER.
-        LV_QUERY = LV_QUERY && QUERY_STRING-VALUE.
+    LOOP AT ls_interface-tables INTO ls_para.
+      CLEAR: lv_query.
+      LOOP AT query_string WHERE name = ls_para-parameter.
+        lv_query = lv_query && query_string-value.
       ENDLOOP.
-      CLEAR: LS_PARAMS.
-      LS_PARAMS-NAME = LS_PARA-PARAMETER.
-      LS_PARAMS-KIND = ABAP_FUNC_TABLES.
-      PERFORM CREATE_TABLE USING    LS_PARA-STRUCTURE
-                                    LV_QUERY
-                           CHANGING LS_PARAMS-VALUE.
-      INSERT LS_PARAMS INTO TABLE LT_PARAMS.
+      CLEAR: ls_params.
+      ls_params-name = ls_para-parameter.
+      ls_params-kind = abap_func_tables.
+      PERFORM create_table USING    ls_para-structure
+                                    lv_query
+                           CHANGING ls_params-value.
+      INSERT ls_params INTO TABLE lt_params.
     ENDLOOP.
 
-    LOOP AT LS_INTERFACE-EXCEPT INTO LS_PARA.
-      CLEAR: LS_EXCEPTIONS.
-      LS_EXCEPTIONS-VALUE = SY-TABIX.
-      LS_EXCEPTIONS-NAME = LS_PARA-PARAMETER.
-      INSERT LS_EXCEPTIONS INTO TABLE LT_EXCEPTIONS.
+    LOOP AT ls_interface-except INTO ls_para.
+      CLEAR: ls_exceptions.
+      ls_exceptions-value = sy-tabix.
+      ls_exceptions-name = ls_para-parameter.
+      INSERT ls_exceptions INTO TABLE lt_exceptions.
     ENDLOOP.
 
-    IF ( LT_FIELDS[] IS INITIAL ).
-      LS_FIELDS = '*'.
-      APPEND LS_FIELDS TO LT_FIELDS.
+    IF ( lt_fields[] IS INITIAL ).
+      ls_fields = '*'.
+      APPEND ls_fields TO lt_fields.
     ENDIF.
 
     TRY.
@@ -255,42 +255,47 @@ FUNCTION Z_WRFC_INTERFACE.
 *                                                                 P_IF_TABLES = LT_TABLES
 *                                                                 P_IF_EXCEPT = LT_EXCEPT
 *                                                       CHANGING  REP = LT_REP ).
-        DATA: LO_ROOT TYPE REF TO CX_ROOT.
-        CALL FUNCTION FUNC
-          PARAMETER-TABLE LT_PARAMS
-          EXCEPTION-TABLE LT_EXCEPTIONS.
-        PERFORM JSON_ADD_RESULT USING    LT_PARAMS[]
-                                CHANGING HTML[].
+        DATA: lo_root TYPE REF TO cx_root.
+        CALL FUNCTION func
+          PARAMETER-TABLE lt_params
+          EXCEPTION-TABLE lt_exceptions.
+        PERFORM json_add_result USING    lt_params[]
+                                CHANGING html[].
 
         " apre tag funcione di callback
-        PERFORM JSONP_OPEN_CALLBACK USING    IV_CALLBACK
-                                    CHANGING HTML[].
+        PERFORM jsonp_open_callback USING    iv_callback
+                                    CHANGING html[].
 
         " apre tag results
-        PERFORM JSONP_OPEN_RESULTS CHANGING HTML[].
+        PERFORM jsonp_open_results CHANGING html[].
 
-        LOOP AT LT_PARAMS INTO LS_PARAMS.
-          READ TABLE LS_INTERFACE-TABLES WITH KEY PARAMETER = LS_PARAMS-NAME TRANSPORTING NO FIELDS.
-          IF ( SY-SUBRC = 0 ).
-            LV_SNAME = LS_PARAMS-NAME.
+        LOOP AT lt_params INTO ls_params.
+          READ TABLE ls_interface-tables WITH KEY parameter = ls_params-name TRANSPORTING NO FIELDS.
+          IF ( sy-subrc = 0 ).
+            lv_sname = ls_params-name.
             TRY.
-                ASSIGN LS_PARAMS-VALUE->* TO <LT_DATA>.
-                LOOP AT <LT_DATA> ASSIGNING <LS_DATA>.
+                ASSIGN ls_params-value->* TO <lt_data>.
+                LOOP AT <lt_data> ASSIGNING <ls_data>.
                   EXIT.
                 ENDLOOP.
-                LO_STRUCT_DESCR ?= CL_ABAP_STRUCTDESCR=>DESCRIBE_BY_DATA( <LS_DATA> ).
-              CATCH CX_ROOT.
+                IF ( sy-subrc <> 0 ).   " tabella vuota
+                  html-line = '"' && lv_sname && '": [],'.
+                  APPEND html.
+                  CONTINUE.
+                ENDIF.
+                lo_struct_descr ?= cl_abap_structdescr=>describe_by_data( <ls_data> ).
+              CATCH cx_root.
             ENDTRY.
 
             " costruisce results
-            PERFORM JSONP_BUILD_RESULTS USING    LV_SNAME
-                                                 <LT_DATA>[]
-                                                 LO_STRUCT_DESCR->COMPONENTS[]
-                                                 LT_FIELDS[]
+            PERFORM jsonp_build_results USING    lv_sname
+                                                 <lt_data>[]
+*                                                 LO_STRUCT_DESCR->COMPONENTS[]
+                                                 lt_fields[]
 *                                                 IV_ROWS
-                                                 IV_FROM_REC
-                                                 IV_TO_REC
-                                        CHANGING HTML[].
+                                                 iv_from_rec
+                                                 iv_to_rec
+                                        CHANGING html[].
 *            PERFORM JSON_CREATE_FROM_DATA USING    IV_CALLBACK
 *                                                   LS_PARAMS-NAME
 *                                                   <LT_DATA>[]
@@ -298,29 +303,29 @@ FUNCTION Z_WRFC_INTERFACE.
 
 
           ENDIF.
-          READ TABLE LS_INTERFACE-EXPORT WITH KEY PARAMETER = LS_PARAMS-NAME TRANSPORTING NO FIELDS.
-          IF ( SY-SUBRC = 0 ).
-            LV_SNAME = LS_PARAMS-NAME.
+          READ TABLE ls_interface-export WITH KEY parameter = ls_params-name TRANSPORTING NO FIELDS.
+          IF ( sy-subrc = 0 ).
+            lv_sname = ls_params-name.
             TRY.
-                ASSIGN LS_PARAMS-VALUE->* TO <LS_DATA>.
-                LO_STRUCT_DESCR ?= CL_ABAP_STRUCTDESCR=>DESCRIBE_BY_DATA( <LS_DATA> ).
+                ASSIGN ls_params-value->* TO <ls_data>.
+                lo_struct_descr ?= cl_abap_structdescr=>describe_by_data( <ls_data> ).
 
-                PERFORM JSONP_BUILD_RESULTS USING    LV_SNAME
-                                                     <LS_DATA>
-                                                     LO_STRUCT_DESCR->COMPONENTS[]
-                                                     LT_FIELDS[]
+                PERFORM jsonp_build_results USING    lv_sname
+                                                     <ls_data>
+*                                                     LO_STRUCT_DESCR->COMPONENTS[]
+                                                     lt_fields[]
 *                                                     IV_ROWS
-                                                     IV_FROM_REC
-                                                     IV_TO_REC
-                                            CHANGING HTML[].
-              CATCH CX_ROOT.
+                                                     iv_from_rec
+                                                     iv_to_rec
+                                            CHANGING html[].
+              CATCH cx_root.
                 TRY.
-                    ASSIGN LS_PARAMS-VALUE->* TO <LS_DATA>.
-                    LO_DATA_DESCR ?= CL_ABAP_DATADESCR=>DESCRIBE_BY_DATA( <LS_DATA> ).
+                    ASSIGN ls_params-value->* TO <ls_data>.
+                    lo_data_descr ?= cl_abap_datadescr=>describe_by_data( <ls_data> ).
 
-                    HTML-LINE = '"' && LV_SNAME && '":"' && <LS_DATA> && '",'..
-                    APPEND HTML.
-                  CATCH CX_ROOT.
+                    html-line = '"' && lv_sname && '":"' && <ls_data> && '",'..
+                    APPEND html.
+                  CATCH cx_root.
                 ENDTRY.
             ENDTRY.
 
@@ -331,29 +336,29 @@ FUNCTION Z_WRFC_INTERFACE.
 *                                          CHANGING HTML[].
 
           ENDIF.
-          READ TABLE LS_INTERFACE-CHANGE WITH KEY PARAMETER = LS_PARAMS-NAME TRANSPORTING NO FIELDS.
-          IF ( SY-SUBRC = 0 ).
-            LV_SNAME = LS_PARAMS-NAME.
+          READ TABLE ls_interface-change WITH KEY parameter = ls_params-name TRANSPORTING NO FIELDS.
+          IF ( sy-subrc = 0 ).
+            lv_sname = ls_params-name.
             TRY.
-                ASSIGN LS_PARAMS-VALUE->* TO <LS_DATA>.
-                LO_STRUCT_DESCR ?= CL_ABAP_STRUCTDESCR=>DESCRIBE_BY_DATA( <LS_DATA> ).
+                ASSIGN ls_params-value->* TO <ls_data>.
+                lo_struct_descr ?= cl_abap_structdescr=>describe_by_data( <ls_data> ).
 
-                PERFORM JSONP_BUILD_RESULTS USING    LV_SNAME
-                                                     <LS_DATA>
-                                                     LO_STRUCT_DESCR->COMPONENTS[]
-                                                     LT_FIELDS[]
+                PERFORM jsonp_build_results USING    lv_sname
+                                                     <ls_data>
+*                                                     LO_STRUCT_DESCR->COMPONENTS[]
+                                                     lt_fields[]
 *                                                     IV_ROWS
-                                                     IV_FROM_REC
-                                                     IV_TO_REC
-                                            CHANGING HTML[].
-              CATCH CX_ROOT.
+                                                     iv_from_rec
+                                                     iv_to_rec
+                                            CHANGING html[].
+              CATCH cx_root.
                 TRY.
-                    ASSIGN LS_PARAMS-VALUE->* TO <LS_DATA>.
-                    LO_DATA_DESCR ?= CL_ABAP_DATADESCR=>DESCRIBE_BY_DATA( <LS_DATA> ).
+                    ASSIGN ls_params-value->* TO <ls_data>.
+                    lo_data_descr ?= cl_abap_datadescr=>describe_by_data( <ls_data> ).
 
-                    HTML-LINE = '"' && LV_SNAME && '":"' && <LS_DATA> && '",'..
-                    APPEND HTML.
-                  CATCH CX_ROOT.
+                    html-line = '"' && lv_sname && '":"' && <ls_data> && '",'..
+                    APPEND html.
+                  CATCH cx_root.
                 ENDTRY.
             ENDTRY.
 
@@ -368,35 +373,35 @@ FUNCTION Z_WRFC_INTERFACE.
         ENDLOOP.
 
         " chiude tag results
-        PERFORM JSONP_CLOSE_RESULTS CHANGING HTML[].
+        PERFORM jsonp_close_results CHANGING html[].
 
         " apre tag funcione di callback
-        PERFORM JSONP_CLOSE_CALLBACK USING    IV_CALLBACK
-                                     CHANGING HTML[].
+        PERFORM jsonp_close_callback USING    iv_callback
+                                     CHANGING html[].
 
-      CATCH CX_ROOT INTO LO_ROOT.
-        DATA: LV_MSG TYPE TY_S_MESSAGES-MSG.
-        LV_MSG = LO_ROOT->GET_TEXT( ).
-        PERFORM ADD_MESSAGE USING    'E' LV_MSG
-                            CHANGING LT_MESSAGES[].
+      CATCH cx_root INTO lo_root.
+        DATA: lv_msg TYPE ty_s_messages-msg.
+        lv_msg = lo_root->get_text( ).
+        PERFORM add_message USING    'E' lv_msg
+                            CHANGING lt_messages[].
 
-        PERFORM CREATE_JSONP_2 USING    IV_CALLBACK
-                                        LT_MESSAGES[]
-                               CHANGING HTML[].
+        PERFORM create_jsonp_2 USING    iv_callback
+                                        lt_messages[]
+                               CHANGING html[].
     ENDTRY.
   ELSE.
-    CASE SY-SUBRC.
+    CASE sy-subrc.
       WHEN 1.
-        PERFORM ADD_MESSAGE USING    'E' 'Error'
-                            CHANGING LT_MESSAGES[].
+        PERFORM add_message USING    'E' 'Error'
+                            CHANGING lt_messages[].
       WHEN 2.
-        PERFORM ADD_MESSAGE USING    'E' 'Function not exist'
-                            CHANGING LT_MESSAGES[].
+        PERFORM add_message USING    'E' 'Function not exist'
+                            CHANGING lt_messages[].
     ENDCASE.
 
-    PERFORM CREATE_JSONP_2 USING    IV_CALLBACK
-                                    LT_MESSAGES[]
-                           CHANGING HTML[].
+    PERFORM create_jsonp_2 USING    iv_callback
+                                    lt_messages[]
+                           CHANGING html[].
   ENDIF.
 
 ENDFUNCTION.
