@@ -187,6 +187,7 @@ FUNCTION z_wrfc_interface.
         ls_params-name = ls_para-parameter.
         ls_params-kind = abap_func_exporting.
         PERFORM create_parameter USING    ls_para-structure
+                                          ls_para-typefield
                                           lv_query
                                  CHANGING ls_params-value.
         INSERT ls_params INTO TABLE lt_params.
@@ -199,6 +200,7 @@ FUNCTION z_wrfc_interface.
       ls_params-name = ls_para-parameter.
       ls_params-kind = abap_func_importing.
       PERFORM create_parameter USING    ls_para-structure
+                                        ls_para-typefield
                                         ''
                                CHANGING ls_params-value.
 *        FIELD-SYMBOLS: <lv_value> TYPE any.
@@ -216,6 +218,7 @@ FUNCTION z_wrfc_interface.
       ls_params-name = ls_para-parameter.
       ls_params-kind = abap_func_changing.
       PERFORM create_parameter USING    ls_para-structure
+                                        ls_para-typefield
                                         lv_query
                                CHANGING ls_params-value.
       INSERT ls_params INTO TABLE lt_params.
@@ -308,24 +311,38 @@ FUNCTION z_wrfc_interface.
             lv_sname = ls_params-name.
             TRY.
                 ASSIGN ls_params-value->* TO <ls_data>.
-                lo_struct_descr ?= cl_abap_structdescr=>describe_by_data( <ls_data> ).
-
+                lo_table_descr ?= cl_abap_tabledescr=>describe_by_data( <ls_data> ).
+                " costruisce results
                 PERFORM jsonp_build_results USING    lv_sname
                                                      <ls_data>
-*                                                     LO_STRUCT_DESCR->COMPONENTS[]
+*                                                 LO_STRUCT_DESCR->COMPONENTS[]
                                                      lt_fields[]
-*                                                     IV_ROWS
+*                                                 IV_ROWS
                                                      iv_from_rec
                                                      iv_to_rec
                                             CHANGING html[].
               CATCH cx_root.
                 TRY.
                     ASSIGN ls_params-value->* TO <ls_data>.
-                    lo_data_descr ?= cl_abap_datadescr=>describe_by_data( <ls_data> ).
+                    lo_struct_descr ?= cl_abap_structdescr=>describe_by_data( <ls_data> ).
 
-                    html-line = '"' && lv_sname && '":"' && <ls_data> && '",'..
-                    APPEND html.
+                    PERFORM jsonp_build_results USING    lv_sname
+                                                         <ls_data>
+*                                                     LO_STRUCT_DESCR->COMPONENTS[]
+                                                         lt_fields[]
+*                                                     IV_ROWS
+                                                         iv_from_rec
+                                                         iv_to_rec
+                                                CHANGING html[].
                   CATCH cx_root.
+                    TRY.
+                        ASSIGN ls_params-value->* TO <ls_data>.
+                        lo_data_descr ?= cl_abap_datadescr=>describe_by_data( <ls_data> ).
+
+                        html-line = '"' && lv_sname && '":"' && <ls_data> && '",'..
+                        APPEND html.
+                      CATCH cx_root.
+                    ENDTRY.
                 ENDTRY.
             ENDTRY.
 

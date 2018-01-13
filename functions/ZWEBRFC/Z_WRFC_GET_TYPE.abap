@@ -1,4 +1,4 @@
-FUNCTION Z_WRFC_GET_TYPE.
+FUNCTION z_wrfc_get_type.
 *"----------------------------------------------------------------------
 *"*"Interfaccia locale:
 *"  TABLES
@@ -16,40 +16,40 @@ FUNCTION Z_WRFC_GET_TYPE.
   " http://mnibm09.novellini.it:8066/sap/bc/webrfc?_FUNCTION=Z_SAMPLERFC&callback=jsonCallback&sqlTable=MARC&sqlWhere=MATNR = 'ACF090-071026'
 
 
-  FIELD-SYMBOLS: <LS_DATA> TYPE ANY.
-  FIELD-SYMBOLS: <LT_DATA> TYPE ANY TABLE.
-  TYPES: BEGIN OF TY_S_WORK, BUFFER(30000), END OF TY_S_WORK.
+  FIELD-SYMBOLS: <ls_data> TYPE any.
+  FIELD-SYMBOLS: <lt_data> TYPE ANY TABLE.
+  TYPES: BEGIN OF ty_s_work, buffer(30000), END OF ty_s_work.
 *  DATA: ls_work TYPE ty_s_work.
 
-  DATA: LO_STRUCT_DESCR   TYPE REF TO CL_ABAP_STRUCTDESCR,
-        LO_TABLE_DESCR    TYPE REF TO CL_ABAP_TABLEDESCR,
-        LO_DATA_DESCR     TYPE REF TO CL_ABAP_DATADESCR,
-        LX_ROOT           TYPE REF TO CX_ROOT,
-        LS_COMPONENTS     TYPE ABAP_COMPDESCR,
-        LT_KEYS           TYPE ABAP_KEYDESCR_TAB,
-        LS_STRING         TYPE STRING,
-        LT_TABLE          TYPE REF TO DATA,
-        LS_TABLE          TYPE REF TO DATA.
+  DATA: lo_struct_descr   TYPE REF TO cl_abap_structdescr,
+        lo_table_descr    TYPE REF TO cl_abap_tabledescr,
+        lo_data_descr     TYPE REF TO cl_abap_datadescr,
+        lx_root           TYPE REF TO cx_root,
+        ls_components     TYPE abap_compdescr,
+        lt_keys           TYPE abap_keydescr_tab,
+        ls_string         TYPE string,
+        lt_table          TYPE REF TO data,
+        ls_table          TYPE REF TO data.
 
-  DATA: LT_MESSAGES TYPE TY_T_MESSAGES.
+  DATA: lt_messages TYPE ty_t_messages.
 
-  REFRESH LT_MESSAGES.
+  REFRESH lt_messages.
 
 * parametri
-  DATA: IV_CALLBACK         TYPE STRING,
-        IV_TYPE             TYPE STRING.
+  DATA: iv_callback         TYPE string,
+        iv_type             TYPE string.
 *        IV_SQL_TABLE        TYPE STRING,
 *        IV_SQL_WHERE        TYPE STRING,
 *        IV_SQL_FIELDS       TYPE STRING,
 *        IV_FROM_REC         TYPE I,
 *        IV_TO_REC            TYPE I.
 
-  CLEAR: IV_CALLBACK,
-         IV_TYPE.
+  CLEAR: iv_callback,
+         iv_type.
 
-  LOOP AT QUERY_STRING.
-    TRANSLATE QUERY_STRING-NAME TO UPPER CASE.
-    MODIFY QUERY_STRING.
+  LOOP AT query_string.
+    TRANSLATE query_string-name TO UPPER CASE.
+    MODIFY query_string.
   ENDLOOP.
 
 *  SORT query_string DESCENDING.
@@ -57,25 +57,25 @@ FUNCTION Z_WRFC_GET_TYPE.
 *  CHECK sy-subrc = 0.
 *  name = query_string-value.
 
-  CLEAR: QUERY_STRING.
-  READ TABLE QUERY_STRING WITH KEY NAME = 'CALLBACK'.
-  IV_CALLBACK = QUERY_STRING-VALUE.
+  CLEAR: query_string.
+  READ TABLE query_string WITH KEY name = 'CALLBACK'.
+  iv_callback = query_string-value.
 
-  CLEAR: QUERY_STRING.
-  READ TABLE QUERY_STRING WITH KEY NAME = 'TYPE'.
-  IV_TYPE = QUERY_STRING-VALUE.
+  CLEAR: query_string.
+  READ TABLE query_string WITH KEY name = 'TYPE'.
+  iv_type = query_string-value.
 
-  IF ( IV_CALLBACK IS INITIAL ).
-    PERFORM ADD_MESSAGE USING    'E' 'Specificare funzione di callback'
-                        CHANGING LT_MESSAGES[].
+  IF ( iv_callback IS INITIAL ).
+    PERFORM add_message USING    'E' 'Specificare funzione di callback'
+                        CHANGING lt_messages[].
   ENDIF.
 
-  IF ( IV_TYPE IS INITIAL ).
-    PERFORM ADD_MESSAGE USING    'E' 'Specificare tipo'
-                        CHANGING LT_MESSAGES[].
+  IF ( iv_type IS INITIAL ).
+    PERFORM add_message USING    'E' 'Specificare tipo'
+                        CHANGING lt_messages[].
   ENDIF.
 
-  IF ( NOT IV_TYPE IS INITIAL ).
+  IF ( NOT iv_type IS INITIAL ).
 *    LO_STRUCT_DESCR ?= CL_ABAP_STRUCTDESCR=>DESCRIBE_BY_NAME( IV_SQL_TABLE ).
 *
 **    ASSIGN ls_work TO <ls_data> CASTING TYPE (iv_sql_table).
@@ -112,49 +112,50 @@ FUNCTION Z_WRFC_GET_TYPE.
 *    ENDTRY.
 
     " apre tag funcione di callback
-    PERFORM JSONP_OPEN_CALLBACK USING    IV_CALLBACK
-                                CHANGING HTML[].
+    PERFORM jsonp_open_callback USING    iv_callback
+                                CHANGING html[].
 
 * results ------------------------------------------------------
     " apre tag results
-    PERFORM JSONP_OPEN_RESULTS CHANGING HTML[].
+    PERFORM jsonp_open_results CHANGING html[].
     " costruisce results
 
-    DATA: LREF_VALUE TYPE REF TO DATA,
-          LV_TYPE    TYPE W3_QVALUE.
-    LV_TYPE = IV_TYPE.
-    PERFORM CREATE_PARAMETER USING    LV_TYPE
+    DATA: lref_value TYPE REF TO data,
+          lv_type    TYPE w3_qvalue.
+    lv_type = iv_type.
+    PERFORM create_parameter USING    lv_type
                                       ''
-                             CHANGING LREF_VALUE.
+                                      ''
+                             CHANGING lref_value.
 
-    DATA: LV_PARAM          TYPE REF TO DATA,
-          LV_VALUE          TYPE STRING.
-    FIELD-SYMBOLS: <LV_PARAM> TYPE ANY.
+    DATA: lv_param          TYPE REF TO data,
+          lv_value          TYPE string.
+    FIELD-SYMBOLS: <lv_param> TYPE any.
     TRY.
       TRY.
-          CREATE DATA LV_PARAM TYPE (LV_TYPE).
-        CATCH CX_SY_CREATE_DATA_ERROR INTO LX_ROOT.
-          CREATE DATA LV_PARAM LIKE LV_TYPE.
+          CREATE DATA lv_param TYPE (lv_type).
+        CATCH cx_sy_create_data_error INTO lx_root.
+          CREATE DATA lv_param LIKE lv_type.
       ENDTRY.
-      ASSIGN LV_PARAM->* TO <LV_PARAM>.
+      ASSIGN lv_param->* TO <lv_param>.
       TRY.
-          LO_TABLE_DESCR ?= CL_ABAP_TABLEDESCR=>DESCRIBE_BY_DATA( <LV_PARAM> ).
-          CL_FDT_JSON=>JSON_TO_DATA( EXPORTING IV_JSON = LV_VALUE
-                                     CHANGING  CA_DATA = <LV_PARAM> ).
-        CATCH CX_ROOT.
+          lo_table_descr ?= cl_abap_tabledescr=>describe_by_data( <lv_param> ).
+          cl_fdt_json=>json_to_data( EXPORTING iv_json = lv_value
+                                     CHANGING  ca_data = <lv_param> ).
+        CATCH cx_root.
           TRY.
-              LO_STRUCT_DESCR ?= CL_ABAP_STRUCTDESCR=>DESCRIBE_BY_DATA( <LV_PARAM> ).
-              CL_FDT_JSON=>JSON_TO_DATA( EXPORTING IV_JSON = LV_VALUE
-                                         CHANGING  CA_DATA = <LV_PARAM> ).
-            CATCH CX_ROOT.
+              lo_struct_descr ?= cl_abap_structdescr=>describe_by_data( <lv_param> ).
+              cl_fdt_json=>json_to_data( EXPORTING iv_json = lv_value
+                                         CHANGING  ca_data = <lv_param> ).
+            CATCH cx_root.
               TRY.
-                  LO_DATA_DESCR ?= CL_ABAP_DATADESCR=>DESCRIBE_BY_DATA( <LV_PARAM> ).
-                CATCH CX_ROOT.
-                  PERFORM ADD_MESSAGE USING    'E' 'Specificare un tipo valido in SAP'
-                                      CHANGING LT_MESSAGES[].
-                  PERFORM CREATE_JSONP_2 USING    IV_CALLBACK
-                                                  LT_MESSAGES[]
-                                         CHANGING HTML[].
+                  lo_data_descr ?= cl_abap_datadescr=>describe_by_data( <lv_param> ).
+                CATCH cx_root.
+                  PERFORM add_message USING    'E' 'Specificare un tipo valido in SAP'
+                                      CHANGING lt_messages[].
+                  PERFORM create_jsonp_2 USING    iv_callback
+                                                  lt_messages[]
+                                         CHANGING html[].
               ENDTRY.
           ENDTRY.
       ENDTRY.
@@ -169,16 +170,16 @@ FUNCTION Z_WRFC_GET_TYPE.
 *                                         IV_TO_REC
 *                                CHANGING HTML[].
     " chiude tag results
-    PERFORM JSONP_CLOSE_RESULTS CHANGING HTML[].
+    PERFORM jsonp_close_results CHANGING html[].
 
     " chiude tab funzione di callback
-    PERFORM JSONP_CLOSE_CALLBACK USING IV_CALLBACK
-                                 CHANGING HTML[].
+    PERFORM jsonp_close_callback USING iv_callback
+                                 CHANGING html[].
 
   ELSE.
-    PERFORM CREATE_JSONP_2 USING    IV_CALLBACK
-                                    LT_MESSAGES[]
-                           CHANGING HTML[].
+    PERFORM create_jsonp_2 USING    iv_callback
+                                    lt_messages[]
+                           CHANGING html[].
   ENDIF.
 
 *refresh html.

@@ -491,7 +491,7 @@ FORM jsonp_add_row_results  USING value(is_data)       TYPE any
         lv_str_val    TYPE string,
         lv_field      TYPE c LENGTH 50.
 
-  CLEAR: ls_jsonp-line.
+  CLEAR: ls_jsonp-line, lv_str_val.
 
   lv_str_name = is_components-name.
   CONCATENATE '"' lv_str_name '"' INTO lv_str_name.
@@ -670,6 +670,7 @@ ENDFORM.                    " JSON_ADD_RESULT
 *&      Form  CREATE_PARAMETER
 *&---------------------------------------------------------------------*
 FORM create_parameter USING value(iv_field) TYPE c
+                            value(iv_type)  TYPE c
                             value(iv_value) TYPE any
                       CHANGING    cv_param  TYPE REF TO data.
 
@@ -679,6 +680,7 @@ FORM create_parameter USING value(iv_field) TYPE c
         lo_data_descr     TYPE REF TO cl_abap_datadescr,
         lo_struct_descr   TYPE REF TO cl_abap_structdescr,
         lo_table_descr    TYPE REF TO cl_abap_tabledescr,
+        lo_ref_descr2     TYPE REF TO cl_abap_refdescr,
         ls_components     TYPE abap_compdescr,
         lv_value          TYPE string.
 
@@ -688,37 +690,37 @@ FORM create_parameter USING value(iv_field) TYPE c
 
   TRY.
       TRY.
-          CREATE DATA lv_param TYPE (iv_field).
-        CATCH cx_sy_create_data_error INTO lx_root.
+          IF ( iv_type = 'TYPE REF TO' ).
+            CREATE DATA lv_param TYPE REF TO (iv_field).
+          ELSE.
+            CREATE DATA lv_param TYPE (iv_field).
+          ENDIF.
+        CATCH cx_root INTO lx_root.
           CREATE DATA lv_param LIKE iv_field.
       ENDTRY.
       ASSIGN lv_param->* TO <lv_param>.
-      TRY.
-          lo_table_descr ?= cl_abap_tabledescr=>describe_by_data_ref( lv_param ).
-          cl_fdt_json=>json_to_data( EXPORTING iv_json = lv_value
-                                     CHANGING  ca_data = <lv_param> ).
-        CATCH cx_root.
-          TRY.
-              lo_struct_descr ?= cl_abap_structdescr=>describe_by_data_ref( lv_param ).
-              cl_fdt_json=>json_to_data( EXPORTING iv_json = lv_value
-                                         CHANGING  ca_data = <lv_param> ).
-            CATCH cx_root.
-              TRY.
-                  lo_data_descr ?= cl_abap_datadescr=>describe_by_data_ref( lv_param ).
-                  IF ( NOT iv_value IS INITIAL ).
-                    zcl_bc_conversion_exit=>conversion_input( EXPORTING iv_field = iv_value
-                                                              CHANGING  cv_field = <lv_param> ).
-                  ENDIF.
-                CATCH cx_root.
-              ENDTRY.
-          ENDTRY.
-      ENDTRY.
-
-*      IF ( NOT IV_VALUE IS INITIAL ).
-**        <LV_PARAM> = IV_VALUE.
-*        ZCL_BC_CONVERSION_EXIT=>CONVERSION_INPUT( EXPORTING IV_FIELD = IV_VALUE
-*                                                  CHANGING  CV_FIELD = <LV_PARAM> ).
-*      ENDIF.
+      IF ( iv_type <> 'TYPE REF TO' ).
+        TRY.
+            lo_table_descr ?= cl_abap_tabledescr=>describe_by_data_ref( lv_param ).
+            cl_fdt_json=>json_to_data( EXPORTING iv_json = lv_value
+                                       CHANGING  ca_data = <lv_param> ).
+          CATCH cx_root.
+            TRY.
+                lo_struct_descr ?= cl_abap_structdescr=>describe_by_data_ref( lv_param ).
+                cl_fdt_json=>json_to_data( EXPORTING iv_json = lv_value
+                                           CHANGING  ca_data = <lv_param> ).
+              CATCH cx_root.
+                TRY.
+                    lo_data_descr ?= cl_abap_datadescr=>describe_by_data_ref( lv_param ).
+                    IF ( NOT iv_value IS INITIAL ).
+                      zcl_bc_conversion_exit=>conversion_input( EXPORTING iv_field = iv_value
+                                                                CHANGING  cv_field = <lv_param> ).
+                    ENDIF.
+                  CATCH cx_root.
+                ENDTRY.
+            ENDTRY.
+        ENDTRY.
+      ENDIF.
 
     CATCH cx_root INTO lx_root.
   ENDTRY.
