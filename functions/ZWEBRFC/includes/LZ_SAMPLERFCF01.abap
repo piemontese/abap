@@ -494,6 +494,7 @@ FORM jsonp_add_row_results  USING value(is_data)       TYPE any
   CLEAR: ls_jsonp-line, lv_str_val.
 
   lv_str_name = is_components-name.
+  TRANSLATE lv_str_name TO LOWER CASE.
   CONCATENATE '"' lv_str_name '"' INTO lv_str_name.
 
   lv_field = 'is_data-'.
