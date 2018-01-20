@@ -53,6 +53,8 @@ TYPES: BEGIN OF ty_s_messages,
 TYPES: ty_t_w3html   TYPE TABLE OF w3html,
        ty_t_messages TYPE TABLE OF ty_s_messages.
 
+DATA: gv_camel_case TYPE string.
+
 
 *&---------------------------------------------------------------------*
 *&       Class LCL_JSON

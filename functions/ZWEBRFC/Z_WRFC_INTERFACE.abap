@@ -56,7 +56,8 @@ FUNCTION z_wrfc_interface.
         iv_from_rec       TYPE i,
         iv_to_rec         TYPE i.
 
-  CLEAR: iv_callback,
+  CLEAR: gv_camel_case,
+         iv_callback,
          iv_method,
          iv_fields,
 *         IV_ROWS,
@@ -82,6 +83,10 @@ FUNCTION z_wrfc_interface.
   CLEAR: query_string.
   READ TABLE query_string WITH KEY name = 'METHOD'.
   iv_method = query_string-value.
+
+  CLEAR: query_string.
+  READ TABLE query_string WITH KEY name = 'CAMEL_CASE'.
+  gv_camel_case = query_string-value.
 
   CLEAR: query_string.
   READ TABLE query_string WITH KEY name = 'FIELDS'.
@@ -293,9 +298,7 @@ FUNCTION z_wrfc_interface.
             " costruisce results
             PERFORM jsonp_build_results USING    lv_sname
                                                  <lt_data>[]
-*                                                 LO_STRUCT_DESCR->COMPONENTS[]
                                                  lt_fields[]
-*                                                 IV_ROWS
                                                  iv_from_rec
                                                  iv_to_rec
                                         CHANGING html[].
@@ -321,6 +324,7 @@ FUNCTION z_wrfc_interface.
                                                      iv_from_rec
                                                      iv_to_rec
                                             CHANGING html[].
+
               CATCH cx_root.
                 TRY.
                     ASSIGN ls_params-value->* TO <ls_data>.
@@ -421,6 +425,11 @@ FUNCTION z_wrfc_interface.
                            CHANGING html[].
   ENDIF.
 
+  DATA: lv_string TYPE string.
+  CLEAR: lv_string.
+  LOOP AT html.
+    lv_string = lv_string && html-line.
+  ENDLOOP.
 ENDFUNCTION.
 
 * struttura file jsonp
