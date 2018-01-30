@@ -87,6 +87,7 @@ FUNCTION z_wrfc_interface.
   CLEAR: query_string.
   READ TABLE query_string WITH KEY name = 'CAMEL_CASE'.
   gv_camel_case = query_string-value.
+  TRANSLATE gv_camel_case TO LOWER CASE.
 
   CLEAR: query_string.
   READ TABLE query_string WITH KEY name = 'FIELDS'.

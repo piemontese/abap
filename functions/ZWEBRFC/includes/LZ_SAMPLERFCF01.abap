@@ -261,14 +261,14 @@ FORM jsonp_build_results  USING value(iv_sname)      TYPE string
 *                ls_jsonp-line = lv_str.
 *                APPEND ls_jsonp TO ct_jsonp.
 *              ENDIF.
-              APPEND LINES OF lt_jsonp to ct_jsonp.
+              APPEND LINES OF lt_jsonp TO ct_jsonp.
               PERFORM jsonp_remove_extra_comma CHANGING ct_jsonp[].
 
               ls_jsonp = '},'.
               INSERT ls_jsonp INTO TABLE ct_jsonp.
             ELSE.
               IF ( iv_sname = 'steps' ).
-"                break novedev.
+                "                break novedev.
               ENDIF.
               lv_str = <ls_data>.
               ls_jsonp-line = '"' && lv_str && '",'.
@@ -552,7 +552,7 @@ FORM jsonp_add_row_results  USING value(is_data)       TYPE any
 
   lv_str_name = is_components-name.
   TRANSLATE lv_str_name TO LOWER CASE.
-*  PERFORM camel_case CHANGING lv_str_name.
+  PERFORM camel_case CHANGING lv_str_name.
   CONCATENATE '"' lv_str_name '"' INTO lv_str_name.
 
   lv_field = 'is_data-'.
@@ -915,12 +915,15 @@ FORM camel_case CHANGING cv_str_name TYPE string.
     lv_len = strlen( cv_str_name ).
     CLEAR: cv_str_name.
     DO lv_len TIMES.
+      IF ( lv_pos >= lv_len ).
+        EXIT.
+      ENDIF.
       IF ( lv_str_name+lv_pos(1) = '_' ).
         ADD 1 TO lv_pos.
         lv_upper = lv_str_name+lv_pos(1).
         TRANSLATE lv_upper TO UPPER CASE.
         cv_str_name = cv_str_name && lv_upper.
-*        CONTINUE.
+        ADD 1 TO lv_pos.
       ENDIF.
       cv_str_name = cv_str_name && lv_str_name+lv_pos(1).
       ADD 1 TO lv_pos.
