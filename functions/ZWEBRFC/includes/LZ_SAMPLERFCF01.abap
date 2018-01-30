@@ -145,7 +145,8 @@ FORM jsonp_build_results  USING value(iv_sname)      TYPE string
   DATA: lo_struct_descr TYPE REF TO cl_abap_structdescr,
         lo_table_descr  TYPE REF TO cl_abap_tabledescr,
         lo_data_descr   TYPE REF TO cl_abap_datadescr,
-        lx_root         TYPE REF TO cx_root.
+        lx_root         TYPE REF TO cx_root,
+        lv_has_struct   TYPE abap_bool.
 
   TRY.
       lo_table_descr ?= cl_abap_tabledescr=>describe_by_data( iv_data ).
@@ -163,97 +164,135 @@ FORM jsonp_build_results  USING value(iv_sname)      TYPE string
       LOOP AT <lt_data> ASSIGNING <ls_data>.
         lv_tabix = sy-tabix.
         TRY.
-            lo_struct_descr ?= cl_abap_structdescr=>describe_by_data( <ls_data> ).
+            lv_has_struct = abap_true.
             CHECK lv_count BETWEEN iv_from_rec AND iv_to_rec.
-            ls_jsonp = '{'.
-            INSERT ls_jsonp INTO TABLE ct_jsonp.
+            TRY.
+                lo_struct_descr ?= cl_abap_structdescr=>describe_by_data( <ls_data> ).
+                ls_jsonp = '{'.
+                INSERT ls_jsonp INTO TABLE ct_jsonp.
+              CATCH cx_root.
+                lv_has_struct = abap_false.
+            ENDTRY.
+*            CHECK lv_count BETWEEN iv_from_rec AND iv_to_rec.
+*            ls_jsonp = '{'.
+*            INSERT ls_jsonp INTO TABLE ct_jsonp.
 
             DESCRIBE TABLE it_fields LINES lv_lines.
 
             REFRESH: lt_jsonp.
-            LOOP AT it_fields INTO ls_fields.
-              lv_tabix = sy-tabix.
-              IF ( ls_fields <> '*' ).
-                CLEAR: lv_comma.
-                IF ( lv_tabix < lv_lines ).
-                  lv_comma = 'X'.
-                ENDIF.
-                READ TABLE lo_struct_descr->components INTO ls_components WITH KEY name = ls_fields.
-                IF ( sy-subrc = 0 ).
-                  PERFORM jsonp_add_row_results USING     <ls_data>
-                                                          ls_components
-                                                          'X'  "lv_comma
-                                                CHANGING  lt_jsonp[].
-                ENDIF.
-              ELSE.
-                LOOP AT lo_struct_descr->components INTO ls_components.
-                  lv_tabix = sy-tabix.
-                  lv_field = '<ls_data>-' && ls_components-name.
-                  ASSIGN (lv_field) TO <lv_field>.
-                  TRY.
-                      lo_table_descr ?= cl_abap_tabledescr=>describe_by_data( <lv_field> ).
-                      DATA: lv_name TYPE string.
-                      lv_name = ls_components-name.
-                      PERFORM jsonp_build_results USING    lv_name
-                                                           <lv_field>
-                                                           it_fields[]
-                                                           iv_from_rec
-                                                           iv_to_rec
-                                                  CHANGING lt_jsonp[].
-                      DATA: lv_index TYPE i.
-                      DESCRIBE TABLE lt_jsonp LINES lv_index.
-                      READ TABLE lt_jsonp INTO ls_jsonp INDEX lv_index.
-                      IF ( sy-subrc = 0 ).
-                        IF ( NOT ls_jsonp-line CA '],' ).
-                          ls_jsonp-line = ls_jsonp-line && '],'.
-                          MODIFY lt_jsonp FROM ls_jsonp INDEX lv_index.
-                        ENDIF.
-                      ENDIF.
-                    CATCH cx_root.
-                      TRY.
-                          lo_struct_descr ?= cl_abap_structdescr=>describe_by_data( <lv_field> ).
-                          CHECK 1 = 1.
-                        CATCH cx_root.
-                          CLEAR: lv_comma.
-                          IF ( lv_tabix < lv_lines ).
-                            lv_comma = 'X'.
+            IF ( lv_has_struct = abap_true ).
+              LOOP AT it_fields INTO ls_fields.
+                lv_tabix = sy-tabix.
+                IF ( ls_fields <> '*' ).
+                  CLEAR: lv_comma.
+                  IF ( lv_tabix < lv_lines ).
+                    lv_comma = 'X'.
+                  ENDIF.
+                  READ TABLE lo_struct_descr->components INTO ls_components WITH KEY name = ls_fields.
+                  IF ( sy-subrc = 0 ).
+                    PERFORM jsonp_add_row_results USING     <ls_data>
+                                                            ls_components
+                                                            'X'  "lv_comma
+                                                  CHANGING  lt_jsonp[].
+                  ENDIF.
+                ELSE.
+                  LOOP AT lo_struct_descr->components INTO ls_components.
+                    lv_tabix = sy-tabix.
+                    lv_field = '<ls_data>-' && ls_components-name.
+                    ASSIGN (lv_field) TO <lv_field>.
+                    TRY.
+                        lo_table_descr ?= cl_abap_tabledescr=>describe_by_data( <lv_field> ).
+                        DATA: lv_name TYPE string.
+                        lv_name = ls_components-name.
+                        TRANSLATE lv_name TO LOWER CASE.
+                        PERFORM jsonp_build_results USING    lv_name
+                                                             <lv_field>
+                                                             it_fields[]
+                                                             iv_from_rec
+                                                             iv_to_rec
+                                                    CHANGING lt_jsonp[].
+                        DATA: lv_index TYPE i.
+                        DESCRIBE TABLE lt_jsonp LINES lv_index.
+                        READ TABLE lt_jsonp INTO ls_jsonp INDEX lv_index.
+                        IF ( sy-subrc = 0 ).
+                          IF ( NOT ls_jsonp-line CA '],' ).
+                            ls_jsonp-line = ls_jsonp-line && '],'.
+                            MODIFY lt_jsonp FROM ls_jsonp INDEX lv_index.
                           ENDIF.
-                          PERFORM jsonp_add_row_results USING     <ls_data>
-                                                                  ls_components
-                                                                  'X'   "lv_comma
-                                                        CHANGING  lt_jsonp[].
-                      ENDTRY.
-                  ENDTRY.
-                  "              CLEAR: lv_comma.
-                  "              IF ( lv_tabix < lv_lines ).
-                  "                lv_comma = 'X'.
-                  "              ENDIF.
-                  "              PERFORM jsonp_add_row_results USING     <ls_data>
-                  "                                                      ls_components
-                  "                                                      'X'   "lv_comma
-                  "                                            CHANGING  lt_jsonp[].
-                ENDLOOP.
+                        ENDIF.
+                      CATCH cx_root.
+                        TRY.
+                            lo_struct_descr ?= cl_abap_structdescr=>describe_by_data( <lv_field> ).
+                            CHECK 1 = 1.
+                          CATCH cx_root.
+                            CLEAR: lv_comma.
+                            IF ( lv_tabix < lv_lines ).
+                              lv_comma = 'X'.
+                            ENDIF.
+                            PERFORM jsonp_add_row_results USING     <ls_data>
+                                                                    ls_components
+                                                                    'X'   "lv_comma
+                                                          CHANGING  lt_jsonp[].
+                        ENDTRY.
+                    ENDTRY.
+                    "              CLEAR: lv_comma.
+                    "              IF ( lv_tabix < lv_lines ).
+                    "                lv_comma = 'X'.
+                    "              ENDIF.
+                    "              PERFORM jsonp_add_row_results USING     <ls_data>
+                    "                                                      ls_components
+                    "                                                      'X'   "lv_comma
+                    "                                            CHANGING  lt_jsonp[].
+                  ENDLOOP.
+                ENDIF.
+              ENDLOOP.
+              DATA: lv_str       TYPE string,
+                    ls_jsonp_tmp TYPE w3html.
+*              lv_str = ''.
+*              LOOP AT lt_jsonp INTO ls_jsonp_tmp.
+*                IF ( strlen( lv_str ) > 200 ).
+*                  ls_jsonp-line = lv_str.
+*                  APPEND ls_jsonp TO ct_jsonp.
+*                  lv_str = ''.
+*                ENDIF.
+*                lv_str = lv_str && ls_jsonp_tmp-line.
+*              ENDLOOP.
+*              IF ( strlen( lv_str ) > 0 ).
+*                ls_jsonp-line = lv_str.
+*                APPEND ls_jsonp TO ct_jsonp.
+*              ENDIF.
+              APPEND LINES OF lt_jsonp to ct_jsonp.
+              PERFORM jsonp_remove_extra_comma CHANGING ct_jsonp[].
+
+              ls_jsonp = '},'.
+              INSERT ls_jsonp INTO TABLE ct_jsonp.
+            ELSE.
+              IF ( iv_sname = 'steps' ).
+"                break novedev.
               ENDIF.
-            ENDLOOP.
-            DATA: lv_str       TYPE string,
-                  ls_jsonp_tmp TYPE w3html.
-            lv_str = ''.
-            LOOP AT lt_jsonp INTO ls_jsonp_tmp.
-              IF ( strlen( lv_str ) > 200 ).
-                ls_jsonp-line = lv_str.
-                APPEND ls_jsonp TO ct_jsonp.
-                lv_str = ''.
-              ENDIF.
-              lv_str = lv_str && ls_jsonp_tmp-line.
-            ENDLOOP.
-            IF ( strlen( lv_str ) > 0 ).
-              ls_jsonp-line = lv_str.
+              lv_str = <ls_data>.
+              ls_jsonp-line = '"' && lv_str && '",'.
               APPEND ls_jsonp TO ct_jsonp.
             ENDIF.
-            PERFORM jsonp_remove_extra_comma CHANGING ct_jsonp[].
-
-            ls_jsonp = '},'.
-            INSERT ls_jsonp INTO TABLE ct_jsonp.
+*            DATA: lv_str       TYPE string,
+*                  ls_jsonp_tmp TYPE w3html.
+*            lv_str = ''.
+*            LOOP AT lt_jsonp INTO ls_jsonp_tmp.
+*              IF ( strlen( lv_str ) > 200 ).
+*                ls_jsonp-line = lv_str.
+*                APPEND ls_jsonp TO ct_jsonp.
+*                lv_str = ''.
+*              ENDIF.
+*              lv_str = lv_str && ls_jsonp_tmp-line.
+*            ENDLOOP.
+*            IF ( strlen( lv_str ) > 0 ).
+*              ls_jsonp-line = lv_str.
+*              APPEND ls_jsonp TO ct_jsonp.
+*            ENDIF.
+*            PERFORM jsonp_remove_extra_comma CHANGING ct_jsonp[].
+*
+*            ls_jsonp = '},'.
+*            INSERT ls_jsonp INTO TABLE ct_jsonp.
           CATCH cx_root.
 *            CHECK 1 = 1.
 *            ls_jsonp-line = '"' && <ls_data> && '",'.
@@ -581,14 +620,20 @@ FORM create_table USING value(iv_field) TYPE c
       CREATE DATA ls_table TYPE HANDLE lo_struct_descr.
       ASSIGN ls_table->* TO <ls_data>.
 
-      lo_table_descr ?= cl_abap_tabledescr=>create( p_line_type  = lo_struct_descr
-                                                    p_table_kind = cl_abap_tabledescr=>tablekind_hashed
-                                                    p_unique     = abap_true
-                                                    p_key        = lt_keys
-                                                    p_key_kind   = cl_abap_tabledescr=>keydefkind_default ).
+*      lo_table_descr ?= cl_abap_tabledescr=>create( p_line_type  = lo_struct_descr
+*                                                    p_table_kind = cl_abap_tabledescr=>tablekind_hashed
+*                                                    p_unique     = abap_true
+*                                                    p_key        = lt_keys
+*                                                    p_key_kind   = cl_abap_tabledescr=>keydefkind_default ).
+      lo_table_descr ?= cl_abap_tabledescr=>create( p_line_type  = lo_struct_descr ).
 
       CREATE DATA lt_table TYPE HANDLE lo_table_descr.
       ASSIGN lt_table->* TO <lt_data>.
+
+      IF ( NOT iv_value IS INITIAL ).
+        cl_fdt_json=>json_to_data( EXPORTING iv_json = iv_value
+                                   CHANGING  ca_data = <lt_data> ).
+      ENDIF.
 
     CATCH cx_root.
   ENDTRY.

@@ -278,7 +278,9 @@ FUNCTION z_wrfc_interface.
         PERFORM jsonp_open_results CHANGING html[].
 
         LOOP AT lt_params INTO ls_params.
-          READ TABLE ls_interface-tables WITH KEY parameter = ls_params-name TRANSPORTING NO FIELDS.
+*          READ TABLE ls_interface-tables WITH KEY parameter = ls_params-name TRANSPORTING NO FIELDS.
+          DATA: ls_tables TYPE rsfbpara.
+          READ TABLE ls_interface-tables WITH KEY parameter = ls_params-name INTO ls_tables.
           IF ( sy-subrc = 0 ).
             lv_sname = ls_params-name.
             TRY.
@@ -343,7 +345,7 @@ FUNCTION z_wrfc_interface.
                         ASSIGN ls_params-value->* TO <ls_data>.
                         lo_data_descr ?= cl_abap_datadescr=>describe_by_data( <ls_data> ).
 
-                        html-line = '"' && lv_sname && '":"' && <ls_data> && '",'..
+                        html-line = '"' && lv_sname && '":"' && <ls_data> && '",'.
                         APPEND html.
                       CATCH cx_root.
                     ENDTRY.
