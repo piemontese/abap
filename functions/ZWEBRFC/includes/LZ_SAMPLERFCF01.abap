@@ -271,6 +271,10 @@ FORM jsonp_build_results  USING value(iv_sname)      TYPE string
                 "                break novedev.
               ENDIF.
               lv_str = <ls_data>.
+              " encode uri
+              cl_http_utility=>escape_url( EXPORTING unescaped = lv_str_val
+                                           RECEIVING escaped = lv_str ).
+
               ls_jsonp-line = '"' && lv_str && '",'.
               APPEND ls_jsonp TO ct_jsonp.
             ENDIF.
@@ -558,9 +562,14 @@ FORM jsonp_add_row_results  USING value(is_data)       TYPE any
   lv_field = 'is_data-'.
   CONCATENATE lv_field is_components-name INTO lv_field.
   ASSIGN (lv_field) TO <value>.
-*  LV_STR_VAL = <VALUE>.
+
   zcl_bc_conversion_exit=>conversion_output( EXPORTING iv_field = <value>
                                              CHANGING  cv_field = lv_str_val ).
+
+  " encode uri
+  cl_http_utility=>escape_url( EXPORTING unescaped = lv_str_val
+                               RECEIVING escaped = lv_str_val ).
+
   CONCATENATE '"' lv_str_val '"' INTO lv_str_val.
 
   IF ( lv_str_name = '""' ).

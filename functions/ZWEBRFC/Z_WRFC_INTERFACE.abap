@@ -122,7 +122,7 @@ FUNCTION z_wrfc_interface.
       iv_to_rec = 0.
   ENDTRY.
   IF ( iv_to_rec IS INITIAL ).
-    iv_to_rec = 10.
+    iv_to_rec = 999.
   ENDIF.
 
 
