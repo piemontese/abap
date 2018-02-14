@@ -270,7 +270,7 @@ FORM jsonp_build_results  USING value(iv_sname)      TYPE string
               IF ( iv_sname = 'steps' ).
                 "                break novedev.
               ENDIF.
-              lv_str = <ls_data>.
+              lv_str_val = <ls_data>.
               " encode uri
               cl_http_utility=>escape_url( EXPORTING unescaped = lv_str_val
                                            RECEIVING escaped = lv_str ).
