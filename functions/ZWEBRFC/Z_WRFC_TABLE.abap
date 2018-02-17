@@ -32,9 +32,10 @@ FUNCTION z_wrfc_table.
         lt_fields         TYPE TABLE OF string,
         ls_fields         TYPE string.
 
-  DATA: lt_messages TYPE ty_t_messages.
+  DATA: lt_messages   TYPE ty_t_messages,
+        lt_dictionary type ty_t_dictionary.
 
-  REFRESH lt_messages.
+  REFRESH: lt_messages, lt_dictionary.
 
 * parametri
   DATA: iv_callback         TYPE string,
@@ -205,7 +206,8 @@ FUNCTION z_wrfc_table.
 *                                       IV_ROWS
                                          iv_from_rec
                                          iv_to_rec
-                                CHANGING html[].
+                                CHANGING html[]
+                                         lt_dictionary[].
     " chiude tag results
     PERFORM jsonp_close_results CHANGING html[].
 

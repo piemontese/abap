@@ -42,11 +42,12 @@ FUNCTION z_wrfc_interface.
 
   DATA: lx_root TYPE REF TO cx_root.
 
-  DATA: lt_messages TYPE ty_t_messages.
+  DATA: lt_messages    TYPE ty_t_messages,
+        lt_dictionary  TYPE ty_t_dictionary.
 
   CLEAR: lv_sname.
 
-  REFRESH lt_messages.
+  REFRESH: lt_messages, lt_dictionary.
 
 * parametri
   DATA: iv_callback       TYPE string,
@@ -304,7 +305,8 @@ FUNCTION z_wrfc_interface.
                                                  lt_fields[]
                                                  iv_from_rec
                                                  iv_to_rec
-                                        CHANGING html[].
+                                        CHANGING html[]
+                                                 lt_dictionary[].
 *            PERFORM JSON_CREATE_FROM_DATA USING    IV_CALLBACK
 *                                                   LS_PARAMS-NAME
 *                                                   <LT_DATA>[]
@@ -326,7 +328,8 @@ FUNCTION z_wrfc_interface.
 *                                                 IV_ROWS
                                                      iv_from_rec
                                                      iv_to_rec
-                                            CHANGING html[].
+                                            CHANGING html[]
+                                                     lt_dictionary[].
 
               CATCH cx_root.
                 TRY.
@@ -340,7 +343,8 @@ FUNCTION z_wrfc_interface.
 *                                                     IV_ROWS
                                                          iv_from_rec
                                                          iv_to_rec
-                                                CHANGING html[].
+                                                CHANGING html[]
+                                                         lt_dictionary[].
                   CATCH cx_root.
                     TRY.
                         ASSIGN ls_params-value->* TO <ls_data>.
@@ -374,7 +378,8 @@ FUNCTION z_wrfc_interface.
 *                                                     IV_ROWS
                                                      iv_from_rec
                                                      iv_to_rec
-                                            CHANGING html[].
+                                            CHANGING html[]
+                                                     lt_dictionary[].
               CATCH cx_root.
                 TRY.
                     ASSIGN ls_params-value->* TO <ls_data>.
@@ -398,6 +403,9 @@ FUNCTION z_wrfc_interface.
 
         " chiude tag results
         PERFORM jsonp_close_results CHANGING html[].
+
+        PERFORM jsonp_dictionary USING    lt_dictionary[]
+                                 CHANGING html[].
 
         " apre tag funcione di callback
         PERFORM jsonp_close_callback USING    iv_callback

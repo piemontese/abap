@@ -13,7 +13,8 @@ FORM create_jsonp  USING value(iv_callback)   TYPE string
 *                         VALUE(IV_ROWS)       TYPE STRING
                          value(iv_from_rec)   TYPE i
                          value(iv_to_rec)     TYPE i
-                   CHANGING    ct_jsonp       TYPE ty_t_w3html.
+                   CHANGING    ct_jsonp       TYPE ty_t_w3html
+                               ct_dictionary  TYPE ty_t_dictionary.
 
 
   DATA: htmldoc       TYPE w3html,
@@ -60,7 +61,8 @@ FORM create_jsonp  USING value(iv_callback)   TYPE string
 *                                       IV_ROWS
                                        iv_from_rec
                                        iv_to_rec
-                              CHANGING ct_jsonp[].
+                              CHANGING ct_jsonp[]
+                                       ct_dictionary[].
   " chiude tag results
   PERFORM jsonp_close_results CHANGING ct_jsonp[].
 
@@ -124,7 +126,8 @@ FORM jsonp_build_results  USING value(iv_sname)      TYPE string
 *                                VALUE(IV_ROWS)       TYPE STRING
                                 value(iv_from_rec)   TYPE i
                                 value(iv_to_rec)     TYPE i
-                          CHANGING    ct_jsonp       TYPE ty_t_w3html.
+                          CHANGING    ct_jsonp       TYPE ty_t_w3html
+                                      ct_dictionary  TYPE ty_t_dictionary.
 
   FIELD-SYMBOLS: <value>   TYPE any,
                  <ls_data> TYPE any.
@@ -193,7 +196,8 @@ FORM jsonp_build_results  USING value(iv_sname)      TYPE string
                     PERFORM jsonp_add_row_results USING     <ls_data>
                                                             ls_components
                                                             'X'  "lv_comma
-                                                  CHANGING  lt_jsonp[].
+                                                  CHANGING  lt_jsonp[]
+                                                            ct_dictionary[].
                   ENDIF.
                 ELSE.
                   LOOP AT lo_struct_descr->components INTO ls_components.
@@ -210,7 +214,8 @@ FORM jsonp_build_results  USING value(iv_sname)      TYPE string
                                                              it_fields[]
                                                              iv_from_rec
                                                              iv_to_rec
-                                                    CHANGING lt_jsonp[].
+                                                    CHANGING lt_jsonp[]
+                                                             ct_dictionary[].
                         DATA: lv_index TYPE i.
                         DESCRIBE TABLE lt_jsonp LINES lv_index.
                         READ TABLE lt_jsonp INTO ls_jsonp INDEX lv_index.
@@ -232,7 +237,8 @@ FORM jsonp_build_results  USING value(iv_sname)      TYPE string
                             PERFORM jsonp_add_row_results USING     <ls_data>
                                                                     ls_components
                                                                     'X'   "lv_comma
-                                                          CHANGING  lt_jsonp[].
+                                                          CHANGING  lt_jsonp[]
+                                                                    ct_dictionary[].
                         ENDTRY.
                     ENDTRY.
                     "              CLEAR: lv_comma.
@@ -329,7 +335,8 @@ FORM jsonp_build_results  USING value(iv_sname)      TYPE string
             PERFORM jsonp_add_row_results USING     iv_data
                                                     ls_components
                                                     'X'   "lv_comma
-                                          CHANGING  ct_jsonp[].
+                                          CHANGING  ct_jsonp[]
+                                                    ct_dictionary[].
           ENDLOOP.
 
           PERFORM jsonp_remove_extra_comma CHANGING ct_jsonp[].
@@ -543,14 +550,15 @@ ENDFORM.                    " JSONP_BUILD_COLUMNS
 FORM jsonp_add_row_results  USING value(is_data)       TYPE any
                                   value(is_components) TYPE abap_compdescr
                                   value(iv_comma)      TYPE bool
-                            CHANGING    ct_jsonp       TYPE ty_t_w3html.
+                            CHANGING    ct_jsonp       TYPE ty_t_w3html
+                                        ct_dictionary  TYPE ty_t_dictionary.
 
   FIELD-SYMBOLS: <value>   TYPE any.
 
-  DATA: ls_jsonp      TYPE w3html,
-        lv_str_name   TYPE string,
-        lv_str_val    TYPE string,
-        lv_field      TYPE c LENGTH 50.
+  DATA: ls_jsonp       TYPE w3html,
+        lv_str_name    TYPE string,
+        lv_str_val     TYPE string,
+        lv_field       TYPE c LENGTH 50.
 
   CLEAR: ls_jsonp-line, lv_str_val.
 
@@ -577,10 +585,15 @@ FORM jsonp_add_row_results  USING value(is_data)       TYPE any
   ELSE.
     CONCATENATE lv_str_name ': ' lv_str_val INTO ls_jsonp-line.
   ENDIF.
+
   IF ( NOT iv_comma IS INITIAL ).
     CONCATENATE ls_jsonp ',' INTO ls_jsonp.
   ENDIF.
   INSERT ls_jsonp INTO TABLE ct_jsonp.
+
+  PERFORM add_to_dictionary USING    lv_str_name
+                                     <value>
+                            CHANGING ct_dictionary[].
 
 ENDFORM.                    " jsonp_add_row_results
 
@@ -940,3 +953,119 @@ FORM camel_case CHANGING cv_str_name TYPE string.
   ENDIF.
 
 ENDFORM.                    "camel_case
+
+*&---------------------------------------------------------------------*
+*&      Form  ADD_TO_DICTIONARY
+*&---------------------------------------------------------------------*
+FORM add_to_dictionary  USING value(iv_name)   TYPE string
+                              value(iv_value)  TYPE any
+                        CHANGING ct_dictionary TYPE ty_t_dictionary.
+
+  READ TABLE ct_dictionary WITH KEY name = iv_name TRANSPORTING NO FIELDS.
+  CHECK sy-subrc <> 0.
+
+  DATA:  ls_dictionary  TYPE ty_s_dictionary,
+         lo_elemdescr   TYPE REF TO cl_abap_elemdescr.
+
+  CLEAR: ls_dictionary.
+
+  ls_dictionary-name = iv_name.
+
+  TRY.
+      lo_elemdescr ?= cl_abap_elemdescr=>describe_by_data( iv_value ).
+      ls_dictionary-length = lo_elemdescr->output_length.
+      CONDENSE ls_dictionary-length.
+      SELECT SINGLE ddtext reptext scrtext_s scrtext_m scrtext_l
+             INTO (ls_dictionary-description, ls_dictionary-header_descr, ls_dictionary-small_descr, ls_dictionary-medium_descr, ls_dictionary-long_descr)
+             FROM dd04t WHERE rollname   = lo_elemdescr->absolute_name+6
+                        AND   ddlanguage = sy-langu
+                        AND   as4local   = 'A'.
+    CATCH cx_root.
+  ENDTRY.
+
+  cl_http_utility=>escape_url( EXPORTING unescaped = ls_dictionary-name
+                               RECEIVING escaped = ls_dictionary-name ).
+
+  cl_http_utility=>escape_url( EXPORTING unescaped = ls_dictionary-length
+                               RECEIVING escaped = ls_dictionary-length ).
+
+  cl_http_utility=>escape_url( EXPORTING unescaped = ls_dictionary-description
+                               RECEIVING escaped = ls_dictionary-description ).
+
+  cl_http_utility=>escape_url( EXPORTING unescaped = ls_dictionary-header_descr
+                               RECEIVING escaped = ls_dictionary-header_descr ).
+
+  cl_http_utility=>escape_url( EXPORTING unescaped = ls_dictionary-small_descr
+                               RECEIVING escaped = ls_dictionary-small_descr ).
+
+  cl_http_utility=>escape_url( EXPORTING unescaped = ls_dictionary-medium_descr
+                               RECEIVING escaped = ls_dictionary-medium_descr ).
+
+  cl_http_utility=>escape_url( EXPORTING unescaped = ls_dictionary-long_descr
+                               RECEIVING escaped = ls_dictionary-long_descr ).
+
+  IF ( NOT ls_dictionary IS INITIAL ).
+    APPEND ls_dictionary TO ct_dictionary.
+  ENDIF.
+
+ENDFORM.                    " ADD_TO_DICTIONARY
+
+*&---------------------------------------------------------------------*
+*&      Form  JSONP_DICTIONARY
+*&---------------------------------------------------------------------*
+FORM jsonp_dictionary  USING value(it_dictionary) TYPE ty_t_dictionary
+                       CHANGING    ct_jsonp       TYPE ty_t_w3html.
+
+  DATA: lv_name TYPE string,
+        ls_dictionary  TYPE ty_s_dictionary,
+        ls_jsonp       TYPE w3html,
+        ls_components  TYPE abap_compdescr,
+        lv_field       TYPE string,
+        lo_structdescr TYPE REF TO cl_abap_structdescr.
+
+  FIELD-SYMBOLS: <value> TYPE string.
+
+  TRY.
+      lo_structdescr ?= cl_abap_structdescr=>describe_by_data( ls_dictionary ).
+    CATCH cx_root.
+  ENDTRY.
+
+  PERFORM jsonp_remove_extra_comma CHANGING ct_jsonp[].
+
+  ls_jsonp-line = ', "dictionary": ['.
+  APPEND ls_jsonp TO ct_jsonp.
+
+  CLEAR: lv_name.
+  LOOP AT it_dictionary INTO ls_dictionary.
+    IF ( lv_name <> ls_dictionary-name ).
+      ls_jsonp-line = '{'.
+      APPEND ls_jsonp TO ct_jsonp.
+
+      DATA: ls_dict TYPE ty_s_dictionary.
+      READ TABLE it_dictionary INTO ls_dict WITH KEY name = ls_dictionary-name.
+      CHECK sy-subrc = 0.
+
+      LOOP AT lo_structdescr->components INTO ls_components.  " WHERE name <> ls_dictionary-name.
+        TRANSLATE ls_components-name TO LOWER CASE.
+        lv_field = 'ls_dictionary-' && ls_components-name.
+
+        ASSIGN (lv_field) TO <value>.
+        CHECK sy-subrc = 0.
+
+        ls_jsonp-line = '"' && ls_components-name && '": "' && <value> && '",'.
+        APPEND ls_jsonp TO ct_jsonp.
+      ENDLOOP.
+      PERFORM jsonp_remove_extra_comma CHANGING ct_jsonp[].
+
+      ls_jsonp-line = '},'.
+      APPEND ls_jsonp TO ct_jsonp.
+    ENDIF.
+    lv_name = ls_dictionary-name.
+  ENDLOOP.
+
+  PERFORM jsonp_remove_extra_comma CHANGING ct_jsonp[].
+
+  ls_jsonp-line = ']'.
+  APPEND ls_jsonp TO ct_jsonp.
+
+ENDFORM.                    " JSONP_DICTIONARY
