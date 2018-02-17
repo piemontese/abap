@@ -557,13 +557,15 @@ FORM jsonp_add_row_results  USING value(is_data)       TYPE any
 
   DATA: ls_jsonp       TYPE w3html,
         lv_str_name    TYPE string,
+        lv_name        TYPE string,
         lv_str_val     TYPE string,
         lv_field       TYPE c LENGTH 50.
 
   CLEAR: ls_jsonp-line, lv_str_val.
 
-  lv_str_name = is_components-name.
+  lv_str_name = lv_name = is_components-name.
   TRANSLATE lv_str_name TO LOWER CASE.
+  TRANSLATE lv_name TO LOWER CASE.
   PERFORM camel_case CHANGING lv_str_name.
   CONCATENATE '"' lv_str_name '"' INTO lv_str_name.
 
@@ -591,7 +593,7 @@ FORM jsonp_add_row_results  USING value(is_data)       TYPE any
   ENDIF.
   INSERT ls_jsonp INTO TABLE ct_jsonp.
 
-  PERFORM add_to_dictionary USING    lv_str_name
+  PERFORM add_to_dictionary USING    lv_name
                                      <value>
                             CHANGING ct_dictionary[].
 
@@ -983,26 +985,41 @@ FORM add_to_dictionary  USING value(iv_name)   TYPE string
     CATCH cx_root.
   ENDTRY.
 
-  cl_http_utility=>escape_url( EXPORTING unescaped = ls_dictionary-name
-                               RECEIVING escaped = ls_dictionary-name ).
-
   cl_http_utility=>escape_url( EXPORTING unescaped = ls_dictionary-length
                                RECEIVING escaped = ls_dictionary-length ).
 
+  IF ( ls_dictionary-description IS INITIAL or ls_dictionary-description = '.' ).
+    ls_dictionary-description = ls_dictionary-name.
+  ENDIF.
   cl_http_utility=>escape_url( EXPORTING unescaped = ls_dictionary-description
                                RECEIVING escaped = ls_dictionary-description ).
 
+  IF ( ls_dictionary-header_descr IS INITIAL or ls_dictionary-header_descr = '.'  ).
+    ls_dictionary-header_descr = ls_dictionary-name.
+  ENDIF.
   cl_http_utility=>escape_url( EXPORTING unescaped = ls_dictionary-header_descr
                                RECEIVING escaped = ls_dictionary-header_descr ).
 
+  IF ( ls_dictionary-small_descr IS INITIAL or ls_dictionary-small_descr = '.'  ).
+    ls_dictionary-small_descr = ls_dictionary-name.
+  ENDIF.
   cl_http_utility=>escape_url( EXPORTING unescaped = ls_dictionary-small_descr
                                RECEIVING escaped = ls_dictionary-small_descr ).
 
+  IF ( ls_dictionary-medium_descr IS INITIAL or ls_dictionary-medium_descr = '.'  ).
+    ls_dictionary-medium_descr = ls_dictionary-name.
+  ENDIF.
   cl_http_utility=>escape_url( EXPORTING unescaped = ls_dictionary-medium_descr
                                RECEIVING escaped = ls_dictionary-medium_descr ).
 
+  IF ( ls_dictionary-long_descr IS INITIAL or ls_dictionary-long_descr = '.'  ).
+    ls_dictionary-long_descr = ls_dictionary-name.
+  ENDIF.
   cl_http_utility=>escape_url( EXPORTING unescaped = ls_dictionary-long_descr
                                RECEIVING escaped = ls_dictionary-long_descr ).
+
+  cl_http_utility=>escape_url( EXPORTING unescaped = ls_dictionary-name
+                               RECEIVING escaped = ls_dictionary-name ).
 
   IF ( NOT ls_dictionary IS INITIAL ).
     APPEND ls_dictionary TO ct_dictionary.
