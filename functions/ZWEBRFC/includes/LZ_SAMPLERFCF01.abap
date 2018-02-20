@@ -967,6 +967,7 @@ FORM add_to_dictionary  USING value(iv_name)   TYPE string
   CHECK sy-subrc <> 0.
 
   DATA:  ls_dictionary  TYPE ty_s_dictionary,
+         lo_datadescr   TYPE REF TO cl_abap_datadescr,
          lo_elemdescr   TYPE REF TO cl_abap_elemdescr.
 
   CLEAR: ls_dictionary.
@@ -974,45 +975,59 @@ FORM add_to_dictionary  USING value(iv_name)   TYPE string
   ls_dictionary-name = iv_name.
 
   TRY.
+      lo_datadescr ?= cl_abap_datadescr=>describe_by_data( iv_value ).
       lo_elemdescr ?= cl_abap_elemdescr=>describe_by_data( iv_value ).
       ls_dictionary-length = lo_elemdescr->output_length.
+      DATA: ls_elem TYPE dfies.
+      ls_elem = lo_elemdescr->get_ddic_field( p_langu = sy-langu ).
       CONDENSE ls_dictionary-length.
-      SELECT SINGLE ddtext reptext scrtext_s scrtext_m scrtext_l
-             INTO (ls_dictionary-description, ls_dictionary-header_descr, ls_dictionary-small_descr, ls_dictionary-medium_descr, ls_dictionary-long_descr)
-             FROM dd04t WHERE rollname   = lo_elemdescr->absolute_name+6
-                        AND   ddlanguage = sy-langu
-                        AND   as4local   = 'A'.
+      CASE ls_elem-inttype.
+        WHEN 'C'.
+          ls_dictionary-type = 'string'.
+        WHEN 'I' or 'b'.
+          ls_dictionary-type = 'integer'.
+      ENDCASE.
+      ls_dictionary-description  = ls_elem-fieldtext.
+      ls_dictionary-header_descr = ls_elem-reptext.
+      ls_dictionary-small_descr  = ls_elem-scrtext_s.
+      ls_dictionary-medium_descr = ls_elem-scrtext_m.
+      ls_dictionary-long_descr   = ls_elem-scrtext_l.
+*      SELECT SINGLE ddtext reptext scrtext_s scrtext_m scrtext_l
+*             INTO (ls_dictionary-description, ls_dictionary-header_descr, ls_dictionary-small_descr, ls_dictionary-medium_descr, ls_dictionary-long_descr)
+*             FROM dd04t WHERE rollname   = lo_elemdescr->absolute_name+6
+*                        AND   ddlanguage = sy-langu
+*                        AND   as4local   = 'A'.
     CATCH cx_root.
   ENDTRY.
 
   cl_http_utility=>escape_url( EXPORTING unescaped = ls_dictionary-length
                                RECEIVING escaped = ls_dictionary-length ).
 
-  IF ( ls_dictionary-description IS INITIAL or ls_dictionary-description = '.' ).
+  IF ( ls_dictionary-description IS INITIAL OR ls_dictionary-description = '.' ).
     ls_dictionary-description = ls_dictionary-name.
   ENDIF.
   cl_http_utility=>escape_url( EXPORTING unescaped = ls_dictionary-description
                                RECEIVING escaped = ls_dictionary-description ).
 
-  IF ( ls_dictionary-header_descr IS INITIAL or ls_dictionary-header_descr = '.'  ).
+  IF ( ls_dictionary-header_descr IS INITIAL OR ls_dictionary-header_descr = '.'  ).
     ls_dictionary-header_descr = ls_dictionary-name.
   ENDIF.
   cl_http_utility=>escape_url( EXPORTING unescaped = ls_dictionary-header_descr
                                RECEIVING escaped = ls_dictionary-header_descr ).
 
-  IF ( ls_dictionary-small_descr IS INITIAL or ls_dictionary-small_descr = '.'  ).
+  IF ( ls_dictionary-small_descr IS INITIAL OR ls_dictionary-small_descr = '.'  ).
     ls_dictionary-small_descr = ls_dictionary-name.
   ENDIF.
   cl_http_utility=>escape_url( EXPORTING unescaped = ls_dictionary-small_descr
                                RECEIVING escaped = ls_dictionary-small_descr ).
 
-  IF ( ls_dictionary-medium_descr IS INITIAL or ls_dictionary-medium_descr = '.'  ).
+  IF ( ls_dictionary-medium_descr IS INITIAL OR ls_dictionary-medium_descr = '.'  ).
     ls_dictionary-medium_descr = ls_dictionary-name.
   ENDIF.
   cl_http_utility=>escape_url( EXPORTING unescaped = ls_dictionary-medium_descr
                                RECEIVING escaped = ls_dictionary-medium_descr ).
 
-  IF ( ls_dictionary-long_descr IS INITIAL or ls_dictionary-long_descr = '.'  ).
+  IF ( ls_dictionary-long_descr IS INITIAL OR ls_dictionary-long_descr = '.'  ).
     ls_dictionary-long_descr = ls_dictionary-name.
   ENDIF.
   cl_http_utility=>escape_url( EXPORTING unescaped = ls_dictionary-long_descr
