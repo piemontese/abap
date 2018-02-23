@@ -33,7 +33,7 @@ FUNCTION z_wrfc_table.
         ls_fields         TYPE string.
 
   DATA: lt_messages   TYPE ty_t_messages,
-        lt_dictionary type ty_t_dictionary.
+        lt_dictionary TYPE ty_t_dictionary.
 
   REFRESH: lt_messages, lt_dictionary.
 
@@ -150,7 +150,7 @@ FUNCTION z_wrfc_table.
           lv_msg       TYPE ty_s_messages-msg.
     TRY.
 *    SELECT * FROM (iv_sql_table) INTO TABLE <lt_data> WHERE (iv_sql_where).
-        SELECT (iv_sql_fields) FROM (iv_sql_table) INTO CORRESPONDING FIELDS OF TABLE <lt_data> WHERE (iv_sql_where).
+        SELECT (iv_sql_fields) UP TO iv_to_rec ROWS FROM (iv_sql_table) INTO CORRESPONDING FIELDS OF TABLE <lt_data> WHERE (iv_sql_where).
         IF ( sy-subrc <> 0 ).
           PERFORM add_message USING    'E' 'Nessun risultato'
                               CHANGING lt_messages[].
@@ -210,6 +210,10 @@ FUNCTION z_wrfc_table.
                                          lt_dictionary[].
     " chiude tag results
     PERFORM jsonp_close_results CHANGING html[].
+
+    " aggiunge dictionary
+    PERFORM jsonp_dictionary USING    lt_dictionary[]
+                             CHANGING html[].
 
     " chiude tab funzione di callback
     PERFORM jsonp_close_callback USING iv_callback
