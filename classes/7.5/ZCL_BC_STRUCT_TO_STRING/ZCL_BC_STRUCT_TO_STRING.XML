@@ -1,1 +1,169 @@
-<?xml version="1.0"?><CLASS_ROOT><CLSNAME>ZCL_BC_STRUCT_TO_STRING</CLSNAME><VERSION>1</VERSION><LANGU>I</LANGU><DESCRIPT>Crea stringa con separat. da struttura</DESCRIPT><UUID>AFBWoCPaHuiIxIT3/E/MAQ==</UUID><CATEGORY>00</CATEGORY><EXPOSURE>2</EXPOSURE><STATE>1</STATE><RELEASE>0</RELEASE><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2018-03-07</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><CHGDANYON>0000-00-00</CHGDANYON><CLSFINAL>X</CLSFINAL><CLSCCINCL>X</CLSCCINCL><FIXPT>X</FIXPT><UNICODE>X</UNICODE><R3RELEASE>750</R3RELEASE><CLSBCCAT>00</CLSBCCAT><DURATION_TYPE>0</DURATION_TYPE><RISK_LEVEL>0</RISK_LEVEL><ATTRIBUTES/><METHODS><item><CLSNAME>ZCL_BC_STRUCT_TO_STRING</CLSNAME><CMPNAME>CREATE</CMPNAME><VERSION>1</VERSION><LANGU>I</LANGU><EXPOSURE>2</EXPOSURE><STATE>1</STATE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2018-03-07</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><MTDTYPE>0</MTDTYPE><MTDDECLTYP>1</MTDDECLTYP><R3RELEASE>750</R3RELEASE><BCMTDCAT>00</BCMTDCAT><BCMTDSYN>0</BCMTDSYN></item></METHODS><EVENTS/><TYPES/><PARAMETERS><item><CLSNAME>ZCL_BC_STRUCT_TO_STRING</CLSNAME><CMPNAME>CREATE</CMPNAME><SCONAME>IV_SEPARATOR</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>1</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2018-03-07</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>STRING</TYPE><PARVALUE>&apos;;&apos;</PARVALUE></item><item><CLSNAME>ZCL_BC_STRUCT_TO_STRING</CLSNAME><CMPNAME>CREATE</CMPNAME><SCONAME>IS_STRUCT</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>2</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2018-03-07</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>0</PARDECLTYP><PARPASSTYP>1</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>ANY</TYPE></item><item><CLSNAME>ZCL_BC_STRUCT_TO_STRING</CLSNAME><CMPNAME>CREATE</CMPNAME><SCONAME>RV_STRING</SCONAME><VERSION>1</VERSION><LANGU>I</LANGU><CMPTYPE>1</CMPTYPE><MTDTYPE>0</MTDTYPE><EDITORDER>3</EDITORDER><DISPID>0</DISPID><AUTHOR>KOSMEDEV</AUTHOR><CREATEDON>2018-03-07</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON><PARDECLTYP>3</PARDECLTYP><PARPASSTYP>0</PARPASSTYP><TYPTYPE>1</TYPTYPE><TYPE>STRING</TYPE></item></PARAMETERS><EXCEPTIONS/><IMPLEMENTINGS/><IMPL_DETAILS/><FRIENDSHIPS/><TYPEPUSAGES/><CLSDEFERRDS/><INTDEFERRDS/><ALIASES/><INHERITANCE><VERSION>0</VERSION><STATE>0</STATE><CREATEDON>0000-00-00</CREATEDON><CHANGEDON>0000-00-00</CHANGEDON></INHERITANCE><INTERFACES/><REDEFINITIONS/><TYPE_SOURCE/><LOCALS_SRC/><LOCALS_DEF><item>*&quot;* use this source file for any type of declarations (class</item><item>*&quot;* definitions, interfaces or type declarations) you need for</item><item>*&quot;* components in the private section</item><item/></LOCALS_DEF><LOCALS_IMP><item>*&quot;* use this source file for the definition and implementation of</item><item>*&quot;* local helper classes, interface definitions and type</item><item>*&quot;* declarations</item><item/></LOCALS_IMP><LOCALS_MAC><item>*&quot;* use this source file for any macro definitions you need</item><item>*&quot;* in the implementation part of the class</item><item/></LOCALS_MAC><TEXT_POOL/><METHOD_SOURCE><CREATE><item>  METHOD create.</item><item>    DATA: lo_stringdescr TYPE REF TO cl_abap_structdescr.</item><item/><item>    CLEAR: rv_string.</item><item>    TRY.</item><item>        lo_stringdescr ?= cl_abap_structdescr=&gt;describe_by_data( is_stru</item><item>*        LOOP AT lo_stringdescr-&gt;get_components( ) INTO DATA(ls_componen</item><item>        LOOP AT lo_stringdescr-&gt;components INTO DATA(ls_components).</item><item>          DATA lv_field TYPE c LENGTH 100.</item><item>          FIELD-SYMBOLS: &lt;lv_field&gt; TYPE any.</item><item/><item>          lv_field = &apos;is_struct-&apos; &amp;&amp; ls_components-name.</item><item>          ASSIGN (lv_field) TO &lt;lv_field&gt;.</item><item>          IF ( sy-subrc = 0 ).</item><item>            IF ( rv_string IS INITIAL ).</item><item>              rv_string = &lt;lv_field&gt;.</item><item>            ELSE.</item><item>              rv_string = rv_string &amp;&amp; iv_separator &amp;&amp; &lt;lv_field&gt;.</item><item>            ENDIF.</item><item>          ENDIF.</item><item>        ENDLOOP.</item><item>      CATCH cx_root.</item><item>    ENDTRY.</item><item/><item>  ENDMETHOD.</item></CREATE></METHOD_SOURCE></CLASS_ROOT>
+<?xml version="1.0"?>
+	<CLASS_ROOT>
+		<CLSNAME>ZCL_BC_STRUCT_TO_STRING</CLSNAME>
+		<VERSION>1</VERSION>
+		<LANGU>I</LANGU>
+		<DESCRIPT>Crea stringa con separat. da struttura</DESCRIPT>
+		<UUID>AFBWoCPaHuiIxIT3/E/MAQ==</UUID>
+		<CATEGORY>00</CATEGORY>
+		<EXPOSURE>2</EXPOSURE>
+		<STATE>1</STATE>
+		<RELEASE>0</RELEASE>
+		<AUTHOR>KOSMEDEV</AUTHOR>
+		<CREATEDON>2018-03-07</CREATEDON>
+		<CHANGEDON>0000-00-00</CHANGEDON>
+		<CHGDANYON>0000-00-00</CHGDANYON>
+		<CLSFINAL>X</CLSFINAL>
+		<CLSCCINCL>X</CLSCCINCL>
+		<FIXPT>X</FIXPT>
+		<UNICODE>X</UNICODE>
+		<R3RELEASE>750</R3RELEASE>
+		<CLSBCCAT>00</CLSBCCAT>
+		<DURATION_TYPE>0</DURATION_TYPE>
+		<RISK_LEVEL>0</RISK_LEVEL>
+		<ATTRIBUTES/>
+		<METHODS>
+			<item>
+				<CLSNAME>ZCL_BC_STRUCT_TO_STRING</CLSNAME>
+				<CMPNAME>CREATE</CMPNAME>
+				<VERSION>1</VERSION>
+				<LANGU>I</LANGU>
+				<EXPOSURE>2</EXPOSURE>
+				<STATE>1</STATE>
+				<EDITORDER>1</EDITORDER>
+				<DISPID>0</DISPID>
+				<AUTHOR>KOSMEDEV</AUTHOR>
+				<CREATEDON>2018-03-07</CREATEDON>
+				<CHANGEDON>0000-00-00</CHANGEDON>
+				<MTDTYPE>0</MTDTYPE>
+				<MTDDECLTYP>1</MTDDECLTYP>
+				<R3RELEASE>750</R3RELEASE>
+				<BCMTDCAT>00</BCMTDCAT>
+				<BCMTDSYN>0</BCMTDSYN>
+			</item>
+		</METHODS>
+		<EVENTS/>
+		<TYPES/>
+		<PARAMETERS>
+			<item>
+				<CLSNAME>ZCL_BC_STRUCT_TO_STRING</CLSNAME>
+				<CMPNAME>CREATE</CMPNAME>
+				<SCONAME>IV_SEPARATOR</SCONAME>
+				<VERSION>1</VERSION>
+				<LANGU>I</LANGU>
+				<CMPTYPE>1</CMPTYPE>
+				<MTDTYPE>0</MTDTYPE>
+				<EDITORDER>1</EDITORDER>
+				<DISPID>0</DISPID>
+				<AUTHOR>KOSMEDEV</AUTHOR>
+				<CREATEDON>2018-03-07</CREATEDON>
+				<CHANGEDON>0000-00-00</CHANGEDON>
+				<PARDECLTYP>0</PARDECLTYP>
+				<PARPASSTYP>1</PARPASSTYP>
+				<TYPTYPE>1</TYPTYPE>
+				<TYPE>STRING</TYPE>
+				<PARVALUE>&apos;;&apos;</PARVALUE>
+			</item>
+			<item>
+				<CLSNAME>ZCL_BC_STRUCT_TO_STRING</CLSNAME>
+				<CMPNAME>CREATE</CMPNAME>
+				<SCONAME>IS_STRUCT</SCONAME>
+				<VERSION>1</VERSION>
+				<LANGU>I</LANGU>
+				<CMPTYPE>1</CMPTYPE>
+				<MTDTYPE>0</MTDTYPE>
+				<EDITORDER>2</EDITORDER>
+				<DISPID>0</DISPID>
+				<AUTHOR>KOSMEDEV</AUTHOR>
+				<CREATEDON>2018-03-07</CREATEDON>
+				<CHANGEDON>0000-00-00</CHANGEDON>
+				<PARDECLTYP>0</PARDECLTYP>
+				<PARPASSTYP>1</PARPASSTYP>
+				<TYPTYPE>1</TYPTYPE>
+				<TYPE>ANY</TYPE>
+			</item>
+			<item>
+				<CLSNAME>ZCL_BC_STRUCT_TO_STRING</CLSNAME>
+				<CMPNAME>CREATE</CMPNAME>
+				<SCONAME>RV_STRING</SCONAME>
+				<VERSION>1</VERSION>
+				<LANGU>I</LANGU>
+				<CMPTYPE>1</CMPTYPE>
+				<MTDTYPE>0</MTDTYPE>
+				<EDITORDER>3</EDITORDER>
+				<DISPID>0</DISPID>
+				<AUTHOR>KOSMEDEV</AUTHOR>
+				<CREATEDON>2018-03-07</CREATEDON>
+				<CHANGEDON>0000-00-00</CHANGEDON>
+				<PARDECLTYP>3</PARDECLTYP>
+				<PARPASSTYP>0</PARPASSTYP>
+				<TYPTYPE>1</TYPTYPE>
+				<TYPE>STRING</TYPE>
+			</item>
+		</PARAMETERS>
+		<EXCEPTIONS/>
+		<IMPLEMENTINGS/>
+		<IMPL_DETAILS/>
+		<FRIENDSHIPS/>
+		<TYPEPUSAGES/>
+		<CLSDEFERRDS/>
+		<INTDEFERRDS/>
+		<ALIASES/>
+		<INHERITANCE>
+			<VERSION>0</VERSION>
+			<STATE>0</STATE>
+			<CREATEDON>0000-00-00</CREATEDON>
+			<CHANGEDON>0000-00-00</CHANGEDON>
+		</INHERITANCE>
+		<INTERFACES/>
+		<REDEFINITIONS/>
+		<TYPE_SOURCE/>
+		<LOCALS_SRC/>
+		<LOCALS_DEF>
+			<item>*&quot;* use this source file for any type of declarations (class</item>
+			<item>*&quot;* definitions, interfaces or type declarations) you need for</item>
+			<item>*&quot;* components in the private section</item>
+			<item/>
+		</LOCALS_DEF>
+		<LOCALS_IMP>
+			<item>*&quot;* use this source file for the definition and implementation of</item>
+			<item>*&quot;* local helper classes, interface definitions and type</item>
+			<item>*&quot;* declarations</item>
+			<item/>
+		</LOCALS_IMP>
+		<LOCALS_MAC>
+			<item>*&quot;* use this source file for any macro definitions you need</item>
+			<item>*&quot;* in the implementation part of the class</item>
+			<item/>
+		</LOCALS_MAC>
+		<TEXT_POOL/>
+		<METHOD_SOURCE>
+			<CREATE>
+				<item> METHOD create.</item>
+				<item> DATA: lo_stringdescr TYPE REF TO cl_abap_structdescr.</item>
+				<item/>
+				<item> CLEAR: rv_string.</item>
+				<item> TRY.</item>
+				<item> lo_stringdescr ?= cl_abap_structdescr=&gt;describe_by_data( is_stru</item>
+				<item>* LOOP AT lo_stringdescr-&gt;get_components( ) INTO DATA(ls_componen</item>
+				<item> LOOP AT lo_stringdescr-&gt;components INTO DATA(ls_components).</item>
+				<item> DATA lv_field TYPE c LENGTH 100.</item>
+				<item> FIELD-SYMBOLS: &lt;lv_field&gt; TYPE any.</item>
+				<item/>
+				<item> lv_field = &apos;is_struct-&apos; &amp;&amp; ls_components-name.</item>
+				<item> ASSIGN (lv_field) TO &lt;lv_field&gt;.</item>
+				<item> IF ( sy-subrc = 0 ).</item>
+				<item> IF ( rv_string IS INITIAL ).</item>
+				<item> rv_string = &lt;lv_field&gt;.</item>
+				<item> ELSE.</item>
+				<item> rv_string = rv_string &amp;&amp; iv_separator &amp;&amp; &lt;lv_field&gt;.</item>
+				<item> ENDIF.</item>
+				<item> ENDIF.</item>
+				<item> ENDLOOP.</item>
+				<item> CATCH cx_root.</item>
+				<item> ENDTRY.</item>
+				<item/>
+				<item> ENDMETHOD.</item>
+			</CREATE>
+		</METHOD_SOURCE>
+	</CLASS_ROOT>
