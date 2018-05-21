@@ -89,10 +89,8 @@ ENDCLASS.                    "lcl_stack IMPLEMENTATION
 
 
 START-OF-SELECTION.
-  DATA: ldref     TYPE REF TO string,
-        lo_stack  TYPE REF TO lcl_stack.
-
-  FIELD-SYMBOLS <data> TYPE any.
+  DATA: ldref      TYPE REF TO string,
+        lo_stack   TYPE REF TO lcl_stack.
 
   CREATE OBJECT lo_stack.
 
@@ -114,16 +112,33 @@ START-OF-SELECTION.
   lo_stack->push( ldref ).
 
 
+  DATA lo_temp TYPE REF TO lcl_stack.
+  lo_temp = lo_stack->get_top( ).
+  WRITE / 'Walk'.
+  WHILE ( lo_temp IS BOUND ).
+    ldref ?= lo_temp->get_data( ).
+    WRITE / ldref->*.
+    lo_temp = lo_temp->get_prev( ).
+  ENDWHILE.
+  WRITE /.
+
+  WRITE / 'Pop'.
   WHILE ( lo_stack->is_empty( ) <> 0 ).
     ldref ?= lo_stack->pop( ).
-    ASSIGN ldref->* TO <data>.
-    WRITE / <data>.
+    WRITE / ldref->*.
   ENDWHILE.
+  WRITE /.
 
   FREE lo_stack.
   CREATE OBJECT lo_stack.
 
-  DATA: lt_vbap TYPE TABLE OF vbap,
+  TYPES: BEGIN OF ty_s_vbap.
+          INCLUDE TYPE vbap.
+  TYPES: END OF ty_s_vbap.
+
+  TYPES: ty_t_vbap TYPE TABLE OF ty_s_vbap.
+
+  DATA: lt_vbap TYPE ty_t_vbap,
         ls_vbap TYPE vbap.
 
   SELECT * INTO CORRESPONDING FIELDS OF TABLE lt_vbap
@@ -131,19 +146,50 @@ START-OF-SELECTION.
            WHERE vbeln = '1000000038'.
 
   LOOP AT lt_vbap INTO ls_vbap.
-    DATA: lref_vbap TYPE REF TO data.
-    CREATE DATA lref_vbap TYPE vbap.
-    FIELD-SYMBOLS: <ls_vbap> TYPE vbap.
-    ASSIGN ('ls_vbap') TO <ls_vbap>.
-    ASSIGN lref_vbap->* TO <ls_vbap>.
-    <ls_vbap> = ls_vbap.
+    DATA: lref_vbap TYPE REF TO vbap.
+    CREATE DATA lref_vbap.
+    lref_vbap->* = ls_vbap.
     lo_stack->push( lref_vbap ).
   ENDLOOP.
 
+  WRITE / 'Pop'.
   WHILE ( lo_stack->is_empty( ) <> 0 ).
     lref_vbap ?= lo_stack->pop( ).
-    ASSIGN lref_vbap->* TO <ls_vbap>.
-    WRITE: / <ls_vbap>-vbeln, <ls_vbap>-posnr, <ls_vbap>-matnr, <ls_vbap>-kwmeng.
+    WRITE: / lref_vbap->*-vbeln, lref_vbap->*-posnr, lref_vbap->*-matnr, lref_vbap->*-kwmeng.
   ENDWHILE.
+  WRITE /.
 
   FREE lo_stack.
+  CREATE OBJECT lo_stack.
+
+  DATA: lref_vbap_tab TYPE REF TO vbap_t.
+
+  DATA: lt_vbap_2 TYPE ty_t_vbap.
+  SELECT * INTO CORRESPONDING FIELDS OF TABLE lt_vbap_2
+           FROM vbap
+           WHERE vbeln = '1001000030'.
+
+  CREATE DATA lref_vbap_tab.
+  lref_vbap_tab->* = lt_vbap.
+  lo_stack->push( lref_vbap_tab ).
+
+  CREATE DATA lref_vbap_tab.
+  lref_vbap_tab->* = lt_vbap_2.
+  lo_stack->push( lref_vbap_tab ).
+
+
+
+  CLEAR lref_vbap_tab.
+  WRITE / 'Pop'.
+  DATA: lv_count TYPE i.
+  lv_count = 1.
+  WHILE ( lo_stack->is_empty( ) <> 0 ).
+    lref_vbap_tab ?= lo_stack->pop( ).
+    WRITE: / 'Table', lv_count.
+    LOOP AT lref_vbap_tab->* INTO ls_vbap.
+      WRITE: / ls_vbap-vbeln, ls_vbap-posnr, ls_vbap-matnr, ls_vbap-kwmeng.
+    ENDLOOP.
+    ADD 1 TO lv_count.
+  ENDWHILE.
+
+  CHECK 1 = 1.

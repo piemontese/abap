@@ -108,8 +108,6 @@ START-OF-SELECTION.
   DATA: ldref     TYPE REF TO string,
         lo_queue  TYPE REF TO lcl_queue.
 
-  FIELD-SYMBOLS <data> TYPE any.
-
   CREATE OBJECT lo_queue.
 
 
@@ -130,11 +128,12 @@ START-OF-SELECTION.
   lo_queue->push( ldref ).
 
 
+  WRITE / 'Pop'.
   WHILE ( lo_queue->is_empty( ) <> 0 ).
     ldref ?= lo_queue->pop( ).
-    ASSIGN ldref->* TO <data>.
-    WRITE / <data>.
+    WRITE / ldref->*.
   ENDWHILE.
+  WRITE /.
 
   FREE lo_queue.
   CREATE OBJECT lo_queue.
@@ -147,17 +146,14 @@ START-OF-SELECTION.
            WHERE vbeln = '1000000038'.
 
   LOOP AT lt_vbap INTO ls_vbap.
-    DATA: lref_vbap TYPE REF TO data.
-    CREATE DATA lref_vbap TYPE vbap.
-    FIELD-SYMBOLS: <ls_vbap> TYPE vbap.
-    ASSIGN ('ls_vbap') TO <ls_vbap>.
-    ASSIGN lref_vbap->* TO <ls_vbap>.
-    <ls_vbap> = ls_vbap.
+    DATA: lref_vbap TYPE REF TO vbap.
+    CREATE DATA lref_vbap.
+    lref_vbap->* = ls_vbap.
     lo_queue->push( lref_vbap ).
   ENDLOOP.
 
+  WRITE / 'Pop'.
   WHILE ( lo_queue->is_empty( ) <> 0 ).
     lref_vbap ?= lo_queue->pop( ).
-    ASSIGN lref_vbap->* TO <ls_vbap>.
-    WRITE: / <ls_vbap>-vbeln, <ls_vbap>-posnr, <ls_vbap>-matnr, <ls_vbap>-kwmeng.
+    WRITE: / lref_vbap->*-vbeln, lref_vbap->*-posnr, lref_vbap->*-matnr, lref_vbap->*-kwmeng.
   ENDWHILE.
