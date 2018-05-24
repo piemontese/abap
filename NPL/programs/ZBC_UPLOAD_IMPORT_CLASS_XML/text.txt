@@ -1,0 +1,14 @@
+Title
+Upload / download class as XML file
+
+Text Symbols
+
+Selection Texts
+CLASS	Class
+P_RAD1	Upload
+P_RAD2	Download
+P_SHOW	Show XML
+S_LANGU	Language
+XMLFILE	XML file
+
+List Headings

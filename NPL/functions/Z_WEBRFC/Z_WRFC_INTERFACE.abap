@@ -23,39 +23,39 @@ FUNCTION z_wrfc_interface.
   TYPES: BEGIN OF ty_s_work, buffer(30000), END OF ty_s_work.
   DATA: ls_work TYPE ty_s_work.
 
-  DATA: lo_struct_descr   TYPE REF TO cl_abap_structdescr,
-        lo_table_descr    TYPE REF TO cl_abap_tabledescr,
-        lo_data_descr     TYPE REF TO cl_abap_datadescr,
-        ls_components     TYPE abap_compdescr,
-        lt_components     TYPE abap_compdescr_tab,
-        lt_keys           TYPE abap_keydescr_tab,
-        lv_field          TYPE c LENGTH 50,
-        ls_string         TYPE string,
-        lt_table          TYPE REF TO data,
-        ls_table          TYPE REF TO data,
-        lt_fields         TYPE TABLE OF string,
-        ls_fields         TYPE string,
-        ls_messages       TYPE ty_s_messages,
-        lv_sname          TYPE string,
-        lv_query_name     TYPE w3_qname,
-        lv_query_null     TYPE w3_qname.
+  DATA: lo_struct_descr TYPE REF TO cl_abap_structdescr,
+        lo_table_descr  TYPE REF TO cl_abap_tabledescr,
+        lo_data_descr   TYPE REF TO cl_abap_datadescr,
+        ls_components   TYPE abap_compdescr,
+        lt_components   TYPE abap_compdescr_tab,
+        lt_keys         TYPE abap_keydescr_tab,
+        lv_field        TYPE c LENGTH 50,
+        ls_string       TYPE string,
+        lt_table        TYPE REF TO data,
+        ls_table        TYPE REF TO data,
+        lt_fields       TYPE TABLE OF string,
+        ls_fields       TYPE string,
+        ls_messages     TYPE ty_s_messages,
+        lv_sname        TYPE string,
+        lv_query_name   TYPE w3_qname,
+        lv_query_null   TYPE w3_qname.
 
   DATA: lx_root TYPE REF TO cx_root.
 
-  DATA: lt_messages    TYPE ty_t_messages,
-        lt_dictionary  TYPE ty_t_dictionary.
+  DATA: lt_messages   TYPE ty_t_messages,
+        lt_dictionary TYPE ty_t_dictionary.
 
   CLEAR: lv_sname.
 
   REFRESH: lt_messages, lt_dictionary.
 
 * parametri
-  DATA: iv_callback       TYPE string,
-        iv_method         TYPE string,
-        iv_fields         TYPE string,
+  DATA: iv_callback TYPE string,
+        iv_method   TYPE string,
+        iv_fields   TYPE string,
 *        IV_ROWS           TYPE STRING,
-        iv_from_rec       TYPE i,
-        iv_to_rec         TYPE i.
+        iv_from_rec TYPE i,
+        iv_to_rec   TYPE i.
 
   CLEAR: gv_camel_case,
          iv_callback,
@@ -143,219 +143,144 @@ FUNCTION z_wrfc_interface.
 
 
 
-  DATA: ls_interface TYPE rsfbintfv,
-        ls_param     TYPE rsfbpara,
-        lv_name      TYPE eu_lname.
+  DATA: "ls_interface TYPE rsfbintfv,
+    ls_param TYPE rsfbpara,
+    lv_name  TYPE eu_lname.
   lv_name = iv_method.
-  cl_fb_function_utility=>meth_get_interface( EXPORTING im_name      = lv_name
-                                              IMPORTING ex_interface = ls_interface
-                                              EXCEPTIONS error_occured = 1
-                                                         object_not_existing = 2 ).
-  IF ( sy-subrc = 0 ).
-    DATA: lt_rep      TYPE swbse_max_line_tab,
-          lt_import   TYPE rsfb_imp,
-          lt_change   TYPE rsfb_cha,
-          lt_export   TYPE rsfb_exp,
-          lt_tables   TYPE rsfb_tbl,
-          lt_except   TYPE rsfb_exc,
-          ls_import   TYPE rsimp,
-          ls_change   TYPE rscha,
-          ls_export   TYPE rsexp,
-          ls_para     TYPE rsfbpara,  "rstbl,
-          ls_except   TYPE rsexc,
-          lv_funcname TYPE rs38l-name.
+*  cl_fb_function_utility=>meth_get_interface( EXPORTING im_name      = lv_name
+*                                              IMPORTING ex_interface = ls_interface
+*                                              EXCEPTIONS error_occured = 1
+*                                                         object_not_existing = 2 ).
+*  IF ( sy-subrc = 0 ).
+  DATA: lt_rep      TYPE swbse_max_line_tab,
+        lt_import   TYPE rsfb_imp,
+        lt_change   TYPE rsfb_cha,
+        lt_export   TYPE rsfb_exp,
+        lt_tables   TYPE rsfb_tbl,
+        lt_except   TYPE rsfb_exc,
+        ls_import   TYPE rsimp,
+        ls_change   TYPE rscha,
+        ls_export   TYPE rsexp,
+        ls_para     TYPE rsfbpara,  "rstbl,
+        ls_except   TYPE rsexc,
+        lv_funcname TYPE rs38l-name.
 
-    lv_funcname = iv_method.
+  lv_funcname = iv_method.
 
-    DATA: func          TYPE string,
-          text_tab      LIKE STANDARD TABLE OF line,
-          filetype(10)  TYPE c,
-          lt_params     TYPE abap_func_parmbind_tab,
-          ls_params     TYPE abap_func_parmbind,
-          lt_exceptions TYPE abap_func_excpbind_tab,
-          ls_exceptions TYPE abap_func_excpbind.
+  DATA: func         TYPE string,
+        text_tab     LIKE STANDARD TABLE OF line,
+        filetype(10) TYPE c.
+*          ls_params     TYPE abap_func_parmbind,
+*          ls_exceptions TYPE abap_func_excpbind.
 
-    func = iv_method.
+  func = iv_method.
 
-    REFRESH: lt_params, lt_exceptions.
 
-    DATA: lref_data TYPE REF TO data,
-          lv_query  TYPE string.
+  TRY.
+      DATA: lo_root TYPE REF TO cx_root.
 
-    FIELD-SYMBOLS: <data> TYPE any.
-
-    LOOP AT ls_interface-import INTO ls_para.
-      CLEAR: lv_query.
-      LOOP AT query_string WHERE name EQ ls_para-parameter.
-        lv_query = lv_query && query_string-value.
+      DATA: lt_fm_parameters TYPE zbc_ty_t_fm_parameters.
+      LOOP AT query_string INTO DATA(ls_query).
+        DATA: ls_fm_parameters TYPE zbc_ty_s_fm_parameters.
+        MOVE-CORRESPONDING ls_query TO ls_fm_parameters.
+        APPEND ls_fm_parameters TO lt_fm_parameters.
       ENDLOOP.
-      IF ( sy-subrc = 0 ).
-        CLEAR: ls_params.
-        ls_params-name = ls_para-parameter.
-        ls_params-kind = abap_func_exporting.
-        PERFORM create_parameter USING    ls_para-structure
-                                          ls_para-typefield
-                                          lv_query
-                                 CHANGING ls_params-value.
-        INSERT ls_params INTO TABLE lt_params.
-      ELSE.
-      ENDIF.
-    ENDLOOP.
+      DATA(lo_function) = NEW zcl_bc_function_module( iv_method     = lv_name
+                                                      it_parameters = lt_fm_parameters ).
+*      DATA(ls_results) = lo_function->get_results( ).
+      DATA(ls_results) = lo_function->call( ).
 
-    LOOP AT ls_interface-export INTO ls_para.
-      CLEAR: ls_params.
-      ls_params-name = ls_para-parameter.
-      ls_params-kind = abap_func_importing.
-      PERFORM create_parameter USING    ls_para-structure
-                                        ls_para-typefield
-                                        ''
-                               CHANGING ls_params-value.
-*        FIELD-SYMBOLS: <lv_value> TYPE any.
-*        ASSIGN query_string-value TO <lv_value>.
-*        GET REFERENCE OF <lv_value> INTO ls_params-value.
-      INSERT ls_params INTO TABLE lt_params.
-    ENDLOOP.
+      DATA(lo_jsonp) = NEW zcl_wrfc_jsonp( iv_callback = iv_callback
+                                           is_results  = ls_results ).
 
-    LOOP AT ls_interface-change INTO ls_para.
-      CLEAR: lv_query.
-      LOOP AT query_string WHERE name = ls_para-parameter.
-        lv_query = lv_query && query_string-value.
-      ENDLOOP.
-      CLEAR: ls_params.
-      ls_params-name = ls_para-parameter.
-      ls_params-kind = abap_func_changing.
-      PERFORM create_parameter USING    ls_para-structure
-                                        ls_para-typefield
-                                        lv_query
-                               CHANGING ls_params-value.
-      INSERT ls_params INTO TABLE lt_params.
-    ENDLOOP.
+      PERFORM json_add_result USING    ls_results-t_params[]  "lt_params[]
+                              CHANGING html[].
 
-    LOOP AT ls_interface-tables INTO ls_para.
-      CLEAR: lv_query.
-      LOOP AT query_string WHERE name = ls_para-parameter.
-        lv_query = lv_query && query_string-value.
-      ENDLOOP.
-      CLEAR: ls_params.
-      ls_params-name = ls_para-parameter.
-      ls_params-kind = abap_func_tables.
-      PERFORM create_table USING    ls_para-structure
-                                    lv_query
-                           CHANGING ls_params-value.
-      INSERT ls_params INTO TABLE lt_params.
-    ENDLOOP.
+      " apre tag funcione di callback
+      PERFORM jsonp_open_callback USING    iv_callback
+                                  CHANGING html[].
 
-    LOOP AT ls_interface-except INTO ls_para.
-      CLEAR: ls_exceptions.
-      ls_exceptions-value = sy-tabix.
-      ls_exceptions-name = ls_para-parameter.
-      INSERT ls_exceptions INTO TABLE lt_exceptions.
-    ENDLOOP.
+      " apre tag results
+      PERFORM jsonp_open_results CHANGING html[].
 
-    IF ( lt_fields[] IS INITIAL ).
-      ls_fields = '*'.
-      APPEND ls_fields TO lt_fields.
-    ENDIF.
-
-    TRY.
-*        CL_FB_FUNCTION_UTILITY=>METH_ED_GENERATE_CALL( EXPORTING FUNCNAME    = LV_FUNCNAME
-*                                                                 P_IF_IMPORT = LT_IMPORT
-*                                                                 P_IF_CHANGE = LT_CHANGE
-*                                                                 P_IF_EXPORT = LT_EXPORT
-*                                                                 P_IF_TABLES = LT_TABLES
-*                                                                 P_IF_EXCEPT = LT_EXCEPT
-*                                                       CHANGING  REP = LT_REP ).
-        DATA: lo_root TYPE REF TO cx_root.
-        CALL FUNCTION func
-          PARAMETER-TABLE lt_params
-          EXCEPTION-TABLE lt_exceptions.
-        PERFORM json_add_result USING    lt_params[]
-                                CHANGING html[].
-
-        " apre tag funcione di callback
-        PERFORM jsonp_open_callback USING    iv_callback
-                                    CHANGING html[].
-
-        " apre tag results
-        PERFORM jsonp_open_results CHANGING html[].
-
-        LOOP AT lt_params INTO ls_params.
+*        LOOP AT lt_params INTO ls_params.
+      LOOP AT ls_results-t_params INTO DATA(ls_params).
 *          READ TABLE ls_interface-tables WITH KEY parameter = ls_params-name TRANSPORTING NO FIELDS.
-          DATA: ls_tables TYPE rsfbpara.
-          READ TABLE ls_interface-tables WITH KEY parameter = ls_params-name INTO ls_tables.
-          IF ( sy-subrc = 0 ).
-            lv_sname = ls_params-name.
-            TRY.
-                ASSIGN ls_params-value->* TO <lt_data>.
-                LOOP AT <lt_data> ASSIGNING <ls_data>.
-                  EXIT.
-                ENDLOOP.
-                IF ( sy-subrc <> 0 ).   " tabella vuota
-                  html-line = '"' && lv_sname && '": [],'.
-                  APPEND html.
-                  CONTINUE.
-                ENDIF.
-                lo_struct_descr ?= cl_abap_structdescr=>describe_by_data( <ls_data> ).
-              CATCH cx_root.
-            ENDTRY.
+        DATA: ls_tables TYPE rsfbpara.
+        READ TABLE lo_function->get_interface( )-tables WITH KEY parameter = ls_params-name INTO ls_tables.
+        IF ( sy-subrc = 0 ).
+          lv_sname = ls_params-name.
+          TRY.
+              ASSIGN ls_params-value->* TO <lt_data>.
+              LOOP AT <lt_data> ASSIGNING <ls_data>.
+                EXIT.
+              ENDLOOP.
+              IF ( sy-subrc <> 0 ).   " tabella vuota
+                html-line = '"' && lv_sname && '": [],'.
+                APPEND html.
+                CONTINUE.
+              ENDIF.
+              lo_struct_descr ?= cl_abap_structdescr=>describe_by_data( <ls_data> ).
+            CATCH cx_root.
+          ENDTRY.
 
-            " costruisce results
-            PERFORM jsonp_build_results USING    lv_sname
-                                                 <lt_data>[]
-                                                 lt_fields[]
-                                                 iv_from_rec
-                                                 iv_to_rec
-                                        CHANGING html[]
-                                                 lt_dictionary[].
+          " costruisce results
+          PERFORM jsonp_build_results USING    lv_sname
+                                               <lt_data>[]
+                                               lt_fields[]
+                                               iv_from_rec
+                                               iv_to_rec
+                                      CHANGING html[]
+                                               lt_dictionary[].
 *            PERFORM JSON_CREATE_FROM_DATA USING    IV_CALLBACK
 *                                                   LS_PARAMS-NAME
 *                                                   <LT_DATA>[]
 *                                          CHANGING HTML[].
 
 
-          ENDIF.
-          READ TABLE ls_interface-export WITH KEY parameter = ls_params-name TRANSPORTING NO FIELDS.
-          IF ( sy-subrc = 0 ).
-            lv_sname = ls_params-name.
-            TRY.
-                ASSIGN ls_params-value->* TO <ls_data>.
-                lo_table_descr ?= cl_abap_tabledescr=>describe_by_data( <ls_data> ).
-                " costruisce results
-                PERFORM jsonp_build_results USING    lv_sname
-                                                     <ls_data>
+        ENDIF.
+        READ TABLE lo_function->get_interface( )-export WITH KEY parameter = ls_params-name TRANSPORTING NO FIELDS.
+        IF ( sy-subrc = 0 ).
+          lv_sname = ls_params-name.
+          TRY.
+              ASSIGN ls_params-value->* TO <ls_data>.
+              lo_table_descr ?= cl_abap_tabledescr=>describe_by_data( <ls_data> ).
+              " costruisce results
+              PERFORM jsonp_build_results USING    lv_sname
+                                                   <ls_data>
 *                                                 LO_STRUCT_DESCR->COMPONENTS[]
-                                                     lt_fields[]
+                                                   lt_fields[]
 *                                                 IV_ROWS
-                                                     iv_from_rec
-                                                     iv_to_rec
-                                            CHANGING html[]
-                                                     lt_dictionary[].
+                                                   iv_from_rec
+                                                   iv_to_rec
+                                          CHANGING html[]
+                                                   lt_dictionary[].
 
-              CATCH cx_root.
-                TRY.
-                    ASSIGN ls_params-value->* TO <ls_data>.
-                    lo_struct_descr ?= cl_abap_structdescr=>describe_by_data( <ls_data> ).
+            CATCH cx_root.
+              TRY.
+                  ASSIGN ls_params-value->* TO <ls_data>.
+                  lo_struct_descr ?= cl_abap_structdescr=>describe_by_data( <ls_data> ).
 
-                    PERFORM jsonp_build_results USING    lv_sname
-                                                         <ls_data>
+                  PERFORM jsonp_build_results USING    lv_sname
+                                                       <ls_data>
 *                                                     LO_STRUCT_DESCR->COMPONENTS[]
-                                                         lt_fields[]
+                                                       lt_fields[]
 *                                                     IV_ROWS
-                                                         iv_from_rec
-                                                         iv_to_rec
-                                                CHANGING html[]
-                                                         lt_dictionary[].
-                  CATCH cx_root.
-                    TRY.
-                        ASSIGN ls_params-value->* TO <ls_data>.
-                        lo_data_descr ?= cl_abap_datadescr=>describe_by_data( <ls_data> ).
+                                                       iv_from_rec
+                                                       iv_to_rec
+                                              CHANGING html[]
+                                                       lt_dictionary[].
+                CATCH cx_root.
+                  TRY.
+                      ASSIGN ls_params-value->* TO <ls_data>.
+                      lo_data_descr ?= cl_abap_datadescr=>describe_by_data( <ls_data> ).
 
-                        html-line = '"' && lv_sname && '":"' && <ls_data> && '",'.
-                        APPEND html.
-                      CATCH cx_root.
-                    ENDTRY.
-                ENDTRY.
-            ENDTRY.
+                      html-line = '"' && lv_sname && '":"' && <ls_data> && '",'.
+                      APPEND html.
+                    CATCH cx_root.
+                  ENDTRY.
+              ENDTRY.
+          ENDTRY.
 
 *            ASSIGN <LS_DATA> TO <LV_DATA>.
 *            PERFORM JSON_CREATE_FROM_DATA USING    IV_CALLBACK
@@ -363,33 +288,33 @@ FUNCTION z_wrfc_interface.
 *                                                   <LV_DATA>
 *                                          CHANGING HTML[].
 
-          ENDIF.
-          READ TABLE ls_interface-change WITH KEY parameter = ls_params-name TRANSPORTING NO FIELDS.
-          IF ( sy-subrc = 0 ).
-            lv_sname = ls_params-name.
-            TRY.
-                ASSIGN ls_params-value->* TO <ls_data>.
-                lo_struct_descr ?= cl_abap_structdescr=>describe_by_data( <ls_data> ).
+        ENDIF.
+        READ TABLE lo_function->get_interface( )-change WITH KEY parameter = ls_params-name TRANSPORTING NO FIELDS.
+        IF ( sy-subrc = 0 ).
+          lv_sname = ls_params-name.
+          TRY.
+              ASSIGN ls_params-value->* TO <ls_data>.
+              lo_struct_descr ?= cl_abap_structdescr=>describe_by_data( <ls_data> ).
 
-                PERFORM jsonp_build_results USING    lv_sname
-                                                     <ls_data>
+              PERFORM jsonp_build_results USING    lv_sname
+                                                   <ls_data>
 *                                                     LO_STRUCT_DESCR->COMPONENTS[]
-                                                     lt_fields[]
+                                                   lt_fields[]
 *                                                     IV_ROWS
-                                                     iv_from_rec
-                                                     iv_to_rec
-                                            CHANGING html[]
-                                                     lt_dictionary[].
-              CATCH cx_root.
-                TRY.
-                    ASSIGN ls_params-value->* TO <ls_data>.
-                    lo_data_descr ?= cl_abap_datadescr=>describe_by_data( <ls_data> ).
+                                                   iv_from_rec
+                                                   iv_to_rec
+                                          CHANGING html[]
+                                                   lt_dictionary[].
+            CATCH cx_root.
+              TRY.
+                  ASSIGN ls_params-value->* TO <ls_data>.
+                  lo_data_descr ?= cl_abap_datadescr=>describe_by_data( <ls_data> ).
 
-                    html-line = '"' && lv_sname && '":"' && <ls_data> && '",'..
-                    APPEND html.
-                  CATCH cx_root.
-                ENDTRY.
-            ENDTRY.
+                  html-line = '"' && lv_sname && '":"' && <ls_data> && '",'..
+                  APPEND html.
+                CATCH cx_root.
+              ENDTRY.
+          ENDTRY.
 
 *            ASSIGN <LS_DATA> TO <LV_DATA>.
 *            PERFORM JSON_CREATE_FROM_DATA USING    IV_CALLBACK
@@ -397,44 +322,44 @@ FUNCTION z_wrfc_interface.
 *                                                   <LV_DATA>
 *                                          CHANGING HTML[].
 
-          ENDIF.
+        ENDIF.
 
-        ENDLOOP.
+      ENDLOOP.
 
-        " chiude tag results
-        PERFORM jsonp_close_results CHANGING html[].
+      " chiude tag results
+      PERFORM jsonp_close_results CHANGING html[].
 
-        PERFORM jsonp_dictionary USING    lt_dictionary[]
-                                 CHANGING html[].
-
-        " apre tag funcione di callback
-        PERFORM jsonp_close_callback USING    iv_callback
-                                     CHANGING html[].
-
-      CATCH cx_root INTO lo_root.
-        DATA: lv_msg TYPE ty_s_messages-msg.
-        lv_msg = lo_root->get_text( ).
-        PERFORM add_message USING    'E' lv_msg
-                            CHANGING lt_messages[].
-
-        PERFORM create_jsonp_2 USING    iv_callback
-                                        lt_messages[]
+      PERFORM jsonp_dictionary USING    lt_dictionary[]
                                CHANGING html[].
-    ENDTRY.
-  ELSE.
-    CASE sy-subrc.
-      WHEN 1.
-        PERFORM add_message USING    'E' 'Error'
-                            CHANGING lt_messages[].
-      WHEN 2.
-        PERFORM add_message USING    'E' 'Function not exist'
-                            CHANGING lt_messages[].
-    ENDCASE.
 
-    PERFORM create_jsonp_2 USING    iv_callback
-                                    lt_messages[]
-                           CHANGING html[].
-  ENDIF.
+      " apre tag funcione di callback
+      PERFORM jsonp_close_callback USING    iv_callback
+                                   CHANGING html[].
+
+    CATCH zcx_bc_exception INTO DATA(lx_exception).
+      DATA: lv_msg TYPE ty_s_messages-msg.
+      lv_msg = lx_exception->get_text( ).
+      PERFORM add_message USING    'E' lv_msg
+                          CHANGING lt_messages[].
+
+      PERFORM create_jsonp_2 USING    iv_callback
+                                      lt_messages[]
+                             CHANGING html[].
+  ENDTRY.
+*  ELSE.
+*    CASE sy-subrc.
+*      WHEN 1.
+*        PERFORM add_message USING    'E' 'Error'
+*                            CHANGING lt_messages[].
+*      WHEN 2.
+*        PERFORM add_message USING    'E' 'Function not exist'
+*                            CHANGING lt_messages[].
+*    ENDCASE.
+*
+*    PERFORM create_jsonp_2 USING    iv_callback
+*                                    lt_messages[]
+*                           CHANGING html[].
+*  ENDIF.
 
   DATA: lv_string TYPE string.
   CLEAR: lv_string.
