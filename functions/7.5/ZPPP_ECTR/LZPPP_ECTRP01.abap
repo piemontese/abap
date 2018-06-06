@@ -24,6 +24,17 @@ CLASS lcl_base IMPLEMENTATION.
     ADD 1 TO gv_errid.
   ENDMETHOD.
 
+  METHOD is_table_initial.
+    IF ( it_table[] IS INITIAL ).
+      IF ( gv_msgid IS INITIAL ).
+        RAISE EXCEPTION TYPE zcx_bc_exception.
+      ELSE.
+        RAISE EXCEPTION TYPE zcx_bc_exception MESSAGE ID gv_msgid NUMBER iv_msgno WITH iv_msgv1 iv_msgv2 iv_msgv3 iv_msgv4..
+      ENDIF.
+    ENDIF.
+    ADD 1 TO gv_errid.
+  ENDMETHOD.
+
   METHOD is_exists.
     DATA(lv_table) = iv_table.
     DATA(lt_fields) = it_fields[].
@@ -72,6 +83,15 @@ CLASS lcl_base IMPLEMENTATION.
     ADD 1 TO gv_errid.
   ENDMETHOD.
 
+  METHOD check_domain_values.
+    DATA: lo_elemdescr TYPE REF TO cl_abap_elemdescr.
+    TRY.
+        lo_elemdescr ?= cl_abap_elemdescr=>describe_by_data( iv_field ).
+        DATA(lt_values) = lo_elemdescr->get_ddic_fixed_values( ).
+        DATA(lv_tipologia) = lt_values[ low = iv_field ].
+    ENDTRY.
+  ENDMETHOD.
+
   METHOD get_error.
     rv_errid = gv_errid.
   ENDMETHOD.
@@ -107,27 +127,62 @@ CLASS lcl_z_mmm_ectr_mm01 IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD check_tipologia.
-    IF ( gs_params_1-tipologia <> 'L' AND
-         gs_params_1-tipologia <> 'F' AND
-         gs_params_1-tipologia <> 'P' AND
-         gs_params_1-tipologia <> 'C' ).
+    DATA: lo_elemdescr TYPE REF TO cl_abap_elemdescr.
+    TRY.
+        lo_elemdescr ?= cl_abap_elemdescr=>describe_by_data( gs_params_1-tipologia ).
+        DATA(lt_values) = lo_elemdescr->get_ddic_fixed_values( ).
+        DATA(lv_tipologia) = lt_values[ low = gs_params_1-tipologia ].
+      CATCH cx_root.
+        IF ( gv_msgid IS INITIAL ).
+          RAISE EXCEPTION TYPE zcx_bc_exception.
+        ELSE.
+          RAISE EXCEPTION TYPE zcx_bc_exception MESSAGE ID gv_msgid NUMBER '008' WITH gs_params_1-tipologia.
+        ENDIF.
+    ENDTRY.
+*    TRY.
+*        check_domain_values( iv_field = gs_params_1-tipologia ).
+*      CATCH cx_root.
+*        IF ( gv_msgid IS INITIAL ).
+*          RAISE EXCEPTION TYPE zcx_bc_exception.
+*        ELSE.
+*          RAISE EXCEPTION TYPE zcx_bc_exception MESSAGE ID gv_msgid NUMBER '008' WITH gs_params_1-tipologia.
+*        ENDIF.
+*    ENDTRY.
+    SELECT SINGLE matkl INTO @DATA(lv_matkl) FROM zpp_inter_matkl
+                                             WHERE matkl     = @gs_params_1-matkl
+                                             AND ( tipologia = @gs_params_1-tipologia OR
+                                                   tipologia = @space ).
+    IF ( sy-subrc <> 0 ).
       IF ( gv_msgid IS INITIAL ).
         RAISE EXCEPTION TYPE zcx_bc_exception.
       ELSE.
-        RAISE EXCEPTION TYPE zcx_bc_exception MESSAGE ID gv_msgid NUMBER '008' WITH gs_params_1-tipologia.
+        RAISE EXCEPTION TYPE zcx_bc_exception MESSAGE ID gv_msgid NUMBER '033' WITH gs_params_1-matkl gs_params_1-tipologia.
       ENDIF.
     ENDIF.
   ENDMETHOD.
 
   METHOD check_ambito.
-    IF ( gs_params_1-ambito <> '5' AND
-         gs_params_1-ambito <> '8' ).
-      IF ( gv_msgid IS INITIAL ).
-        RAISE EXCEPTION TYPE zcx_bc_exception.
-      ELSE.
-        RAISE EXCEPTION TYPE zcx_bc_exception MESSAGE ID gv_msgid NUMBER '009' WITH gs_params_1-ambito.
-      ENDIF.
-    ENDIF.
+    DATA: lo_elemdescr TYPE REF TO cl_abap_elemdescr.
+    TRY.
+        lo_elemdescr ?= cl_abap_elemdescr=>describe_by_data( gs_params_1-ambito ).
+        DATA(lt_values) = lo_elemdescr->get_ddic_fixed_values( ).
+        DATA(lv_tipologia) = lt_values[ low = gs_params_1-ambito ].
+      CATCH cx_root.
+        IF ( gv_msgid IS INITIAL ).
+          RAISE EXCEPTION TYPE zcx_bc_exception.
+        ELSE.
+          RAISE EXCEPTION TYPE zcx_bc_exception MESSAGE ID gv_msgid NUMBER '009' WITH gs_params_1-ambito.
+        ENDIF.
+    ENDTRY.
+*    TRY.
+*        check_domain_values( iv_field = gs_params_1-ambito ).
+*      CATCH cx_root.
+*        IF ( gv_msgid IS INITIAL ).
+*          RAISE EXCEPTION TYPE zcx_bc_exception.
+*        ELSE.
+*          RAISE EXCEPTION TYPE zcx_bc_exception MESSAGE ID gv_msgid NUMBER '009' WITH gs_params_1-ambito.
+*        ENDIF.
+*    ENDTRY.
   ENDMETHOD.
 
   METHOD create_material.
@@ -215,7 +270,7 @@ CLASS lcl_z_mmm_ectr_mm01 IMPLEMENTATION.
       ls_clientdata-matl_group = gs_params_1-matkl.
       ls_clientdata-base_uom = gs_params_1-meins.
       ls_clientdata-base_uom_iso = ls_clientdata-base_uom.
-      ls_clientdata-pur_status = space. "'10'.
+      ls_clientdata-pur_status = '10'.
 *    IF ( is_data_mat-matnr(1) = '5' ).
 *      ls_clientdata-item_cat = 'ZMTS'.
 *    ELSEIF ( is_data_mat-matnr(1) = '8' ).
@@ -589,12 +644,12 @@ CLASS lcl_z_mmm_ectr_mm01 IMPLEMENTATION.
                                        documentpart    = gs_params_1-document-documentpart ) ).
 
           CALL FUNCTION '/DSCSAG/DOC_CHANGE_MULTI3'
-            EXPORTING
+*            EXPORTING
 *             STOP_ON_FIRST_ERROR        = ' '
 *             COMMIT_ALL        = 'X'
 *             COMMIT_AND_WAIT   = 'X'
 *             PF_NO_UPDATE_TASK =
-              iv_client_version = '4050'
+*             iv_client_version = '4050'
 *             INIT_CVAPI        = ' '
 *             CLASS_CHANGENUMBER         =
 *             CLASS_KEYDATE     = SY-DATUM
@@ -604,22 +659,22 @@ CLASS lcl_z_mmm_ectr_mm01 IMPLEMENTATION.
 *             RUNTIME           =
 *             RETURN            =
             TABLES
-              documents         = lt_documents
-              documentdata      = lt_documentdata
+              documents    = lt_documents
+              documentdata = lt_documentdata
 *             documentdatax     = lt_documentdata
 *             DOCUMENTDESCRIPTIONS       =
-              objectlinks       = lt_objectlinks
+              objectlinks  = lt_objectlinks
 *             DOCUMENTSTRUCTURE =
 *             DOCUMENTFILES     =
-*             LONGTEXTS         =
-*             COMPONENTS        =
+*             LONGTEXTS    =
+*             COMPONENTS   =
 *             ET_MC_RETURNS     =
-*             DOC_RETURNS       =
+*             DOC_RETURNS  =
 *             CLASSALLOCATIONS  =
 *             CHARACTERISTICVALUES       =
-*             EXTENSIONIN       =
-*             ET_STACK          =
-*             ET_ADD_RET        =
+*             EXTENSIONIN  =
+*             ET_STACK     =
+*             ET_ADD_RET   =
             .
         ENDIF.
 
@@ -761,3 +816,197 @@ CLASS lcl_z_mmm_ectr_mm01 IMPLEMENTATION.
     ENDIF.
   ENDMETHOD.
 ENDCLASS.               "lcl_z_mmm_ectr_mm01
+
+*&---------------------------------------------------------------------*
+*&       Class (Implementation)  lcl_z_ppp_cade_cs01
+*&---------------------------------------------------------------------*
+*        Text
+*----------------------------------------------------------------------*
+CLASS lcl_z_ppp_cade_cs01 IMPLEMENTATION.
+  METHOD constructor.
+    super->constructor( iv_msgid = iv_msgid ).
+    CLEAR: gs_params_1.
+    zcl_bc_conversion_exit=>conversion_input( EXPORTING iv_field = iv_rootname
+                                              CHANGING cv_field = gs_params_1-rootname ).
+    gs_params_1-werks = iv_werks.
+    zcl_bc_conversion_exit=>conversion_input( EXPORTING iv_field = it_bom_in
+                                              CHANGING cv_field = gs_params_1-t_bom_in ).
+    LOOP AT gs_params_1-t_bom_in INTO DATA(ls_bom_in).
+      " controlla correttezza padre bom
+      is_exists( iv_table = 'MARA' iv_msgno = '024' iv_msgv1 = ls_bom_in-matnr
+                 it_fields = VALUE zsbc_fields_t( ( name = 'matnr' value = ls_bom_in-matnr ) ) ).
+      is_exists( iv_table = 'MARC' iv_msgno = '025' iv_msgv1 = ls_bom_in-matnr iv_msgv2 = iv_werks
+                 it_fields = VALUE zsbc_fields_t( ( name = 'werks' value = iv_werks )
+                                                  ( name = 'matnr' value = ls_bom_in-matnr ) ) ).
+      " controlla correttezza componente bom
+      is_exists( iv_table = 'MARA' iv_msgno = '028' iv_msgv1 = ls_bom_in-idnrk
+                 it_fields = VALUE zsbc_fields_t( ( name = 'matnr' value = ls_bom_in-idnrk ) ) ).
+      is_exists( iv_table = 'MARC' iv_msgno = '029' iv_msgv1 = ls_bom_in-idnrk iv_msgv2 = iv_werks
+                 it_fields = VALUE zsbc_fields_t( ( name = 'werks' value = iv_werks )
+                                                  ( name = 'matnr' value = ls_bom_in-idnrk ) ) ).
+    ENDLOOP.
+  ENDMETHOD.
+
+  METHOD maintain_bom.
+    DATA: ls_csin TYPE csin.
+    ls_csin = VALUE csin( matnr = gs_params_1-t_bom_in[ 1 ]-matnr werks = gs_params_1-werks
+                          stlan = '2' stlty = 'M' datuv = sy-datum ).
+
+    DATA: lt_stpob TYPE TABLE OF stpob,
+          lt_stkob TYPE TABLE OF stkob.
+    CALL FUNCTION 'CSAI_BOM_READ'
+      EXPORTING
+        ecsin   = ls_csin
+      TABLES
+        t_stpob = lt_stpob
+        t_stkob = lt_stkob
+*       T_DEP_DATA         =
+*       T_DEP_DESCR        =
+*       T_DEP_ORDER        =
+*       T_DEP_SOURCE       =
+*       T_DEP_DOC          =
+*       T_FSH_BOMD         =
+*       T_SGT_BOMC         =
+      EXCEPTIONS
+        error   = 1
+        OTHERS  = 2.
+    IF sy-subrc <> 0.
+* Implement suitable error handling here
+    ENDIF.
+    TRY.
+        DATA(ls_stkob) = lt_stkob[ 1 ].
+        change_bom( ).
+      CATCH cx_root.
+        create_bom( ).
+    ENDTRY.
+  ENDMETHOD.
+
+  METHOD create_bom.
+    BREAK kosmedev.
+*CALL FUNCTION 'ZPP_CREA_DIBA'
+** EXPORTING
+**   I_MATNR             =
+**   I_PSPNR             =
+**   I_WERKS             =
+**   I_STLAN             =
+**   I_AENNR             =
+**   IT_STPO             =
+** IMPORTING
+**   E_STLNR             =
+**   E_ESITO             =
+**   E_DESCR_ESITO       =
+*          .
+  ENDMETHOD.
+
+  METHOD change_bom.
+    BREAK kosmedev.
+*CALL FUNCTION 'CSAI_BOM_MAINTAIN'
+*  EXPORTING
+**   FL_BOM_CREATE                      = ' '
+**   FL_NEW_ITEM                        = ' '
+**   FL_COMPLETE                        = ' '
+*    ecsin                              =
+*    estkob                             =
+*    estzub                             =
+**   FL_NO_CHANGE_DOC                   = ' '
+**   FL_COMMIT_AND_WAIT                 = ' '
+**   FL_NO_COMMIT_WORK                  = ' '
+**   FL_ALE                             = ' '
+**   FL_DEFAULT_VALUES                  = 'X'
+**   FL_NEW_ROMEN                       = 'X'
+**   FL_RECURSIVE                       = ' '
+**   FL_IMPLICIT_SUBITEM_DELETION       =
+**   FL_FSH_ALLOW                       = ' '
+** IMPORTING
+**   FL_WARNING                         =
+**   ASTKOB                             =
+**   ASTZUB                             =
+** TABLES
+**   T_STPOB                            =
+**   ET_STPOB                           =
+**   T_STPUB                            =
+**   T_LTX_ITM                          =
+**   T_LTX_BOM                          =
+**   T_FSH_BOMD                         =
+**   T_SGT_BOMC                         =
+** EXCEPTIONS
+**   ERROR                              = 1
+**   OTHERS                             = 2
+*          .
+*IF sy-subrc <> 0.
+** Implement suitable error handling here
+*ENDIF.
+  ENDMETHOD.
+ENDCLASS.               "lcl_z_ppp_cade_cs01
+
+*&---------------------------------------------------------------------*
+*&       Class (Implementation)  lcl_z_ppp_cade_cs15
+*&---------------------------------------------------------------------*
+*        Text
+*----------------------------------------------------------------------*
+CLASS lcl_z_ppp_cade_cs15 IMPLEMENTATION.
+  METHOD constructor.
+    super->constructor( iv_msgid = iv_msgid ).
+    CLEAR: gs_params_1.
+    gs_params_1-werks = iv_werks.
+    zcl_bc_conversion_exit=>conversion_input( EXPORTING iv_field = iv_matnr
+                                              CHANGING cv_field = gs_params_1-matnr ).
+  ENDMETHOD.
+
+  METHOD get_where_used.
+    CLEAR: rt_cs15, gt_cs15.
+    DATA: lt_wultb   TYPE TABLE OF stpov,
+          lt_equicat TYPE TABLE OF cscequi,
+          lt_kndcat  TYPE TABLE OF  cscknd,
+          lt_matcat  TYPE TABLE OF  cscmat,
+          lt_stdcat  TYPE TABLE OF  cscstd,
+          lt_tplcat  TYPE TABLE OF  csctpl.
+    CALL FUNCTION 'CS_WHERE_USED_MAT'
+      EXPORTING
+        datub                      = sy-datum
+        datuv                      = sy-datum
+        matnr                      = gs_params_1-matnr
+*       POSTP                      = ' '
+*       RETCODE_ONLY               = ' '
+        stlan                      = '2'
+        werks                      = gs_params_1-werks
+*       MCLMT                      = ' '
+*       MNSTL                      = ' '
+*       MXSTL                      = ' '
+*       STLTP                      = ' '
+*       NEWSI                      = ' '
+* IMPORTING
+*       TOPMAT                     =
+      TABLES
+        wultb                      = lt_wultb
+        equicat                    = lt_equicat
+        kndcat                     = lt_kndcat
+        matcat                     = lt_matcat
+        stdcat                     = lt_stdcat
+        tplcat                     = lt_tplcat
+*       PRJCAT                     =
+      EXCEPTIONS
+        call_invalid               = 1
+        material_not_found         = 2
+        no_where_used_rec_found    = 3
+        no_where_used_rec_selected = 4
+        no_where_used_rec_valid    = 5
+        OTHERS                     = 6.
+    IF sy-subrc <> 0.
+      IF ( gv_msgid IS INITIAL ).
+        RAISE EXCEPTION TYPE zcx_bc_exception.
+      ELSE.
+        RAISE EXCEPTION TYPE zcx_bc_exception MESSAGE ID gv_msgid NUMBER '026' WITH gs_params_1-matnr.
+      ENDIF.
+    ENDIF.
+
+    LOOP AT lt_matcat INTO DATA(ls_matcat).
+      DATA: ls_cs15 TYPE zmm_cs15.
+      CLEAR: ls_cs15.
+      ls_cs15-matnr = ls_matcat-matnr.
+      APPEND ls_cs15 TO gt_cs15.
+      APPEND ls_cs15 TO rt_cs15.
+    ENDLOOP.
+    gv_errid = '000'.
+  ENDMETHOD.
+ENDCLASS.               "lcl_z_ppp_cade_cs15

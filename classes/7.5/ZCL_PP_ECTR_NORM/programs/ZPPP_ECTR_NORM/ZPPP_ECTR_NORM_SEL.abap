@@ -11,3 +11,5 @@ SELECT-OPTIONS: s_dispo FOR marc-dispo,
                 s_posid FOR prps-posid.
 SELECTION-SCREEN END OF BLOCK 000.
 PARAMETERS: p_test AS CHECKBOX DEFAULT abap_true.
+PARAMETERS: p_layo1 TYPE zcl_pp_ectr_norm=>ty_s_sel-p_layo1.
+PARAMETERS: p_layo2 TYPE zcl_pp_ectr_norm=>ty_s_sel-p_layo2.
