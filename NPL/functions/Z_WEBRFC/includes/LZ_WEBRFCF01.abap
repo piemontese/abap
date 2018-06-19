@@ -9,7 +9,7 @@ FORM create_jsonp  USING value(iv_callback)   TYPE string
                          value(it_data)       TYPE ANY TABLE
                          value(it_components) TYPE abap_compdescr_tab
                          value(it_fields)     TYPE table
-                         value(it_messages)   TYPE ty_t_messages
+                         value(it_messages)   TYPE zwrfc_ty_t_messages
 *                         VALUE(IV_ROWS)       TYPE STRING
                          value(iv_from_rec)   TYPE i
                          value(iv_to_rec)     TYPE i
@@ -121,9 +121,7 @@ ENDFORM.                    " JSONP_OPEN_RESULTS
 *&---------------------------------------------------------------------*
 FORM jsonp_build_results  USING value(iv_sname)      TYPE string
                                 value(iv_data)       TYPE any
-*                                value(it_components) TYPE abap_compdescr_tab
                                 value(it_fields)     TYPE table
-*                                VALUE(IV_ROWS)       TYPE STRING
                                 value(iv_from_rec)   TYPE i
                                 value(iv_to_rec)     TYPE i
                           CHANGING    ct_jsonp       TYPE ty_t_w3html
@@ -401,11 +399,11 @@ ENDFORM.                    " JSONP_CLOSE_CALLBACK
 *&---------------------------------------------------------------------*
 *&      Form  ADD_MESSAGE
 *&---------------------------------------------------------------------*
-FORM add_message  USING value(iv_type)    TYPE ty_s_messages-type
-                        value(iv_msg)     TYPE ty_s_messages-msg
-                  CHANGING    ct_messages TYPE ty_t_messages.
+FORM add_message  USING value(iv_type)    TYPE zwrfc_ty_s_messages-type
+                        value(iv_msg)     TYPE zwrfc_ty_s_messages-msg
+                  CHANGING    ct_messages TYPE zwrfc_ty_t_messages.
 
-  DATA: ls_messages TYPE ty_s_messages.
+  DATA: ls_messages TYPE zwrfc_ty_s_messages.
 
   CLEAR: ls_messages.
   ls_messages-type = iv_type.
@@ -418,10 +416,10 @@ ENDFORM.                    " ADD_MESSAGE
 *&---------------------------------------------------------------------*
 *&      Form  JSONP_BUILD_ERRORS
 *&---------------------------------------------------------------------*
-FORM jsonp_build_errors  USING value(it_messages) TYPE ty_t_messages
+FORM jsonp_build_errors  USING value(it_messages) TYPE zwrfc_ty_t_messages
                          CHANGING    ct_jsonp     TYPE ty_t_w3html.
 
-  DATA: ls_messages TYPE ty_s_messages,
+  DATA: ls_messages TYPE zwrfc_ty_s_messages,
         ls_jsonp    TYPE w3html,
         lv_lines    TYPE i,
         lv_tabix    TYPE i.
@@ -444,7 +442,7 @@ ENDFORM.                    " JSONP_BUILD_ERRORS
 *&      Form  CREATE_JSONP_2
 *&---------------------------------------------------------------------*
 FORM create_jsonp_2 USING value(iv_callback)   TYPE string
-                          value(it_messages)   TYPE ty_t_messages
+                          value(it_messages)   TYPE zwrfc_ty_t_messages
                     CHANGING    ct_jsonp       TYPE ty_t_w3html.
 
 

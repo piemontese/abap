@@ -1,16 +1,16 @@
 FUNCTION Z_WRFC_INTERFACE_OLD.
-*"--------------------------------------------------------------------
+*"----------------------------------------------------------------------
 *"*"Local Interface:
 *"  TABLES
 *"      QUERY_STRING STRUCTURE  W3QUERY
 *"      HTML STRUCTURE  W3HTML
 *"      MIME STRUCTURE  W3MIME
 *"  CHANGING
-*"     VALUE(CONTENT_TYPE) TYPE  W3PARAM-CONT_TYPE
-*"         DEFAULT 'application/json'
+*"     VALUE(CONTENT_TYPE) TYPE  W3PARAM-CONT_TYPE DEFAULT
+*"       'application/json'
 *"     VALUE(CONTENT_LENGTH) TYPE  W3PARAM-CONT_LEN
 *"     VALUE(RETURN_CODE) TYPE  W3PARAM-RET_CODE
-*"--------------------------------------------------------------------
+*"----------------------------------------------------------------------
   " http(s)://<your system>:<your port>/sap/bc/webrfc?_FUNCTION=Z_SAMPLERFC&name=<your name>
 
   " SMW0 -> rilascio funzioni
@@ -42,8 +42,8 @@ FUNCTION Z_WRFC_INTERFACE_OLD.
 
   DATA: lx_root TYPE REF TO cx_root.
 
-  DATA: lt_messages    TYPE ty_t_messages,
-        lt_dictionary  TYPE ty_t_dictionary.
+  DATA: lt_messages    TYPE zwrfc_ty_t_messages,
+        lt_dictionary  TYPE zwrfc_ty_t_dictionary.
 
   CLEAR: lv_sname.
 
@@ -412,7 +412,7 @@ FUNCTION Z_WRFC_INTERFACE_OLD.
                                      CHANGING html[].
 
       CATCH cx_root INTO lo_root.
-        DATA: lv_msg TYPE ty_s_messages-msg.
+        DATA: lv_msg TYPE zwrfc_ty_s_messages-msg.
         lv_msg = lo_root->get_text( ).
         PERFORM add_message USING    'E' lv_msg
                             CHANGING lt_messages[].
