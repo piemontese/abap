@@ -1082,7 +1082,10 @@ FORM jsonp_dictionary  USING value(it_dictionary) TYPE ty_t_dictionary
         ASSIGN (lv_field) TO <value>.
         CHECK sy-subrc = 0.
 
-        ls_jsonp-line = '"' && ls_components-name && '": "' && <value> && '",'.
+        data: lv_comp_name type string.
+        lv_comp_name = ls_components-name.
+        perform camel_case CHANGING lv_comp_name.
+        ls_jsonp-line = '"' && lv_comp_name && '": "' && <value> && '",'.
         APPEND ls_jsonp TO ct_jsonp.
       ENDLOOP.
       PERFORM jsonp_remove_extra_comma CHANGING ct_jsonp[].

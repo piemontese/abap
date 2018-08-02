@@ -1,4 +1,4 @@
-FUNCTION z_wrfc_interface.
+FUNCTION Z_WRFC_FUNCTION_INTERFACE .
 *"----------------------------------------------------------------------
 *"*"Local Interface:
 *"  TABLES
@@ -20,9 +20,8 @@ FUNCTION z_wrfc_interface.
 
   TRY.
       DATA(lo_interface) = NEW zcl_wrfc_interface( query_string[] ).
-      return_code = lo_interface->call( ).
+      lo_interface->get_function_interface( ).
       html[] = lo_interface->get_html( ).
-      DATA(gv_jsonp) = lo_interface->get_json( ).
     CATCH cx_root INTO DATA(lx_root).
   ENDTRY.
 
