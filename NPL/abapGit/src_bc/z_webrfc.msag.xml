@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>Z_WEBRFC</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Message class for Z_WEBRFC package</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>Z_WEBRFC</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>&amp; &amp; &amp; &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>Z_WEBRFC</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Specify callback function</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>Z_WEBRFC</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Specify method</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>Z_WEBRFC</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>User already exists</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>Z_WEBRFC</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Specify user</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>Z_WEBRFC</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Specify first name</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>Z_WEBRFC</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Specify last name</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>Z_WEBRFC</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Specify e-mail</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>Z_WEBRFC</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Password doesn&apos;t match</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>Z_WEBRFC</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Password must contain at least &amp; characters</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>Z_WEBRFC</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Password must contain at least one number</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>Z_WEBRFC</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Password must contain at least one special character</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>Z_WEBRFC</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Password must contain at least one capital letter</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>Z_WEBRFC</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>Wrong user or password</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

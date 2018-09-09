@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_WRFC_USER</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Webrfc user class</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <CLSFINAL>X</CLSFINAL>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_WRFC_USER</CLSNAME>
+     <CMPNAME>ACTIVATE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Activate user</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_WRFC_USER</CLSNAME>
+     <CMPNAME>ADD</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Add user</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_WRFC_USER</CLSNAME>
+     <CMPNAME>CHANGE_PASSWORD</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Change password</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_WRFC_USER</CLSNAME>
+     <CMPNAME>CHECK_PASSWORD</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check password consistence</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_WRFC_USER</CLSNAME>
+     <CMPNAME>DEACTIVATE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Deactivate user</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_WRFC_USER</CLSNAME>
+     <CMPNAME>DELETE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Delete user</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_WRFC_USER</CLSNAME>
+     <CMPNAME>EDIT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Edit user</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_WRFC_USER</CLSNAME>
+     <CMPNAME>GET_INFO</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get user info</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_WRFC_USER</CLSNAME>
+     <CMPNAME>LOGIN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Login</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_WRFC_USER</CLSNAME>
+     <CMPNAME>RESET_PASSWORD</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Reset password</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

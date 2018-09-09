@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Webrfc function group</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZ_WEBRFCF01</SOBJ_NAME>
+    <SOBJ_NAME>LZ_WEBRFCTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZ_WEBRFC</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>Z_WRFC_FUNCTION_INTERFACE</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Webrfc get function module Interface</SHORT_TEXT>
+     <CHANGING>
+      <RSCHA>
+       <PARAMETER>CONTENT_TYPE</PARAMETER>
+       <DEFAULT>&apos;application/json&apos;</DEFAULT>
+       <TYP>W3PARAM-CONT_TYPE</TYP>
+      </RSCHA>
+      <RSCHA>
+       <PARAMETER>CONTENT_LENGTH</PARAMETER>
+       <TYP>W3PARAM-CONT_LEN</TYP>
+      </RSCHA>
+      <RSCHA>
+       <PARAMETER>RETURN_CODE</PARAMETER>
+       <TYP>W3PARAM-RET_CODE</TYP>
+      </RSCHA>
+     </CHANGING>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>QUERY_STRING</PARAMETER>
+       <DBSTRUCT>W3QUERY</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>HTML</PARAMETER>
+       <DBSTRUCT>W3HTML</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>MIME</PARAMETER>
+       <DBSTRUCT>W3MIME</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>QUERY_STRING</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Query string for WWW server</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>HTML</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Contains HTML for WWW client</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MIME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Contains MIME data for WWW client</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CONTENT_TYPE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>HTML content type</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CONTENT_LENGTH</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>HTML content length</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RETURN_CODE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Return value of a Web-callable function module</STEXT>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_WRFC_GET_DUMPS</FUNCNAME>
+     <SHORT_TEXT>Get dumos</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IS_DATE</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>/SDF/SMON_RANGE_DATUM</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IS_TIME</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>/SDF/SMON_RANGE_TIME</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IS_HOST</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>SNAP_S_HOST</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IS_USER</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>LAW2_S_RANGE_UNAME</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ET_DUMPS</PARAMETER>
+       <TYP>RSDUMPTAB</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IS_DATE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Snapshot Monitor Range: Timestamp</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IS_TIME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Snapshot Monitor Range: Timestamp</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IS_HOST</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Structure for HOST</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IS_USER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>LAW 2.0 Range for DTEL UNAME</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_DUMPS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Table of Short Information About Dump (Rabax)</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_WRFC_GET_MENU</FUNCNAME>
+     <SHORT_TEXT>Get menu</SHORT_TEXT>
+    </item>
+    <item>
+     <FUNCNAME>Z_WRFC_INTERFACE</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Webrfc Interface</SHORT_TEXT>
+     <CHANGING>
+      <RSCHA>
+       <PARAMETER>CONTENT_TYPE</PARAMETER>
+       <DEFAULT>&apos;application/json&apos;</DEFAULT>
+       <TYP>W3PARAM-CONT_TYPE</TYP>
+      </RSCHA>
+      <RSCHA>
+       <PARAMETER>CONTENT_LENGTH</PARAMETER>
+       <TYP>W3PARAM-CONT_LEN</TYP>
+      </RSCHA>
+      <RSCHA>
+       <PARAMETER>RETURN_CODE</PARAMETER>
+       <TYP>W3PARAM-RET_CODE</TYP>
+      </RSCHA>
+     </CHANGING>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>QUERY_STRING</PARAMETER>
+       <DBSTRUCT>W3QUERY</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>HTML</PARAMETER>
+       <DBSTRUCT>W3HTML</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>MIME</PARAMETER>
+       <DBSTRUCT>W3MIME</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>QUERY_STRING</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Query string for WWW server</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>HTML</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Contains HTML for WWW client</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MIME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Contains MIME data for WWW client</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CONTENT_TYPE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>HTML content type</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CONTENT_LENGTH</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>HTML content length</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RETURN_CODE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Return value of a Web-callable function module</STEXT>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_WRFC_INTERFACE_OLD</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Webrfc Interface</SHORT_TEXT>
+     <CHANGING>
+      <RSCHA>
+       <PARAMETER>CONTENT_TYPE</PARAMETER>
+       <DEFAULT>&apos;application/json&apos;</DEFAULT>
+       <TYP>W3PARAM-CONT_TYPE</TYP>
+      </RSCHA>
+      <RSCHA>
+       <PARAMETER>CONTENT_LENGTH</PARAMETER>
+       <TYP>W3PARAM-CONT_LEN</TYP>
+      </RSCHA>
+      <RSCHA>
+       <PARAMETER>RETURN_CODE</PARAMETER>
+       <TYP>W3PARAM-RET_CODE</TYP>
+      </RSCHA>
+     </CHANGING>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>QUERY_STRING</PARAMETER>
+       <DBSTRUCT>W3QUERY</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>HTML</PARAMETER>
+       <DBSTRUCT>W3HTML</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>MIME</PARAMETER>
+       <DBSTRUCT>W3MIME</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>QUERY_STRING</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Query string for WWW server</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>HTML</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Contains HTML for WWW client</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MIME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Contains MIME data for WWW client</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CONTENT_TYPE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>HTML content type</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CONTENT_LENGTH</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>HTML content length</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RETURN_CODE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Return value of a Web-callable function module</STEXT>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_WRFC_TABLE</FUNCNAME>
+     <SHORT_TEXT>Get table data</SHORT_TEXT>
+     <CHANGING>
+      <RSCHA>
+       <PARAMETER>CONTENT_TYPE</PARAMETER>
+       <DEFAULT>&apos;application/json&apos;</DEFAULT>
+       <TYP>W3PARAM-CONT_TYPE</TYP>
+      </RSCHA>
+      <RSCHA>
+       <PARAMETER>CONTENT_LENGTH</PARAMETER>
+       <TYP>W3PARAM-CONT_LEN</TYP>
+      </RSCHA>
+      <RSCHA>
+       <PARAMETER>RETURN_CODE</PARAMETER>
+       <TYP>W3PARAM-RET_CODE</TYP>
+      </RSCHA>
+     </CHANGING>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>QUERY_STRING</PARAMETER>
+       <DBSTRUCT>W3QUERY</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>HTML</PARAMETER>
+       <DBSTRUCT>W3HTML</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>MIME</PARAMETER>
+       <DBSTRUCT>W3MIME</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>QUERY_STRING</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Query string for WWW server</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>HTML</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Contains HTML for WWW client</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MIME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Contains MIME data for WWW client</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CONTENT_TYPE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>HTML content type</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CONTENT_LENGTH</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>HTML content length</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RETURN_CODE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Return value of a Web-callable function module</STEXT>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
